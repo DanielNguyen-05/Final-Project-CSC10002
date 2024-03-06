@@ -32,8 +32,6 @@ struct Account
 
 struct Points 
 {
-    int course_id;
-    std::string class_name;
     double overall;
     double final;
     double midterm;
