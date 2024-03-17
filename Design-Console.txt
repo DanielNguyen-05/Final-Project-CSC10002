@@ -1,0 +1,201 @@
+Notes: 
+    - The lines which is not put in /* */ will be the content showed out the screeen (except title).
+    - In every requirement, if the users input another number not be included in the question => return that inputing table
+
+I. Program Interface:
+
+            What would you like to do?
+        1. Login  // go to II
+        0. Stop program // STOP + return 
+
+        Your choice: 
+
+II. Choose role:
+
+            Are you a Staff or a Student?
+        1. Academic Staff  // go to III
+        2. Student  // go to
+        0. Stop Program  // STOP + return
+
+        Your choice: 
+
+III. Staff's login (your role is set as a STAFF):
+
+            You ara an Academic Staff member:
+        - Username:
+        - Password:  // default: 12345678
+
+    3.1 Correct Information:
+
+            Logged in successfully!
+        - Please press "Enter" to continue
+
+    3.2 Wrong Information:
+
+        Wrong Username or Password! What would you like to do?
+        1. Re-login  // return III
+        2. Go back to previous page  // return II - to choose role
+
+        Your choice: 
+
+IV. Staff's basic operation:
+// Notes: This is Management screen
+
+        Hello,...name_of_staff... 
+
+            What would you like to do?
+        1. Create a new school year  // go to 4.1
+        2. Edit an existed school year  // go to 4.2
+        3. Change password  // go to 4.3
+        4. View your profile  // go to 4.4
+        5. Log out  // return II - set role
+    
+        Your choice:       
+
+    4.1:
+
+                    CREATING A NEW SCHOOL YEAR 
+                - Enter a new school year which you want to create (Ex: 2023-2024): 
+
+        4.1.a If this year was NOT created: (File school year will save this year)
+
+                The new school year 202x-202x is created successfully!
+            - Enter 1 to continue creating a new school year  // return 4.1
+            - Enter 0 to return to the Management screen  // return IV
+
+            Your choice: 
+
+        4.1.b If this year was created (saved in a file):
+
+                This school year has already been created!
+            - Enter 1 to create a new school year  // return 4.1
+            - Enter 0 to return to the Management screen  // return IV
+
+            Your choice: 
+
+    4.2:
+
+                    START EDITING THE SCHOOL YEARS
+                - Enter the school year you want to edit:
+
+        4.2.a Right Information:
+
+                    NOW YOU ARE EDITING THE YEAR 202X-202X
+                What would you like to do?
+            1. Work on classes // go to V 
+            2. Work on semesters  // go to VI
+            3. Go back to the previous page to choose another year // return 4.2
+            4. Go back to the Management screen // return IV
+
+            Your choice: 
+
+        4.2.b Wrong Information:
+
+                Invalid! This school year is not existed!
+            - Enter 1 to re-enter the year!  // return 4.2
+            - Enter 0 to return to the Management screen  // return IV
+
+            Your choice: 
+
+    4.3:
+
+                CHANGE PASSWORD
+            - Enter the old password:
+            - Enter the new password:
+
+        4.3.a If old password is wrong:
+
+                Your old password is wrong!
+            - Please press "Enter" to re-enter it  // return 4.3
+            - Enter 0 to return to the Management screen  // return IV
+
+            Your choice: 
+
+        4.3.b If new password is empty or same as the old ones:
+
+                Your new password must not be empty or same as the old ones!
+            - Please press "Enter" to re-enter it!  // return 4.3
+            - Enter 0 to return to the Management screen  // return IV
+
+            Your choice: 
+
+    4.4:
+
+            HERE IS YOUR PROFILE     
+        Staff: name_of_staff
+        Gender: 
+        Birthday
+
+        The schoolyears created,...
+        ... Tự chế thêm nhe (nếu thấy không cần thì bỏ :v)
+
+        - Press "Enter" to return to the Management screeen:  // return IV
+
+
+V. Staff's operation on Classes:
+
+
+
+VI. Staff's opertation on Semseters:
+
+            What would you like to do with semesters in the year 202x-202x?
+        1. Create a new semesters  // go to 6.1
+        2. Edit an existed semesters  // go to 6.2
+        3. Go back to previous page // return 4.2.a
+        4. Go back to the Management screen  // return IV
+
+        Your choice:
+
+    6.1 Create a new semester
+
+                CREATING A NEW SEMESTER
+            - Enter a new semester which you want to create (Ex: 1):
+            - Enter the start date (Ex: 05/09/2023):
+            - Enter the end date (Ex: 20/01/2024):
+
+        6.1.a If this semester was NOT created: (File semester will save this semester)
+
+                    The new semester ... of 202x-202x is created successfully!
+                - Enter 1 to continue creating a new semester  // return 6.1
+                - Enter 2 to go to the next page for editing  // go to 6.2.a
+                - Enter 0 to work on Semesters again  // return VI
+
+                Your choice: 
+
+        6.1.b If this semester was created (saved in a file):
+
+                    This semester has already been created!
+                - Enter 1 to create a new semester again  // return 6.1
+                - Enter 0 to work on Semesters again  // return VI
+
+                Your choice: 
+
+    6.2:
+
+                START EDITING THE SEMESTERS IN 202X-202X
+            - Enter the semester you want to edit:
+
+            Your choice: 
+
+        6.2.a Right Information:
+
+                        NOW YOU ARE EDITING THE SEMESTER ... OF 202X-202X
+                    What would you like to do?
+                1. Create course
+                2. View all courses in this semester
+                3. Modify a course
+                4. Import students into an existed course
+                5. View all students in a course
+                6. Work on the scores 
+                7. Export a course to .csv file
+                8. Go back to the previous page  // return VI
+
+                Your choice: 
+
+        6.2.b Wrong Information:
+
+                    Invalid! This semester is not existed!
+                - Enter 1 to re-enter the semester!  // return 6.2
+                - Enter 0 to work on Semesters again  // return VI
+
+                Your choice: 
