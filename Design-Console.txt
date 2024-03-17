@@ -21,7 +21,7 @@ II. Choose role:
 
 III. Staff's login (your role is set as a STAFF):
 
-            You ara an Academic Staff member:
+            You are an Academic Staff member:
         - Username:
         - Password:  // default: 12345678
 
