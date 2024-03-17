@@ -170,7 +170,7 @@ VI. Staff's opertation on Semseters:
 
                 Your choice: 
 
-    6.2:
+    6.2 Edit an existed semester:
 
                 START EDITING THE SEMESTERS IN 202X-202X
             - Enter the semester you want to edit:
@@ -181,13 +181,13 @@ VI. Staff's opertation on Semseters:
 
                         NOW YOU ARE EDITING THE SEMESTER ... OF 202X-202X
                     What would you like to do?
-                1. Create course
-                2. View all courses in this semester
-                3. Modify a course
-                4. Import students into an existed course
-                5. View all students in a course
-                6. Work on the scores 
-                7. Export a course to .csv file
+                1. Create course  // go to 6.3
+                2. View all courses in this semester  // go to 6.4
+                3. Modify a course  // go to 6.5
+                4. Import students into an existed course  // go to 6.6
+                5. View all students in a course  // go to 6.7
+                6. Work on the scores   // go to 6.8
+                7. Export a course to .csv file  // go to 6.9
                 8. Go back to the previous page  // return VI
 
                 Your choice: 
@@ -199,3 +199,5 @@ VI. Staff's opertation on Semseters:
                 - Enter 0 to work on Semesters again  // return VI
 
                 Your choice: 
+
+    6.3 
