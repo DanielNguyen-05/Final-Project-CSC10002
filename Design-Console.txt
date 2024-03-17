@@ -181,13 +181,13 @@ VI. Staff's opertation on Semseters:
 
                         NOW YOU ARE EDITING THE SEMESTER ... OF 202X-202X
                     What would you like to do?
-                1. Create course  // go to 6.3
-                2. View all courses in this semester  // go to 6.4
-                3. Modify a course  // go to 6.5
-                4. Import students into an existed course  // go to 6.6
-                5. View all students in a course  // go to 6.7
-                6. Work on the scores   // go to 6.8
-                7. Export a course to .csv file  // go to 6.9
+                1. Create new courses  // go to 7.1
+                2. View all courses in this semester  // go to 7.2
+                3. Modify a course  // go to 7.3
+                4. Import students into an existed course  // go to 7.4
+                5. View all students in a course  // go to 7.5
+                6. Work on the scores   // go to 7.6
+                7. Export a course to .csv file  // go to 7.7
                 8. Go back to the previous page  // return VI
 
                 Your choice: 
@@ -200,4 +200,60 @@ VI. Staff's opertation on Semseters:
 
                 Your choice: 
 
-    6.3 
+VII. Staff's operations on Courses:
+    7.1 Create course:
+
+                    YOU ARE CREATING A NEW COURSE
+                - Enter the name of this course:
+                - Enter the ID of this course:
+                - Enter the class which this course belongs to:
+                - Enter the teacher of this course:
+                - Enter the number of credits in this course:
+                - Enter the maximum number of students in this course:  // default 50
+                - Enter the day of week when this course will be held (MON/TUE/WED/THU/FRI/SAT):
+                - Here is the a list of sessions:
+                    1. S1 (7:30 -> 9:15)
+                    2. S2 (9:30 -> 11:15)
+                    3. S3 (13:30 -> 15:15)
+                    4. S4 (15:30 -> 17:15)
+                - Which sessions, this course will be held (Ex: S1): 
+
+        7.1.a If this course was NOT created: (File course will save this course)
+
+                    The new course ... in semester ... of 202x-202x is created successfully!
+                - Enter 1 to continue creating a new course  // return 7.1
+                - Enter 2 to work on Courses // return 6.2.a
+                - Enter 0 to work on Semesters again  // return VI
+
+                Your choice: 
+
+        7.1.b If this course was created (saved in a file):
+
+                    This course has already been created!
+                - Enter 1 to create a new semester again  // return 7.1
+                - Enter 0 to work on Courses  // return 6.2.a
+
+                Your choice: 
+    
+    7.2 View all courses in this semester: keke design sau đi Trâm Võ :))
+
+                ....Hiện cái gì ra ở đây nè....
+
+                - Enter 0 to work on Courses
+
+                Your choice: 
+
+    7.3 Modify courses:
+
+                    MODIFYING COURSES
+                What would you like to do?
+            1. Delete a course  // go to 7.3.a
+            2. Update a course information  // go to 7.3.b
+            3. Manage students in course  // go to 7.3.c
+            4. Go back to previous page  // return 6.2.a
+
+            Your choice:
+
+        7.3.a Delete a course
+
+
