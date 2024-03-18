@@ -39,7 +39,7 @@ III. Staff's login (your role is set as a STAFF):
         Your choice: 
 
 IV. Staff's basic operation:
-// Notes: This is Management screen
+// Notes: This is Main Menu
 
         Hello,...name_of_staff... 
 
@@ -52,7 +52,7 @@ IV. Staff's basic operation:
     
         Your choice:       
 
-    4.1:
+    4.1. Create new school years:
 
                     CREATING A NEW SCHOOL YEAR 
                 - Enter a new school year which you want to create (Ex: 2023-2024): 
@@ -61,7 +61,8 @@ IV. Staff's basic operation:
 
                 The new school year 202x-202x is created successfully!
             - Enter 1 to continue creating a new school year  // return 4.1
-            - Enter 0 to return to the Management screen  // return IV
+            - Enter 0 to return to the Main Menu
+          // return IV
 
             Your choice: 
 
@@ -69,23 +70,25 @@ IV. Staff's basic operation:
 
                 This school year has already been created!
             - Enter 1 to create a new school year  // return 4.1
-            - Enter 0 to return to the Management screen  // return IV
+            - Enter 0 to return to the Main Menu
+          // return IV
 
             Your choice: 
 
-    4.2:
+    4.2 Edit existed school years:
 
-                    START EDITING THE SCHOOL YEARS
+                    EDITING THE SCHOOL YEARS
                 - Enter the school year you want to edit:
 
         4.2.a Right Information:
 
-                    NOW YOU ARE EDITING THE YEAR 202X-202X
+                    EDITING THE YEAR 202X-202X
                 What would you like to do?
-            1. Work on classes // go to V 
-            2. Work on semesters  // go to VI
+            1. Work on Classes // go to V 
+            2. Work on Semesters  // go to VI
             3. Go back to the previous page to choose another year // return 4.2
-            4. Go back to the Management screen // return IV
+            4. Go back to the Main Menu
+         // return IV
 
             Your choice: 
 
@@ -93,11 +96,12 @@ IV. Staff's basic operation:
 
                 Invalid! This school year is not existed!
             - Enter 1 to re-enter the year!  // return 4.2
-            - Enter 0 to return to the Management screen  // return IV
+            - Enter 0 to return to the Main Menu
+          // return IV
 
             Your choice: 
 
-    4.3:
+    4.3 Change password:
 
                 CHANGE PASSWORD
             - Enter the old password:
@@ -107,7 +111,8 @@ IV. Staff's basic operation:
 
                 Your old password is wrong!
             - Please press "Enter" to re-enter it  // return 4.3
-            - Enter 0 to return to the Management screen  // return IV
+            - Enter 0 to return to the Main Menu
+          // return IV
 
             Your choice: 
 
@@ -115,11 +120,12 @@ IV. Staff's basic operation:
 
                 Your new password must not be empty or same as the old ones!
             - Please press "Enter" to re-enter it!  // return 4.3
-            - Enter 0 to return to the Management screen  // return IV
+            - Enter 0 to return to the Main Menu
+          // return IV
 
             Your choice: 
 
-    4.4:
+    4.4 View your profile:
 
             HERE IS YOUR PROFILE     
         Staff: name_of_staff
@@ -141,8 +147,8 @@ VI. Staff's opertation on Semseters:
             What would you like to do with semesters in the year 202x-202x?
         1. Create a new semesters  // go to 6.1
         2. Edit an existed semesters  // go to 6.2
-        3. Go back to previous page // return 4.2.a
-        4. Go back to the Management screen  // return IV
+        3. Go back to previous page  // return 4.2.a
+        4. Go back to the Main Menu  // return IV
 
         Your choice:
 
@@ -179,7 +185,7 @@ VI. Staff's opertation on Semseters:
 
         6.2.a Right Information:
 
-                        NOW YOU ARE EDITING THE SEMESTER ... OF 202X-202X
+                        EDITING THE SEMESTER ... OF 202X-202X
                     What would you like to do?
                 1. Create new courses  // go to 7.1
                 2. View all courses in this semester  // go to 7.2
@@ -188,7 +194,7 @@ VI. Staff's opertation on Semseters:
                 5. View all students in a course  // go to 7.5
                 6. Work on the scores   // go to 7.6
                 7. Export a course to .csv file  // go to 7.7
-                8. Go back to the previous page  // return VI
+                8. Go back to the previous page to work on Semesters  // return VI
 
                 Your choice: 
 
@@ -203,14 +209,14 @@ VI. Staff's opertation on Semseters:
 VII. Staff's operations on Courses:
     7.1 Create course:
 
-                    YOU ARE CREATING A NEW COURSE
-                - Enter the name of this course:
-                - Enter the ID of this course:
-                - Enter the class which this course belongs to:
+                    CREATING A NEW COURSE
+                - Enter the name of this course (Ex: Ky Thuat Lap Trinh):
+                - Enter the ID of this course (Ex: CSC10002-23CLC03):
+                - Enter the class which this course belongs to (Ex: 23CLC03):
                 - Enter the teacher of this course:
-                - Enter the number of credits in this course:
+                - Enter the number of credits in this course (Ex: 4):
                 - Enter the maximum number of students in this course:  // default 50
-                - Enter the day of week when this course will be held (MON/TUE/WED/THU/FRI/SAT):
+                - Enter the day of week when this course will be held (Ex: MON/TUE/WED/THU/FRI/SAT):
                 - Here is the a list of sessions:
                     1. S1 (7:30 -> 9:15)
                     2. S2 (9:30 -> 11:15)
@@ -235,7 +241,7 @@ VII. Staff's operations on Courses:
 
                 Your choice: 
     
-    7.2 View all courses in this semester: keke design sau đi Trâm Võ :))
+    7.2 View all courses in this semester: kekeke design sau đi Trâm Võ :))
 
                 ....Hiện cái gì ra ở đây nè....
 
@@ -250,10 +256,101 @@ VII. Staff's operations on Courses:
             1. Delete a course  // go to 7.3.a
             2. Update a course information  // go to 7.3.b
             3. Manage students in course  // go to 7.3.c
-            4. Go back to previous page  // return 6.2.a
+            4. Go back to previous page to continue working on Courses  // return 6.2.a
 
             Your choice:
 
         7.3.a Delete a course
 
+                DELETING COURSES
+            - Enter course you want to delete (Ex: CSC10002-23CLC03):
+            
+/*
+            Case 1: The course is existed
 
+                        The course ..... is deleted successfully!
+
+                    - Enter 1 to delete another course  // return 7.3.a
+                    - Enter 2 to continue modyfing courses  // return 7.3
+                    - Enter 0 to work on Courses  // return 6.2.a
+
+                    Your choice: 
+
+            Case 2: The course is NOT existed
+
+                        The course ..... is not existed!
+                        Please check the information again!
+              
+                    - Enter 1 to re-enter the course  // return 7.3.a
+                    - Enter 2 to continue modyfing courses  // return 7.3
+                    - Enter 0 to work on Courses  // return 6.2.a
+
+                    Your choice: 
+*/
+        7.3.b Update a course information
+
+                UPDATING COURSES
+            - Enter the ID of the course you want to update (Ex: CSC10002-23CLC03):
+
+/*
+            Case 1: The ID of course is existed
+
+                    UPDATING THE ...(id_course).... COURSE
+                - Update the school year this course belongs to (Ex: 2023-2024):
+                - Update the semester this course belongs to (Ex: 1):
+
+// user input the wrong fomr answer -> return that question for inputing again
+// Note: also print out "Invalid! Please re-enter: "
+
+                - Update a new name for this course (Ex: Ky Thuat Lap nh):
+                - Update a new ID for this course (Ex: CSC10002-23CLC03):
+                - Update a new class which this course belongs to (Ex: 23CLC03):
+                - Update a new teacher of this course:
+                - Update the new number of credits in this course (Ex: 4):
+                - Update a new maximum number of students in this course:  // default 50
+                - Update a new of week when this course will be held (Ex: MON/TUE/WED/THU/FRI/SAT):
+                - Here is the a list of sessions:
+                    1. S1 (7:30 -> 9:15)
+                    2. S2 (9:30 -> 11:15)
+                    3. S3 (13:30 -> 15:15)
+                    4. S4 (15:30 -> 17:15)
+                - Update new sessions, this course will be held (Ex: S1):  
+
+// If this course was updated (saved in a file):
+
+                    This course has already been updated!
+                - Enter 1 to update another course again  // return 7.3.b
+                - Enter 2 to continue modyfing courses  // return 7.3
+                - Enter 0 to work on Courses  // return 6.2.a
+
+                Your choice: 
+
+            Case 2: The course is NOT existed
+
+                        The ID of course ..... is not existed!
+                        Please check the information again!
+              
+                    - Enter 1 to re-enter the ID of course  // return 7.3.b
+                    - Enter 2 to continue modyfing courses  // return 7.3
+                    - Enter 0 to work on Courses  // return 6.2.a
+
+                    Your c  hoice: 
+*/
+
+        7.3.c Manage students in course  
+
+
+
+
+
+
+    7.4 Import students into an existed course
+  
+
+    7.5 View all students in a course
+
+
+    7.6 Work on the scores  
+
+
+    7.7 Export a course to .csv file
