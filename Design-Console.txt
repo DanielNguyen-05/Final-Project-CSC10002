@@ -1,6 +1,8 @@
 Notes: 
     - The lines which is not put in /* */ will be the content showed out the screeen (except title).
     - In every requirement, if the users input another number not be included in the question => return that inputing table
+    - There are 2 types of class: General Class and Course Class
+        For example: Nguyễn Hải Đăng with his General Class is 23CLC03 but the VTP1-Course Class is 23CLC02
 
 I. Program Interface:
 
@@ -55,7 +57,7 @@ IV. Staff's basic operation:
     4.1. Create new school years:
 
                     CREATING A NEW SCHOOL YEAR 
-                - Enter a new school year which you want to create (Ex: 2023-2024): 
+                - Enter a new school year which you want to create (ex: 2023-2024): 
 
         4.1.a If this year was NOT created: (File school year will save this year)
 
@@ -155,9 +157,9 @@ VI. Staff's opertation on Semseters:
     6.1 Create a new semester
 
                 CREATING A NEW SEMESTER
-            - Enter a new semester which you want to create (Ex: 1):
-            - Enter the start date (Ex: 05/09/2023):
-            - Enter the end date (Ex: 20/01/2024):
+            - Enter a new semester which you want to create (ex: 1):
+            - Enter the start date (ex: 05/09/2023):
+            - Enter the end date (ex: 20/01/2024):
 
         6.1.a If this semester was NOT created: (File semester will save this semester)
 
@@ -192,8 +194,8 @@ VI. Staff's opertation on Semseters:
                 3. Modify a course  // go to 7.3
                 4. Import students into an existed course  // go to 7.4
                 5. View all students in a course  // go to 7.5
-                6. Work on the scores   // go to 7.6
-                7. Export a course to .csv file  // go to 7.7
+                6. Work on the scores  // go to 7.6
+                7. export a course to .csv file  // go to 7.7
                 8. Go back to the previous page to work on Semesters  // return VI
 
                 Your choice: 
@@ -210,19 +212,19 @@ VII. Staff's operations on Courses:
     7.1 Create course:
 
                     CREATING A NEW COURSE
-                - Enter the name of this course (Ex: Ky Thuat Lap Trinh):
-                - Enter the ID of this course (Ex: CSC10002-23CLC03):
-                - Enter the class which this course belongs to (Ex: 23CLC03):
+                - Enter the name of this course (ex: KTLT):
+                - Enter the ID of this course (ex: CSC10002-23CLC03):
+                - Enter the class which this course belongs to (ex: 23CLC03):
                 - Enter the teacher of this course:
-                - Enter the number of credits in this course (Ex: 4):
+                - Enter the number of credits in this course (ex: 4):
                 - Enter the maximum number of students in this course:  // default 50
-                - Enter the day of week when this course will be held (Ex: MON/TUE/WED/THU/FRI/SAT):
+                - Enter the day of week when this course will be held (ex: MON/TUE/WED/THU/FRI/SAT):
                 - Here is the a list of sessions:
                     1. S1 (7:30 -> 9:15)
                     2. S2 (9:30 -> 11:15)
                     3. S3 (13:30 -> 15:15)
                     4. S4 (15:30 -> 17:15)
-                - Which sessions, this course will be held (Ex: S1): 
+                - Which sessions, this course will be held (ex: S1): 
 
         7.1.a If this course was NOT created: (File course will save this course)
 
@@ -263,7 +265,7 @@ VII. Staff's operations on Courses:
         7.3.a Delete a course
 
                 DELETING COURSES
-            - Enter course you want to delete (Ex: CSC10002-23CLC03):
+            - Enter ID of course you want to delete (ex: CSC10002-23CLC03):
             
 /*
             Case 1: The course is existed
@@ -272,7 +274,6 @@ VII. Staff's operations on Courses:
 
                     - Enter 1 to delete another course  // return 7.3.a
                     - Enter 2 to continue modyfing courses  // return 7.3
-                    - Enter 0 to work on Courses  // return 6.2.a
 
                     Your choice: 
 
@@ -283,45 +284,45 @@ VII. Staff's operations on Courses:
               
                     - Enter 1 to re-enter the course  // return 7.3.a
                     - Enter 2 to continue modyfing courses  // return 7.3
-                    - Enter 0 to work on Courses  // return 6.2.a
 
                     Your choice: 
 */
         7.3.b Update a course information
 
                 UPDATING COURSES
-            - Enter the ID of the course you want to update (Ex: CSC10002-23CLC03):
+            - Enter the ID of the course you want to update (ex: CSC10002-23CLC03):
 
 /*
             Case 1: The ID of course is existed
 
                     UPDATING THE ...(id_course).... COURSE
-                - Update the school year this course belongs to (Ex: 2023-2024):
-                - Update the semester this course belongs to (Ex: 1):
+                - Update the school year this course belongs to (ex: 2023-2024):
+                - Update the semester this course belongs to (ex: 1):
+                - Update the start dat of this semester:
+                - Update the end date of this semester:
 
 // user input the wrong fomr answer -> return that question for inputing again
 // Note: also print out "Invalid! Please re-enter: "
 
-                - Update a new name for this course (Ex: Ky Thuat Lap nh):
-                - Update a new ID for this course (Ex: CSC10002-23CLC03):
-                - Update a new class which this course belongs to (Ex: 23CLC03):
+                - Update a new name for this course (ex: KTLT):
+                - Update a new ID for this course (ex: CSC10002-23CLC03):
+                - Update a new class which this course belongs to (ex: 23CLC03):
                 - Update a new teacher of this course:
-                - Update the new number of credits in this course (Ex: 4):
+                - Update the new number of credits in this course (ex: 4):
                 - Update a new maximum number of students in this course:  // default 50
-                - Update a new of week when this course will be held (Ex: MON/TUE/WED/THU/FRI/SAT):
+                - Update a new of week when this course will be held (ex: MON/TUE/WED/THU/FRI/SAT):
                 - Here is the a list of sessions:
                     1. S1 (7:30 -> 9:15)
                     2. S2 (9:30 -> 11:15)
                     3. S3 (13:30 -> 15:15)
                     4. S4 (15:30 -> 17:15)
-                - Update new sessions, this course will be held (Ex: S1):  
+                - Update new sessions, this course will be held (ex: S1):  
 
 // If this course was updated (saved in a file):
 
                     This course has already been updated!
                 - Enter 1 to update another course again  // return 7.3.b
                 - Enter 2 to continue modyfing courses  // return 7.3
-                - Enter 0 to work on Courses  // return 6.2.a
 
                 Your choice: 
 
@@ -332,20 +333,41 @@ VII. Staff's operations on Courses:
               
                     - Enter 1 to re-enter the ID of course  // return 7.3.b
                     - Enter 2 to continue modyfing courses  // return 7.3
-                    - Enter 0 to work on Courses  // return 6.2.a
 
-                    Your c  hoice: 
+                    Your choice: 
 */
 
         7.3.c Manage students in course  
-
-
-
-
+    
+                    What would you like to do?
+                1. Add a student manually to a course  // go to 8.1.a
+                2. Remove a student from a course  // go to 8.1.b
+                3. Go back to continue modifying courses  // return 7.3
+  
+                Your choice:
 
 
     7.4 Import students into an existed course
-  
+
+            IMPORTING STUDENTS INTO A COURSE
+        - Enter the the ID of the course you want to import students (ex: CSC10002-23CLC03):
+        - To put students into course, please input the path of the file you want to import (ex: Students.csv):
+    
+/*
+        Case 1: There are not any problems:
+
+                All the students in your .....csv file are imported to the course....
+            - Enter 1 to import studnets to another course  // return 7.4
+            - Enter 0 to return to the previous page to work on Courses  // return 6.2.a
+
+        Case 2: The id_course is not existed:
+
+                The ID of course is not existed!
+                Please check it again!
+            - Enter 1 to re-enter  // return 7.4
+            - Enter 0 to return to the previous page to work on Course  // return 6.2.a
+*/  
+
 
     7.5 View all students in a course
 
@@ -353,4 +375,57 @@ VII. Staff's operations on Courses:
     7.6 Work on the scores  
 
 
-    7.7 Export a course to .csv file
+    7.7 export a course to .csv file
+
+
+VIII. Staff's operations on Students:
+    8.1 They are students of course - not general calss:
+
+        8.1.a Add a student manually to course:
+
+            ADDING A NEW STUDENT TO A COURSE
+        - Enter the course's ID (ex: CSC10002-23CLC03):
+        - Enter the student's GENERAL class name (ex: 23CLC03): 
+        - Enter the student's No (ex: 1):
+        - Enter the student's ID (ex: 23127xxx):
+        - Enter the student's first name (ex: Dang):
+        - Enter the student's last name (ex: Hai Nguyen): 
+        - Enter the student's gender (Male/Female): 
+        - Enter the student's date of birth (ex: 26/11/2005): 
+        - Enter the student's social ID (ex: 087205xxxxxx): 
+
+/*
+    Case 1: Right information
+
+            Completed adding a new student's information
+        - Enter 1 to add a new ones  // return 8.1.a 
+        - Enter 0 to go back to manage students  // return 7.3.c
+
+    Case 2: Wrong information
+
+            There are some problems in this new student's information!
+            Please check the information again!
+        - Enter 1 to re-enter  // return 8.1.a 
+        - Enter 0 to go back to manage students  // return 7.3.c
+*/
+
+        8.1.b Remove a student from a course:
+
+            REMOVING A STUDENT FROM A COURSE
+        - Enter the course's ID  (ex: CSC10002-23CLC03): 
+        - Enter the student's ID you want to remove (ex: 23127xxx): 
+
+/*
+    Case 1: Right information
+
+            Completed removing the student ... from the course ...
+        - Enter 1 to remove another student  // return 8.1.b 
+        - Enter 0 to go back to manage students  // return 7.3.c
+
+    Case 2: Wrong information
+
+            There are some problems in this new student's information!
+            Please check the information again!
+        - Enter 1 to re-enter  // return 8.1.b
+        - Enter 0 to go back to manage students  // return 7.3.c
+*/
