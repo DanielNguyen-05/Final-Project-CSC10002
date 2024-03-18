@@ -296,13 +296,17 @@ VII. Staff's operations on Courses:
             Case 1: The ID of course is existed
 
                     UPDATING THE ...(id_course).... COURSE
+
+// Đang kiểm tra xem có nên bỏ từ chỗ nãy:
                 - Update the school year this course belongs to (ex: 2023-2024):
                 - Update the semester this course belongs to (ex: 1):
-                - Update the start dat of this semester:
+                - Update the start date of this semester:
                 - Update the end date of this semester:
 
 // user input the wrong fomr answer -> return that question for inputing again
 // Note: also print out "Invalid! Please re-enter: "
+
+// đến chỗ này hay không
 
                 - Update a new name for this course (ex: KTLT):
                 - Update a new ID for this course (ex: CSC10002-23CLC03):
@@ -337,7 +341,7 @@ VII. Staff's operations on Courses:
                     Your choice: 
 */
 
-        7.3.c Manage students in course  
+        7.3.c Manage students in course:
     
                     What would you like to do?
                 1. Add a student manually to a course  // go to 8.1.a
@@ -347,35 +351,53 @@ VII. Staff's operations on Courses:
                 Your choice:
 
 
-    7.4 Import students into an existed course
+    7.4 Import students into an existed course:
 
             IMPORTING STUDENTS INTO A COURSE
         - Enter the the ID of the course you want to import students (ex: CSC10002-23CLC03):
         - To put students into course, please input the path of the file you want to import (ex: Students.csv):
     
 /*
-        Case 1: There are not any problems:
+        Case 1: There are not any problems
 
-                All the students in your .....csv file are imported to the course....
+                Filtering existing data in the imported CSV file.....
+                
+
+                Completed filtering!
+
+                All the students in your .....csv file are imported to the course....!
             - Enter 1 to import studnets to another course  // return 7.4
             - Enter 0 to return to the previous page to work on Courses  // return 6.2.a
 
-        Case 2: The id_course is not existed:
+        Case 2: The id_course is not existed
 
                 The ID of course is not existed!
                 Please check it again!
             - Enter 1 to re-enter  // return 7.4
             - Enter 0 to return to the previous page to work on Course  // return 6.2.a
-*/  
+
+        Case 3: There are some students in the file has existed in the course
+                Filtering existing data in the imported CSV file.....
+                
+                There are some students in your CSV File has already existed in the course:
+                1. ...id_stu...
+                2. ...id_stu...
+                3. ...id_stu...
+                
+                Completed filtering!
+
+                All the students in your .....csv file are imported to the course....!
+            - Enter 1 to import studnets to another course  // return 7.4
+            - Enter 0 to return to the previous page to work on Courses  // return 6.2.a
+*/              
+                
+    7.5 View all students in a course:
 
 
-    7.5 View all students in a course
+    7.6 Work on the scores:
 
 
-    7.6 Work on the scores  
-
-
-    7.7 export a course to .csv file
+    7.7 export a course to .csv file:
 
 
 VIII. Staff's operations on Students:
