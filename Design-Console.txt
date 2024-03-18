@@ -34,9 +34,9 @@ III. Staff's login (your role is set as a STAFF):
 
     3.2 Wrong Information:
 
-        Wrong Username or Password! What would you like to do?
-        1. Re-login  // return III
-        2. Go back to previous page  // return II - to choose role
+            Wrong Username or Password! What would you like to do?
+        - Enter 1 to re-login  // return III
+        - Enter 0 back to previous page  // return II - to choose role
 
         Your choice: 
 
@@ -140,7 +140,7 @@ IV. Staff's basic operation:
         - Press "Enter" to return to the Management screeen:  // return IV
 
 
-V. Staff's operation on Classes:
+V. Staff's operation on General Classes:
 
 
 
@@ -194,7 +194,7 @@ VI. Staff's opertation on Semseters:
                 3. Modify a course  // go to 7.3
                 4. Import students into an existed course  // go to 7.4
                 5. View all students in a course  // go to 7.5
-                6. Work on the scores  // go to 7.6
+                6. Work on the points  // go to 7.6
                 7. export a course to .csv file  // go to 7.7
                 8. Go back to the previous page to work on Semesters  // return VI
 
@@ -295,19 +295,7 @@ VII. Staff's operations on Courses:
 /*
             Case 1: The ID of course is existed
 
-                    UPDATING THE ...(id_course).... COURSE
-
-// Đang kiểm tra xem có nên bỏ từ chỗ nãy:
-                - Update the school year this course belongs to (ex: 2023-2024):
-                - Update the semester this course belongs to (ex: 1):
-                - Update the start date of this semester:
-                - Update the end date of this semester:
-
-// user input the wrong fomr answer -> return that question for inputing again
-// Note: also print out "Invalid! Please re-enter: "
-
-// đến chỗ này hay không
-
+                    UPDATING THE COURSE ....(id_course)....
                 - Update a new name for this course (ex: KTLT):
                 - Update a new ID for this course (ex: CSC10002-23CLC03):
                 - Update a new class which this course belongs to (ex: 23CLC03):
@@ -394,10 +382,10 @@ VII. Staff's operations on Courses:
     7.5 View all students in a course:
 
 
-    7.6 Work on the scores:
+    7.6 Work on the points:
 
 
-    7.7 export a course to .csv file:
+    7.7 Export a course to .csv file:
 
 
 VIII. Staff's operations on Students:
@@ -417,37 +405,39 @@ VIII. Staff's operations on Students:
         - Enter the student's social ID (ex: 087205xxxxxx): 
 
 /*
-    Case 1: Right information
+        Case 1: Right information
 
-            Completed adding a new student's information
-        - Enter 1 to add a new ones  // return 8.1.a 
-        - Enter 0 to go back to manage students  // return 7.3.c
+                Completed adding a new student's information
+            - Enter 1 to add a new ones  // return 8.1.a 
+            - Enter 0 to go back to manage students  // return 7.3.c
 
-    Case 2: Wrong information
+        Case 2: Wrong information
 
-            There are some problems in this new student's information!
-            Please check the information again!
-        - Enter 1 to re-enter  // return 8.1.a 
-        - Enter 0 to go back to manage students  // return 7.3.c
+                There are some problems in this new student's information!
+                Please check the information again!
+            - Enter 1 to re-enter  // return 8.1.a 
+            - Enter 0 to go back to manage students  // return 7.3.c
 */
 
-        8.1.b Remove a student from a course:
+            8.1.b Remove a student from a course:
 
-            REMOVING A STUDENT FROM A COURSE
-        - Enter the course's ID  (ex: CSC10002-23CLC03): 
-        - Enter the student's ID you want to remove (ex: 23127xxx): 
+                REMOVING A STUDENT FROM A COURSE
+            - Enter the course's ID  (ex: CSC10002-23CLC03): 
+            - Enter the student's ID you want to remove (ex: 23127xxx): 
 
 /*
-    Case 1: Right information
+        Case 1: Right information
 
-            Completed removing the student ... from the course ...
-        - Enter 1 to remove another student  // return 8.1.b 
-        - Enter 0 to go back to manage students  // return 7.3.c
+                Completed removing the student ... from the course ...
+            - Enter 1 to remove another student  // return 8.1.b 
+            - Enter 0 to go back to manage students  // return 7.3.c
 
-    Case 2: Wrong information
+        Case 2: Wrong information
 
-            There are some problems in this new student's information!
-            Please check the information again!
-        - Enter 1 to re-enter  // return 8.1.b
-        - Enter 0 to go back to manage students  // return 7.3.c
+                There are some problems in this new student's information!
+                Please check the information again!
+            - Enter 1 to re-enter  // return 8.1.b
+            - Enter 0 to go back to manage students  // return 7.3.c
 */
+
+IX. Staff's operations on Points:
