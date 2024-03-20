@@ -500,7 +500,7 @@ VII. Staff's operations on Courses:
             - Enter 1 to import students to another course  // return 7.4
             - Enter 0 to return to the previous page to work on Courses  // return 6.2.a
 
-        Case 2: The id_course is not existed
+        Case 2: The id_course is not existed 
 
                 The ID of course is not existed!
                 Please check it again!
