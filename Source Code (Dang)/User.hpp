@@ -1,16 +1,18 @@
 #pragma once
 #include "header.hpp"
-#include "AccountList.hpp"
 #include <string>
 
 struct Users{
 
+    std::string Username = "";
+    std::string Password = "";
 
-    AccountList *acc = nullptr;
     bool isStaff = false;
 
-    bool isUser(std::string username, std::string pass);
-    void login();
+    bool isStudent(std::string username, std::string password);
+    bool isAcademicStaff(std::string username, std::string password);
+
+    bool login();
     void viewProfileInfo();
     void changePassword();
     void logout();
