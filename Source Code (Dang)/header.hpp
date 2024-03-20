@@ -46,7 +46,7 @@ struct Students
     std::string last_name;
     std::string gender;
     std::string date_of_birth;
-    int soci_id;
+    std::string soci_id;
     Points points;
     
     Students* pNext;

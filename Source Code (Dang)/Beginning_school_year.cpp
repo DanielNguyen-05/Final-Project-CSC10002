@@ -22,7 +22,7 @@ void add_school_year_to_list ( List &p, std::string s)
         p.pHead = new_list;
         return;
     }
-    ListNode * cur = new_list;
+    ListNode * cur = p.pHead;
     while ( cur->pNext != NULL )
     {
         cur = cur->pNext;
@@ -43,7 +43,7 @@ void add_class_to_school_year (std::string classname, std::string teachername, i
         phead->activity_class = new_class;
         return;
     }
-    Classes * cur  = new_class;
+    Classes * cur  = phead->activity_class;
     while ( cur->pNext != NULL)
     {
         cur = cur->pNext;
@@ -51,7 +51,7 @@ void add_class_to_school_year (std::string classname, std::string teachername, i
     cur->pNext = new_class;
 }
 // Nhập bằng tay
-void add_student_to_class ( int no, int student_id, std::string lastname, std::string firstname, std::string gender, std::string date_of_birth, int social_id, Classes *&phead)
+void add_student_to_class ( int no, int student_id, std::string lastname, std::string firstname, std::string gender, std::string date_of_birth, std::string social_id, Classes *&phead)
 {
     Students * new_student = new Students;
     new_student->no = no;
@@ -67,7 +67,7 @@ void add_student_to_class ( int no, int student_id, std::string lastname, std::s
         phead->in_class_activity = new_student;
         return;
     }
-    Students * cur = new_student;
+    Students * cur = phead->in_class_activity;
     while ( cur->pNext != NULL )
     {
         cur = cur->pNext;
@@ -78,13 +78,13 @@ void add_student_to_class ( int no, int student_id, std::string lastname, std::s
 // Nhập bằng CSV file 
 bool read_file_CSV ( std::string input_file, Classes * &phead)
 {
-    int no;
-    int stu_id;
+    std::string no;
+    std::string stu_id;
     std::string first_name;
     std::string last_name;
     std::string gender;
     std::string date_of_birth;
-    int soci_id;
+    std::string soci_id;
     std::ifstream fin;
     fin.open(input_file);
     if ( !fin.is_open() )
@@ -93,16 +93,17 @@ bool read_file_CSV ( std::string input_file, Classes * &phead)
         return false;
     }
     while ( !fin.eof() )
-    {
-        
-        fin >> no;
-        fin >> stu_id;
+    { 
+        getline ( fin, no, ',');
+        int no_1 = stoi(no);
+        getline ( fin, stu_id, ',');
+        int stu_id_2 = stoi (stu_id);
         getline(fin, first_name, ',');
         getline (fin, last_name, ',');
         getline(fin, gender, ',');
         getline (fin, date_of_birth, ',');
-        fin >> soci_id;
-        add_student_to_class(no,stu_id,last_name,first_name,gender,date_of_birth,soci_id, phead);
+        getline ( fin , soci_id );
+        add_student_to_class(no_1,stu_id_2,last_name,first_name,gender,date_of_birth,soci_id, phead);
     }
     fin.close();
     return true;
