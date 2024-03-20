@@ -8,7 +8,7 @@
 
 bool Users::isStudent(std::string username, std::string password)
 {
-    std::string account_file = "Data\\Account\\Student\\" + username;
+    std::string account_file = "Data\\Account\\Student\\" + username + ".txt";
     std::string account_pass;
 
     std::ifstream fin;
@@ -36,7 +36,7 @@ bool Users::isStudent(std::string username, std::string password)
 
 bool Users::isAcademicStaff(std::string username, std::string password)
 {
-    std::string account_file = "Data\\Account\\AcademicStaff\\" + username;
+    std::string account_file = "Data\\Account\\AcademicStaff\\" + username + ".txt";
     std::string account_pass;
 
     std::ifstream fin;
@@ -144,9 +144,9 @@ void Users::changePassword()
 
     std::ofstream fout;
     if(isStaff)
-        fout.open("Data\\Account\\AcademicStaff\\" + Username);
+        fout.open("Data\\Account\\AcademicStaff\\" + Username + ".txt");
     else  
-        fout.open("Data\\Account\\Student\\" + Username);
+        fout.open("Data\\Account\\Student\\" + Username + ".txt");
     
     if(!fout.is_open()) 
     {
