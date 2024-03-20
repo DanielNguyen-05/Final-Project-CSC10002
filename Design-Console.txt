@@ -16,7 +16,7 @@ II. Choose role:
 
             Are you a Staff or a Student?
         1. Academic Staff  // go to III
-        2. Student  // go to
+        2. Student  // go to X
         0. Stop Program  // STOP + return
 
         Your choice: 
@@ -41,11 +41,13 @@ III. Staff's login (your role is set as a STAFF):
         Your choice: 
 
 IV. Staff's basic operation:
-// Notes: This is Main Menu
+
+                        MAIN MENU
 
         Hello,...name_of_staff... 
 
             What would you like to do?
+        0. Log out  // return I
         1. Create a new school year  // go to 4.1
         2. Edit an existed school year  // go to 4.2
         3. Change password  // go to 4.3
@@ -57,14 +59,14 @@ IV. Staff's basic operation:
     4.1. Create new school years:
 
                     CREATING A NEW SCHOOL YEAR 
+
                 - Enter a new school year which you want to create (ex: 2023-2024): 
 
         4.1.a If this year was NOT created: (File school year will save this year)
 
                 The new school year 202x-202x is created successfully!
             - Enter 1 to continue creating a new school year  // return 4.1
-            - Enter 0 to return to the Main Menu
-          // return IV
+            - Enter 0 to return to the Main Menu  // return IV
 
             Your choice: 
 
@@ -72,25 +74,26 @@ IV. Staff's basic operation:
 
                 This school year has already been created!
             - Enter 1 to create a new school year  // return 4.1
-            - Enter 0 to return to the Main Menu
-          // return IV
+            - Enter 0 to return to the Main Menu  // return IV
 
             Your choice: 
 
     4.2 Edit existed school years:
 
                     EDITING THE SCHOOL YEARS
+
                 - Enter the school year you want to edit:
 
         4.2.a Right Information:
 
                     EDITING THE YEAR 202X-202X
+
                 What would you like to do?
-            1. Work on Classes // go to V 
-            2. Work on Semesters  // go to VI
+            0. Log out  // return I
+            1. Work on General Classes // go to V
+            2. Work on Course Classes  // return VI
             3. Go back to the previous page to choose another year // return 4.2
-            4. Go back to the Main Menu
-         // return IV
+            4. Go back to the Main Menu  // return IV
 
             Your choice: 
 
@@ -98,8 +101,7 @@ IV. Staff's basic operation:
 
                 Invalid! This school year is not existed!
             - Enter 1 to re-enter the year!  // return 4.2
-            - Enter 0 to return to the Main Menu
-          // return IV
+            - Enter 0 to return to the Main Menu  // return IV
 
             Your choice: 
 
@@ -113,8 +115,7 @@ IV. Staff's basic operation:
 
                 Your old password is wrong!
             - Please press "Enter" to re-enter it  // return 4.3
-            - Enter 0 to return to the Main Menu
-          // return IV
+            - Enter 0 to return to the Main Menu  // return IV
 
             Your choice: 
 
@@ -122,14 +123,14 @@ IV. Staff's basic operation:
 
                 Your new password must not be empty or same as the old ones!
             - Please press "Enter" to re-enter it!  // return 4.3
-            - Enter 0 to return to the Main Menu
-          // return IV
+            - Enter 0 to return to the Main Menu  // return IV
 
             Your choice: 
 
     4.4 View your profile:
 
             HERE IS YOUR PROFILE     
+
         Staff: name_of_staff
         Gender: 
         Birthday
@@ -142,11 +143,141 @@ IV. Staff's basic operation:
 
 V. Staff's operation on General Classes:
 
+            What would you like to do?
+        0. Log out  // return I
+        1. Create a new general class  // go to 5.1
+        2. Edit an existed general class  // go to 5.2
+        3. View list of students in the class  // go to 5.3
+        4. Go back to previous page  // return 4.2.a
+        5. Go back to the Main Menu  // return IV
+
+    5.1 Create a new general class:
+
+                    CREATING A NEW GENERAL CLASS
+
+                - Enter the name of this class (ex: 23CLC03):
+                - Enter the maximum number of students in this class:  // default 50
+
+        5.1.a If this general class was NOT created: (File course will save this course)
+
+                    The new general class ... in 202x-202x is created successfully!
+                - Enter 1 to continue creating a new general class  // return 5.1
+                - Enter 0 to work on General Class again  // return V
+
+                Your choice: 
+
+        5.1.b If this general class was created (saved in a file):
+
+                    This general class has already been created!
+                - Enter 1 to create a new general class again  // return 5.1
+                - Enter 0 to work on General Class again  // return V
 
 
-VI. Staff's opertation on Semseters:
+                Your choice: 
+
+    5.2 Edit an existed general class:
+
+                    EDITING A GENERAL CLASS
+            
+                - Enter the name of General Class (ex: 23CLC03):
+
+/*
+        Case 1: If the class is existed
+
+                    What would you like to do?
+                0. Log out   // return I
+                1. Update the information of the general class  // go to 5.2.a
+                2. Import the list of students from .csv file into the general class  // go to 5.2.b
+
+                Your choice:
+
+        Case 2: If the class is NOT existed
+
+                The class ... is not existed!
+                Please check the information again!
+            - Enter 1 to re-enter  // return 5.2
+            - Enter 0 to return to the previous page to work on General Class again // return V
+*/ 
+
+        5.2.a Update the information of the general class:
+
+                    CHANGING INFORMATION OF GENERAL CLASS
+
+                - Update the name of this class (ex: 23CLC03):
+                - Update the maximum number of students in this class:  // default 50
+
+/*
+        Case 1: If this general class was NOT duplicated: 
+
+                    The general class ... in 202x-202x is updated successfully!
+                - Enter 1 to continue updating another general class  // return 5.2.a
+                - Enter 0 to work on General Class again  // return V
+
+                Your choice: 
+
+        Case 2: If this general class was duplicated:
+
+                    This general class has already been created!
+                - Enter 1 to update this general class again  // return 5.2.a
+                - Enter 0 to work on General Class again  // return V
+
+                Your choice: 
+*/
+
+        5.2.b Import the list of students from .csv file into the general class:
+
+            IMPORTING STUDENTS INTO A GENERAL CLASS
+
+        - Enter the name of general class you want to import students (ex: 23CLC03):
+        - To put students into course, please input the path of the file you want to import (ex: GeneralStudents.csv):
+    
+/*
+        Case 1: There are not any problems
+
+                Filtering existing data in the imported CSV file.....
+                
+
+                Completed filtering!
+
+                All the students in your .....csv file are imported to the class....!
+            - Enter 1 to import students to another general class  // return 5.2.b
+            - Enter 0 to work on General Class again  // return V
+
+        Case 2: The id_course is not existed
+
+                The name of this general class is not existed!
+                Please check it again!
+            - Enter 1 to re-enter  // return 5.2.b
+            - Enter 0 to work on General Class again  // return V
+*/              
+
+    5.3 View list of students in a general class:
+
+                - Enter the name of General Class (ex: 23CLC03):
+/*
+        Case 1: If the class is existed
+
+                Here is the list of students in the class .....:
+
+                // phần này hiện ra thông tin điểm => tự design
+
+            - Enter 1 to view list of students in another class // return 5.3
+            - Enter 0 to return to the previous page to work on General Class again // return V
+
+
+        Case 2: If the class is NOT existed
+
+                The class ... is not existed!
+                Please check the information again!
+            - Enter 1 to re-enter  // return 5.3
+            - Enter 0 to return to the previous page to work on General Class again // return V
+*/ 
+
+
+VI. Staff's opertation on Semseters (Course Classes):
 
             What would you like to do with semesters in the year 202x-202x?
+        0. Log out  // return I
         1. Create a new semesters  // go to 6.1
         2. Edit an existed semesters  // go to 6.2
         3. Go back to previous page  // return 4.2.a
@@ -157,6 +288,7 @@ VI. Staff's opertation on Semseters:
     6.1 Create a new semester
 
                 CREATING A NEW SEMESTER
+
             - Enter a new semester which you want to create (ex: 1):
             - Enter the start date (ex: 05/09/2023):
             - Enter the end date (ex: 20/01/2024):
@@ -181,6 +313,7 @@ VI. Staff's opertation on Semseters:
     6.2 Edit an existed semester:
 
                 START EDITING THE SEMESTERS IN 202X-202X
+
             - Enter the semester you want to edit:
 
             Your choice: 
@@ -188,14 +321,16 @@ VI. Staff's opertation on Semseters:
         6.2.a Right Information:
 
                         EDITING THE SEMESTER ... OF 202X-202X
+
                     What would you like to do?
+                0. Log out  // return I
                 1. Create new courses  // go to 7.1
                 2. View all courses in this semester  // go to 7.2
                 3. Modify a course  // go to 7.3
                 4. Import students into an existed course  // go to 7.4
                 5. View all students in a course  // go to 7.5
                 6. Work on the points  // go to 7.6
-                7. export a course to .csv file  // go to 7.7
+                7. Export a course into .csv file  // go to 7.7
                 8. Go back to the previous page to work on Semesters  // return VI
 
                 Your choice: 
@@ -212,6 +347,7 @@ VII. Staff's operations on Courses:
     7.1 Create course:
 
                     CREATING A NEW COURSE
+
                 - Enter the name of this course (ex: KTLT):
                 - Enter the ID of this course (ex: CSC10002-23CLC03):
                 - Enter the class which this course belongs to (ex: 23CLC03):
@@ -254,7 +390,9 @@ VII. Staff's operations on Courses:
     7.3 Modify courses:
 
                     MODIFYING COURSES
+
                 What would you like to do?
+            0. Log out  // return I
             1. Delete a course  // go to 7.3.a
             2. Update a course information  // go to 7.3.b
             3. Manage students in course  // go to 7.3.c
@@ -265,6 +403,7 @@ VII. Staff's operations on Courses:
         7.3.a Delete a course
 
                 DELETING COURSES
+
             - Enter ID of course you want to delete (ex: CSC10002-23CLC03):
             
 /*
@@ -290,12 +429,14 @@ VII. Staff's operations on Courses:
         7.3.b Update a course information
 
                 UPDATING COURSES
+
             - Enter the ID of the course you want to update (ex: CSC10002-23CLC03):
 
 /*
             Case 1: The ID of course is existed
 
                     UPDATING THE COURSE ....(id_course)....
+
                 - Update a new name for this course (ex: KTLT):
                 - Update a new ID for this course (ex: CSC10002-23CLC03):
                 - Update a new class which this course belongs to (ex: 23CLC03):
@@ -332,6 +473,7 @@ VII. Staff's operations on Courses:
         7.3.c Manage students in course:
     
                     What would you like to do?
+                0. Log out  // return I
                 1. Add a student manually to a course  // go to 8.1.a
                 2. Remove a student from a course  // go to 8.1.b
                 3. Go back to continue modifying courses  // return 7.3
@@ -342,7 +484,8 @@ VII. Staff's operations on Courses:
     7.4 Import students into an existed course:
 
             IMPORTING STUDENTS INTO A COURSE
-        - Enter the the ID of the course you want to import students (ex: CSC10002-23CLC03):
+
+        - Enter the ID of the course you want to import students (ex: CSC10002-23CLC03):
         - To put students into course, please input the path of the file you want to import (ex: Students.csv):
     
 /*
@@ -354,7 +497,7 @@ VII. Staff's operations on Courses:
                 Completed filtering!
 
                 All the students in your .....csv file are imported to the course....!
-            - Enter 1 to import studnets to another course  // return 7.4
+            - Enter 1 to import students to another course  // return 7.4
             - Enter 0 to return to the previous page to work on Courses  // return 6.2.a
 
         Case 2: The id_course is not existed
@@ -375,18 +518,43 @@ VII. Staff's operations on Courses:
                 Completed filtering!
 
                 All the students in your .....csv file are imported to the course....!
-            - Enter 1 to import studnets to another course  // return 7.4
+            - Enter 1 to import students to another course  // return 7.4
             - Enter 0 to return to the previous page to work on Courses  // return 6.2.a
 */              
                 
-    7.5 View all students in a course:
-
+    7.5 View all students in a course: này tuỳ vào design nhe :v
 
     7.6 Work on the points:
 
+            What would you like to do?
+        0. Log out  // return I
+        1. Import a point .csv file for a course  // go to 9.1
+        2. View scoreboard of a course  // go to 9.2
+        3. Update a student's result  // go to 9.3
+        4. View scoreboard of a class  // go to 9.4
+        5. Go back to previous page to continue working on Courses  // return 6.2.a
 
-    7.7 Export a course to .csv file:
+        Your choice:
 
+    7.7 Export a course into .csv file:
+
+            What course are you wanting to export (ex: CSC10002-23CLC03): 
+
+/*
+        Case 1: If the course is existed
+
+                Completed exporting successfully!
+                The export file is named ......  // ex: CSC10002-23CLC03.csv
+            - Enter 1 to export another course into .csv file // return 7.7
+            - Enter 0 to return to the previous page to work on Courses // return 6.2.a
+
+        Case 2: If the course is NOT existed
+
+                The course ... is not existed!
+                Please check the information again!
+            - Enter 1 to re-enter  // return 7.7 
+            - Enter 0 to return to the previous page to work on Courses // return 6.2.a
+*/ 
 
 VIII. Staff's operations on Students:
     8.1 They are students of course - not general calss:
@@ -394,6 +562,7 @@ VIII. Staff's operations on Students:
         8.1.a Add a student manually to course:
 
             ADDING A NEW STUDENT TO A COURSE
+
         - Enter the course's ID (ex: CSC10002-23CLC03):
         - Enter the student's GENERAL class name (ex: 23CLC03): 
         - Enter the student's No (ex: 1):
@@ -422,6 +591,7 @@ VIII. Staff's operations on Students:
             8.1.b Remove a student from a course:
 
                 REMOVING A STUDENT FROM A COURSE
+
             - Enter the course's ID  (ex: CSC10002-23CLC03): 
             - Enter the student's ID you want to remove (ex: 23127xxx): 
 
@@ -441,3 +611,162 @@ VIII. Staff's operations on Students:
 */
 
 IX. Staff's operations on Points:
+    9.1 Import a point .csv file for a course:
+
+            What course you are importing the points (ex: CSC10002-23CLC03):
+
+/*
+        Case 1: If the course is existed
+            
+                IMPORTING POINTS FOR A COURSE
+                
+                Please enter the path of the .csv file:
+
+                Importing....
+
+                Imported successfully!
+
+            - Enter 1 to import points of another course // return 9.1
+            - Enter 0 to return to the previous page to work on Points // return 7.6
+
+
+        Case 2: If the course is NOT existed
+
+                The course ... is not existed!
+                Please check the information again!
+            - Enter 1 to re-enter  // return 9.1
+            - Enter 0 to return to the previous page to work on Points // return 7.6
+*/ 
+
+    9.2 View scoreboard of a course:
+
+                VIEWING SCOREBOARD OF A COURSE
+            
+            Enter the ID of the course you want to view the points (ex: CSC10002-23CLC03):
+
+/*
+        Case 1: If the course is existed
+
+                Here is the scoreboard of the course .....:
+
+                // phần này hiện ra thông tin điểm => tự design
+
+            - Enter 1 to view points of another course // return 9.2
+            - Enter 0 to return to the previous page to work on Points // return 7.6
+
+
+        Case 2: If the course is NOT existed
+
+                The course ... is not existed!
+                Please check the information again!
+            - Enter 1 to re-enter  // return 9.2
+            - Enter 0 to return to the previous page to work on Points // return 7.6
+*/ 
+
+    9.3 Update a student's result:
+
+                UPDATING STUDENT'S RESULT
+
+            - Enter the student ID (ex: 23127xxx):
+            - Enter the course ID (ex: CSC10002-23CLC03):
+
+/*
+        Case 1: Right information
+
+            - Enter the new midterm points: 
+            - Enter the new final points:
+            - Enter the new other points:
+            // Overall point thì tự tính ra từ 3 điểm trên => 50% final + 30% midterm + 20% others
+
+            The new result of student is updated succesfully!
+            - Enter 1 to update result of another students  // return 9.3
+            - Enter 0 to return the previous page to work on Points  // return 7.6
+        Case 2: Wrong information
+
+                There are some problems in this student's information!
+                Please check the information again!
+            - Enter 1 to re-enter  // return 9.3
+            - Enter 0 to return to the previous page to work on Points  // return 7.6
+*/
+
+
+    9.4 View scoreboard of a class (class này là course class nha):
+
+                VIEWING SCOREBOARD OF A COURSE CLASS
+            
+            - Enter the name of the class (ex: 23CLC03):
+            - Enter the semester (ex: 2): 
+
+/*
+        Case 1: If the class is existed
+
+                Here is the scoreboard of the class .....:
+
+                // phần này hiện ra thông tin điểm => tự design
+
+            - Enter 1 to view points of another class or semester // return 9.4
+            - Enter 0 to return to the previous page to work on Points // return 7.6
+
+
+        Case 2: If the class is NOT existed
+
+                The class ... is not existed!
+                Please check the information again!
+            - Enter 1 to re-enter  // return 9.4
+            - Enter 0 to return to the previous page to work on Points // return 7.6
+*/ 
+
+
+X. Student's login (your role is set as a STUDENT):
+
+            You are a Student:
+        - Username:  // default stu_id
+        - Password:  // default: 12345678
+
+    3.1 Correct Information:
+
+            Logged in successfully!
+        - Please press "Enter" to continue
+
+    3.2 Wrong Information:
+
+            Wrong Username or Password! What would you like to do?
+        - Enter 1 to re-login  // return X
+        - Enter 0 back to previous page  // return II - to choose role
+
+        Your choice: 
+
+XI. Student's basic operation:
+
+                MAIN MENU
+
+        Hello,...name_of_student... 
+
+            What would you like to do?
+        0. Log out  // return I
+        1. View your profile  // go to 10.1
+        2. View your points  // go to 10.2
+    
+        Your choice:       
+
+    10.1 View student's profile:
+
+                HERE IS YOUR PROFILE
+        
+        - Student's name:
+        - General Class: 
+        - Student's ID:
+        - Student's ordinal number in General Class:
+        - Gender:
+        - Date of birth:
+        - Student's social ID:
+
+
+    10.2 View student's points:
+
+                VIEWING YOUR POINTS
+            - Enter the semester (ex: 2):
+        
+        // khúc này cũng tự design đi keke :v
+
+THE END 
