@@ -738,6 +738,22 @@ X. Student's login (your role is set as a STUDENT):
 
 XI. Student's basic operation:
 
+                    Hello,... name_of_student....
+                - Enter a new school year which you want to check (ex: 2023-2024): 
+
+/*
+        Case 1: If this year is NOT found: (File school year will save this year)
+
+                The school year 202x-202x is not found!
+                Please check the input again!
+            - Enter 1 to re-enter  // return XI
+            - Enter 0 to return to the previous page  // return III
+
+            Your choice: 
+
+        Case 2: If this year is found (saved in a file): chạy cái MAIN MENU ở dưới
+*/
+
                 MAIN MENU
 
         Hello,...name_of_student... 
