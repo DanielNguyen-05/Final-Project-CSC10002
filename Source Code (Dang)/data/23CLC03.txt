@@ -1,0 +1,7 @@
+no,stu_id,first_name,last_name,gender,date_of_birth,soci_id
+1,23127157,Nguyen,Bao,male,19/03/2005,0844
+2,23127158,Nguyen,Bao,male,19/03/2005,0844
+3,23127145,Nguyen,Bao,male,19/03/2005,0844
+4,23127536,Nguyen,Bao,male,19/03/2005,0844
+5,23127053,Nguyen,Bao,male,19/03/2005,0844
+6,23127123,Nguyen,Bao,male,19/03/2005,0844

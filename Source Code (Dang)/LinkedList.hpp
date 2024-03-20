@@ -2,6 +2,7 @@
 #include<iostream>
 
 using namespace std;
+
 template <typename T>
 struct Node {
 	T data;
@@ -25,6 +26,7 @@ struct LinkedList {
 	bool deleteNode(T x);
 	void deallocate();
 };
+
 template <typename T>
 Node<T>::Node() {
 	this->pNext = nullptr;
@@ -113,7 +115,6 @@ Node<T>* LinkedList<T>::findNode(T x) {
 template <typename T>
 bool LinkedList<T>::deleteNode(T x) {
 	if (!pHead) {
-		cout << "List is empty" << endl;
 		return false;
 	}
 	if (pHead->data == x) {
@@ -122,10 +123,8 @@ bool LinkedList<T>::deleteNode(T x) {
 		return true;
 	}
 	Node<T>* cur = pHead;
-	while (cur->pNext && cur->pNext->data != x) 
 		cur = cur->pNext;
 	if (!cur->pNext) {
-		cout << "List doesn't have " << x << endl;
 		return false;
 	}
 	Node<T>* tmp = cur->pNext;
