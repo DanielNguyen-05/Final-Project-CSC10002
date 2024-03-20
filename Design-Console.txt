@@ -172,7 +172,6 @@ V. Staff's operation on General Classes:
                 - Enter 1 to create a new general class again  // return 5.1
                 - Enter 0 to work on General Class again  // return V
 
-
                 Your choice: 
 
     5.2 Edit an existed general class:
@@ -243,13 +242,16 @@ V. Staff's operation on General Classes:
             - Enter 1 to import students to another general class  // return 5.2.b
             - Enter 0 to work on General Class again  // return V
 
+            Your choice:
+
         Case 2: The id_course is not existed
 
                 The name of this general class is not existed!
                 Please check it again!
             - Enter 1 to re-enter  // return 5.2.b
             - Enter 0 to work on General Class again  // return V
-*/              
+*/          
+            Your choice:
 
     5.3 View list of students in a general class:
 
@@ -264,6 +266,7 @@ V. Staff's operation on General Classes:
             - Enter 1 to view list of students in another class // return 5.3
             - Enter 0 to return to the previous page to work on General Class again // return V
 
+            Your choice:
 
         Case 2: If the class is NOT existed
 
@@ -271,6 +274,8 @@ V. Staff's operation on General Classes:
                 Please check the information again!
             - Enter 1 to re-enter  // return 5.3
             - Enter 0 to return to the previous page to work on General Class again // return V
+
+            Your choice:
 */ 
 
 
@@ -315,8 +320,6 @@ VI. Staff's opertation on Semseters (Course Classes):
                 START EDITING THE SEMESTERS IN 202X-202X
 
             - Enter the semester you want to edit:
-
-            Your choice: 
 
         6.2.a Right Information:
 
@@ -383,9 +386,7 @@ VII. Staff's operations on Courses:
 
                 ....Hiện cái gì ra ở đây nè....
 
-                - Enter 0 to work on Courses
-
-                Your choice: 
+                - Enter 0 to return to work on Courses:
 
     7.3 Modify courses:
 
@@ -500,12 +501,16 @@ VII. Staff's operations on Courses:
             - Enter 1 to import students to another course  // return 7.4
             - Enter 0 to return to the previous page to work on Courses  // return 6.2.a
 
+            Your choice:
+
         Case 2: The id_course is not existed 
 
                 The ID of course is not existed!
                 Please check it again!
             - Enter 1 to re-enter  // return 7.4
             - Enter 0 to return to the previous page to work on Course  // return 6.2.a
+
+            Your choice:
 
         Case 3: There are some students in the file has existed in the course
                 Filtering existing data in the imported CSV file.....
@@ -520,6 +525,8 @@ VII. Staff's operations on Courses:
                 All the students in your .....csv file are imported to the course....!
             - Enter 1 to import students to another course  // return 7.4
             - Enter 0 to return to the previous page to work on Courses  // return 6.2.a
+
+            Your choice:
 */              
                 
     7.5 View all students in a course: này tuỳ vào design nhe :v
@@ -548,12 +555,16 @@ VII. Staff's operations on Courses:
             - Enter 1 to export another course into .csv file // return 7.7
             - Enter 0 to return to the previous page to work on Courses // return 6.2.a
 
+            Your choice:
+
         Case 2: If the course is NOT existed
 
                 The course ... is not existed!
                 Please check the information again!
             - Enter 1 to re-enter  // return 7.7 
             - Enter 0 to return to the previous page to work on Courses // return 6.2.a
+
+            Your choice:
 */ 
 
 VIII. Staff's operations on Students:
@@ -580,12 +591,16 @@ VIII. Staff's operations on Students:
             - Enter 1 to add a new ones  // return 8.1.a 
             - Enter 0 to go back to manage students  // return 7.3.c
 
+            Your choice:
+
         Case 2: Wrong information
 
                 There are some problems in this new student's information!
                 Please check the information again!
             - Enter 1 to re-enter  // return 8.1.a 
             - Enter 0 to go back to manage students  // return 7.3.c
+
+            Your choice:
 */
 
             8.1.b Remove a student from a course:
@@ -602,12 +617,16 @@ VIII. Staff's operations on Students:
             - Enter 1 to remove another student  // return 8.1.b 
             - Enter 0 to go back to manage students  // return 7.3.c
 
+            Your choice:
+
         Case 2: Wrong information
 
                 There are some problems in this new student's information!
                 Please check the information again!
             - Enter 1 to re-enter  // return 8.1.b
             - Enter 0 to go back to manage students  // return 7.3.c
+
+            Your choice:
 */
 
 IX. Staff's operations on Points:
@@ -636,6 +655,8 @@ IX. Staff's operations on Points:
                 Please check the information again!
             - Enter 1 to re-enter  // return 9.1
             - Enter 0 to return to the previous page to work on Points // return 7.6
+
+            Your choice:
 */ 
 
     9.2 View scoreboard of a course:
@@ -654,6 +675,8 @@ IX. Staff's operations on Points:
             - Enter 1 to view points of another course // return 9.2
             - Enter 0 to return to the previous page to work on Points // return 7.6
 
+            Your choice:
+
 
         Case 2: If the course is NOT existed
 
@@ -661,6 +684,8 @@ IX. Staff's operations on Points:
                 Please check the information again!
             - Enter 1 to re-enter  // return 9.2
             - Enter 0 to return to the previous page to work on Points // return 7.6
+
+            Your choice:
 */ 
 
     9.3 Update a student's result:
@@ -681,12 +706,17 @@ IX. Staff's operations on Points:
             The new result of student is updated succesfully!
             - Enter 1 to update result of another students  // return 9.3
             - Enter 0 to return the previous page to work on Points  // return 7.6
+
+            Your choice:
+
         Case 2: Wrong information
 
                 There are some problems in this student's information!
                 Please check the information again!
             - Enter 1 to re-enter  // return 9.3
             - Enter 0 to return to the previous page to work on Points  // return 7.6
+
+            Your choice:
 */
 
 
@@ -707,6 +737,8 @@ IX. Staff's operations on Points:
             - Enter 1 to view points of another class or semester // return 9.4
             - Enter 0 to return to the previous page to work on Points // return 7.6
 
+            Your choice:
+
 
         Case 2: If the class is NOT existed
 
@@ -714,6 +746,8 @@ IX. Staff's operations on Points:
                 Please check the information again!
             - Enter 1 to re-enter  // return 9.4
             - Enter 0 to return to the previous page to work on Points // return 7.6
+
+            Your choice:
 */ 
 
 
@@ -776,7 +810,6 @@ XI. Student's basic operation:
         - Gender:
         - Date of birth:
         - Student's social ID:
-
 
     10.2 View student's points:
 
