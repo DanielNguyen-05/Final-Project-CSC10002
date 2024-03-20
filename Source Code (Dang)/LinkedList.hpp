@@ -123,6 +123,7 @@ bool LinkedList<T>::deleteNode(T x) {
 		return true;
 	}
 	Node<T>* cur = pHead;
+	while (cur->pNext && cur->pNext->data != x)
 		cur = cur->pNext;
 	if (!cur->pNext) {
 		return false;
