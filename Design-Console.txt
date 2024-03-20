@@ -747,7 +747,7 @@ XI. Student's basic operation:
                 The school year 202x-202x is not found!
                 Please check the input again!
             - Enter 1 to re-enter  // return XI
-            - Enter 0 to return to the previous page  // return III
+            - Enter 0 to return to log out   // return I
 
             Your choice: 
 
