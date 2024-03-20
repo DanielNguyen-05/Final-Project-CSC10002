@@ -58,7 +58,6 @@ struct Sessions
     std::string time; // S1 (07:30), S2 (09:30), S3(13:30), S4 (15:30)
     Students* students;
     Sessions* pNext;
-
     Sessions() : students(nullptr), pNext(nullptr) {}
 };
 struct Classes
@@ -68,7 +67,7 @@ struct Classes
     int max_student; // default 50
     Sessions* sessions;
     Classes* pNext;
-
+    Students * in_class_activity;
     Classes() : sessions(nullptr), pNext(nullptr) {}
 };
 
@@ -99,6 +98,6 @@ struct SchoolYear
     std::string year;
     Semesters* semesters;
     SchoolYear* pNext;
-
+    Classes * activity_class;
     SchoolYear() : semesters(nullptr), pNext(nullptr) {}
 };
