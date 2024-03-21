@@ -146,7 +146,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=NameOfProject
+CMAKE_PROJECT_NAME:STATIC=project
 
 //Value Computed by CMake
 CMAKE_PROJECT_VERSION:STATIC=1.0
@@ -236,6 +236,15 @@ NameOfProject_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
 NameOfProject_SOURCE_DIR:STATIC=/Users/dangnguyen/Desktop/Final-Project-CSC10002
+
+//Value Computed by CMake
+project_BINARY_DIR:STATIC=/Users/dangnguyen/Desktop/Final-Project-CSC10002/build
+
+//Value Computed by CMake
+project_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+project_SOURCE_DIR:STATIC=/Users/dangnguyen/Desktop/Final-Project-CSC10002
 
 
 ########################

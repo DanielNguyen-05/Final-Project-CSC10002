@@ -1,4 +1,4 @@
-/Users/dangnguyen/Desktop/Final-Project-CSC10002/build/CMakeFiles/NameOfProject.dir
+/Users/dangnguyen/Desktop/Final-Project-CSC10002/build/CMakeFiles/project.dir
 /Users/dangnguyen/Desktop/Final-Project-CSC10002/build/CMakeFiles/edit_cache.dir
 /Users/dangnguyen/Desktop/Final-Project-CSC10002/build/CMakeFiles/rebuild_cache.dir
 /Users/dangnguyen/Desktop/Final-Project-CSC10002/build/CMakeFiles/list_install_components.dir

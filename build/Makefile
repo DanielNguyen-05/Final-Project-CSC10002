@@ -162,24 +162,120 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named NameOfProject
+# Target rules for targets named project
 
 # Build rule for target.
-NameOfProject: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 NameOfProject
-.PHONY : NameOfProject
+project: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 project
+.PHONY : project
 
 # fast build rule for target.
-NameOfProject/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/NameOfProject.dir/build.make CMakeFiles/NameOfProject.dir/build
-.PHONY : NameOfProject/fast
+project/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/build
+.PHONY : project/fast
+
+SourceCode/Beginning_school_year.o: SourceCode/Beginning_school_year.cpp.o
+.PHONY : SourceCode/Beginning_school_year.o
+
+# target to build an object file
+SourceCode/Beginning_school_year.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/SourceCode/Beginning_school_year.cpp.o
+.PHONY : SourceCode/Beginning_school_year.cpp.o
+
+SourceCode/Beginning_school_year.i: SourceCode/Beginning_school_year.cpp.i
+.PHONY : SourceCode/Beginning_school_year.i
+
+# target to preprocess a source file
+SourceCode/Beginning_school_year.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/SourceCode/Beginning_school_year.cpp.i
+.PHONY : SourceCode/Beginning_school_year.cpp.i
+
+SourceCode/Beginning_school_year.s: SourceCode/Beginning_school_year.cpp.s
+.PHONY : SourceCode/Beginning_school_year.s
+
+# target to generate assembly for a file
+SourceCode/Beginning_school_year.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/SourceCode/Beginning_school_year.cpp.s
+.PHONY : SourceCode/Beginning_school_year.cpp.s
+
+SourceCode/NodeFunction.o: SourceCode/NodeFunction.cpp.o
+.PHONY : SourceCode/NodeFunction.o
+
+# target to build an object file
+SourceCode/NodeFunction.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/SourceCode/NodeFunction.cpp.o
+.PHONY : SourceCode/NodeFunction.cpp.o
+
+SourceCode/NodeFunction.i: SourceCode/NodeFunction.cpp.i
+.PHONY : SourceCode/NodeFunction.i
+
+# target to preprocess a source file
+SourceCode/NodeFunction.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/SourceCode/NodeFunction.cpp.i
+.PHONY : SourceCode/NodeFunction.cpp.i
+
+SourceCode/NodeFunction.s: SourceCode/NodeFunction.cpp.s
+.PHONY : SourceCode/NodeFunction.s
+
+# target to generate assembly for a file
+SourceCode/NodeFunction.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/SourceCode/NodeFunction.cpp.s
+.PHONY : SourceCode/NodeFunction.cpp.s
+
+SourceCode/User.o: SourceCode/User.cpp.o
+.PHONY : SourceCode/User.o
+
+# target to build an object file
+SourceCode/User.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/SourceCode/User.cpp.o
+.PHONY : SourceCode/User.cpp.o
+
+SourceCode/User.i: SourceCode/User.cpp.i
+.PHONY : SourceCode/User.i
+
+# target to preprocess a source file
+SourceCode/User.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/SourceCode/User.cpp.i
+.PHONY : SourceCode/User.cpp.i
+
+SourceCode/User.s: SourceCode/User.cpp.s
+.PHONY : SourceCode/User.s
+
+# target to generate assembly for a file
+SourceCode/User.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/SourceCode/User.cpp.s
+.PHONY : SourceCode/User.cpp.s
+
+SourceCode/course.o: SourceCode/course.cpp.o
+.PHONY : SourceCode/course.o
+
+# target to build an object file
+SourceCode/course.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/SourceCode/course.cpp.o
+.PHONY : SourceCode/course.cpp.o
+
+SourceCode/course.i: SourceCode/course.cpp.i
+.PHONY : SourceCode/course.i
+
+# target to preprocess a source file
+SourceCode/course.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/SourceCode/course.cpp.i
+.PHONY : SourceCode/course.cpp.i
+
+SourceCode/course.s: SourceCode/course.cpp.s
+.PHONY : SourceCode/course.s
+
+# target to generate assembly for a file
+SourceCode/course.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/SourceCode/course.cpp.s
+.PHONY : SourceCode/course.cpp.s
 
 SourceCode/main.o: SourceCode/main.cpp.o
 .PHONY : SourceCode/main.o
 
 # target to build an object file
 SourceCode/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/NameOfProject.dir/build.make CMakeFiles/NameOfProject.dir/SourceCode/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/SourceCode/main.cpp.o
 .PHONY : SourceCode/main.cpp.o
 
 SourceCode/main.i: SourceCode/main.cpp.i
@@ -187,7 +283,7 @@ SourceCode/main.i: SourceCode/main.cpp.i
 
 # target to preprocess a source file
 SourceCode/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/NameOfProject.dir/build.make CMakeFiles/NameOfProject.dir/SourceCode/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/SourceCode/main.cpp.i
 .PHONY : SourceCode/main.cpp.i
 
 SourceCode/main.s: SourceCode/main.cpp.s
@@ -195,8 +291,32 @@ SourceCode/main.s: SourceCode/main.cpp.s
 
 # target to generate assembly for a file
 SourceCode/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/NameOfProject.dir/build.make CMakeFiles/NameOfProject.dir/SourceCode/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/SourceCode/main.cpp.s
 .PHONY : SourceCode/main.cpp.s
+
+SourceCode/student.o: SourceCode/student.cpp.o
+.PHONY : SourceCode/student.o
+
+# target to build an object file
+SourceCode/student.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/SourceCode/student.cpp.o
+.PHONY : SourceCode/student.cpp.o
+
+SourceCode/student.i: SourceCode/student.cpp.i
+.PHONY : SourceCode/student.i
+
+# target to preprocess a source file
+SourceCode/student.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/SourceCode/student.cpp.i
+.PHONY : SourceCode/student.cpp.i
+
+SourceCode/student.s: SourceCode/student.cpp.s
+.PHONY : SourceCode/student.s
+
+# target to generate assembly for a file
+SourceCode/student.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/SourceCode/student.cpp.s
+.PHONY : SourceCode/student.cpp.s
 
 # Help Target
 help:
@@ -210,10 +330,25 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
-	@echo "... NameOfProject"
+	@echo "... project"
+	@echo "... SourceCode/Beginning_school_year.o"
+	@echo "... SourceCode/Beginning_school_year.i"
+	@echo "... SourceCode/Beginning_school_year.s"
+	@echo "... SourceCode/NodeFunction.o"
+	@echo "... SourceCode/NodeFunction.i"
+	@echo "... SourceCode/NodeFunction.s"
+	@echo "... SourceCode/User.o"
+	@echo "... SourceCode/User.i"
+	@echo "... SourceCode/User.s"
+	@echo "... SourceCode/course.o"
+	@echo "... SourceCode/course.i"
+	@echo "... SourceCode/course.s"
 	@echo "... SourceCode/main.o"
 	@echo "... SourceCode/main.i"
 	@echo "... SourceCode/main.s"
+	@echo "... SourceCode/student.o"
+	@echo "... SourceCode/student.i"
+	@echo "... SourceCode/student.s"
 .PHONY : help
 
 
