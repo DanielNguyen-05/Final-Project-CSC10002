@@ -48,7 +48,7 @@ void addSemesterToSchoolYear(SchoolYear* schoolYear, Semesters* semester)
     }
 }
 
-Courses* makeCourse(int course_id, std::string course_name, int num_credits) 
+Courses* makeCourse(std::string course_id, std::string course_name, int num_credits) 
 {
     Courses* newCourse = new Courses;
     newCourse->course_id = course_id;
@@ -113,7 +113,7 @@ void addSessionToClass(Classes* newClass, Sessions* newSession)
     }
 }
 
-Students* makeStudent(int no, int stu_id, std::string first_name, std::string last_name, std::string gender, std::string date_of_birth, int soci_id, Points points) 
+Students* makeStudent(int no, std::string stu_id, std::string first_name, std::string last_name, std::string gender, std::string date_of_birth, int soci_id, Points points) 
 {
     Students* newStudent = new Students;
     newStudent->no = no;
