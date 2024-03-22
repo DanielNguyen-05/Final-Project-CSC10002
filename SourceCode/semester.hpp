@@ -23,5 +23,5 @@ struct Semester {
     void createCourse();
     void viewCourseList();
     void updateCourse();
-
+    void deleteCourse();
 };

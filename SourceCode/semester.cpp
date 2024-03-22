@@ -1,5 +1,11 @@
 #include "semester.hpp"
 
+Semester::Semester(int semester_num, std::string start_day, std::string end_day) {
+    this->semester_num = semester_num;
+    this->start_day = start_day;
+    this->end_day = end_day;
+}
+
 void Semester::createSemester() {
     std::cout << "\t\t\t CREATING A NEW SEMESTER" << "\n\n" ;
     std::cout << "\t - Enter a new semester number which you want to create (ex: 1): ";
@@ -51,7 +57,7 @@ void Semester::viewCourseList() {
     }
 }
 
-void updateCourse()
+void Semester::updateCourse()
 {
     std::string course_id;
     std::cout << "\t - Enter the ID of the course you want to update: ";
@@ -83,6 +89,27 @@ void updateCourse()
             std::cin >> cur->data.session;
             return;
         }
+        cur = cur->pNext;
+    }
+    std::cout << "\t - Course not found!" << "\n";
+}
+
+void Semester::deleteCourse()
+{
+    std::string course_id;
+    std::cout << "\t - Enter the ID of the course you want to delete: ";
+    std::cin >> course_id;
+
+    Node<Course>* cur = this->courses.pHead;
+    Node<Course>* prev = nullptr;
+    while (cur != nullptr) {
+        if (cur->data.ID == course_id) {
+            if (prev == nullptr) this->courses.pHead = cur->pNext;
+            else prev->pNext = cur->pNext;
+            delete cur;
+            return;
+        }
+        prev = cur;
         cur = cur->pNext;
     }
     std::cout << "\t - Course not found!" << "\n";
