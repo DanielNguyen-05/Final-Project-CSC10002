@@ -1,7 +1,7 @@
 #pragma once
-#include"student.hpp"
-#include"LinkedList.hpp"
-#include<fstream>
+#include "student.hpp"
+#include "LinkedList.hpp"
+#include <fstream>
 
 using namespace std;
 
