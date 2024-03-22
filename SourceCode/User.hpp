@@ -15,6 +15,5 @@ struct Users{
     bool login();
     void viewProfileInfo();
     void changePassword();
-    void logout();
-    
+    void logout();  
 };

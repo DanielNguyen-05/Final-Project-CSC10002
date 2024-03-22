@@ -1,4 +1,4 @@
-#include"course.hpp"
+#include "course.hpp"
 
 Course::Course(string ID, string course_name, string class_name, string teacher_name, int num_of_creadit, int max_student, string session) {
 	this->ID = ID;

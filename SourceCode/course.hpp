@@ -4,6 +4,7 @@
 #include<fstream>
 
 using namespace std;
+
 struct Course {
     struct Point
     {
