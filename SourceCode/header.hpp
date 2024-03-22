@@ -41,7 +41,7 @@ struct Points
 struct Students 
 {
     int no;
-    int stu_id;
+    std::string stu_id;
     std::string first_name;
     std::string last_name;
     std::string gender;
@@ -74,7 +74,7 @@ struct Classes
 
 struct Courses 
 {
-    int course_id;
+    std::string course_id;
     std::string course_name;
     int num_credits;
     Classes* classes;
