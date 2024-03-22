@@ -57,8 +57,7 @@ void Semester::viewCourseList() {
     }
 }
 
-void Semester::updateCourse()
-{
+void Semester::updateCourse() {
     std::string course_id;
     std::cout << "\t - Enter the ID of the course you want to update: ";
     std::cin >> course_id;
@@ -94,8 +93,7 @@ void Semester::updateCourse()
     std::cout << "\t - Course not found!" << "\n";
 }
 
-void Semester::deleteCourse()
-{
+void Semester::deleteCourse() {
     std::string course_id;
     std::cout << "\t - Enter the ID of the course you want to delete: ";
     std::cin >> course_id;
