@@ -44,7 +44,7 @@ void Semester::createCourse() {
 
 void Semester::viewCourseList() {
     Node<Course>* cur = this->courses.pHead;
-    std::cout << "No,ID,Course Name,Class Name,Teacher Name,Num of Credit,Max Student,Session" << endl;
+    std::cout << "No,ID,Course Name,Class Name,Teacher Name,Num of Credit,Max Student,Session" << "\n";
     while (cur != nullptr) {
         std::cout << cur->data.ID << ",";
         std::cout << cur->data.course_name << ",";
@@ -52,7 +52,7 @@ void Semester::viewCourseList() {
         std::cout << cur->data.teacher_name << ",";
         std::cout << cur->data.num_of_credit << ",";
         std::cout << cur->data.max_student << ",";
-        std::cout << cur->data.session << endl;
+        std::cout << cur->data.session << "\n";
         cur = cur->pNext;
     }
 }
