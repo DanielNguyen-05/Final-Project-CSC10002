@@ -4,8 +4,6 @@
 #include "LinkedList.hpp"
 #include <fstream>
 
-using namespace std;
-
 struct Semester {
     int semester_num;
     std::string start_day;
