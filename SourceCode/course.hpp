@@ -6,8 +6,7 @@
 using namespace std;
 
 struct Course {
-    struct Point
-    {
+    struct Point {
         string stu_id;
         string full_name;
         string overall;
@@ -22,6 +21,7 @@ struct Course {
     string teacher_name;
     int num_of_credit;
     int max_student;
+    string day_of_week;   // phải có cái này nhe Bảo
     string session;
     LinkedList<Student> students;
     LinkedList<Point> points;
@@ -38,7 +38,6 @@ struct Course {
     void updateResult(string stu_id);
     void addStudent(Student stu);
     void deleteStudent(string stu_id);
-
 };
 ostream& operator<<(ostream& os, const Course::Point a);
 bool operator<(const Course::Point a, const Course::Point b);

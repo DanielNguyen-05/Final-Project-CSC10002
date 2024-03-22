@@ -31,6 +31,7 @@ void Course::inputCSV(const char* path) {
 	}
 	fIn.close();
 }
+
 void Course::importScoreboard(const char* path) {
 	ifstream fIn(path);
 	string ignore = "";
@@ -52,11 +53,12 @@ void Course::importScoreboard(const char* path) {
 	}
 	fIn.close();
 }
+
 void Course::outputCSV(const char* path) {
 	ofstream fOut(path);
 	Node<Student>* cur = this->students.pHead;
 	int no = 0;
-	fOut << "no,stu_id,first_name,last_name,gender,date_of_birth,soci_id" << endl;
+	fOut << "no,stu_id,first_name,last_name,gender,date_of_birth,soci_id" << "\n";
 	while (cur) {
 		no++;
 		fOut << no << ",";
@@ -65,18 +67,20 @@ void Course::outputCSV(const char* path) {
 	}
 	fOut.close();
 }
+
 void Course::viewScoreboard() {
 	if (!this->points.pHead)
 		return;
-	cout << "no,stu_id,full_name,overall,final,mid_term,others" << endl;
+	std::cout << "no,stu_id,full_name,overall,final,mid_term,others" << "\n";
 	Node<Point>* cur = this->points.pHead;
 	int no = 0;
 	while (cur) {
 		no++;
-		cout << no << "," << cur->data;
+		std::cout << no << "," << cur->data;
 		cur = cur->pNext;
 	}
 }
+
 void Course::updateResult(string stu_id) {
 	Point pt;
 	pt.stu_id = stu_id;
@@ -84,34 +88,38 @@ void Course::updateResult(string stu_id) {
 	if (stu == nullptr) {
 		return;
 	}
-	cout << "Others Mark: ";
+	std::cout << "Others Mark: ";
 	cin >> stu->data.others;
-	cout << "Midterm Mark: ";
+	std::cout << "Midterm Mark: ";
 	cin >> stu->data.midterm;
-	cout << "Final Mark: ";
+	std::cout << "Final Mark: ";
 	cin >> stu->data.final;
-	cout << "Overall: ";
+	std::cout << "Overall: ";
 	cin >> stu->data.overall;
 }
+
 void Course::addStudent(Student stu) {
 	this->students.insertOrdered(stu);
 }
+
 void Course::deleteStudent(string stu_id) {
 	Student stu;
 	stu.stu_id = stu_id;
 	if (this->students.deleteNode(stu)) {
-		cout << "delete success" << endl;
+		std::cout << "delete success" << "\n";
 		Point pt;
 		pt.stu_id = stu_id;
 		this->points.deleteNode(pt);
 	}
 	else
-		cout << "Course doesn't have this student" << endl;
+		std::cout << "Course doesn't have this student" << "\n";
 }
+
 static ostream& operator<<(ostream& os, const Course::Point a) {
-	os << a.stu_id << "," << a.full_name << "," << a.overall << "," << a.final << "," << a.midterm << "," << a.others << endl;
+	os << a.stu_id << "," << a.full_name << "," << a.overall << "," << a.final << "," << a.midterm << "," << a.others << "\n";
 	return os;
 }
+
 bool operator<(const Course::Point a, const Course::Point b) {
 	return a.stu_id < b.stu_id;
 }
