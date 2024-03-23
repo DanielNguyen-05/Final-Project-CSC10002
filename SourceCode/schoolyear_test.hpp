@@ -14,7 +14,7 @@ struct SchoolYear {
     SchoolYear(std::string year) {
         this->year = year;
     }
-    void createSchoolYear();
-    void createGeneralClass();
-    void importStudentsToGeneralClassFromCSV();
+    void createSchoolYear(std::string path);
+    void createGeneralClass(std::stirng path);
+    void importStudentsToGeneralClassFromCSV(std::string path);
 };
