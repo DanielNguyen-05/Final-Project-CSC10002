@@ -52,7 +52,7 @@ void SchoolYear::importStudentsToGeneralClassFromCSV(std::string path) {
     std::getline(fIn, ignore);
     while (!fIn.eof()) {
         Student stu;
-        std::getline(f, stu.stu_id, ',');
+        std::getline(fIn, stu.stu_id, ',');
         std::getline(fIn, stu.first_name, ',');
         std::getline(fIn, stu.last_name, ',');
         std::getline(fIn, stu.gender, ',');
