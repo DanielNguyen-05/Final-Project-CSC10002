@@ -19,6 +19,7 @@ void SchoolYear::createGeneralClass() {
     std::cin >> class_name;
 }
 
+
 void SchoolYear::importStudentsToGeneralClassFromCSV(std::string path) {
     std::cout << "\t\t\t ADDING STUDENT TO GENERAL CLASS" << "\n\n";
     std::string year;
@@ -28,23 +29,22 @@ void SchoolYear::importStudentsToGeneralClassFromCSV(std::string path) {
     std::cout << "\t -Please input the name of the General Class: ";
     std::cin >> class_name;
 
-	ifstream fIn(path);
-	string ignore = "";
-	getline(fIn, ignore);
-	while (!fIn.eof()) {
-		Student stu;
-		string tmp_no = "";
-		getline(fIn, tmp_no, ',');
-		if (tmp_no == "")
-			return;
-		getline(fIn, stu.stu_id, ',');
-		getline(fIn, stu.first_name, ',');
-		getline(fIn, stu.last_name, ',');
-		getline(fIn, stu.gender, ',');
-		getline(fIn, stu.date_of_birth, ',');
-		getline(fIn, stu.soci_id);
+    std::ifstream fIn(path);
+    std::string ignore = "";
+    std::getline(fIn, ignore);
+    while (!fIn.eof()) {
+        Student stu;
+        std::string tmp_no = "";
+        std::getline(fIn, tmp_no, ',');
+        if (tmp_no == "") return;
+        std::getline(fIn, stu.stu_id, ',');
+        std::getline(fIn, stu.first_name, ',');
+        std::getline(fIn, stu.last_name, ',');
+        std::getline(fIn, stu.gender, ',');
+        std::getline(fIn, stu.date_of_birth, ',');
+        std::getline(fIn, stu.soci_id);
 
 		this->students.insertOrdered(stu);
-	}
-	fIn.close();
+    }
+    fIn.close();
 }
