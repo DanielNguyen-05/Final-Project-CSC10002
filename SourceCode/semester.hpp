@@ -3,6 +3,7 @@
 #include "course.hpp"
 #include "LinkedList.hpp"
 #include <fstream>
+#include <string>
 
 struct Semester {
     int semester_num;
