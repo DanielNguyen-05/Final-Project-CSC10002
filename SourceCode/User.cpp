@@ -1,10 +1,4 @@
 #include "User.hpp"
-#include "header.hpp"
-#include <iostream>
-#include <string>
-#include <fstream>
-#include <cstring>
-
 
 bool Users::isStudent(std::string username, std::string password)
 {
@@ -15,7 +9,6 @@ bool Users::isStudent(std::string username, std::string password)
     fin.open(account_file.c_str());
     if(!fin.is_open())
     {
-        std::cerr << "Wrong password or username!";
         return false;
     }
 
@@ -24,7 +17,6 @@ bool Users::isStudent(std::string username, std::string password)
 
     if(account_pass != password)
     {
-        std::cerr << "Wrong password or username!";
         return false;
     }
 
@@ -43,7 +35,6 @@ bool Users::isAcademicStaff(std::string username, std::string password)
     fin.open(account_file.c_str());
     if(!fin.is_open())
     {
-        std::cerr << "Wrong password or username!";
         return false;
     }
 
@@ -52,7 +43,6 @@ bool Users::isAcademicStaff(std::string username, std::string password)
 
     if(account_pass != password)
     {
-        std::cerr << "Wrong password or username!";
         return false;
     }
 
@@ -96,21 +86,16 @@ bool Users::login()
 void Users::viewProfileInfo()
 {
     if(isStaff)
+    if (isStaff)
     {
-        std::cerr << "Staff don't have information!";
         return;
     }
 
-
-
-
 }
-void Users::changePassword()
 {
     if(Password == "")
     {
         std::cerr << "Don't have user's data.";
-        return;
     }
     std::string password , new_password , re_new_password;
 
@@ -126,19 +111,16 @@ void Users::changePassword()
     if(password != Password) 
     {
         std::cerr << "Wrong password. Please try again!\n"; 
-        return;
     }
 
     if(new_password.size() < 8)
     {
         std::cerr << "Error: Password must be longer than 8 characters. Please try again!\n";
-        return;
     }
     
     if(new_password != re_new_password)
     {
         std::cerr << "Error: Password do not match. Please try again!\n";
-        return;
     }
 
 
@@ -151,7 +133,6 @@ void Users::changePassword()
     if(!fout.is_open()) 
     {
         std::cerr << "Don't have user's data.";
-        return;
     }
 
     fout << new_password;
