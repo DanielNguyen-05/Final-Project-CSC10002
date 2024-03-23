@@ -9,6 +9,8 @@ bool Users::isStudent(std::string username, std::string password)
     fin.open(account_file.c_str());
     if(!fin.is_open())
     {
+        system("cls");
+        std::cerr << "Wrong password or username!" << std::endl;
         return false;
     }
 
@@ -17,6 +19,8 @@ bool Users::isStudent(std::string username, std::string password)
 
     if(account_pass != password)
     {
+        system("cls");
+        std::cerr << "Wrong password or username!" << std::endl;
         return false;
     }
 
@@ -66,6 +70,7 @@ bool Users::login()
     {
         if(isStudent(username, password))
         {
+            system("cls");
             std::cout << "Log in successfully. Welcome back " << Username << "!\n";
             
             return true;
@@ -75,6 +80,7 @@ bool Users::login()
     {
         if(isAcademicStaff(username, password))
         {
+            system("cls");
             std::cout << "Log in successfully. Welcome back " << Username << "!\n";
             return true;
         }
@@ -85,17 +91,19 @@ bool Users::login()
 
 void Users::viewProfileInfo()
 {
-    if(isStaff)
     if (isStaff)
     {
+        std::cerr << "Staff don't have information!" << std::endl;
         return;
     }
 
 }
+bool Users::changePassword()
 {
     if(Password == "")
     {
         std::cerr << "Don't have user's data.";
+        return false;
     }
     std::string password , new_password , re_new_password;
 
@@ -111,16 +119,19 @@ void Users::viewProfileInfo()
     if(password != Password) 
     {
         std::cerr << "Wrong password. Please try again!\n"; 
+        return false;
     }
 
     if(new_password.size() < 8)
     {
         std::cerr << "Error: Password must be longer than 8 characters. Please try again!\n";
+        return false;
     }
     
     if(new_password != re_new_password)
     {
         std::cerr << "Error: Password do not match. Please try again!\n";
+        return false;
     }
 
 
@@ -133,12 +144,14 @@ void Users::viewProfileInfo()
     if(!fout.is_open()) 
     {
         std::cerr << "Don't have user's data.";
+        return false;
     }
 
     fout << new_password;
     fout.close();
 
     std::cout << "Change password successfully!\n";
+    return true;
 }
 void Users::logout()
 {
