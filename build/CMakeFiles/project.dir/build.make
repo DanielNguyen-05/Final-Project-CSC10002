@@ -97,24 +97,10 @@ CMakeFiles/project.dir/SourceCode/NodeFunction.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/project.dir/SourceCode/NodeFunction.cpp.s"
 	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/dangnguyen/Desktop/Final-Project-CSC10002/SourceCode/NodeFunction.cpp -o CMakeFiles/project.dir/SourceCode/NodeFunction.cpp.s
 
-CMakeFiles/project.dir/SourceCode/User.cpp.o: CMakeFiles/project.dir/flags.make
-CMakeFiles/project.dir/SourceCode/User.cpp.o: /Users/dangnguyen/Desktop/Final-Project-CSC10002/SourceCode/User.cpp
-CMakeFiles/project.dir/SourceCode/User.cpp.o: CMakeFiles/project.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dangnguyen/Desktop/Final-Project-CSC10002/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/project.dir/SourceCode/User.cpp.o"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/project.dir/SourceCode/User.cpp.o -MF CMakeFiles/project.dir/SourceCode/User.cpp.o.d -o CMakeFiles/project.dir/SourceCode/User.cpp.o -c /Users/dangnguyen/Desktop/Final-Project-CSC10002/SourceCode/User.cpp
-
-CMakeFiles/project.dir/SourceCode/User.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/project.dir/SourceCode/User.cpp.i"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/dangnguyen/Desktop/Final-Project-CSC10002/SourceCode/User.cpp > CMakeFiles/project.dir/SourceCode/User.cpp.i
-
-CMakeFiles/project.dir/SourceCode/User.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/project.dir/SourceCode/User.cpp.s"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/dangnguyen/Desktop/Final-Project-CSC10002/SourceCode/User.cpp -o CMakeFiles/project.dir/SourceCode/User.cpp.s
-
 CMakeFiles/project.dir/SourceCode/course.cpp.o: CMakeFiles/project.dir/flags.make
 CMakeFiles/project.dir/SourceCode/course.cpp.o: /Users/dangnguyen/Desktop/Final-Project-CSC10002/SourceCode/course.cpp
 CMakeFiles/project.dir/SourceCode/course.cpp.o: CMakeFiles/project.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dangnguyen/Desktop/Final-Project-CSC10002/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/project.dir/SourceCode/course.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dangnguyen/Desktop/Final-Project-CSC10002/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/project.dir/SourceCode/course.cpp.o"
 	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/project.dir/SourceCode/course.cpp.o -MF CMakeFiles/project.dir/SourceCode/course.cpp.o.d -o CMakeFiles/project.dir/SourceCode/course.cpp.o -c /Users/dangnguyen/Desktop/Final-Project-CSC10002/SourceCode/course.cpp
 
 CMakeFiles/project.dir/SourceCode/course.cpp.i: cmake_force
@@ -128,7 +114,7 @@ CMakeFiles/project.dir/SourceCode/course.cpp.s: cmake_force
 CMakeFiles/project.dir/SourceCode/main.cpp.o: CMakeFiles/project.dir/flags.make
 CMakeFiles/project.dir/SourceCode/main.cpp.o: /Users/dangnguyen/Desktop/Final-Project-CSC10002/SourceCode/main.cpp
 CMakeFiles/project.dir/SourceCode/main.cpp.o: CMakeFiles/project.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dangnguyen/Desktop/Final-Project-CSC10002/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/project.dir/SourceCode/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dangnguyen/Desktop/Final-Project-CSC10002/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/project.dir/SourceCode/main.cpp.o"
 	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/project.dir/SourceCode/main.cpp.o -MF CMakeFiles/project.dir/SourceCode/main.cpp.o.d -o CMakeFiles/project.dir/SourceCode/main.cpp.o -c /Users/dangnguyen/Desktop/Final-Project-CSC10002/SourceCode/main.cpp
 
 CMakeFiles/project.dir/SourceCode/main.cpp.i: cmake_force
@@ -139,10 +125,38 @@ CMakeFiles/project.dir/SourceCode/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/project.dir/SourceCode/main.cpp.s"
 	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/dangnguyen/Desktop/Final-Project-CSC10002/SourceCode/main.cpp -o CMakeFiles/project.dir/SourceCode/main.cpp.s
 
+CMakeFiles/project.dir/SourceCode/main_menu.cpp.o: CMakeFiles/project.dir/flags.make
+CMakeFiles/project.dir/SourceCode/main_menu.cpp.o: /Users/dangnguyen/Desktop/Final-Project-CSC10002/SourceCode/main_menu.cpp
+CMakeFiles/project.dir/SourceCode/main_menu.cpp.o: CMakeFiles/project.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dangnguyen/Desktop/Final-Project-CSC10002/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/project.dir/SourceCode/main_menu.cpp.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/project.dir/SourceCode/main_menu.cpp.o -MF CMakeFiles/project.dir/SourceCode/main_menu.cpp.o.d -o CMakeFiles/project.dir/SourceCode/main_menu.cpp.o -c /Users/dangnguyen/Desktop/Final-Project-CSC10002/SourceCode/main_menu.cpp
+
+CMakeFiles/project.dir/SourceCode/main_menu.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/project.dir/SourceCode/main_menu.cpp.i"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/dangnguyen/Desktop/Final-Project-CSC10002/SourceCode/main_menu.cpp > CMakeFiles/project.dir/SourceCode/main_menu.cpp.i
+
+CMakeFiles/project.dir/SourceCode/main_menu.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/project.dir/SourceCode/main_menu.cpp.s"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/dangnguyen/Desktop/Final-Project-CSC10002/SourceCode/main_menu.cpp -o CMakeFiles/project.dir/SourceCode/main_menu.cpp.s
+
+CMakeFiles/project.dir/SourceCode/schoolyear_test.cpp.o: CMakeFiles/project.dir/flags.make
+CMakeFiles/project.dir/SourceCode/schoolyear_test.cpp.o: /Users/dangnguyen/Desktop/Final-Project-CSC10002/SourceCode/schoolyear_test.cpp
+CMakeFiles/project.dir/SourceCode/schoolyear_test.cpp.o: CMakeFiles/project.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dangnguyen/Desktop/Final-Project-CSC10002/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/project.dir/SourceCode/schoolyear_test.cpp.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/project.dir/SourceCode/schoolyear_test.cpp.o -MF CMakeFiles/project.dir/SourceCode/schoolyear_test.cpp.o.d -o CMakeFiles/project.dir/SourceCode/schoolyear_test.cpp.o -c /Users/dangnguyen/Desktop/Final-Project-CSC10002/SourceCode/schoolyear_test.cpp
+
+CMakeFiles/project.dir/SourceCode/schoolyear_test.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/project.dir/SourceCode/schoolyear_test.cpp.i"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/dangnguyen/Desktop/Final-Project-CSC10002/SourceCode/schoolyear_test.cpp > CMakeFiles/project.dir/SourceCode/schoolyear_test.cpp.i
+
+CMakeFiles/project.dir/SourceCode/schoolyear_test.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/project.dir/SourceCode/schoolyear_test.cpp.s"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/dangnguyen/Desktop/Final-Project-CSC10002/SourceCode/schoolyear_test.cpp -o CMakeFiles/project.dir/SourceCode/schoolyear_test.cpp.s
+
 CMakeFiles/project.dir/SourceCode/semester.cpp.o: CMakeFiles/project.dir/flags.make
 CMakeFiles/project.dir/SourceCode/semester.cpp.o: /Users/dangnguyen/Desktop/Final-Project-CSC10002/SourceCode/semester.cpp
 CMakeFiles/project.dir/SourceCode/semester.cpp.o: CMakeFiles/project.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dangnguyen/Desktop/Final-Project-CSC10002/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/project.dir/SourceCode/semester.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dangnguyen/Desktop/Final-Project-CSC10002/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/project.dir/SourceCode/semester.cpp.o"
 	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/project.dir/SourceCode/semester.cpp.o -MF CMakeFiles/project.dir/SourceCode/semester.cpp.o.d -o CMakeFiles/project.dir/SourceCode/semester.cpp.o -c /Users/dangnguyen/Desktop/Final-Project-CSC10002/SourceCode/semester.cpp
 
 CMakeFiles/project.dir/SourceCode/semester.cpp.i: cmake_force
@@ -156,7 +170,7 @@ CMakeFiles/project.dir/SourceCode/semester.cpp.s: cmake_force
 CMakeFiles/project.dir/SourceCode/student.cpp.o: CMakeFiles/project.dir/flags.make
 CMakeFiles/project.dir/SourceCode/student.cpp.o: /Users/dangnguyen/Desktop/Final-Project-CSC10002/SourceCode/student.cpp
 CMakeFiles/project.dir/SourceCode/student.cpp.o: CMakeFiles/project.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dangnguyen/Desktop/Final-Project-CSC10002/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/project.dir/SourceCode/student.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dangnguyen/Desktop/Final-Project-CSC10002/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/project.dir/SourceCode/student.cpp.o"
 	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/project.dir/SourceCode/student.cpp.o -MF CMakeFiles/project.dir/SourceCode/student.cpp.o.d -o CMakeFiles/project.dir/SourceCode/student.cpp.o -c /Users/dangnguyen/Desktop/Final-Project-CSC10002/SourceCode/student.cpp
 
 CMakeFiles/project.dir/SourceCode/student.cpp.i: cmake_force
@@ -167,29 +181,47 @@ CMakeFiles/project.dir/SourceCode/student.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/project.dir/SourceCode/student.cpp.s"
 	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/dangnguyen/Desktop/Final-Project-CSC10002/SourceCode/student.cpp -o CMakeFiles/project.dir/SourceCode/student.cpp.s
 
+CMakeFiles/project.dir/SourceCode/user.cpp.o: CMakeFiles/project.dir/flags.make
+CMakeFiles/project.dir/SourceCode/user.cpp.o: /Users/dangnguyen/Desktop/Final-Project-CSC10002/SourceCode/user.cpp
+CMakeFiles/project.dir/SourceCode/user.cpp.o: CMakeFiles/project.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/dangnguyen/Desktop/Final-Project-CSC10002/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/project.dir/SourceCode/user.cpp.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/project.dir/SourceCode/user.cpp.o -MF CMakeFiles/project.dir/SourceCode/user.cpp.o.d -o CMakeFiles/project.dir/SourceCode/user.cpp.o -c /Users/dangnguyen/Desktop/Final-Project-CSC10002/SourceCode/user.cpp
+
+CMakeFiles/project.dir/SourceCode/user.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/project.dir/SourceCode/user.cpp.i"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/dangnguyen/Desktop/Final-Project-CSC10002/SourceCode/user.cpp > CMakeFiles/project.dir/SourceCode/user.cpp.i
+
+CMakeFiles/project.dir/SourceCode/user.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/project.dir/SourceCode/user.cpp.s"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/dangnguyen/Desktop/Final-Project-CSC10002/SourceCode/user.cpp -o CMakeFiles/project.dir/SourceCode/user.cpp.s
+
 # Object files for target project
 project_OBJECTS = \
 "CMakeFiles/project.dir/SourceCode/Beginning_school_year.cpp.o" \
 "CMakeFiles/project.dir/SourceCode/NodeFunction.cpp.o" \
-"CMakeFiles/project.dir/SourceCode/User.cpp.o" \
 "CMakeFiles/project.dir/SourceCode/course.cpp.o" \
 "CMakeFiles/project.dir/SourceCode/main.cpp.o" \
+"CMakeFiles/project.dir/SourceCode/main_menu.cpp.o" \
+"CMakeFiles/project.dir/SourceCode/schoolyear_test.cpp.o" \
 "CMakeFiles/project.dir/SourceCode/semester.cpp.o" \
-"CMakeFiles/project.dir/SourceCode/student.cpp.o"
+"CMakeFiles/project.dir/SourceCode/student.cpp.o" \
+"CMakeFiles/project.dir/SourceCode/user.cpp.o"
 
 # External object files for target project
 project_EXTERNAL_OBJECTS =
 
 project: CMakeFiles/project.dir/SourceCode/Beginning_school_year.cpp.o
 project: CMakeFiles/project.dir/SourceCode/NodeFunction.cpp.o
-project: CMakeFiles/project.dir/SourceCode/User.cpp.o
 project: CMakeFiles/project.dir/SourceCode/course.cpp.o
 project: CMakeFiles/project.dir/SourceCode/main.cpp.o
+project: CMakeFiles/project.dir/SourceCode/main_menu.cpp.o
+project: CMakeFiles/project.dir/SourceCode/schoolyear_test.cpp.o
 project: CMakeFiles/project.dir/SourceCode/semester.cpp.o
 project: CMakeFiles/project.dir/SourceCode/student.cpp.o
+project: CMakeFiles/project.dir/SourceCode/user.cpp.o
 project: CMakeFiles/project.dir/build.make
 project: CMakeFiles/project.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/dangnguyen/Desktop/Final-Project-CSC10002/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable project"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/dangnguyen/Desktop/Final-Project-CSC10002/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable project"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/project.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

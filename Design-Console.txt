@@ -796,6 +796,7 @@ XI. Student's basic operation:
         0. Log out  // return I
         1. View your profile  // go to 10.1
         2. View your points  // go to 10.2
+        3. Change password  // go to 10.3
     
         Your choice:       
 
@@ -817,5 +818,27 @@ XI. Student's basic operation:
             - Enter the semester (ex: 2):
         
         // khúc này cũng tự design đi keke :v
+
+    10.3 Change password:
+
+                CHANGE PASSWORD
+            - Enter the old password:
+            - Enter the new password:
+
+        10.3.a If old password is wrong:
+
+                Your old password is wrong!
+            - Please press "Enter" to re-enter it  // return 10.3
+            - Enter 0 to return to the Main Menu  // return X
+
+            Your choice: 
+
+        10.3.b If new password is empty or same as the old ones:
+
+                Your new password must not be empty or same as the old ones!
+            - Please press "Enter" to re-enter it!  // return 10.3
+            - Enter 0 to return to the Main Menu  // return X
+
+            Your choice: 
 
 THE END 
