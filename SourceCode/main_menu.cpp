@@ -24,3 +24,4 @@ void mainMenuOfStudent(std::string username) {
     std::cout << "\t 3. Change password" << "\n\n";
     std::cout << "\t Please input your choice: ";
 }
+
