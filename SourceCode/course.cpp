@@ -61,7 +61,7 @@ void Course::outputCSV(const char* path) {
 	fOut << "no,stu_id,first_name,last_name,gender,date_of_birth,soci_id" << "\n";
 	while (cur) {
 		no++;
-		fOut << no << ",";
+		fOut << no << ", ";
 		fOut << cur->data;
 		cur = cur->pNext;
 	}
@@ -71,7 +71,7 @@ void Course::outputCSV(const char* path) {
 void Course::viewScoreboard() {
 	if (!this->points.pHead)
 		return;
-	std::cout << "no,stu_id,full_name,overall,final,mid_term,others" << "\n";
+	std::cout << "NO \t Student ID \t Full Name \t Overall Point \t Final Point \t Midterm Point \t Others" << "\n";
 	Node<Point>* cur = this->points.pHead;
 	int no = 0;
 	while (cur) {
@@ -88,11 +88,11 @@ void Course::updateResult(string stu_id) {
 	if (stu == nullptr) {
 		return;
 	}
-	std::cout << "Others Mark: ";
+	std::cout << "Others Point: ";
 	cin >> stu->data.others;
-	std::cout << "Midterm Mark: ";
+	std::cout << "Midterm Point: ";
 	cin >> stu->data.midterm;
-	std::cout << "Final Mark: ";
+	std::cout << "Final Point: ";
 	cin >> stu->data.final;
 	std::cout << "Overall: ";
 	cin >> stu->data.overall;
