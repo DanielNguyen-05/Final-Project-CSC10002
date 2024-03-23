@@ -15,6 +15,13 @@ void Semester::createSemester() {
         std::cin >> this->start_day;
         std::cout << "\t - Enter the end date (ex: 20/01/2024): ";
         std::cin >> this->end_day;
+
+    int choice;
+    // chỗ này đưa cái table của Trâm Võ vô
+    if (choice == 1) goto label;
+    else if (choice == 2);  // đưa cái hàm để quay lại 6.2.a
+    else if (choice == 0);  // đưa cái hàm để quay laị VI
+
 }
 
 void Semester::createCourse() {
@@ -43,6 +50,12 @@ void Semester::createCourse() {
                 << "\t - Which sessions, this course will be held (ex: S1): ";
         std::cin >> course.session;
         this->courses.insertAtTail(course);
+    
+    int choice;
+    // chỗ này đưa cái table của Trâm Võ vô
+    if (choice == 1) goto label;
+    else if (choice == 2);  // đưa cái hàm để quay lại 6.2.a
+    else if (choice == 0);  // đưa cái hàm để quay laị VI
 }
 
 void Semester::viewCourseList() {

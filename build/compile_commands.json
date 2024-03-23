@@ -1,0 +1,44 @@
+[
+{
+  "directory": "/Users/dangnguyen/Desktop/Final-Project-CSC10002/build",
+  "command": "/usr/bin/clang++   -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/project.dir/SourceCode/Beginning_school_year.cpp.o -c /Users/dangnguyen/Desktop/Final-Project-CSC10002/SourceCode/Beginning_school_year.cpp",
+  "file": "/Users/dangnguyen/Desktop/Final-Project-CSC10002/SourceCode/Beginning_school_year.cpp",
+  "output": "CMakeFiles/project.dir/SourceCode/Beginning_school_year.cpp.o"
+},
+{
+  "directory": "/Users/dangnguyen/Desktop/Final-Project-CSC10002/build",
+  "command": "/usr/bin/clang++   -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/project.dir/SourceCode/NodeFunction.cpp.o -c /Users/dangnguyen/Desktop/Final-Project-CSC10002/SourceCode/NodeFunction.cpp",
+  "file": "/Users/dangnguyen/Desktop/Final-Project-CSC10002/SourceCode/NodeFunction.cpp",
+  "output": "CMakeFiles/project.dir/SourceCode/NodeFunction.cpp.o"
+},
+{
+  "directory": "/Users/dangnguyen/Desktop/Final-Project-CSC10002/build",
+  "command": "/usr/bin/clang++   -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/project.dir/SourceCode/User.cpp.o -c /Users/dangnguyen/Desktop/Final-Project-CSC10002/SourceCode/User.cpp",
+  "file": "/Users/dangnguyen/Desktop/Final-Project-CSC10002/SourceCode/User.cpp",
+  "output": "CMakeFiles/project.dir/SourceCode/User.cpp.o"
+},
+{
+  "directory": "/Users/dangnguyen/Desktop/Final-Project-CSC10002/build",
+  "command": "/usr/bin/clang++   -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/project.dir/SourceCode/course.cpp.o -c /Users/dangnguyen/Desktop/Final-Project-CSC10002/SourceCode/course.cpp",
+  "file": "/Users/dangnguyen/Desktop/Final-Project-CSC10002/SourceCode/course.cpp",
+  "output": "CMakeFiles/project.dir/SourceCode/course.cpp.o"
+},
+{
+  "directory": "/Users/dangnguyen/Desktop/Final-Project-CSC10002/build",
+  "command": "/usr/bin/clang++   -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/project.dir/SourceCode/main.cpp.o -c /Users/dangnguyen/Desktop/Final-Project-CSC10002/SourceCode/main.cpp",
+  "file": "/Users/dangnguyen/Desktop/Final-Project-CSC10002/SourceCode/main.cpp",
+  "output": "CMakeFiles/project.dir/SourceCode/main.cpp.o"
+},
+{
+  "directory": "/Users/dangnguyen/Desktop/Final-Project-CSC10002/build",
+  "command": "/usr/bin/clang++   -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/project.dir/SourceCode/semester.cpp.o -c /Users/dangnguyen/Desktop/Final-Project-CSC10002/SourceCode/semester.cpp",
+  "file": "/Users/dangnguyen/Desktop/Final-Project-CSC10002/SourceCode/semester.cpp",
+  "output": "CMakeFiles/project.dir/SourceCode/semester.cpp.o"
+},
+{
+  "directory": "/Users/dangnguyen/Desktop/Final-Project-CSC10002/build",
+  "command": "/usr/bin/clang++   -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -o CMakeFiles/project.dir/SourceCode/student.cpp.o -c /Users/dangnguyen/Desktop/Final-Project-CSC10002/SourceCode/student.cpp",
+  "file": "/Users/dangnguyen/Desktop/Final-Project-CSC10002/SourceCode/student.cpp",
+  "output": "CMakeFiles/project.dir/SourceCode/student.cpp.o"
+}
+]
