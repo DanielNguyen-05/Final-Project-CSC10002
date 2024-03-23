@@ -17,6 +17,7 @@ void Semester::createSemester() {
 }
 
 void Semester::createCourse() {
+    std::cout << "\t\t\t CREATING A NEW COURSE" << "\n\n" ;
     Course course;
     std::cout << "\t - Enter the name of this course (ex: KTLT): ";
     std::cin >> course.course_name;
@@ -44,14 +45,14 @@ void Semester::createCourse() {
 
 void Semester::viewCourseList() {
     Node<Course>* cur = this->courses.pHead;
-    std::cout << "No,ID,Course Name,Class Name,Teacher Name,Num of Credit,Max Student,Session" << "\n";
+    std::cout << "No \t ID of Course \t Course Name \t Class Name \t Teacher Name \t Credits \t Max Student \t Session" << "\n";
     while (cur != nullptr) {
-        std::cout << cur->data.ID << ",";
-        std::cout << cur->data.course_name << ",";
-        std::cout << cur->data.class_name << ",";
-        std::cout << cur->data.teacher_name << ",";
-        std::cout << cur->data.num_of_credit << ",";
-        std::cout << cur->data.max_student << ",";
+        std::cout << cur->data.ID << "\t";
+        std::cout << cur->data.course_name << "\t";
+        std::cout << cur->data.class_name << "\t";
+        std::cout << cur->data.teacher_name << "\t";
+        std::cout << cur->data.num_of_credit << "\t";
+        std::cout << cur->data.max_student << "\t";
         std::cout << cur->data.session << "\n";
         cur = cur->pNext;
     }
@@ -63,6 +64,7 @@ void Semester::updateCourse() {
     std::cin >> course_id;
 
     Node<Course>* cur = this->courses.pHead;
+    std::cout << "\t\t\t UPDATING THE COURSE "  << course_id  << ": " << "\n\n" ;
     while (cur != nullptr) {
         if (cur->data.ID == course_id) {
             std::cout << "\t - Enter the new name of this course (ex: KTLT): ";

@@ -13,6 +13,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/dangnguyen/Desktop/Final-Project-CSC10002/SourceCode/User.cpp" "CMakeFiles/project.dir/SourceCode/User.cpp.o" "gcc" "CMakeFiles/project.dir/SourceCode/User.cpp.o.d"
   "/Users/dangnguyen/Desktop/Final-Project-CSC10002/SourceCode/course.cpp" "CMakeFiles/project.dir/SourceCode/course.cpp.o" "gcc" "CMakeFiles/project.dir/SourceCode/course.cpp.o.d"
   "/Users/dangnguyen/Desktop/Final-Project-CSC10002/SourceCode/main.cpp" "CMakeFiles/project.dir/SourceCode/main.cpp.o" "gcc" "CMakeFiles/project.dir/SourceCode/main.cpp.o.d"
+  "/Users/dangnguyen/Desktop/Final-Project-CSC10002/SourceCode/semester.cpp" "CMakeFiles/project.dir/SourceCode/semester.cpp.o" "gcc" "CMakeFiles/project.dir/SourceCode/semester.cpp.o.d"
   "/Users/dangnguyen/Desktop/Final-Project-CSC10002/SourceCode/student.cpp" "CMakeFiles/project.dir/SourceCode/student.cpp.o" "gcc" "CMakeFiles/project.dir/SourceCode/student.cpp.o.d"
   )
 

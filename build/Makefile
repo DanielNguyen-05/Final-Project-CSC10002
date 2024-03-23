@@ -294,6 +294,30 @@ SourceCode/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/SourceCode/main.cpp.s
 .PHONY : SourceCode/main.cpp.s
 
+SourceCode/semester.o: SourceCode/semester.cpp.o
+.PHONY : SourceCode/semester.o
+
+# target to build an object file
+SourceCode/semester.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/SourceCode/semester.cpp.o
+.PHONY : SourceCode/semester.cpp.o
+
+SourceCode/semester.i: SourceCode/semester.cpp.i
+.PHONY : SourceCode/semester.i
+
+# target to preprocess a source file
+SourceCode/semester.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/SourceCode/semester.cpp.i
+.PHONY : SourceCode/semester.cpp.i
+
+SourceCode/semester.s: SourceCode/semester.cpp.s
+.PHONY : SourceCode/semester.s
+
+# target to generate assembly for a file
+SourceCode/semester.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/SourceCode/semester.cpp.s
+.PHONY : SourceCode/semester.cpp.s
+
 SourceCode/student.o: SourceCode/student.cpp.o
 .PHONY : SourceCode/student.o
 
@@ -346,6 +370,9 @@ help:
 	@echo "... SourceCode/main.o"
 	@echo "... SourceCode/main.i"
 	@echo "... SourceCode/main.s"
+	@echo "... SourceCode/semester.o"
+	@echo "... SourceCode/semester.i"
+	@echo "... SourceCode/semester.s"
 	@echo "... SourceCode/student.o"
 	@echo "... SourceCode/student.i"
 	@echo "... SourceCode/student.s"
