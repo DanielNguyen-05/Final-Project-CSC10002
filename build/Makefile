@@ -198,30 +198,6 @@ SourceCode/Beginning_school_year.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/SourceCode/Beginning_school_year.cpp.s
 .PHONY : SourceCode/Beginning_school_year.cpp.s
 
-SourceCode/NodeFunction.o: SourceCode/NodeFunction.cpp.o
-.PHONY : SourceCode/NodeFunction.o
-
-# target to build an object file
-SourceCode/NodeFunction.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/SourceCode/NodeFunction.cpp.o
-.PHONY : SourceCode/NodeFunction.cpp.o
-
-SourceCode/NodeFunction.i: SourceCode/NodeFunction.cpp.i
-.PHONY : SourceCode/NodeFunction.i
-
-# target to preprocess a source file
-SourceCode/NodeFunction.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/SourceCode/NodeFunction.cpp.i
-.PHONY : SourceCode/NodeFunction.cpp.i
-
-SourceCode/NodeFunction.s: SourceCode/NodeFunction.cpp.s
-.PHONY : SourceCode/NodeFunction.s
-
-# target to generate assembly for a file
-SourceCode/NodeFunction.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/SourceCode/NodeFunction.cpp.s
-.PHONY : SourceCode/NodeFunction.cpp.s
-
 SourceCode/User.o: SourceCode/User.cpp.o
 .PHONY : SourceCode/User.o
 
@@ -430,9 +406,6 @@ help:
 	@echo "... SourceCode/Beginning_school_year.o"
 	@echo "... SourceCode/Beginning_school_year.i"
 	@echo "... SourceCode/Beginning_school_year.s"
-	@echo "... SourceCode/NodeFunction.o"
-	@echo "... SourceCode/NodeFunction.i"
-	@echo "... SourceCode/NodeFunction.s"
 	@echo "... SourceCode/User.o"
 	@echo "... SourceCode/User.i"
 	@echo "... SourceCode/User.s"

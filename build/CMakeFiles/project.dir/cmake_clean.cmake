@@ -1,8 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/project.dir/SourceCode/Beginning_school_year.cpp.o"
   "CMakeFiles/project.dir/SourceCode/Beginning_school_year.cpp.o.d"
-  "CMakeFiles/project.dir/SourceCode/NodeFunction.cpp.o"
-  "CMakeFiles/project.dir/SourceCode/NodeFunction.cpp.o.d"
   "CMakeFiles/project.dir/SourceCode/User.cpp.o"
   "CMakeFiles/project.dir/SourceCode/User.cpp.o.d"
   "CMakeFiles/project.dir/SourceCode/consoleView.cpp.o"

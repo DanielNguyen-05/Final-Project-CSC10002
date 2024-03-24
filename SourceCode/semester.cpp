@@ -113,22 +113,21 @@ void Semester::updateCourse() {
 }
 
 void Semester::deleteCourse() {
-    label:
-        std::string course_id;
-        std::cout << "\t - Enter the ID of the course you want to delete: ";
-        std::cin >> course_id;
+    std::string course_id;
+    std::cout << "\t - Enter the ID of the course you want to delete: ";
+    std::cin >> course_id;
 
-        Node<Course>* cur = this->courses.pHead;
-        Node<Course>* prev = nullptr;
-        while (cur != nullptr) {
-            if (cur->data.ID == course_id) {
-                if (prev == nullptr) this->courses.pHead = cur->pNext;
-                else prev->pNext = cur->pNext;
-                delete cur;
-                return;
-            }
-            prev = cur;
-            cur = cur->pNext;
+    Node<Course>* cur = this->courses.pHead;
+    Node<Course>* prev = nullptr;
+    while (cur != nullptr) {
+        if (cur->data.ID == course_id) {
+            if (prev == nullptr) this->courses.pHead = cur->pNext;
+            else prev->pNext = cur->pNext;
+            delete cur;
+            return;
         }
-        std::cout << "\t - Course not found!" << "\n";
+        prev = cur;
+        cur = cur->pNext;
+        }
+    std::cout << "\t - Course not found!" << "\n";
 }
