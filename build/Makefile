@@ -222,6 +222,54 @@ SourceCode/NodeFunction.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/SourceCode/NodeFunction.cpp.s
 .PHONY : SourceCode/NodeFunction.cpp.s
 
+SourceCode/User.o: SourceCode/User.cpp.o
+.PHONY : SourceCode/User.o
+
+# target to build an object file
+SourceCode/User.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/SourceCode/User.cpp.o
+.PHONY : SourceCode/User.cpp.o
+
+SourceCode/User.i: SourceCode/User.cpp.i
+.PHONY : SourceCode/User.i
+
+# target to preprocess a source file
+SourceCode/User.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/SourceCode/User.cpp.i
+.PHONY : SourceCode/User.cpp.i
+
+SourceCode/User.s: SourceCode/User.cpp.s
+.PHONY : SourceCode/User.s
+
+# target to generate assembly for a file
+SourceCode/User.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/SourceCode/User.cpp.s
+.PHONY : SourceCode/User.cpp.s
+
+SourceCode/consoleView.o: SourceCode/consoleView.cpp.o
+.PHONY : SourceCode/consoleView.o
+
+# target to build an object file
+SourceCode/consoleView.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/SourceCode/consoleView.cpp.o
+.PHONY : SourceCode/consoleView.cpp.o
+
+SourceCode/consoleView.i: SourceCode/consoleView.cpp.i
+.PHONY : SourceCode/consoleView.i
+
+# target to preprocess a source file
+SourceCode/consoleView.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/SourceCode/consoleView.cpp.i
+.PHONY : SourceCode/consoleView.cpp.i
+
+SourceCode/consoleView.s: SourceCode/consoleView.cpp.s
+.PHONY : SourceCode/consoleView.s
+
+# target to generate assembly for a file
+SourceCode/consoleView.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/SourceCode/consoleView.cpp.s
+.PHONY : SourceCode/consoleView.cpp.s
+
 SourceCode/course.o: SourceCode/course.cpp.o
 .PHONY : SourceCode/course.o
 
@@ -366,30 +414,6 @@ SourceCode/student.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/SourceCode/student.cpp.s
 .PHONY : SourceCode/student.cpp.s
 
-SourceCode/user.o: SourceCode/user.cpp.o
-.PHONY : SourceCode/user.o
-
-# target to build an object file
-SourceCode/user.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/SourceCode/user.cpp.o
-.PHONY : SourceCode/user.cpp.o
-
-SourceCode/user.i: SourceCode/user.cpp.i
-.PHONY : SourceCode/user.i
-
-# target to preprocess a source file
-SourceCode/user.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/SourceCode/user.cpp.i
-.PHONY : SourceCode/user.cpp.i
-
-SourceCode/user.s: SourceCode/user.cpp.s
-.PHONY : SourceCode/user.s
-
-# target to generate assembly for a file
-SourceCode/user.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/SourceCode/user.cpp.s
-.PHONY : SourceCode/user.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -409,6 +433,12 @@ help:
 	@echo "... SourceCode/NodeFunction.o"
 	@echo "... SourceCode/NodeFunction.i"
 	@echo "... SourceCode/NodeFunction.s"
+	@echo "... SourceCode/User.o"
+	@echo "... SourceCode/User.i"
+	@echo "... SourceCode/User.s"
+	@echo "... SourceCode/consoleView.o"
+	@echo "... SourceCode/consoleView.i"
+	@echo "... SourceCode/consoleView.s"
 	@echo "... SourceCode/course.o"
 	@echo "... SourceCode/course.i"
 	@echo "... SourceCode/course.s"
@@ -427,9 +457,6 @@ help:
 	@echo "... SourceCode/student.o"
 	@echo "... SourceCode/student.i"
 	@echo "... SourceCode/student.s"
-	@echo "... SourceCode/user.o"
-	@echo "... SourceCode/user.i"
-	@echo "... SourceCode/user.s"
 .PHONY : help
 
 

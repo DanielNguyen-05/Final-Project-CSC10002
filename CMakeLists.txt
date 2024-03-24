@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.1)  # Specifies the minimum required version of CMake.
+cmake_minimum_required(VERSION 3.10...3.21)  # Specifies the minimum required version of CMake.
 
 project(project VERSION 1.0)  # Sets the project name and version.
 
