@@ -1,9 +1,11 @@
 #include "User.hpp"
+#include <sstream>
 
 bool Users::isStudent(std::string username, std::string password)
 {
     std::string account_file = "Data\\Account\\Student\\" + username + ".txt";
     std::string account_pass;
+    std::string line;
 
     std::ifstream fin;
     fin.open(account_file.c_str());
@@ -16,6 +18,11 @@ bool Users::isStudent(std::string username, std::string password)
 
     fin >> account_pass;
     fin.close();
+    
+    std::getline(fin, line);
+    stringstream split(line);
+
+    std::getline(split,account_pass,',');
 
     if(account_pass != password)
     {
@@ -23,6 +30,13 @@ bool Users::isStudent(std::string username, std::string password)
         std::cerr << "Wrong password or username!" << std::endl;
         return false;
     }
+
+    std::getline(split, user_id, ',');
+    std::getline(split, first_name, ',');
+    std::getline(split, last_name, ',');
+    std::getline(split, gender, ',');
+    std::getline(split, date_of_birth, ',');
+    std::getline(split, soci_id);
 
     Username = username;
     Password = password;
@@ -32,26 +46,41 @@ bool Users::isStudent(std::string username, std::string password)
 
 bool Users::isAcademicStaff(std::string username, std::string password)
 {
-    std::string account_file = "Data\\Account\\AcademicStaff\\" + username + ".txt";
+    std::string account_file = "Data\\Account\\AcademicStaff\\" + username + ".csv";
     std::string account_pass;
+    std::string line;
 
     std::ifstream fin;
-    fin.open(account_file.c_str());
     if(!fin.is_open())
     {
+        system("cls");
+        std::cerr << "Wrong password or username!" << std::endl;
         return false;
     }
 
-    fin >> account_pass;
-    fin.close();
+    std::getline(fin, line);
+    stringstream split(line);
+
+    std::getline(split,account_pass,',');
 
     if(account_pass != password)
     {
+        system("cls");
+        std::cerr << "Wrong password or username!" << std::endl;
         return false;
     }
 
+    std::getline(split, user_id, ',');
+    std::getline(split, first_name, ',');
+    std::getline(split, last_name, ',');
+    std::getline(split, gender, ',');
+    std::getline(split, date_of_birth, ',');
+    std::getline(split, soci_id);
+
     Username = username;
     Password = password;
+
+    fin.close();
 
     return true;
 }
@@ -91,11 +120,7 @@ bool Users::login()
 
 void Users::viewProfileInfo()
 {
-    if (isStaff)
-    {
-        std::cerr << "Staff don't have information!" << std::endl;
-        return;
-    }
+    
 
 }
 bool Users::changePassword()
