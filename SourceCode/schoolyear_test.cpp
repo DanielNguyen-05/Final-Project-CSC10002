@@ -67,7 +67,10 @@ void SchoolYear::importStudentsToGeneralClassFromCSV(std::string path) {
 void Semester::createSemester() {
     std::cout << "\t\t\t CREATING A NEW SEMESTER" << "\n\n";
 
-    std::ofstream fOut("Data//SchoolYear-Course//Semester//semester.csv");
+    std::string semester_num;
+    std::cout << "\t - Enter a new file semester save in: ";
+    std::cin >> semester_num;
+    std::ofstream fOut("Data//SchoolYear-Course//Semester//semester" + semester_num + ".csv");
     if (!fOut.is_open()) {
         std::cout << "\t -Failed to open the file!" << "\n";
         return;
