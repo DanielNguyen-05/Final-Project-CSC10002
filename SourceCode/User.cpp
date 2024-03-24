@@ -134,6 +134,7 @@ bool Users::changePassword()
         std::cerr << "Don't have user's data.";
         return false;
     }
+
     std::string password , new_password , re_new_password;
 
     std::cout << "Current password: ";
@@ -176,6 +177,7 @@ bool Users::changePassword()
         return false;
     }
 
+    Password = new_password;
     fout << new_password;
     fout.close();
 
