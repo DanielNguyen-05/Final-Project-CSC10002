@@ -17,5 +17,4 @@ struct SchoolYear {
     void createSchoolYear(std::string path);
     void createGeneralClass(std::string path);
     void importStudentsToGeneralClassFromCSV(std::string path);
-    void createSemester();
 };
