@@ -64,6 +64,35 @@ void SchoolYear::importStudentsToGeneralClassFromCSV(std::string path) {
     fIn.close();
 }
 
+void Semester::createSemester() {
+    std::cout << "\t\t\t CREATING A NEW SEMESTER" << "\n\n";
+
+    std::ofstream fOut("Data//SchoolYear-Course//semester.csv");
+    if (!fOut.is_open()) {
+        std::cout << "\t -Failed to open the file!" << "\n";
+        return;
+    }
+    label:
+        std::cout << "\t\t\t CREATING A NEW SEMESTER" << "\n\n" ;
+        std::cout << "\t - Enter a new semester number which you want to create (ex: 1): ";
+        std::cin >> this->semester_num;
+        fOut << this->semester_num << ", ";
+        std::cout << "\t - Enter the start date (ex: 05/09/2023): ";
+        std::cin >> this->start_day;
+        fOut << this->start_day << ", ";
+        std::cout << "\t - Enter the end date (ex: 20/01/2024): ";
+        std::cin >> this->end_day;
+        fOut << this->end_day << "\n";
+
+    int choice;
+    // chỗ này đưa cái table của Trâm Võ vô
+    if (choice == 1) goto label;
+    else if (choice == 2);  // đưa cái hàm để quay lại 6.2.a
+    else if (choice == 0);  // đưa cái hàm để quay laị VI
+
+    fOut.close();
+}
+
 
 
 // void SchoolYear::createSchoolYear() {
