@@ -41,8 +41,6 @@ void list_of_student ( std::string list_stu_of_generalclass)
 {
     std::string ignore;
     std::string s;
-    char a;
-    int no;
     std::ifstream fin;
     fin.open(list_stu_of_generalclass);
     if ( !fin.is_open() )
@@ -55,9 +53,8 @@ void list_of_student ( std::string list_stu_of_generalclass)
     fin >> ignore;
     while ( !fin.eof() )
     {
-        fin >> no;
-        std::cout << no << " \t";
-        fin >> a;
+        getline ( fin, s, ',');
+        std::cout << s << " \t";
         getline ( fin, s, ',');
         std::cout << s << " \t";
         getline ( fin, s, ',');
@@ -73,6 +70,7 @@ void list_of_student ( std::string list_stu_of_generalclass)
     }
     fin.close();
 }
+
 
 void view_list_of_stu_in_class ( std::string input_file_generalclass)
 {
