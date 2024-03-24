@@ -50,7 +50,8 @@ void list_of_student ( std::string list_stu_of_generalclass)
         std::cout << "Can't open file ";
         return;
     }
-    std::cout << "No \t Student ID \t First name \t Last name \t Gender \t Date of birth \t Social ID \n";
+    std::cout << "No \tStudent ID \tFirst name \tLast name \tGender \t\tDate of birth \t\tSocial ID \n";
+    std::cout << "---------------------------------------------------------------------------------------------------------------\n";
     fin >> ignore;
     while ( !fin.eof() )
     {
@@ -60,14 +61,14 @@ void list_of_student ( std::string list_stu_of_generalclass)
         getline ( fin, s, ',');
         std::cout << s << " \t";
         getline ( fin, s, ',');
-        std::cout << s << " \t";
+        std::cout << s << " \t\t";
         getline ( fin, s, ',');
-        std::cout << s << " \t";
+        std::cout << s << " \t\t";
         getline ( fin, s, ',');
-        std::cout << s << " \t";
+        std::cout << s << " \t\t";
         getline ( fin, s, ',');
-        std::cout << s << " \t";
-        getline ( fin, s, ',');
+        std::cout << s << " \t\t";
+        getline ( fin, s);
         std::cout << s << "\n";
     }
     fin.close();
