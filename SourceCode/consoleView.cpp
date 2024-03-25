@@ -58,7 +58,7 @@ void isNOTcreated()
 {
     std::cout    << "The new school year 202x-202x is created successfully!\n"
                 << "1. Continue creating a new school year\n"
-                << "0. Back to the Main Menu\n\n"
+                << "0. Back to MAIN MENU \n\n"
 
                 << "Your choice: ";
 }
