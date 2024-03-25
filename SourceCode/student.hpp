@@ -22,7 +22,8 @@ struct Student {
     }
     Student(string stu_id, string first_name, string last_name, string gender, string date_of_birth, string soci_id);
 
-    void viewCourses(Semester);
+    void Student::loadStudentCoursesData(Semester semester);
+    void viewCourses();
     void viewScoreBoard();
 };
 

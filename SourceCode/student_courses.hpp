@@ -12,4 +12,5 @@ struct StudentCourses{
     string teacher_name;
     int num_of_credit;
     string day_of_week;
+    string session;
 };
