@@ -1,10 +1,6 @@
-#pragma once
-#include <string>
-#include "course.hpp"
 #pragma once 
 #include<string>
 
-struct StudentCourses{
 using namespace std;
 struct StudentCourses {
     struct Point {
@@ -15,7 +11,6 @@ struct StudentCourses {
         string midterm;
         string others;
 
-    Course::Point point; 
     }point;
 
     string ID;
