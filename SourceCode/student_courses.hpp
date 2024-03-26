@@ -3,16 +3,18 @@
 
 using namespace std;
 struct StudentCourses {
-    struct Point {
-        string stu_id;
-        string full_name;
-        string overall;
-        string final;
-        string midterm;
-        string others;
 
-    }point;
+    //student info
+    string stu_id;
+    string full_name;
 
+    //point
+    string overall;
+    string final;
+    string midterm;
+    string others;
+    
+    //course data
     string ID;
     string course_name;
     string class_name;
