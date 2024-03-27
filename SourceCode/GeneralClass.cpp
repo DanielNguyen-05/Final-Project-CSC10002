@@ -45,10 +45,10 @@ bool create_General_class(std::string curYear, std::string curClass)
         std::cout << "Can't open file.";
         return 0;
     }
-    std::string path = "Data\\" + curYear + "\\" + curClass;
+    std::string path = "Data\\" + curYear + "\\" + curClass + "\\Student.csv" ;
     std::wstring folder(path.begin(), path.end());
     if (!CreateDirectory(folder.c_str(), NULL)) {
-        std::cout << "can't create folder schoolYear, please try again" << std::endl;
+        std::cout << "can't create folder class, please try again" << std::endl;
     }
     Node<std::string>* cur = ClassList.pHead;
     while (cur) {
@@ -57,7 +57,8 @@ bool create_General_class(std::string curYear, std::string curClass)
     }
     ClassList.deallocate();
     fout.close();
-    std::cout << "Create schoolYear successfully!...Enter to continue \n";
+    std::cout << "Create class successfully!...Enter to continue \n";
     std::cin.get();
     std::cin.get();
+    return 1;
 }
