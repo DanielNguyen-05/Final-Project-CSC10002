@@ -122,6 +122,25 @@
     "utility": "cpp",
     "ranges": "cpp",
     "map": "cpp",
-    "set": "cpp"
+    "set": "cpp",
+    "xstring": "cpp",
+    "charconv": "cpp",
+    "chrono": "cpp",
+    "filesystem": "cpp",
+    "format": "cpp",
+    "forward_list": "cpp",
+    "xfacet": "cpp",
+    "xiosbase": "cpp",
+    "xlocale": "cpp",
+    "xlocbuf": "cpp",
+    "xlocinfo": "cpp",
+    "xlocmes": "cpp",
+    "xlocmon": "cpp",
+    "xlocnum": "cpp",
+    "xloctime": "cpp",
+    "xmemory": "cpp",
+    "xtr1common": "cpp",
+    "xtree": "cpp",
+    "xutility": "cpp"
   }
 }
