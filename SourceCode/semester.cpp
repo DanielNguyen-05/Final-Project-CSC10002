@@ -7,7 +7,7 @@ Semester::Semester(int semester_num, std::string start_day, std::string end_day)
     this->end_day = end_day;
 }
 
-void loadSemesterData(std::string schoolyear, int semester) // School Year -> Semester -> Course
+void Semester::loadSemesterData(std::string schoolyear, int semester) // School Year -> Semester -> Course
 {
     char* intStr;
     sprintf(intStr,"%d\n",semester);
@@ -18,22 +18,32 @@ void loadSemesterData(std::string schoolyear, int semester) // School Year -> Se
     std::ifstream f_courses_list;
     std::ifstream fin;
 
+    Course tmp;
+    std::string tmpNum;
+
     f_courses_list.open(courses_path + "CoursesList.txt");
     if(!f_courses_list.is_open()) return;
 
-    while(f_courses_list >> courses_name)
+    while(f_courses_list >> courses_name) //course_data , course student
     {
-        fin.open(courses_path + courses_name + ".csv");
+        //load
+        fin.open(courses_path + courses_name + "\\" + courses_name + ".csv");
 
         std::getline(fin, line);
-        stringstream split(line); // 
-
-        
-
+        stringstream split(line); 
+        getline(fin, tmp.ID, ',');
+        getline(fin, tmp.course_name, ',');
+        getline(fin, tmp.class_name, ',');
+        getline(fin, tmp.teacher_name, ',');
+        getline(fin, tmpNum, ',');
+        tmp.num_of_credit = atoi(tmpNum.c_str());
+        getline(fin, tmpNum, ',');
+        tmp.max_student = atoi(tmpNum.c_str());
+        getline(fin, tmp.day_of_week, ',');
+        getline(fin, tmp.session, ',');
 
         fin.close();
     }
-
 
     f_courses_list.close();
 }
