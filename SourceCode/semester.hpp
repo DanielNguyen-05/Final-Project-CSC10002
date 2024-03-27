@@ -15,7 +15,7 @@ struct Semester {
         this->start_day = start_day;
         this->end_day = end_day;
     }
-    void loadSemesterData();
+    void loadSemesterData(std::string schoolyear, int semester);
     void createSemester();
     void createCourse();
     void viewCourseList();

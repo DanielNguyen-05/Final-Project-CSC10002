@@ -1,0 +1,11 @@
+student_id,first_name,last_name,gender,date_of_birth,social_id
+20000051,Gia,Bui,Female,20/02/2003,789654123
+20000052,Giao,Nguyen,Female,21/02/2003,321789654
+20000053,Hanh,Nguyen,Female,22/02/2003,456321789
+20000054,Hao,Nguyen,Female,23/02/2003,987654123
+20000055,Hieu,Nguyen,Male,24/02/2003,789321456
+20000056,Hien,Nguyen,Female,25/02/2003,654123789
+20000057,Hoa,Nguyen,Female,26/02/2003,321456987
+20000058,Hoai,Nguyen,Female,27/02/2003,123987654
+20000059,Hoang,Nguyen,Male,28/02/2003,987654321
+20000060,Huong,Nguyen,Female,01/03/2003,654321987
