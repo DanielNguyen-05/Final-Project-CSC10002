@@ -1,9 +1,9 @@
-#include"consoleView.h"
-#include"user.hpp"
-#include<stdlib.h>
-#include"semester.hpp"
-#include"schoolyear.hpp"
-#include"GeneralClass.hpp"
+#include "consoleView.h"
+#include "User.hpp"
+#include <stdlib.h>
+#include "semester.hpp"
+#include "schoolyear.hpp"
+#include "GeneralClass.hpp"
 
 
 int main() {
