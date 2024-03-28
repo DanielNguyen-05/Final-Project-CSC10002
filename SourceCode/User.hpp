@@ -4,7 +4,7 @@
 #include <string>
 #include <fstream>
 #include <cstring>
-#include<stdlib.h>
+#include <stdlib.h>
 
 struct Users{
 
