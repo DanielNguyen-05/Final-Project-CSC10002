@@ -1,5 +1,5 @@
 #include "consoleView.h"
-#include "user.hpp"
+#include "User.hpp"
 #include <stdlib.h>
 #include "semester.hpp"
 #include "schoolyear.hpp"
