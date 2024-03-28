@@ -50,10 +50,11 @@ bool Users::isAcademicStaff(std::string username, std::string password)
     std::string account_pass;
     std::string line;
 
-    std::ifstream fin;
+    std::ifstream fin(account_file);
     if(!fin.is_open())
     {
         system("cls");
+        std::cout << "mo file hong dc";
         std::cerr << "Wrong password or username!" << std::endl;
         return false;
     }

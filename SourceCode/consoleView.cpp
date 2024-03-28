@@ -109,7 +109,7 @@ void view_list_of_general_class(std::string year)
 {
     std::ifstream fin;
     std::string s;
-    std::string path = "Data\\" + year + "\\General_class.txt";
+    std::string path = "Data\\" + year + "\\GeneralClass.txt";
     fin.open(path);
     if (!fin.is_open())
     {
@@ -137,9 +137,8 @@ void editGeneralClassMenu() {
         << "2. View list of students in the class\n"
         << "3. Import the list of students from .csv file into the general class\n"
         << "4. Add a student to class\n"
-        << "5. Edit information of student\n"
-        << "6. Go back to the previous page to choose another class\n"
-        << "7. Go back to the Main Menu\n"
+        << "5. Go back to the previous page to choose another class\n"
+        << "6. Go back to the Main Menu\n"
 
         << "Your choice: ";
 }
@@ -169,6 +168,13 @@ void inputSemesterFail() {
 }
 void createSemesterFail() {
     std::cout << "This semester is existed\n"
+        << "1. Re-enter it \n"
+        << "0. Back to previous page \n\n"
+
+        << "Your choice: ";
+}
+void createClassFail() {
+    std::cout << "This general class is existed\n"
         << "1. Re-enter it \n"
         << "0. Back to previous page \n\n"
 

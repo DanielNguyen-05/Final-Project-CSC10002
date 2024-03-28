@@ -19,4 +19,5 @@ void createSchoolYearFail();
 void semesterMainMenu();
 void inputSemesterFail();
 void createSemesterFail();
+void createClassFail();
 

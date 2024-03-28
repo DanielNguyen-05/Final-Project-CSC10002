@@ -64,6 +64,7 @@ void LinkedList<T>::insertAtTail(T x) {
 	if (!pHead) {
 		pHead = new Node<T>;
 		pHead->data = x;
+		pHead->pNext = nullptr;
 		return;
 	}
 	Node<T>* cur = pHead;
@@ -71,6 +72,7 @@ void LinkedList<T>::insertAtTail(T x) {
 		cur = cur->pNext;
 	cur->pNext = new Node<T>;
 	cur->pNext->data = x;
+	cur->pNext->pNext = nullptr;
 }
 
 template <typename T>

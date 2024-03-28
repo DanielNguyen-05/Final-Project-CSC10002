@@ -8,7 +8,6 @@
 
 struct Users{
 
-    /*??data*/
     std::string Username = "";
     std::string Password = "";
 
@@ -22,12 +21,12 @@ struct Users{
 
     bool isStaff = false;
 
-    inline bool isStudent(std::string username, std::string password);
-    inline bool isAcademicStaff(std::string username, std::string password);
+    bool isStudent(std::string username, std::string password);
+    bool isAcademicStaff(std::string username, std::string password);
 
 
-    inline bool login();
-    inline void viewProfileInfo();
-    inline bool changePassword();
-    inline void logout();
+    bool login();
+    void viewProfileInfo();
+    bool changePassword();
+    void logout();
 };

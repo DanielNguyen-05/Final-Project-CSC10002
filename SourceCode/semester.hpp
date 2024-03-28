@@ -1,6 +1,9 @@
 #pragma once
 #include "course.hpp"
 #include <string>
+#include <windows.h>
+#include <sys/stat.h>
+#include <limits>
 
 struct Semester {
     int semester_num;
@@ -10,15 +13,12 @@ struct Semester {
     Semester() {
         semester_num = 0;
     }
-    Semester(int semester_num, std::string start_day, std::string end_day) {
-        this->semester_num = semester_num;
-        this->start_day = start_day;
-        this->end_day = end_day;
-    }
+    Semester(int semester_num, std::string start_day, std::string end_day);
     void loadSemesterData(std::string schoolyear, int semester);
-    void createSemester();
+    void createSemester(std::string year, int semester);
     void createCourse();
     void viewCourseList();
     void updateCourse();
     void deleteCourse();
 };
+bool checkSemester(std::string curYear, int curSemester);

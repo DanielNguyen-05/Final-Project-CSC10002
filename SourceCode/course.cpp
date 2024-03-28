@@ -1,12 +1,13 @@
 #include "course.hpp"
 
-Course::Course(string ID, string course_name, string class_name, string teacher_name, int num_of_creadit, int max_student, string session) {
+Course::Course(string ID, string course_name, string class_name, string teacher_name, int num_of_creadit, int max_student,string day_of_week, string session) {
 	this->ID = ID;
 	this->course_name = course_name;
 	this->class_name = class_name;
 	this->teacher_name = teacher_name;
 	this->num_of_credit = num_of_creadit;
 	this->max_student = max_student;
+	this->day_of_week = day_of_week;
 	this->session = session;
 }
 
