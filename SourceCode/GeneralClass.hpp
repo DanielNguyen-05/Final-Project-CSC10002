@@ -1,10 +1,10 @@
+#pragma once
+#include <iostream>
+#include <string>
 #include <fstream>
 #include "LinkedList.hpp"
-#include <Windows.h>
-#include <sys/stat.h>
-#include <string>
-#include <iostream>
 
-bool class_existed ( std::string cur_year, std::string cur_class);
 
+bool class_existed(std::string  input_file_generalclass, std::string general_class);
+void list_of_student(std::string curYear, std::string curClass);
 bool create_General_class(std::string curYear, std::string curClass);
