@@ -25,6 +25,7 @@ bool checkSemester(std::string curYear, int curSemester) {
     fin.close();
     return false;
 }
+
 void Semester::loadSemesterData(std::string schoolyear, int semester) // School Year -> Semester -> Course
 {
     char* intStr = new char[1];
