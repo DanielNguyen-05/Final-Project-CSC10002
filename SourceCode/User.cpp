@@ -46,7 +46,7 @@ bool Users::isStudent(std::string username, std::string password)
 
 bool Users::isAcademicStaff(std::string username, std::string password)
 {
-    std::string account_file = "Data\\Account\\AcademicStaff\\" + username + ".csv";
+    std::string account_file = "Data\\Account\\AcademicStaff\\" + username + ".txt";
     std::string account_pass;
     std::string line;
 
