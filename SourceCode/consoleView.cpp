@@ -66,7 +66,7 @@ void editSchoolYearMenu() {
     std::cout   << "What would you like to do ?\n"
                 << "0. Log out\n"
                 << "1. Work on General Classes\n"
-                << "2. Work on Course Classes\n"
+                << "2. Work on Semester\n"
                 << "3. Go back to the previous page to choose another year\n"
                 << "4. Go back to the Main Menu\n"
 
@@ -177,6 +177,69 @@ void createClassFail() {
     std::cout << "This general class is existed\n"
         << "1. Re-enter it \n"
         << "0. Back to previous page \n\n"
+
+        << "Your choice: ";
+}
+void editSemesterMenu() {
+    std::cout << "What would you like to do ?\n"
+        << "0. Log out\n"
+        << "1. Create new courses\n"
+        << "2. View all courses in this semester \n"
+        << "3. Modify a course\n"
+        << "4. Export a course into .csv file\n"
+        << "5. Go back to the previous page to work on Semesters\n\n"
+
+        << "Your choice: ";
+}
+void inputCourseFail() {
+    std::cout << "This course is not existed\n"
+        << "1. Re-enter it \n"
+        << "0. Back to previous page \n\n"
+
+        << "Your choice: ";
+}
+void createCourseFail() {
+    std::cout << "This course is existed\n"
+        << "1. Re-enter it \n"
+        << "0. Back to previous page \n\n"
+
+        << "Your choice: ";
+}
+void modifyCourseMenu() {
+        std::cout << "What would you like to do ?\n"
+            << "0. Log out\n"
+            << "1. View all students in this course\n"
+            << "2. Import students into this course\n"
+            << "3. Delete a student\n"
+            << "4. Manage points of course\n"
+            << "5. Delete this course\n"
+            << "6. Update information for this course\n"
+            << "7. Go back to the previous page\n\n"
+
+            << "Your choice: ";
+}
+void importStudent() {
+    std::cout << "Import Student:\n"
+        << "1.Import a list of student by CSV file\n"
+        << "2.Import a student\n"
+        << "0.Go back\n\n"
+
+        << "Your choice:";
+}
+void inputStudentFail(){
+    std::cout << "This student is not existed\n"
+        << "1. Re-enter it \n"
+        << "0. Back to previous page \n\n"
+
+        << "Your choice: ";
+}
+void editCoursePointMenu() {
+    std::cout << "What would you like to do ?\n"
+        << "0. Log out\n"
+        << "1. Import a point .csv file for a course\n"
+        << "2. View scoreboard of a course\n"
+        << "3. Update a student's result\n"
+        << "4. Go back to the previous page\n\n"
 
         << "Your choice: ";
 }

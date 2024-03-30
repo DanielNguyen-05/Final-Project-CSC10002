@@ -1,17 +1,23 @@
 #include "course.hpp"
 
-Course::Course(string ID, string course_name, string class_name, string teacher_name, int num_of_creadit, int max_student,string day_of_week, string session) {
+Course::Course(string ID, string course_name, string class_name, string teacher_name, int num_of_creadit, int max_student, string session) {
 	this->ID = ID;
 	this->course_name = course_name;
 	this->class_name = class_name;
 	this->teacher_name = teacher_name;
 	this->num_of_credit = num_of_creadit;
 	this->max_student = max_student;
-	this->day_of_week = day_of_week;
 	this->session = session;
 }
+bool Course::stu_exists(string stu_id) {
+	Student stu;
+	stu.stu_id = stu_id;
+	if (!this->students.findNode(stu))
+		return false;
+	return true;
 
-void Course::inputCSV(const char* path) {
+}
+void Course::inputCSV(string path) {
 	ifstream fIn(path);
 	string ignore = "";
 	getline(fIn, ignore);
@@ -22,18 +28,20 @@ void Course::inputCSV(const char* path) {
 		if (tmp_no == "")
 			return;
 		getline(fIn, stu.stu_id, ',');
-		getline(fIn, stu.first_name, ',');
-		getline(fIn, stu.last_name, ',');
-		getline(fIn, stu.gender, ',');
-		getline(fIn, stu.date_of_birth, ',');
-		getline(fIn, stu.soci_id);
+		if (!this->stu_exists(stu.stu_id)) {
+			getline(fIn, stu.first_name, ',');
+			getline(fIn, stu.last_name, ',');
+			getline(fIn, stu.gender, ',');
+			getline(fIn, stu.date_of_birth, ',');
+			getline(fIn, stu.soci_id);
 
-		this->students.insertOrdered(stu);
+			this->students.insertOrdered(stu);
+		}
 	}
 	fIn.close();
 }
 
-void Course::importScoreboard(const char* path) {
+void Course::importScoreboard(string path) {
 	ifstream fIn(path);
 	string ignore = "";
 	getline(fIn, ignore);
@@ -55,7 +63,7 @@ void Course::importScoreboard(const char* path) {
 	fIn.close();
 }
 
-void Course::outputCSV(const char* path) {
+void Course::outputCSV(string path) {
 	ofstream fOut(path);
 	Node<Student>* cur = this->students.pHead;
 	int no = 0;
@@ -81,12 +89,29 @@ void Course::viewScoreboard() {
 		cur = cur->pNext;
 	}
 }
-
-void Course::updateResult(string stu_id) {
+void Course::viewStudent() {
+	if (!this->students.pHead)
+		return;
+	std::cout << "no,stu_id,first_name,last_name,gender,date_of_birth,soci_id" << "\n";
+	Node<Student>* cur = this->students.pHead;
+	int no = 0;
+	while (cur) {
+		no++;
+		std::cout << no << "," << cur->data;
+		cur = cur->pNext;
+	}
+}
+void Course::updateResult() {
+	string stu_id;
+	std::cout << "Enter student ID you want to delete:";
+	std::cin >> stu_id;
 	Point pt;
 	pt.stu_id = stu_id;
 	Node<Point>* stu = this->points.findNode(pt);
 	if (stu == nullptr) {
+		std::cout << "Student is not existed....Enter to continue";
+		std::cin.get();
+		std::cin.get();
 		return;
 	}
 	std::cout << "Others Point: ";
@@ -99,17 +124,35 @@ void Course::updateResult(string stu_id) {
 	cin >> stu->data.overall;
 }
 
-void Course::addStudent(Student stu) {
-	this->students.insertOrdered(stu);
+void Course::addStudent() {
+	Student students;
+	std::cout << "Enter student ID:";
+	std::cin >> students.stu_id;
+	if (this->stu_exists(students.stu_id)) {
+		std::cout << "This student is existed";
+		return;
+	}
+	std::cout << "Enter First name: ";
+	std::cin >> students.first_name;
+	std::cout << "Enter Last name: ";
+	std::cin >> students.last_name;
+	std::cout << "Enter Gender: ";
+	std::cin >> students.gender;
+	std::cout << "Enter Date of birth: ";
+	std::cin >> students.date_of_birth;
+	std::cout << "Enter Social ID: ";
+	std::cin >> students.soci_id;
+	this->students.insertOrdered(students);
 }
 
-void Course::deleteStudent(string stu_id) {
+void Course::deleteStudent() {
 	Student stu;
-	stu.stu_id = stu_id;
+	std::cout << "Enter student ID:";
+	std::cin >> stu.stu_id;
 	if (this->students.deleteNode(stu)) {
 		std::cout << "delete success" << "\n";
 		Point pt;
-		pt.stu_id = stu_id;
+		pt.stu_id = stu.stu_id;
 		this->points.deleteNode(pt);
 	}
 	else

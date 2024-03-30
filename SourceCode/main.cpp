@@ -4,12 +4,17 @@
 #include"semester.hpp"
 #include"schoolyear.hpp"
 #include"GeneralClass.hpp"
+#include"course.hpp"
 
 
 int main() {
 	Semester curSemester;
 	string curYear;
 	string curClass;
+	Course curCourse;
+	string path;
+	Student curStudent;
+	
 START:
 	Users user;
 	programInterface();
@@ -225,9 +230,11 @@ EDITGENERALCLASS:
 		list_of_student(curYear, curClass);
 		break;
 	case 3:
-		//import
+		import_student_by_csv(curYear, curClass);
+		break;
 	case 4:
-		//add1
+		add_1_student_to_class(curYear, curClass);
+		break;
 	case 5:
 		system("cls");
 		goto INPUTCLASS;
@@ -252,10 +259,10 @@ SEMESTER:
 		cin >> curSemester.semester_num;
 		system("cls");
 		if (checkSemester(curYear, curSemester.semester_num)) {
-			inputSemesterFail();
+			createSemesterFail();
 			while (std::cin >> choice) {
 				system("cls");
-				inputSemesterFail();
+				createSemesterFail();
 				if (choice == 0)
 					goto SEMESTER;
 				if (choice == 1)
@@ -266,7 +273,24 @@ SEMESTER:
 		system("cls");
 		goto SEMESTER;
 	case 2:
-		//editSemester
+	INPUTSEMESTER:
+		system("cls");
+		std::cout << "What semester do you want to edit: ";
+		cin >> curSemester.semester_num;
+		system("cls");
+		if (!checkSemester(curYear, curSemester.semester_num)) {
+			inputSemesterFail();
+			while (std::cin >> choice) {
+				system("cls");
+				inputSemesterFail();
+				if (choice == 0)
+					goto SEMESTER;
+				if (choice == 1)
+					goto INPUTSEMESTER;
+			}
+		}
+		curSemester.loadSemesterData(curYear, curSemester.semester_num);
+		goto EDITSEMESTER;
 	case 3:
 		system("cls");
 		goto EDITSCHOOLYEAR;
@@ -278,7 +302,177 @@ SEMESTER:
 		goto SEMESTER;
 		break;
 	}
-
+EDITSEMESTER:
+	editSemesterMenu();
+	cin >> choice;
+	switch (choice)
+	{
+	case 0:
+		//deallocated all
+		system("cls");
+		goto LOGIN;
+	case 1:
+	CREATECOURSE:
+		system("cls");
+		std::cout << "What course do you want to create (Ex:CS161) : ";
+		cin >> curCourse.ID;
+		system("cls");
+		if (!curSemester.findCourse(curCourse)) {
+			createCourseFail();
+			while (std::cin >> choice) {
+				system("cls");
+				createCourseFail();
+				if (choice == 0) {
+					system("cls");
+					goto EDITSEMESTER;
+				}
+				if (choice == 1)
+					goto CREATECOURSE;
+			}
+		}
+		curSemester.createCourse(curCourse);
+		system("cls");
+		goto EDITSEMESTER;
+	case 2:
+	VIEWCOURSE:
+		curSemester.viewCourseList();
+		std::cout << "Enter to continue...";
+		std::cin.get();
+		std::cin.get();
+		goto EDITSEMESTER;
+	case 3:
+	INPUTCOURSE:
+		system("cls");
+		std::cout << "What course do you want to modify (Ex:CS161) : ";
+		cin >> curCourse.ID;
+		system("cls");
+		if (!curSemester.findCourse(curCourse)) {
+			createCourseFail();
+			while (std::cin >> choice) {
+				system("cls");
+				createCourseFail();
+				if (choice == 0) {
+					system("cls");
+					goto EDITSEMESTER;
+				}
+				if (choice == 1)
+					goto INPUTCOURSE;
+			}
+		}
+		system("cls");
+		goto MODIFYCOURSE;
+	case 4:
+		//export jj
+		system("cls");
+		goto EDITSEMESTER;
+	case 5:
+		//deallocate all
+		system("cls");
+		goto SEMESTER;
+	default:
+		system("cls");
+		goto EDITSEMESTER;
+	}
+MODIFYCOURSE:
+	modifyCourseMenu();
+	cin >> choice;
+	switch (choice)
+	{
+	case 0:
+		//deallocate all
+		system("cls");
+		goto LOGIN;
+	case 1:
+		curCourse.viewStudent();
+		std::cout << "Enter to continue...";
+		std::cin.get();
+		std::cin.get();
+		goto MODIFYCOURSE;
+	case 2:
+	IMPORTSTUDENT:
+		importStudent();
+		cin >> choice;
+		switch (choice)
+		{
+		case 0:
+			break;
+		case 1:
+			system("cls");
+			std::cout << "Enter path of input file:";
+			std::cin >> path;
+			curCourse.inputCSV(path);
+			break;
+		case 2:
+			curCourse.addStudent();
+			std::cin.get();
+			std::cin.get();
+			break;
+		default:
+			break;
+		}
+		system("cls");
+		goto MODIFYCOURSE;
+	case 3:
+		curCourse.deleteStudent();
+		std::cin.get();
+		std::cin.get();
+		system("cls");
+		goto MODIFYCOURSE;
+	case 4:
+		system("cls");
+		goto COURSEPOINT;
+	case 5:
+		curSemester.deleteCourse();
+		system("cls");
+		goto MODIFYCOURSE;
+	case 6:
+		curSemester.updateCourse();
+		system("cls");
+		goto MODIFYCOURSE;
+	case 7:
+		system("cls");
+		curCourse.students.deallocate();
+		curCourse.points.deallocate();
+		goto EDITSEMESTER;
+	default:
+		system("cls");
+		goto MODIFYCOURSE;
+	}
+COURSEPOINT:
+	editSemesterMenu();
+	cin >> choice;
+	switch (choice)
+	{
+	case 0:
+		//deallocate all
+		system("cls");
+		goto LOGIN;
+	case 1:
+		system("cls");
+		std::cout << "Enter path of input file:";
+		std::cin >> path;
+		curCourse.importScoreboard(path);
+		break;
+		system("cls");
+		goto COURSEPOINT;
+	case 2:
+		curCourse.viewScoreboard();
+		std::cout << "Enter to continue...";
+		std::cin.get();
+		std::cin.get();
+		system("cls");
+		goto COURSEPOINT;
+	case 3:
+		curCourse.updateResult();
+		system("cls");
+		goto COURSEPOINT;
+	case 4:
+		system("cls");
+		goto MODIFYCOURSE;
+	default:
+		system("cls");
+		goto COURSEPOINT;
+	}
 STUDENTMENU:
 	
 	std::cout << "student is here";

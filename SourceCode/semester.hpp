@@ -16,9 +16,10 @@ struct Semester {
     Semester(int semester_num, std::string start_day, std::string end_day);
     void loadSemesterData(std::string schoolyear, int semester);
     void createSemester(std::string year, int semester);
-    void createCourse();
+    void createCourse(Course& course);
     void viewCourseList();
     void updateCourse();
     void deleteCourse();
+    bool findCourse(Course& course);
 };
 bool checkSemester(std::string curYear, int curSemester);

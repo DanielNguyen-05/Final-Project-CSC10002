@@ -1,7 +1,0 @@
-no,stu_id,full_name,overall,final,mid_term,others
-1,23127157,Nguyen Bao,3.5,5.6,3.7,9.4
-2,23127158,Nguyen Bao,5.5,5.6,3.7,9.4
-3,23127145,Nguyen Bao,4.5,5.6,3.7,9.4
-4,23127536,Nguyen Bao,8.5,5.6,3.7,9.4
-5,23127053,Nguyen Bao,9.5,5.6,3.7,9.4
-6,23127123,Nguyen Bao,2.5,5.6,3.7,9.4

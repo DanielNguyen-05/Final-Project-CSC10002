@@ -31,6 +31,8 @@ void Student_Control::loadStudentCoursesData(Semester semester, string stu_id)
             cur_stu = cur_stu -> pNext;
         }
 
+        cur_point = (cur_course->data).points.pHead;
+
         while(cur_point != nullptr)
         {
             if(cur_point -> data.stu_id == stu_id)

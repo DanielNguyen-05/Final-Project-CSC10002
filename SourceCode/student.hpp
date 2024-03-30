@@ -3,6 +3,7 @@
 #include"student_courses.hpp"
 #include<iostream>
 #include<string>
+#include <fstream>
 
 using namespace std;
 
@@ -21,9 +22,6 @@ struct Student{
     }
     Student(string stu_id, string first_name, string last_name, string gender, string date_of_birth, string soci_id);
 
-    //void loadStudentCoursesData(Semester semester);
-    //void viewCourses();
-    //void viewScoreBoard();
 };
 ostream& operator<<(ostream& os, const Student a);
 bool operator<(const Student a, const Student b);

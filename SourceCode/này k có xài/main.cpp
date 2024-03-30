@@ -1,9 +1,9 @@
-#include"consoleView.h"
-#include"user.hpp"
-#include<stdlib.h>
-#include"semester.hpp"
-#include"schoolyear.hpp"
-#include"GeneralClass.hpp"
+#include "consoleView.h"
+#include "User.hpp"
+#include <stdlib.h>
+#include "semester.hpp"
+#include "schoolyear.hpp"
+#include "GeneralClass.hpp"
 
 
 int main() {
@@ -66,7 +66,7 @@ STAFFMENU:
 	case 1:
 	CREATEYEAR:
 		system("cls");
-		std::cout << "What schoolYear do you want to create: " << std::endl;
+		std::cout << "What schoolYear do you want to create (Ex:202x-202y): " << std::endl;
 		cin >> curYear;
 		system("cls");
 		if (!year_exits(curYear)) {
@@ -88,6 +88,7 @@ STAFFMENU:
 		system("cls");
 		std::cout << "What schoolYear do you want to edit: "<< std::endl;
 		listSchoolYear();
+		std::cout << "\n Your choice (Ex:202x-202y): ";
 		cin >> curYear;
 		system("cls");
 		if (year_exits(curYear)) {
@@ -157,12 +158,33 @@ GENERALCLASS:
 		system("cls");
 		goto LOGIN;
 	case 1:
-		//create class
+	CREATECLASS:
+		system("cls");
+		std::cout << "What general class do you want to create (Ex:20CLC04) : " << std::endl ;
+		cin >> curClass;
+		system("cls");
+		if (class_existed(curYear, curClass)) {
+			createClassFail();
+			while (std::cin >> choice) {
+				system("cls");
+				createClassFail();
+				if (choice == 0) {
+					system("cls");
+					goto GENERALCLASS;
+				}
+				if (choice == 1)
+					goto CREATECLASS;
+			}
+		}
+		create_General_class(curYear, curClass);
+		system("cls");
+		goto GENERALCLASS;
 	case 2:
 	INPUTCLASS:
 		system("cls");
 		std::cout << "What general class do you want to edit: " << std::endl;
 		view_list_of_general_class(curYear);
+		std::cout << "\n Your choice(Ex:20CLC04): ";
 		cin >> curClass;
 		system("cls");
 		if (!class_existed(curYear, curClass)) {
@@ -207,11 +229,9 @@ EDITGENERALCLASS:
 	case 4:
 		//add1
 	case 5:
-		//editIn4Stu
-	case 6:
 		system("cls");
 		goto INPUTCLASS;
-	case 7:
+	case 6:
 		system("cls");
 		goto STAFFMENU;
 	default:
@@ -246,51 +266,19 @@ SEMESTER:
 		system("cls");
 		goto SEMESTER;
 	case 2:
-		/*INPUTYEAR:
-			system("cls");
-			std::cout << "What schoolYear do you want to edit: " << std::endl;
-			listSchoolYear();
-			cin >> curYear;
-			system("cls");
-			if (!year_exits(curYear)) {
-				inputSchoolYearFail();
-				while (std::cin >> choice) {
-					system("cls");
-					inputSchoolYearFail();
-					if (choice == 0)
-						goto STAFFMENU;
-					if (choice == 1)
-						goto INPUTYEAR;
-				}
-			}
-			system("cls");
-			goto EDITSCHOOLYEAR;*/
+		//editSemester
 	case 3:
-		/*system("cls");
-		while (!user.changePassword()) {
-			changePasswordFail();
-			while (std::cin >> choice) {
-				if (choice == 0) {
-					system("cls");
-					goto STAFFMENU;
-				}
-				if (choice == 1)
-					break;
-			}
-		}
-		break;*/
+		system("cls");
+		goto EDITSCHOOLYEAR;
 	case 4:
 		system("cls");
-		user.viewProfileInfo();
-		std::cout << "Enter to continue";
-		std::cin.get();
-		std::cin.get();
-		break;
+		goto STAFFMENU;
 	default:
+		system("cls");
+		goto SEMESTER;
 		break;
 	}
-	system("cls");
-	goto STAFFMENU;
+
 STUDENTMENU:
 	
 	std::cout << "student is here";

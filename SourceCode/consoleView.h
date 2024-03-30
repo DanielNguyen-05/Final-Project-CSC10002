@@ -20,4 +20,11 @@ void semesterMainMenu();
 void inputSemesterFail();
 void createSemesterFail();
 void createClassFail();
+void editSemesterMenu();
+void inputCourseFail();
+void createCourseFail();
+void modifyCourseMenu();
+void importStudent();
+void inputStudentFail();
+void editCoursePointMenu();
 
