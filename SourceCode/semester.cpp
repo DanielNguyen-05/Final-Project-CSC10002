@@ -25,7 +25,6 @@ bool checkSemester(std::string curYear, int curSemester) {
     fin.close();
     return false;
 }
-
 void Semester::loadSemesterData(std::string schoolyear, int semester) // School Year -> Semester -> Course
 {
     char* intStr = new char[1];
@@ -33,7 +32,6 @@ void Semester::loadSemesterData(std::string schoolyear, int semester) // School 
     std::string courses_path = "Data\\" + schoolyear + "\\Semester " + intStr + "\\CourseList.txt";
     std::string courses_id;
     std::string line;
-    std::cout << courses_path;
     std::ifstream f_courses_list;
     std::ifstream fin;
 
@@ -59,20 +57,21 @@ void Semester::loadSemesterData(std::string schoolyear, int semester) // School 
         getline(fin, tmpNum, ',');
         tmp.max_student = atoi(tmpNum.c_str());
         getline(fin, tmp.day_of_week, ',');
-        getline(fin, tmp.session, ',');
+        getline(fin, tmp.session);
 
         fin.close();
+        std::string path = "Data\\" + schoolyear + "\\Semester " + std::string(intStr) + "\\" + courses_id + "\\";
+        tmp.inputCSV(path + "StudentList.csv");
+        tmp.importScoreboard(path + "Point.csv");
         this->courses.insertAtTail(tmp);
     }
 
     f_courses_list.close();
-    std::cin.get();
-    std::cin.get();
 }
 
-void Semester::createCourse(Course &course) {
+void Semester::createCourse(std::string curYear, Course &course) {
         std::cout << "\t\t\t CREATING A NEW COURSE - " << course.ID << "\n\n" ;
-        std::cout << "\t - Enter the name of this course (ex: CSC10002-23CLC03): ";
+        std::cout << "\t - Enter the name of this course (ex: Ki thuat lap trinh): ";
         std::cin >> course.course_name;
         std::cout << "\t - Enter the class which this course belongs to (ex: 23CLC03): ";
         std::cin >> course.class_name;
@@ -92,11 +91,17 @@ void Semester::createCourse(Course &course) {
                 << "\t - Which sessions, this course will be held (ex: S1): ";
         std::cin >> course.session;
         this->courses.insertAtTail(course);
+        std::string path = "Data\\" + curYear + "\\Semester " + std::to_string(this->semester_num) + "\\" + course.ID;
+        std::wstring folder(path.begin(), path.end());
+        if (!CreateDirectory(folder.c_str(), NULL)) {
+            std::cout << "can't create folder Semester, please try again" << std::endl;
+            return;
+        }
 }
 
 void Semester::viewCourseList() {
         Node<Course>* cur = this->courses.pHead;
-        std::cout << "No \t ID of Course \t Course Name \t Class Name \t Teacher Name \t Credits \t Max Student \t Session" << "\n";
+        std::cout << "No \t ID of Course \t Course Name \t Class Name \t Teacher Name \t Credits \t Max Student \t Day Of Week \t Session" << "\n";
         while (cur != nullptr) {
             std::cout << cur->data.ID << "\t";
             std::cout << cur->data.course_name << "\t";
@@ -104,6 +109,7 @@ void Semester::viewCourseList() {
             std::cout << cur->data.teacher_name << "\t";
             std::cout << cur->data.num_of_credit << "\t";
             std::cout << cur->data.max_student << "\t";
+            std::cout << cur->data.day_of_week << "\t";
             std::cout << cur->data.session << "\n";
             cur = cur->pNext;
         }
@@ -145,7 +151,6 @@ void Semester::updateCourse() {
         }
         std::cout << "\t - Course not found!" << "\n";
 }
-
 void Semester::deleteCourse() {
     std::string course_id;
     std::cout << "\t - Enter the ID of the course you want to delete: ";
@@ -231,4 +236,10 @@ bool Semester::findCourse(Course& course) {
         cur = cur->pNext;
     }
     return false;
+}
+void Semester::saveData() {
+
+}
+void Semester::deallocate() {
+
 }
