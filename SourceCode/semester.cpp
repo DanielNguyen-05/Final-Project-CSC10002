@@ -90,22 +90,23 @@ void Semester::createCourse(std::string curYear, Course &course) {
                 <<     "\t\t 4. S4 (15:30 -> 17:15)" << "\n"
                 << "\t - Which sessions, this course will be held (ex: S1): ";
         std::cin >> course.session;
-        this->courses.insertAtTail(course);
-        std::string path = "Data\\" + curYear + "\\Semester " + std::to_string(this->semester_num) + "\\" + course.ID;
-        std::wstring folder(path.begin(), path.end());
-        if (!CreateDirectory(folder.c_str(), NULL)) {
-            std::cout << "can't create folder Semester, please try again" << "\n";
-            return;
-        }
-        std::ofstream outFile(folder + L"\\course.txt");
-        if (!outFile) {
-            std::cout << "Unable to open file for writing.\n";
-            return;
-        }
-        outFile << course.ID << " " << course.course_name << " "<< course.class_name 
-                << " " << course.teacher_name << " " << course.num_of_credit << " " 
-                << course.max_student << " " << course.day_of_week << " " << course.session << "\n";
-        outFile.close();
+    this->courses.insertAtTail(course);
+
+    std::string path = "Data\\" + curYear + "\\Semester " + std::to_string(this->semester_num) + "\\" + course.ID;
+    std::string folder = path; 
+    if (!CreateDirectory(folder.c_str(), NULL)) {
+        std::cout << "can't create folder Semester, please try again" << "\n";
+        return;
+    }
+    std::ofstream outFile(folder + "\\course.txt");
+    if (!outFile) {
+        std::cout << "Unable to open file for writing.\n";
+        return;
+    }
+    outFile << course.ID << " " << course.course_name << " "<< course.class_name 
+            << " " << course.teacher_name << " " << course.num_of_credit << " " 
+            << course.max_student << " " << course.day_of_week << " " << course.session << "\n";
+    outFile.close();
 }
 
 void Semester::viewCourseList() {
