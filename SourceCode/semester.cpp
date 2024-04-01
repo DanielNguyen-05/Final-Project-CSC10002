@@ -17,19 +17,16 @@ bool checkSemester(std::string curYear, int curSemester) {
     {
         fin >> s;
         getline(fin, ignore);
-        if (s == curSemester)
-        {
-            return true;
-        }
+        if (s == curSemester) return true;
     }
     fin.close();
     return false;
 }
-void Semester::loadSemesterData(std::string schoolyear, int semester) // School Year -> Semester -> Course
+void Semester::loadSemesterData(std::string curYear, int semester) // School Year -> Semester -> Course
 {
     char* intStr = new char[1];
     sprintf(intStr,"%d",semester);
-    std::string courses_path = "Data\\" + schoolyear + "\\Semester " + intStr + "\\CourseList.txt";
+    std::string courses_path = "Data\\" + curYear + "\\Semester " + intStr + "\\CourseList.txt";
     std::string courses_id;
     std::string line;
     std::ifstream f_courses_list;
@@ -44,7 +41,7 @@ void Semester::loadSemesterData(std::string schoolyear, int semester) // School 
     while(f_courses_list >> courses_id) //course_data , course student
     {
         //load
-        std::string courses_path = "Data\\" + schoolyear + "\\Semester " + std::string(intStr) + "\\" + courses_id + "\\" + courses_id + ".csv";
+        std::string courses_path = "Data\\" + curYear + "\\Semester " + std::string(intStr) + "\\" + courses_id + "\\" + courses_id + ".csv";
         fin.open(courses_path);
         std::getline(fin, line);
         stringstream split(line); 
@@ -60,7 +57,7 @@ void Semester::loadSemesterData(std::string schoolyear, int semester) // School 
         getline(fin, tmp.session);
 
         fin.close();
-        std::string path = "Data\\" + schoolyear + "\\Semester " + std::string(intStr) + "\\" + courses_id + "\\";
+        std::string path = "Data\\" + curYear + "\\Semester " + std::string(intStr) + "\\" + courses_id + "\\";
         tmp.inputCSV(path + "StudentList.csv");
         tmp.importScoreboard(path + "Point.csv");
         this->courses.insertAtTail(tmp);
@@ -90,13 +87,23 @@ void Semester::createCourse(std::string curYear, Course &course) {
                 <<     "\t\t 4. S4 (15:30 -> 17:15)" << "\n"
                 << "\t - Which sessions, this course will be held (ex: S1): ";
         std::cin >> course.session;
-        this->courses.insertAtTail(course);
-        std::string path = "Data\\" + curYear + "\\Semester " + std::to_string(this->semester_num) + "\\" + course.ID;
-        std::wstring folder(path.begin(), path.end());
-        if (!CreateDirectory(folder.c_str(), NULL)) {
-            std::cout << "can't create folder Semester, please try again" << std::endl;
-            return;
-        }
+    this->courses.insertAtTail(course);
+
+    std::string folder = "Data\\" + curYear + "\\Semester " + std::to_string(this->semester_num) + "\\" + course.ID;
+    std::wstring wstr(folder.begin(), folder.end());
+    if (!CreateDirectory(wstr.c_str(), NULL)) {
+        std::cout << "can't create folder Semester, please try again" << "\n";
+        return;
+    }
+    std::ofstream outFile(folder + "\\course.txt");
+    if (!outFile) {
+        std::cout << "Unable to open file for writing.\n";
+        return;
+    }
+    outFile << course.ID << " " << course.course_name << " "<< course.class_name 
+            << " " << course.teacher_name << " " << course.num_of_credit << " " 
+            << course.max_student << " " << course.day_of_week << " " << course.session << "\n";
+    outFile.close();
 }
 
 void Semester::viewCourseList() {
@@ -119,7 +126,7 @@ void Semester::updateCourse() {
         std::string course_id;
         std::cout << "\t - Enter the ID of the course you want to update: ";
         std::cin >> course_id;
-
+        
         Node<Course>* cur = this->courses.pHead;
         std::cout << "\t\t\t UPDATING THE COURSE "  << course_id  << ": " << "\n\n" ;
         while (cur != nullptr) {
@@ -151,7 +158,8 @@ void Semester::updateCourse() {
         }
         std::cout << "\t - Course not found!" << "\n";
 }
-void Semester::deleteCourse() {
+
+void Semester::deleteCourse(std::string curYear) {
     std::string course_id;
     std::cout << "\t - Enter the ID of the course you want to delete: ";
     std::cin >> course_id;
@@ -167,14 +175,24 @@ void Semester::deleteCourse() {
         }
         prev = cur;
         cur = cur->pNext;
-        }
+    }
     std::cout << "\t - Course not found!" << "\n";
+
+    // delete whole folder of this course
+    std::string folderPath = "Data\\" + curYear + "\\Semester " + std::to_string(this->semester_num) + "\\" + course_id;
+    std::wstring folder(folderPath.begin(), folderPath.end());
+    if (!RemoveDirectory(folder.c_str())) {
+        DWORD error = GetLastError();
+        std::cout << "Failed to delete the folder! Error code: " << error << "\n";
+    } 
+    else std::cout << "Delete course successfully!" << "\n";
 }
+
 void Semester::createSemester(std::string year,int semester) {
     std::string path = "Data\\" + year + "\\Semester " + std::to_string(semester);
     std::wstring folder(path.begin(), path.end());
     if (!CreateDirectory(folder.c_str(), NULL)) {
-        std::cout << "can't create folder Semester, please try again" << std::endl;
+        std::cout << "can't create folder Semester, please try again" << "\n";
         return;
     }
     LinkedList<Semester> s;
@@ -189,17 +207,14 @@ void Semester::createSemester(std::string year,int semester) {
         char comma;
         fIn >> comma; 
 
-
         fIn >> tmp.start_day >> comma >> tmp.end_day;
 
         std::string ignore;
         std::getline(fIn, ignore, '\n');
 
-
         s.insertAtTail(tmp);
     }
     fIn.close();
-
 
     std::cout << "\t\t\t CREATING A NEW SEMESTER" << year << "  S" << semester << "\n\n";
     this->semester_num = semester;
@@ -218,7 +233,7 @@ void Semester::createSemester(std::string year,int semester) {
         fOut << cur->data.semester_num << "," << cur->data.start_day << "," << cur->data.end_day;
         cur = cur->pNext;
         if (cur)
-            fOut << std::endl;
+            fOut << "\n";
     }
     fOut.close();
     std::cout << "Create semester successfully...Enter to continue\n";
