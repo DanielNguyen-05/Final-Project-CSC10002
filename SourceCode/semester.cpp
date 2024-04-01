@@ -94,7 +94,7 @@ void Semester::createCourse(std::string curYear, Course &course) {
         std::string path = "Data\\" + curYear + "\\Semester " + std::to_string(this->semester_num) + "\\" + course.ID;
         std::wstring folder(path.begin(), path.end());
         if (!CreateDirectory(folder.c_str(), NULL)) {
-            std::cout << "can't create folder Semester, please try again" << std::endl;
+            std::cout << "can't create folder Semester, please try again" << "\n";
             return;
         }
 }
@@ -151,6 +151,7 @@ void Semester::updateCourse() {
         }
         std::cout << "\t - Course not found!" << "\n";
 }
+
 void Semester::deleteCourse() {
     std::string course_id;
     std::cout << "\t - Enter the ID of the course you want to delete: ";
@@ -167,14 +168,20 @@ void Semester::deleteCourse() {
         }
         prev = cur;
         cur = cur->pNext;
-        }
+    }
     std::cout << "\t - Course not found!" << "\n";
+
+    // delete whole folder of this course
+    std::string folderPath = "Data\\" + curYear + "\\Semester " + std::to_string(this->semester_num) + "\\" + course_id;
+    std::wstring folder(folderPath.begin(), folderPath.end());
+    if (!RemoveDirectory(folder.c_str())) std::cout << "Failed to delete the folder!" << "\n";
 }
+
 void Semester::createSemester(std::string year,int semester) {
     std::string path = "Data\\" + year + "\\Semester " + std::to_string(semester);
     std::wstring folder(path.begin(), path.end());
     if (!CreateDirectory(folder.c_str(), NULL)) {
-        std::cout << "can't create folder Semester, please try again" << std::endl;
+        std::cout << "can't create folder Semester, please try again" << "\n";
         return;
     }
     LinkedList<Semester> s;
@@ -218,7 +225,7 @@ void Semester::createSemester(std::string year,int semester) {
         fOut << cur->data.semester_num << "," << cur->data.start_day << "," << cur->data.end_day;
         cur = cur->pNext;
         if (cur)
-            fOut << std::endl;
+            fOut << "\n";
     }
     fOut.close();
     std::cout << "Create semester successfully...Enter to continue\n";
