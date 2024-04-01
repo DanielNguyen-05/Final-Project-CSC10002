@@ -91,7 +91,9 @@ void Semester::createCourse(std::string curYear, Course &course) {
 
     std::string path = "Data\\" + curYear + "\\Semester " + std::to_string(this->semester_num) + "\\" + course.ID;
     std::string folder = path; 
-    if (!CreateDirectory(folder.c_str(), NULL)) {
+    std::string str = folder;
+    std::wstring wstr(str.begin(), str.end());
+    if (!CreateDirectory(wstr.c_str(), NULL)) {
         std::cout << "can't create folder Semester, please try again" << "\n";
         return;
     }
