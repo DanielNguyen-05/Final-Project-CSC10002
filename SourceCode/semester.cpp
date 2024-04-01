@@ -89,10 +89,8 @@ void Semester::createCourse(std::string curYear, Course &course) {
         std::cin >> course.session;
     this->courses.insertAtTail(course);
 
-    std::string path = "Data\\" + curYear + "\\Semester " + std::to_string(this->semester_num) + "\\" + course.ID;
-    std::string folder = path; 
-    std::string str = folder;
-    std::wstring wstr(str.begin(), str.end());
+    std::string folder = "Data\\" + curYear + "\\Semester " + std::to_string(this->semester_num) + "\\" + course.ID;
+    std::wstring wstr(folder.begin(), folder.end());
     if (!CreateDirectory(wstr.c_str(), NULL)) {
         std::cout << "can't create folder Semester, please try again" << "\n";
         return;
