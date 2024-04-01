@@ -93,7 +93,7 @@ void Semester::createCourse(std::string curYear, Course &course) {
         this->courses.insertAtTail(course);
         std::string path = "Data\\" + curYear + "\\Semester " + std::to_string(this->semester_num) + "\\" + course.ID;
         std::wstring folder(path.begin(), path.end());
-        if (!CreateDirectory(folder.c_str(), NULL)) {
+        if (!CreateDirectoryW(folder.c_str(), NULL)) {
             std::cout << "can't create folder Semester, please try again" << std::endl;
             return;
         }
@@ -173,7 +173,7 @@ void Semester::deleteCourse() {
 void Semester::createSemester(std::string year,int semester) {
     std::string path = "Data\\" + year + "\\Semester " + std::to_string(semester);
     std::wstring folder(path.begin(), path.end());
-    if (!CreateDirectory(folder.c_str(), NULL)) {
+    if (!CreateDirectoryW(folder.c_str(), NULL)) {
         std::cout << "can't create folder Semester, please try again" << std::endl;
         return;
     }
