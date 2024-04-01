@@ -17,10 +17,7 @@ bool checkSemester(std::string curYear, int curSemester) {
     {
         fin >> s;
         getline(fin, ignore);
-        if (s == curSemester)
-        {
-            return true;
-        }
+        if (s == curSemester) return true;
     }
     fin.close();
     return false;
@@ -129,7 +126,7 @@ void Semester::updateCourse() {
         std::string course_id;
         std::cout << "\t - Enter the ID of the course you want to update: ";
         std::cin >> course_id;
-
+        
         Node<Course>* cur = this->courses.pHead;
         std::cout << "\t\t\t UPDATING THE COURSE "  << course_id  << ": " << "\n\n" ;
         while (cur != nullptr) {
@@ -187,8 +184,8 @@ void Semester::deleteCourse(std::string curYear) {
     if (!RemoveDirectory(folder.c_str())) {
         DWORD error = GetLastError();
         std::cout << "Failed to delete the folder! Error code: " << error << "\n";
-    } else std::cout << "Delete course successfully!" << "\n";
-
+    } 
+    else std::cout << "Delete course successfully!" << "\n";
 }
 
 void Semester::createSemester(std::string year,int semester) {
@@ -218,7 +215,6 @@ void Semester::createSemester(std::string year,int semester) {
         s.insertAtTail(tmp);
     }
     fIn.close();
-
 
     std::cout << "\t\t\t CREATING A NEW SEMESTER" << year << "  S" << semester << "\n\n";
     this->semester_num = semester;
