@@ -13,6 +13,7 @@ struct Course {
         string final;
         string midterm;
         string others;
+
     };
     string ID;
     string course_name;

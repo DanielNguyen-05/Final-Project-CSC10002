@@ -260,5 +260,6 @@ bool import_student_by_csv(std::string curYear, std::string curClass)
     std::cout << "Add student successfully!...Enter to continue \n";
     std::cin.get();
     std::cin.get();
+    return 1;
 }
 

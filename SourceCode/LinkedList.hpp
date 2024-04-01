@@ -110,7 +110,7 @@ Node<T>* LinkedList<T>::findNode(T x) {
 	while (cur && cur->data != x)
 		cur = cur->pNext;
 	if (!cur)
-		cout << "List doesn't have " << x;
+		return nullptr;
 	return cur;
 }
 

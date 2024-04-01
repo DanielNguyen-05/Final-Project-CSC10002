@@ -9,10 +9,10 @@
 
 int main() {
 	Semester curSemester;
-	string curYear;
-	string curClass;
+	std::string curYear;
+	std::string curClass;
 	Course curCourse;
-	string path;
+	std::string path;
 	Student curStudent;
 	
 START:
@@ -293,8 +293,10 @@ SEMESTER:
 		goto EDITSEMESTER;
 	case 3:
 		system("cls");
+		//save all
 		goto EDITSCHOOLYEAR;
 	case 4:
+		//save all
 		system("cls");
 		goto STAFFMENU;
 	default:
@@ -308,6 +310,7 @@ EDITSEMESTER:
 	switch (choice)
 	{
 	case 0:
+		//save all
 		//deallocated all
 		system("cls");
 		goto LOGIN;
@@ -317,7 +320,7 @@ EDITSEMESTER:
 		std::cout << "What course do you want to create (Ex:CS161) : ";
 		cin >> curCourse.ID;
 		system("cls");
-		if (!curSemester.findCourse(curCourse)) {
+		if (curSemester.findCourse(curCourse)) {
 			createCourseFail();
 			while (std::cin >> choice) {
 				system("cls");
@@ -330,15 +333,15 @@ EDITSEMESTER:
 					goto CREATECOURSE;
 			}
 		}
-		curSemester.createCourse(curCourse);
+		curSemester.createCourse(curYear, curCourse);
 		system("cls");
 		goto EDITSEMESTER;
 	case 2:
-	VIEWCOURSE:
 		curSemester.viewCourseList();
 		std::cout << "Enter to continue...";
 		std::cin.get();
 		std::cin.get();
+		system("cls");
 		goto EDITSEMESTER;
 	case 3:
 	INPUTCOURSE:
@@ -379,6 +382,7 @@ MODIFYCOURSE:
 	switch (choice)
 	{
 	case 0:
+		//save all
 		//deallocate all
 		system("cls");
 		goto LOGIN;
@@ -387,9 +391,9 @@ MODIFYCOURSE:
 		std::cout << "Enter to continue...";
 		std::cin.get();
 		std::cin.get();
+		system("cls");
 		goto MODIFYCOURSE;
 	case 2:
-	IMPORTSTUDENT:
 		importStudent();
 		cin >> choice;
 		switch (choice)
@@ -431,19 +435,17 @@ MODIFYCOURSE:
 		goto MODIFYCOURSE;
 	case 7:
 		system("cls");
-		curCourse.students.deallocate();
-		curCourse.points.deallocate();
 		goto EDITSEMESTER;
 	default:
 		system("cls");
 		goto MODIFYCOURSE;
 	}
 COURSEPOINT:
-	editSemesterMenu();
+	editCoursePointMenu();
 	cin >> choice;
-	switch (choice)
-	{
+	switch (choice){
 	case 0:
+		//save all
 		//deallocate all
 		system("cls");
 		goto LOGIN;
@@ -473,6 +475,7 @@ COURSEPOINT:
 		system("cls");
 		goto COURSEPOINT;
 	}
+	return 0;
 STUDENTMENU:
 	
 	std::cout << "student is here";
