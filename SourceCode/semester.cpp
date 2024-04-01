@@ -25,11 +25,11 @@ bool checkSemester(std::string curYear, int curSemester) {
     fin.close();
     return false;
 }
-void Semester::loadSemesterData(std::string schoolyear, int semester) // School Year -> Semester -> Course
+void Semester::loadSemesterData(std::string curYear, int semester) // School Year -> Semester -> Course
 {
     char* intStr = new char[1];
     sprintf(intStr,"%d",semester);
-    std::string courses_path = "Data\\" + schoolyear + "\\Semester " + intStr + "\\CourseList.txt";
+    std::string courses_path = "Data\\" + curYear + "\\Semester " + intStr + "\\CourseList.txt";
     std::string courses_id;
     std::string line;
     std::ifstream f_courses_list;
@@ -44,7 +44,7 @@ void Semester::loadSemesterData(std::string schoolyear, int semester) // School 
     while(f_courses_list >> courses_id) //course_data , course student
     {
         //load
-        std::string courses_path = "Data\\" + schoolyear + "\\Semester " + std::string(intStr) + "\\" + courses_id + "\\" + courses_id + ".csv";
+        std::string courses_path = "Data\\" + curYear + "\\Semester " + std::string(intStr) + "\\" + courses_id + "\\" + courses_id + ".csv";
         fin.open(courses_path);
         std::getline(fin, line);
         stringstream split(line); 
@@ -60,7 +60,7 @@ void Semester::loadSemesterData(std::string schoolyear, int semester) // School 
         getline(fin, tmp.session);
 
         fin.close();
-        std::string path = "Data\\" + schoolyear + "\\Semester " + std::string(intStr) + "\\" + courses_id + "\\";
+        std::string path = "Data\\" + curYear + "\\Semester " + std::string(intStr) + "\\" + courses_id + "\\";
         tmp.inputCSV(path + "StudentList.csv");
         tmp.importScoreboard(path + "Point.csv");
         this->courses.insertAtTail(tmp);
@@ -97,6 +97,15 @@ void Semester::createCourse(std::string curYear, Course &course) {
             std::cout << "can't create folder Semester, please try again" << "\n";
             return;
         }
+        std::ofstream outFile(folder + L"\\course.txt");
+        if (!outFile) {
+            std::cout << "Unable to open file for writing.\n";
+            return;
+        }
+        outFile << course.ID << " " << course.course_name << " "<< course.class_name 
+                << " " << course.teacher_name << " " << course.num_of_credit << " " 
+                << course.max_student << " " << course.day_of_week << " " << course.session << "\n";
+        outFile.close();
 }
 
 void Semester::viewCourseList() {
@@ -174,7 +183,11 @@ void Semester::deleteCourse(std::string curYear) {
     // delete whole folder of this course
     std::string folderPath = "Data\\" + curYear + "\\Semester " + std::to_string(this->semester_num) + "\\" + course_id;
     std::wstring folder(folderPath.begin(), folderPath.end());
-    if (!RemoveDirectory(folder.c_str())) std::cout << "Failed to delete the folder!" << "\n";
+    if (!RemoveDirectory(folder.c_str())) {
+        DWORD error = GetLastError();
+        std::cout << "Failed to delete the folder! Error code: " << error << "\n";
+    } else std::cout << "Delete course successfully!" << "\n";
+
 }
 
 void Semester::createSemester(std::string year,int semester) {
@@ -196,12 +209,10 @@ void Semester::createSemester(std::string year,int semester) {
         char comma;
         fIn >> comma; 
 
-
         fIn >> tmp.start_day >> comma >> tmp.end_day;
 
         std::string ignore;
         std::getline(fIn, ignore, '\n');
-
 
         s.insertAtTail(tmp);
     }
