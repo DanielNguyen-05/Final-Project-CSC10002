@@ -241,5 +241,10 @@ void Semester::saveData() {
 
 }
 void Semester::deallocate() {
-
+    Node<Course>* cur = this->courses.pHead;
+    while (cur) {
+        cur->data.students.deallocate();
+        cur->data.points.deallocate();
+        cur = cur->pNext;
+    }
 }

@@ -1,5 +1,4 @@
 #include "student.hpp"
-#include <fstream>
 
 bool student_exist (std::string curYear, std::string curClass, std::string Student_id)
 {

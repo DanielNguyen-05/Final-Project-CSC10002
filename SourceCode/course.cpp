@@ -160,7 +160,7 @@ void Course::deleteStudent() {
 		std::cout << "Course doesn't have this student" << "\n";
 }
 
-static ostream& operator<<(ostream& os, const Course::Point a) {
+ostream& operator<<(ostream& os, const Course::Point a) {
 	os << a.stu_id << "," << a.full_name << "," << a.overall << "," << a.final << "," << a.midterm << "," << a.others << "\n";
 	return os;
 }

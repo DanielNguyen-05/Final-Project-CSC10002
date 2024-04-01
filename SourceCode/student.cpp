@@ -13,7 +13,6 @@ ostream& operator<<(ostream& os, const Student a) {
     os << a.stu_id << "," << a.first_name << "," << a.last_name << "," << a.gender << "," << a.date_of_birth << "," << a.soci_id << endl;
     return os;
 }
-
 bool operator<(const Student a, const Student b) {
     return a.stu_id < b.stu_id;
 }
