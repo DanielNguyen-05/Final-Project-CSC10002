@@ -49,7 +49,7 @@ bool create_School_year(std::string curYear)
     }
     std::string path = "Data\\" + curYear;
     std::wstring folder(path.begin(), path.end());
-    if (!CreateDirectory(folder.c_str(), NULL)) {
+    if (!CreateDirectoryW(folder.c_str(), NULL)) {
         std::cout << "can't create folder schoolYear, please try again" << std::endl;
     }
     std::ofstream semester(path + "\\semester.txt");
