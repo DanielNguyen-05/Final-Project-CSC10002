@@ -63,6 +63,26 @@ void Course::importScoreboard(string path) {
 	}
 	fIn.close();
 }
+void Course::exportScoreboard(string path) {
+	ofstream fOut(path);
+	if (!fOut.is_open()) {
+		cerr << "Error: Unable to open file for writing!" << endl;
+		return;
+	}
+
+	fOut << "No,StudentID,FullName,Overall,Final,Midterm,Others" << endl;
+	int counter = 1;
+	Node<Point>* cur = this->points.pHead;
+	while(cur) {
+		Point pt = cur->data;
+		fOut << counter << "," << pt.stu_id << "," << pt.full_name << "," << pt.overall << ","
+			<< pt.final << "," << pt.midterm << "," << pt.others << endl;
+		++counter;
+		cur = cur->pNext;
+	}
+
+	fOut.close();
+}
 
 void Course::outputCSV(string path) {
 	ofstream fOut(path);

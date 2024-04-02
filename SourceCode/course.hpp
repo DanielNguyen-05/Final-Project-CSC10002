@@ -34,6 +34,7 @@ struct Course {
     void inputCSV(string path);
     void outputCSV(string path);
     void importScoreboard(string path);
+    void exportScoreboard(string path);
     void viewScoreboard();
     void updateResult();
     void addStudent();

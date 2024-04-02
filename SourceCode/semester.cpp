@@ -29,7 +29,7 @@ void Semester::loadSemesterData(std::string schoolyear, int semester) // School 
 {
     char* intStr = new char[1];
     sprintf(intStr,"%d",semester);
-    std::string courses_path = "Data\\" + schoolyear + "\\Semester " + intStr + "\\CourseList.txt";
+    std::string courses_path = "Data\\" + schoolyear + "\\Semester " + std::string(intStr) + "\\CourseList.txt";
     std::string courses_id;
     std::string line;
     std::ifstream f_courses_list;
@@ -93,7 +93,6 @@ void Semester::createCourse(std::string curYear, Course &course) {
         this->courses.insertAtTail(course);
         std::string path = "Data\\" + curYear + "\\Semester " + std::to_string(this->semester_num) + "\\" + course.ID;
         std::wstring folder(path.begin(), path.end());
-        if (!CreateDirectoryW(folder.c_str(), NULL)) {
             std::cout << "can't create folder Semester, please try again" << std::endl;
             return;
         }
@@ -101,8 +100,10 @@ void Semester::createCourse(std::string curYear, Course &course) {
 
 void Semester::viewCourseList() {
         Node<Course>* cur = this->courses.pHead;
+        int no = 1;
         std::cout << "No \t ID of Course \t Course Name \t Class Name \t Teacher Name \t Credits \t Max Student \t Day Of Week \t Session" << "\n";
         while (cur != nullptr) {
+            std::cout << no << "\t";
             std::cout << cur->data.ID << "\t";
             std::cout << cur->data.course_name << "\t";
             std::cout << cur->data.class_name << "\t";
@@ -111,6 +112,7 @@ void Semester::viewCourseList() {
             std::cout << cur->data.max_student << "\t";
             std::cout << cur->data.day_of_week << "\t";
             std::cout << cur->data.session << "\n";
+            no++;
             cur = cur->pNext;
         }
 }
@@ -173,7 +175,6 @@ void Semester::deleteCourse() {
 void Semester::createSemester(std::string year,int semester) {
     std::string path = "Data\\" + year + "\\Semester " + std::to_string(semester);
     std::wstring folder(path.begin(), path.end());
-    if (!CreateDirectoryW(folder.c_str(), NULL)) {
         std::cout << "can't create folder Semester, please try again" << std::endl;
         return;
     }
@@ -237,8 +238,41 @@ bool Semester::findCourse(Course& course) {
     }
     return false;
 }
-void Semester::saveData() {
+void Semester::saveData(std::string schoolyear, int semester) {
+    char intStr[10];
+    sprintf(intStr, "%d", semester);
 
+    std::string courses_path = "Data\\" + schoolyear + "\\Semester " + std::string(intStr) + "\\CourseList.txt";
+
+    std::ofstream f_courses_list(courses_path);
+    if (!f_courses_list.is_open()) {
+        std::cerr << "Error: Unable to open file for writing!" << std::endl;
+        return;
+    }
+    Node<Course>* cur = this->courses.pHead;
+    while(cur) {
+        Course currentCourse = cur->data;
+        std::string course_data_path = "Data\\" + schoolyear + "\\Semester " + std::string(intStr) + "\\" + currentCourse.ID + "\\" + currentCourse.ID + ".csv";
+
+        std::ofstream fout(course_data_path);
+        if (!fout.is_open()) {
+            std::cerr << "Error: Unable to open course data file for writing!" << std::endl;
+            continue;
+        }
+        fout << "ID,Course Name,Class name,Teacher name,num_of_credit,max student, day of week, session \n";
+        fout << currentCourse.ID << "," << currentCourse.course_name << "," << currentCourse.class_name << "," << currentCourse.teacher_name << ","
+            << currentCourse.num_of_credit << "," << currentCourse.max_student << "," << currentCourse.day_of_week << "," << currentCourse.session << std::endl;
+
+        fout.close();
+
+        currentCourse.outputCSV("Data\\" + schoolyear + "\\Semester " + std::string(intStr) + "\\" + currentCourse.ID + "\\StudentList.csv");
+        currentCourse.exportScoreboard("Data\\" + schoolyear + "\\Semester " + std::string(intStr) + "\\" + currentCourse.ID + "\\Point.csv");
+        std::cout << "Data\\" + schoolyear + "\\Semester " + std::string(intStr) + "\\" + currentCourse.ID + "\\StudentList.csv";
+        f_courses_list << currentCourse.ID << std::endl;
+        cur = cur ->pNext;
+    }
+
+    f_courses_list.close();
 }
 void Semester::deallocate() {
     Node<Course>* cur = this->courses.pHead;

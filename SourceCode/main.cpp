@@ -142,7 +142,7 @@ EDITSCHOOLYEAR:
 	switch (choice)
 	{
 	case 0:
-		goto LOGIN;
+		goto START;
 	case 1:
 		goto GENERALCLASS;
 	case 2:
@@ -161,7 +161,7 @@ GENERALCLASS:
 	{
 	case 0:
 		system("cls");
-		goto LOGIN;
+		goto START;
 	case 1:
 	CREATECLASS:
 		system("cls");
@@ -223,7 +223,7 @@ EDITGENERALCLASS:
 	{
 	case 0:
 		system("cls");
-		goto LOGIN;
+		goto START;
 	case 1:
 		//update in4
 	case 2:
@@ -310,14 +310,14 @@ EDITSEMESTER:
 	switch (choice)
 	{
 	case 0:
-		//save all
-		//deallocated all
+		curSemester.saveData(curYear, curSemester.semester_num);
+		curSemester.deallocate();
 		system("cls");
-		goto LOGIN;
+		goto START;
 	case 1:
 	CREATECOURSE:
 		system("cls");
-		std::cout << "What course do you want to create (Ex:CS161) : ";
+		std::cout << "What course do you want to create (Ex:CS161-23CLC03) : ";
 		cin >> curCourse.ID;
 		system("cls");
 		if (curSemester.findCourse(curCourse)) {
@@ -369,7 +369,8 @@ EDITSEMESTER:
 		system("cls");
 		goto EDITSEMESTER;
 	case 5:
-		//deallocate all
+		curSemester.saveData(curYear, curSemester.semester_num);
+		curSemester.deallocate();
 		system("cls");
 		goto SEMESTER;
 	default:
@@ -379,11 +380,12 @@ EDITSEMESTER:
 MODIFYCOURSE:
 	modifyCourseMenu();
 	cin >> choice;
+	system("cls");
 	switch (choice)
 	{
 	case 0:
-		//save all
-		//deallocate all
+		curSemester.saveData(curYear, curSemester.semester_num);
+		curSemester.deallocate();
 		system("cls");
 		goto LOGIN;
 	case 1:
@@ -445,16 +447,15 @@ COURSEPOINT:
 	cin >> choice;
 	switch (choice){
 	case 0:
-		//save all
-		//deallocate all
+		curSemester.saveData(curYear, curSemester.semester_num);
+		curSemester.deallocate();
 		system("cls");
-		goto LOGIN;
+		goto START;
 	case 1:
 		system("cls");
 		std::cout << "Enter path of input file:";
 		std::cin >> path;
 		curCourse.importScoreboard(path);
-		break;
 		system("cls");
 		goto COURSEPOINT;
 	case 2:

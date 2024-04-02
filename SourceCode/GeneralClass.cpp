@@ -257,6 +257,7 @@ bool import_student_by_csv(std::string curYear, std::string curClass)
         no++;
     }
     fout.close();
+    Studentlist.deallocate();
     std::cout << "Add student successfully!...Enter to continue \n";
     std::cin.get();
     std::cin.get();
