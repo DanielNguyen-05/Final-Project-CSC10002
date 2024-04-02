@@ -69,35 +69,35 @@ void Semester::loadSemesterData(std::string schoolyear, int semester) // School 
     f_courses_list.close();
 }
 
-void Semester::createCourse(std::string curYear, Course &course) {
-        std::cout << "\t\t\t CREATING A NEW COURSE - " << course.ID << "\n\n" ;
-        std::cout << "\t - Enter the name of this course (ex: Ki thuat lap trinh): ";
-        std::cin >> course.course_name;
-        std::cout << "\t - Enter the class which this course belongs to (ex: 23CLC03): ";
-        std::cin >> course.class_name;
-        std::cout << "\t - Enter the teacher of this course: ";
-        std::cin >> course.teacher_name;
-        std::cout << "\t - Enter the number of credits in this course (ex: 4): ";
-        std::cin >> course.num_of_credit;
-        std::cout << "\t - Enter the maximum number of students in this course: ";
-        std::cin >> course.max_student;
-        std::cout << "\t - Enter the day of week when this course will be held (ex: MON/TUE/WED/THU/FRI/SAT): ";
-        std::cin >> course.day_of_week;
-        std::cout << "\t- Here is the a list of sessions: " << "\n"
-                <<     "\t\t 1. S1 (7:30 -> 9:15)" << "\n"
-                <<     "\t\t 2. S2 (9:30 -> 11:15)" << "\n"
-                <<     "\t\t 3. S3 (13:30 -> 15:15)" << "\n"
-                <<     "\t\t 4. S4 (15:30 -> 17:15)" << "\n"
-                << "\t - Which sessions, this course will be held (ex: S1): ";
-        std::cin >> course.session;
-        this->courses.insertAtTail(course);
-        std::string path = "Data\\" + curYear + "\\Semester " + std::to_string(this->semester_num) + "\\" + course.ID;
-        std::wstring folder(path.begin(), path.end());
-            std::cout << "can't create folder Semester, please try again" << std::endl;
-            return;
-        }
+void Semester::createCourse(std::string curYear, Course& course) {
+    std::cout << "\t\t\t CREATING A NEW COURSE - " << course.ID << "\n\n";
+    std::cout << "\t - Enter the name of this course (ex: Ki thuat lap trinh): ";
+    std::cin >> course.course_name;
+    std::cout << "\t - Enter the class which this course belongs to (ex: 23CLC03): ";
+    std::cin >> course.class_name;
+    std::cout << "\t - Enter the teacher of this course: ";
+    std::cin >> course.teacher_name;
+    std::cout << "\t - Enter the number of credits in this course (ex: 4): ";
+    std::cin >> course.num_of_credit;
+    std::cout << "\t - Enter the maximum number of students in this course: ";
+    std::cin >> course.max_student;
+    std::cout << "\t - Enter the day of week when this course will be held (ex: MON/TUE/WED/THU/FRI/SAT): ";
+    std::cin >> course.day_of_week;
+    std::cout << "\t- Here is the a list of sessions: " << "\n"
+        << "\t\t 1. S1 (7:30 -> 9:15)" << "\n"
+        << "\t\t 2. S2 (9:30 -> 11:15)" << "\n"
+        << "\t\t 3. S3 (13:30 -> 15:15)" << "\n"
+        << "\t\t 4. S4 (15:30 -> 17:15)" << "\n"
+        << "\t - Which sessions, this course will be held (ex: S1): ";
+    std::cin >> course.session;
+    this->courses.insertAtTail(course);
+    std::string path = "Data\\" + curYear + "\\Semester " + std::to_string(this->semester_num) + "\\" + course.ID;
+    std::wstring folder(path.begin(), path.end());
+    if (!CreateDirectoryW(folder.c_str(), NULL)) {
+        std::cout << "can't create folder Semester, please try again" << std::endl;
+        return;
+    }
 }
-
 void Semester::viewCourseList() {
         Node<Course>* cur = this->courses.pHead;
         int no = 1;
@@ -175,6 +175,7 @@ void Semester::deleteCourse() {
 void Semester::createSemester(std::string year,int semester) {
     std::string path = "Data\\" + year + "\\Semester " + std::to_string(semester);
     std::wstring folder(path.begin(), path.end());
+    if (!CreateDirectoryW(folder.c_str(), NULL)) {
         std::cout << "can't create folder Semester, please try again" << std::endl;
         return;
     }
