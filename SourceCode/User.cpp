@@ -11,23 +11,24 @@ bool Users::isStudent(std::string username, std::string password)
     fin.open(account_file.c_str());
     if(!fin.is_open())
     {
-        system("cls");
-        std::cerr << "Wrong password or username!" << std::endl;
+        // system("cls");
+        // std::cerr << "Wrong password or username!" << std::endl;
         return false;
     }
 
-    fin >> account_pass;
-    fin.close();
+    // fin >> account_pass;
+   
     
     std::getline(fin, line);
+    fin.close();
     stringstream split(line);
 
     std::getline(split,account_pass,',');
 
     if(account_pass != password)
     {
-        system("cls");
-        std::cerr << "Wrong password or username!" << std::endl;
+        // system("cls");
+        // std::cerr << "Wrong password or username!" << std::endl;
         return false;
     }
 
@@ -53,20 +54,21 @@ bool Users::isAcademicStaff(std::string username, std::string password)
     std::ifstream fin(account_file);
     if(!fin.is_open())
     {
-        system("cls");
-        std::cerr << "Wrong password or username!" << std::endl;
+        // system("cls");
+        // std::cerr << "Wrong password or username!" << std::endl;
         return false;
     }
 
     std::getline(fin, line);
+    fin.close();
     stringstream split(line);
 
     std::getline(split,account_pass,',');
 
     if(account_pass != password)
     {
-        system("cls");
-        std::cerr << "Wrong password or username!" << std::endl;
+        // system("cls");
+        // std::cerr << "Wrong password or username!" << std::endl;
         return false;
     }
 
@@ -79,8 +81,6 @@ bool Users::isAcademicStaff(std::string username, std::string password)
 
     Username = username;
     Password = password;
-
-    fin.close();
 
     return true;
 }
@@ -95,25 +95,24 @@ bool Users::login()
     std::cout << "Please input password: ";
     std::cin >> password;
 
-    if(!isStaff)
-    {
-        if(isStudent(username, password))
+    if(isStudent(username, password))
         {
             system("cls");
             std::cout << "Log in successfully. Welcome back " << Username << "!\n";
-            
             return true;
         }
-    }
     else
     {
         if(isAcademicStaff(username, password))
         {
+            isStaff = true;
             system("cls");
             std::cout << "Log in successfully. Welcome back " << Username << "!\n";
             return true;
         }
     }
+    system("cls");
+    std::cerr << "Wrong password or username!" << std::endl;
     return false;
 }
 
