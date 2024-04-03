@@ -27,4 +27,6 @@ void modifyCourseMenu();
 void importStudent();
 void inputStudentFail();
 void editCoursePointMenu();
-
+void studentChooseYear(std::string username);
+void studentMenu();
+void studentView();

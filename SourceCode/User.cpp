@@ -119,7 +119,7 @@ bool Users::login()
 
 void Users::viewProfileInfo()
 {
-    std::cout   << "\t\t\tUSER PROFILE INFORMATION:"
+    std::cout   << "\t\t\tUSER PROFILE INFORMATION:\n"
                 << "User ID: " << user_id << "\n"
                 << "Full name: " << last_name + first_name << "\n"
                 << "Gender: " << gender << "\n"

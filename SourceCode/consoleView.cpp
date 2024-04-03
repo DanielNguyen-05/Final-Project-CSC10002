@@ -186,8 +186,7 @@ void editSemesterMenu() {
         << "1. Create new courses\n"
         << "2. View all courses in this semester \n"
         << "3. Modify a course\n"
-        << "4. Export a course into .csv file\n"
-        << "5. Go back to the previous page to work on Semesters\n\n"
+        << "4. Go back to the previous page to work on Semesters\n\n"
 
         << "Your choice: ";
 }
@@ -240,6 +239,28 @@ void editCoursePointMenu() {
         << "2. View scoreboard of a course\n"
         << "3. Update a student's result\n"
         << "4. Go back to the previous page\n\n"
+
+        << "Your choice: ";
+}
+void studentChooseYear(std::string username) {
+    std::cout << "Hello,." << username << std::endl
+            << "Enter a school year which you want to check \n" ;
+}
+void studentMenu() {
+    std::cout << "What would you like to do ?\n"
+        << "0. Log out\n"
+        << "1. View your profile\n"
+        << "2. View courses and scoreboard\n"
+        << "3. Change password\n\n"
+
+        << "Your choice: ";
+}
+void studentView() {
+    std::cout << "What would you like to do ?\n"
+        << "0. Log out\n"
+        << "1. View your scoreboard\n"
+        << "2. View list of your courses\n"
+        << "3. Back to main menu\n\n"
 
         << "Your choice: ";
 }

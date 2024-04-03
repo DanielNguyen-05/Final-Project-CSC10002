@@ -5,6 +5,7 @@
 #include"schoolyear.hpp"
 #include"GeneralClass.hpp"
 #include"course.hpp"
+#include"student_control.hpp"
 
 
 int main() {
@@ -14,6 +15,7 @@ int main() {
 	Course curCourse;
 	std::string path;
 	Student curStudent;
+	Student_Control curStudentControl;
 	
 START:
 	Users user;
@@ -22,24 +24,6 @@ START:
 	std::cin >> choice;
 	if (choice == 0)
 		return 0;
-	system("cls");
-CHOOSEROLE:
-	chooseRole();
-	std::cin >> choice;
-	system("cls");
-	switch (choice) {
-	case 0:
-		return 0;
-	case 1:
-		user.isStaff = true;
-		break;
-	case 2:
-		user.isStaff = false;
-		break;
-	default:
-		system("cls");
-		goto CHOOSEROLE;
-	}
 	system("cls");
 LOGIN:
 	if(!user.login()) {
@@ -51,7 +35,7 @@ LOGIN:
 		system("cls");
 		switch (choice) {
 		case 0:
-			goto CHOOSEROLE;
+			goto START;
 		case 1:
 			goto LOGIN;
 		default:
@@ -122,13 +106,12 @@ STAFFMENU:
 					break;
 			}
 		}
+		system("pause");
 		break;
 	case 4:
 		system("cls");
 		user.viewProfileInfo();
-		std::cout << "Enter to continue" ;
-		std::cin.get();
-		std::cin.get();
+		system("pause");
 		break;
 	default:
 		break;
@@ -293,10 +276,8 @@ SEMESTER:
 		goto EDITSEMESTER;
 	case 3:
 		system("cls");
-		//save all
 		goto EDITSCHOOLYEAR;
 	case 4:
-		//save all
 		system("cls");
 		goto STAFFMENU;
 	default:
@@ -365,10 +346,6 @@ EDITSEMESTER:
 		system("cls");
 		goto MODIFYCOURSE;
 	case 4:
-		//export jj
-		system("cls");
-		goto EDITSEMESTER;
-	case 5:
 		curSemester.saveData(curYear, curSemester.semester_num);
 		curSemester.deallocate();
 		system("cls");
@@ -478,8 +455,90 @@ COURSEPOINT:
 	}
 	return 0;
 STUDENTMENU:
-	
-	std::cout << "student is here";
+	studentMenu();
+	std::cin >> choice;
+	system("cls");
+	switch (choice) {
+	case 0:
+		goto START;
+	case 1:
+		user.viewProfileInfo();
+		break;
+	case 2:
+	STUDENTYEAR:
+		system("cls");
+		studentChooseYear(user.Username);
+		listSchoolYear();
+		std::cout << "\n Your choice (Ex:202x-202y): ";
+		cin >> curYear;
+		system("cls");
+		if (year_exits(curYear)) {
+			inputSchoolYearFail();
+			while (std::cin >> choice) {
+				system("cls");
+				inputSchoolYearFail();
+				if (choice == 0)
+					goto START;
+				if (choice == 1)
+					goto STUDENTYEAR;
+			}
+		}
+		system("cls");
+		std::cout << "Enter your semester you want to check (Ex: 2): ";
+	STUDENTSEMESTER:
+		system("cls");
+		std::cout << "What semester do you want to check: ";
+		cin >> curSemester.semester_num;
+		system("cls");
+		if (!checkSemester(curYear, curSemester.semester_num)) {
+			inputSemesterFail();
+			while (std::cin >> choice) {
+				system("cls");
+				inputSemesterFail();
+				if (choice == 0)
+					goto STUDENTYEAR;
+				if (choice == 1)
+					goto STUDENTSEMESTER;
+			}
+		}
+		curSemester.loadSemesterData(curYear, curSemester.semester_num);
+		curStudentControl.loadStudentCoursesData(curSemester, user.Username);
+		goto STUDENTVIEW;
+		break;
+	case 3:
+		user.changePassword();
+		break;
+	default:
+		goto STUDENTMENU;
+		break;
+	}
+	system("pause");
+	system("cls");
+	goto STUDENTMENU;
+STUDENTVIEW:
+	system("cls");
+	studentView();
+	std::cin >> choice;
+	system("cls");
+	switch (choice) {
+	case 0:
+		goto START;
+	case 1:
+		curStudentControl.viewScoreBoard();
+		system("pause");
+		break;
+	case 2:
+		curStudentControl.viewCourses();
+		system("pause");
+		break;
+	case 3:
+		system("cls");
+		goto STUDENTMENU;
+	default:
+		break;
+	}
+	goto STUDENTVIEW;
+	curSemester.deallocate();
 	return 0;
 }
 
