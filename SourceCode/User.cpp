@@ -121,7 +121,7 @@ void Users::viewProfileInfo()
 {
     std::cout   << "\t\t\tUSER PROFILE INFORMATION:\n"
                 << "User ID: " << user_id << "\n"
-                << "Full name: " << last_name + first_name << "\n"
+                << "Full name: " << last_name +" "+ first_name << "\n"
                 << "Gender: " << gender << "\n"
                 << "Date of birth: " << date_of_birth << "\n"
                 << "Social ID: " << soci_id << "\n";
@@ -149,7 +149,7 @@ bool Users::changePassword()
     {
         std::cerr << "Wrong password. Please try again!\n"; 
         return false;
-    }
+    } 
 
     if(new_password.size() < 8)
     {
@@ -157,6 +157,12 @@ bool Users::changePassword()
         return false;
     }
     
+    if(new_password == Password)
+    {
+        std::cerr << "New password must be different from current password!\n";
+        return false;
+    }
+
     if(new_password != re_new_password)
     {
         std::cerr << "Error: Password do not match. Please try again!\n";
