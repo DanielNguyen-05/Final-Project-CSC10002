@@ -64,21 +64,23 @@ void isNOTcreated()
 }
 void editSchoolYearMenu() {
     std::cout   << "What would you like to do ?\n"
-                << "0. Log out\n"
+                
                 << "1. Work on General Classes\n"
                 << "2. Work on Semester\n"
                 << "3. Go back to the previous page to choose another year\n"
                 << "4. Go back to the Main Menu\n"
+                << "0. Log out\n\n"
 
                 << "Your choice: ";
 }
 void generalClassMenu() {
     std::cout   << "What would you like to do ?\n"
-                << "0. Log out\n"
+                
                 << "1. Create a new general class\n"
                 << "2. Edit an existed general class\n"
                 << "3. Go back to the previous page to choose another class\n"
                 << "4. Go back to the Main Menu\n"
+                << "0. Log out\n\n"
 
                 << "Your choice: ";
 }
@@ -132,13 +134,14 @@ void inputClassFail() {
 }
 void editGeneralClassMenu() {
     std::cout << "What would you like to do ?\n"
-        << "0. Log out\n"
+        
         << "1. Update the information of the general class\n"
         << "2. View list of students in the class\n"
         << "3. Import the list of students from .csv file into the general class\n"
         << "4. Add a student to class\n"
         << "5. Go back to the previous page to choose another class\n"
         << "6. Go back to the Main Menu\n"
+        << "0. Log out\n\n"
 
         << "Your choice: ";
 }
@@ -182,11 +185,12 @@ void createClassFail() {
 }
 void editSemesterMenu() {
     std::cout << "What would you like to do ?\n"
-        << "0. Log out\n"
+        
         << "1. Create new courses\n"
         << "2. View all courses in this semester \n"
         << "3. Modify a course\n"
-        << "4. Go back to the previous page to work on Semesters\n\n"
+        << "4. Go back to the previous page to work on Semesters\n"
+        << "0. Log out\n\n"
 
         << "Your choice: ";
 }
@@ -206,14 +210,15 @@ void createCourseFail() {
 }
 void modifyCourseMenu() {
         std::cout << "What would you like to do ?\n"
-            << "0. Log out\n"
+            
             << "1. View all students in this course\n"
             << "2. Import students into this course\n"
             << "3. Delete a student\n"
             << "4. Manage points of course\n"
             << "5. Delete this course\n"
             << "6. Update information for this course\n"
-            << "7. Go back to the previous page\n\n"
+            << "7. Go back to the previous page\n"
+            << "0. Log out\n\n"
 
             << "Your choice: ";
 }
@@ -234,11 +239,12 @@ void inputStudentFail(){
 }
 void editCoursePointMenu() {
     std::cout << "What would you like to do ?\n"
-        << "0. Log out\n"
+        
         << "1. Import a point .csv file for a course\n"
         << "2. View scoreboard of a course\n"
         << "3. Update a student's result\n"
-        << "4. Go back to the previous page\n\n"
+        << "4. Go back to the previous page\n"
+        << "0. Log out\n\n"
 
         << "Your choice: ";
 }
@@ -248,19 +254,21 @@ void studentChooseYear(std::string username) {
 }
 void studentMenu() {
     std::cout << "What would you like to do ?\n"
-        << "0. Log out\n"
+        
         << "1. View your profile\n"
         << "2. View courses and scoreboard\n"
-        << "3. Change password\n\n"
+        << "3. Change password\n"
+        << "0. Log out\n\n"
 
         << "Your choice: ";
 }
 void studentView() {
     std::cout << "What would you like to do ?\n"
-        << "0. Log out\n"
+        
         << "1. View your scoreboard\n"
         << "2. View list of your courses\n"
-        << "3. Back to main menu\n\n"
+        << "3. Back to main menu\n"
+        << "0. Log out\n\n"
 
         << "Your choice: ";
 }
