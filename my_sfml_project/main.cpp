@@ -1,29 +1,18 @@
 #include <SFML/Graphics.hpp>
-#include <iostream>
 
 int main()
 {
-    // Create the SFML window
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Student Management System");
+    // Create a new window
+    sf::RenderWindow window(sf::VideoMode(800, 600), "SFML window");
 
-    // Font for text
-    sf::Font font;
-    if (!font.loadFromFile("arial.ttf")) {
-        std::cerr << "Error loading font file" << std::endl;
-        return 1;
-    }
-
-    // Text for the menu options
-    sf::Text menuText;
-    menuText.setFont(font);
-    menuText.setCharacterSize(24);
-    menuText.setFillColor(sf::Color::White);
-    menuText.setString("What would you like to do?\n1. Login\n0. Stop program\n\nYour choice: ");
+    // Create a circle
+    sf::CircleShape circle(50);
+    circle.setFillColor(sf::Color::Green);
 
     // Main loop
     while (window.isOpen())
     {
-        // Handle events
+        // Process events
         sf::Event event;
         while (window.pollEvent(event))
         {
@@ -34,10 +23,10 @@ int main()
         // Clear the window
         window.clear();
 
-        // Draw the text
-        window.draw(menuText);
+        // Draw the circle
+        window.draw(circle);
 
-        // Display the content of the window
+        // Display what has been drawn
         window.display();
     }
 
