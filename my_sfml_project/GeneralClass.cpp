@@ -1,0 +1,266 @@
+#include "GeneralClass.hpp"
+
+
+bool class_existed (std::string schoolYear, std::string general_class)
+{
+    std::string temp;
+    std::ifstream fin;
+    std::string path = "Data\\" + schoolYear + "\\GeneralClass.txt";
+    fin.open ( path );
+    if (!fin.is_open())
+        return false;
+    while ( !fin.eof() )
+    {
+        fin >> temp;
+        if ( temp == general_class)
+        {
+            return true;
+        }
+    }
+    fin.close();
+    return false;
+}
+
+void list_of_student ( std::string curYear, std::string curClass)
+{
+    std::string ignore;
+    std::string s;
+    std::ifstream fin;
+    std::string path = "Data\\GeneralClasses\\" + curYear + "\\" + curClass + ".csv";
+    fin.open(path);
+    if ( !fin.is_open() )
+    {
+        std::cout << "Can't open file ";
+        return;
+    }
+    std::cout << "No \tStudent ID \tFirst name \tLast name \tGender \t\tDate of birth \t\tSocial ID \n";
+    std::cout << "---------------------------------------------------------------------------------------------------------------\n";
+    fin >> ignore;
+    while ( !fin.eof() )
+    {
+        getline ( fin, s, ',');
+        std::cout << s << " \t";
+        getline ( fin, s, ',');
+        std::cout << s << " \t";
+        getline ( fin, s, ',');
+        std::cout << s << " \t\t";
+        getline ( fin, s, ',');
+        std::cout << s << " \t\t";
+        getline ( fin, s, ',');
+        std::cout << s << " \t\t";
+        getline ( fin, s, ',');
+        std::cout << s << " \t\t";
+        getline ( fin, s);
+        std::cout << s << "\n";
+    }
+    fin.close();
+    std::cout << "Enter to continue..." << std::endl;
+    std::cin.get();
+    std::cin.get();
+}
+bool create_General_class(std::string curYear, std::string curClass)
+{
+    LinkedList<std::string> ClassList;
+    std::ifstream fin;
+    fin.open("Data\\" + curYear + "\\GeneralClass.txt");
+    if (!fin.is_open())
+    {
+        std::cout << "Can't open file.";
+        return 0;
+    }
+    std::string ge_class;
+    while (!fin.eof()) {
+        std::getline(fin, ge_class);
+        ClassList.insertAtTail(ge_class);
+    }
+    fin.close();
+    ClassList.insertAtTail(curClass);
+    std::ofstream fout;
+    fout.open("Data\\" + curYear + "\\GeneralClass.txt");
+    if (!fout.is_open())
+    {
+        std::cout << "Can't open file.";
+        return 0;
+    }
+    Node<std::string>* cur = ClassList.pHead;
+    while (cur) {
+        fout << cur->data;
+        cur = cur->pNext;
+        if (cur)
+            fout << std::endl;
+    }
+    ClassList.deallocate();
+    fout.close();
+    std::cout << "Create class successfully!...Enter to continue \n";
+    std::cin.get();
+    std::cin.get();
+    return 1;
+}
+bool student_exist(std::string curYear, std::string curClass, std::string Student_id)
+{
+    ifstream fin;
+    fin.open("Data\\GeneralClasses\\" + curYear + "\\" + curClass + ".csv");
+    if (!fin.is_open())
+    {
+        return false;
+    }
+    string studentcheck;
+    string skip_no;
+    string skip_first_line;
+    string skip_behind_studentid;
+    getline(fin, skip_first_line);
+    while (!fin.eof())
+    {
+        getline(fin, skip_no, ',');
+        getline(fin, studentcheck, ',');
+        if (studentcheck == Student_id)
+        {
+            fin.close();
+            return true;
+        }
+        getline(fin, skip_behind_studentid);
+    }
+    return false;
+}
+bool add_1_student_to_class(std::string curYear, std::string curClass)
+    {
+        Student students;
+        do
+        {
+            std::cout << "Enter Student ID: ";
+            std::cin >> students.stu_id;
+            if (student_exist(curYear, curClass, students.stu_id))
+            {
+                std::cout << "Student_ID " << students.stu_id << " already exist\n";
+            }
+        } while (student_exist(curYear, curClass, students.stu_id));
+        std::cout << "Enter First name: ";
+        std::cin >> students.first_name;
+        std::cout << "Enter Last name: ";
+        std::cin >> students.last_name;
+        std::cout << "Enter Gender: ";
+        std::cin >> students.gender;
+        std::cout << "Enter Date of birth: ";
+        std::cin >> students.date_of_birth;
+        std::cout << "Enter Social ID: ";
+        std::cin >> students.soci_id;
+        LinkedList<Student> Studentlist;
+        std::ifstream fin;
+        fin.open("Data\\GeneralClasses\\" + curYear + "\\" + curClass + ".csv");
+        if (!fin.is_open())
+        {
+            std::cout << "Can't open file.";
+            return 0;
+        }
+        Student student_temp;
+        string skip_no;
+        string skip_first_line;
+        getline(fin, skip_first_line);
+        while (!fin.eof())
+        {
+            getline(fin, skip_no, ',');
+            getline(fin, student_temp.stu_id, ',');
+            getline(fin, student_temp.first_name, ',');
+            getline(fin, student_temp.last_name, ',');
+            getline(fin, student_temp.gender, ',');
+            getline(fin, student_temp.date_of_birth, ',');
+            getline(fin, student_temp.soci_id);
+            Studentlist.insertOrdered(student_temp);
+        }
+        fin.close();
+        Studentlist.insertOrdered(students);
+        std::ofstream fout;
+        fout.open("Data\\GeneralClasses\\" + curYear + "\\" + curClass + ".csv");
+        if (!fout.is_open())
+        {
+            std::cout << "Can't open file.";
+            return 0;
+        }
+        Node<Student>* cur = Studentlist.pHead;
+        int no = 1;
+        while (cur)
+        {
+            fout << no << ',' << cur->data.stu_id << "," << cur->data.first_name << "," << cur->data.last_name << ",";
+            fout << cur->data.gender << "," << cur->data.date_of_birth << "," << cur->data.soci_id;
+            fout << std::endl;
+            cur = cur->pNext;
+            no++;
+        }
+        Studentlist.deallocate();
+        fout.close();
+        std::cout << "Add student successfully!...Enter to continue \n";
+        std::cin.get();
+        std::cin.get();
+        return 1;
+}
+bool import_student_by_csv(std::string curYear, std::string curClass)
+{
+    std::ifstream fin;
+    fin.open("Data\\GeneralClasses\\" + curYear + "\\" + curClass + ".csv");
+    if (!fin.is_open())
+        return 0;
+    LinkedList<Student> Studentlist;
+    Student student_temp;
+    string skip_no;
+    string skip_first_line;
+    getline(fin, skip_first_line);
+    while (!fin.eof())
+    {
+        getline(fin, skip_no, ',');
+        getline(fin, student_temp.stu_id, ',');
+        getline(fin, student_temp.first_name, ',');
+        getline(fin, student_temp.last_name, ',');
+        getline(fin, student_temp.gender, ',');
+        getline(fin, student_temp.date_of_birth, ',');
+        getline(fin, student_temp.soci_id);
+        Studentlist.insertOrdered(student_temp);
+    }
+    fin.close();
+    std::string input_file;
+    std::cout << "input import_file_path: ";
+    std::cin >> input_file;
+    std::ifstream fin2;
+    fin2.open(input_file);
+    if (!fin2.is_open())
+        return 0;
+    string skip_behind_studentID;
+    getline(fin2, skip_first_line);
+    while (!fin2.eof())
+    {
+        getline(fin2, skip_no, ',');
+        getline(fin2, student_temp.stu_id, ',');
+        if (student_exist(curYear, curClass, student_temp.stu_id))
+        {
+            getline(fin, skip_behind_studentID);
+            continue;
+        }
+        getline(fin2, student_temp.first_name, ',');
+        getline(fin2, student_temp.last_name, ',');
+        getline(fin2, student_temp.gender, ',');
+        getline(fin2, student_temp.date_of_birth, ',');
+        getline(fin2, student_temp.soci_id);
+        Studentlist.insertOrdered(student_temp);
+    }
+    fin2.close();
+    std::ofstream fout;
+    fout.open("Data\\GeneralClasses\\" + curYear + "\\" + curClass + ".csv");
+    if (!fout.is_open())
+        return 0;
+    Node <Student>* cur = Studentlist.pHead;
+    int no = 1;
+    while (cur != NULL)
+    {
+        fout << no << ',' << cur->data.stu_id << "," << cur->data.first_name << "," << cur->data.last_name << ",";
+        fout << cur->data.gender << "," << cur->data.date_of_birth << "," << cur->data.soci_id;
+        fout << std::endl;
+        cur = cur->pNext;
+        no++;
+    }
+    fout.close();
+    Studentlist.deallocate();
+    std::cout << "Add student successfully!...Enter to continue \n";
+    std::cin.get();
+    std::cin.get();
+    return 1;
+}
+
