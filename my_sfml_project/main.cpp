@@ -2,12 +2,17 @@
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
-    sf::CircleShape shape(100.f);
-    shape.setFillColor(sf::Color::Green);
+    // Create a new window
+    sf::RenderWindow window(sf::VideoMode(800, 600), "SFML window");
 
+    // Create a circle
+    sf::CircleShape circle(50);
+    circle.setFillColor(sf::Color::Green);
+
+    // Main loop
     while (window.isOpen())
     {
+        // Process events
         sf::Event event;
         while (window.pollEvent(event))
         {
@@ -15,9 +20,15 @@ int main()
                 window.close();
         }
 
+        // Clear the window
         window.clear();
-        window.draw(shape);
+
+        // Draw the circle
+        window.draw(circle);
+
+        // Display what has been drawn
         window.display();
     }
+
     return 0;
 }
