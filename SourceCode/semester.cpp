@@ -17,10 +17,7 @@ bool checkSemester(std::string curYear, int curSemester) {
     {
         fin >> s;
         getline(fin, ignore);
-        if (s == curSemester)
-        {
-            return true;
-        }
+        if (s == curSemester) return true;
     }
     fin.close();
     return false;
