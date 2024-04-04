@@ -1,8 +1,7 @@
 #include "score.hpp"
 #include <sstream>
 
-std::string calOverall(std::string final, std::string midterm, std::string others)
-{
+std::string calOverall(std::string final, std::string midterm, std::string others) {
     double final_f = atof(final.c_str());
     double midterm_f = atof(midterm.c_str());
     double others_f = atof(others.c_str());
@@ -17,15 +16,13 @@ std::string calOverall(std::string final, std::string midterm, std::string other
     return overall; 
 }
 
-std::string calOverallGPA(LinkedList <StudentCourses> stu_courses)
-{
+std::string calOverallGPA(LinkedList <StudentCourses> stu_courses) {
     Node <StudentCourses> *cur;
     cur = stu_courses.pHead;
 
     double GPA_f = 0;
     double total_credit = 0;
-    while(cur != nullptr)
-    {
+    while(cur != nullptr) {
         GPA_f += atof((cur->data).overall.c_str());
         total_credit += (cur->data).num_of_credit;
         cur = cur -> pNext;

@@ -4,8 +4,7 @@
 #include <fstream>
 #include <sstream>
 
-void createStaffAccount()
-{
+void createStaffAccount() {
     std::string username;
     std::string password;
     std::string re_pass;
@@ -16,14 +15,12 @@ void createStaffAccount()
     std::cin >> password;
     std::cout << "Please re_type password: ";
     std::cin >> re_pass;
-    if(re_pass.size() < 8)
-    {
+    if(re_pass.size() < 8) {
         std::cerr << "Error: Password must be longer than 8 characters. Please try again!\n";
         return;
     }
     
-    if(re_pass != password)
-    {
+    if(re_pass != password) {
         std::cerr << "Error: Password do not match. Please try again!\n";
         return;
     }
@@ -32,7 +29,7 @@ void createStaffAccount()
     std::ifstream fin;
     fin.open(path);
 
-    if(fin.is_open()){
+    if(fin.is_open()) {
         fin.close();
         std::cerr << "Username has existed";
         return;
@@ -69,11 +66,9 @@ void createStaffAccount()
     fout << tmp << ",";
 
     fout.close();
-
 }
 
-void createStudentAccount(std::string username)
-{
+void createStudentAccount(std::string username) {
     std::string path = "Data\\Account\\Student\\" + username + ".txt";
     std::ifstream fin;
     fin.open(path);
@@ -117,8 +112,7 @@ void createStudentAccount(std::string username)
     fout.close();
 }
 
-std::string add1(std::string year)
-{
+std::string add1(std::string year) {
     std::string new_year = year;
     if(year[1] == '9') {
         new_year[0] = year[0] + 1;
@@ -128,8 +122,7 @@ std::string add1(std::string year)
     return new_year;
 }
 
-void createClassAccountFromfile(std::string classname)
-{
+void createClassAccountFromfile(std::string classname) {
     std::string path = "Data\\Account\\Student\\" ;
 
     std::string start_year_1 = classname.substr(0,2);
@@ -153,8 +146,7 @@ void createClassAccountFromfile(std::string classname)
 
     fin >> line;
 
-    while(fin >> line)
-    {
+    while(fin >> line) {
         std::stringstream split(line);
 
         std::getline(split, no, ',');

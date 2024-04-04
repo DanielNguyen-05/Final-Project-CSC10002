@@ -30,6 +30,7 @@ struct Course {
         num_of_credit = 0;
         max_student = 50;
     }
+
     Course(string ID, string course_name, string class_name, string teacher_name, int num_of_creadit, int max_student, string day_of_week, string session);
     void inputCSV(string path);
     void outputCSV(string path);
@@ -42,6 +43,7 @@ struct Course {
     void viewStudent();
     bool stu_exists(string stu_id);
 };
+
 ostream& operator<<(ostream& os, const Course::Point a);
 bool operator<(const Course::Point a, const Course::Point b);
 bool operator>(const Course::Point a, const Course::Point b);

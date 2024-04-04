@@ -10,14 +10,15 @@ Course::Course(string ID, string course_name, string class_name, string teacher_
 	this->day_of_week = day_of_week;
 	this->session = session;
 }
+
 bool Course::stu_exists(string stu_id) {
 	Student stu;
 	stu.stu_id = stu_id;
-	if (!this->students.findNode(stu))
-		return false;
+	if (!this->students.findNode(stu)) return false;
 	return true;
 
 }
+
 void Course::inputCSV(string path) {
 	ifstream fIn(path);
 	string ignore = "";
@@ -26,8 +27,7 @@ void Course::inputCSV(string path) {
 		Student stu;
 		string tmp_no = "";
 		getline(fIn, tmp_no, ',');
-		if (tmp_no == "")
-			return;
+		if (tmp_no == "") return;
 		getline(fIn, stu.stu_id, ',');
 		if (!this->stu_exists(stu.stu_id)) {
 			getline(fIn, stu.first_name, ',');
@@ -50,8 +50,7 @@ void Course::importScoreboard(string path) {
 		Point pt;
 		string tmp_no = "";
 		getline(fIn, tmp_no, ',');
-		if (tmp_no == "")
-			return;
+		if (tmp_no == "") return;
 		getline(fIn, pt.stu_id, ',');
 		getline(fIn, pt.full_name, ',');
 		getline(fIn, pt.overall, ',');
@@ -63,6 +62,7 @@ void Course::importScoreboard(string path) {
 	}
 	fIn.close();
 }
+
 void Course::exportScoreboard(string path) {
 	ofstream fOut(path);
 	if (!fOut.is_open()) {
@@ -99,8 +99,7 @@ void Course::outputCSV(string path) {
 }
 
 void Course::viewScoreboard() {
-	if (!this->points.pHead)
-		return;
+	if (!this->points.pHead) return;
 	std::cout << "NO \t Student ID \t Full Name \t Overall Point \t Final Point \t Midterm Point \t Others" << "\n";
 	Node<Point>* cur = this->points.pHead;
 	int no = 0;
@@ -110,9 +109,9 @@ void Course::viewScoreboard() {
 		cur = cur->pNext;
 	}
 }
+
 void Course::viewStudent() {
-	if (!this->students.pHead)
-		return;
+	if (!this->students.pHead) return;
 	std::cout << "no,stu_id,first_name,last_name,gender,date_of_birth,soci_id" << "\n";
 	Node<Student>* cur = this->students.pHead;
 	int no = 0;
@@ -122,6 +121,7 @@ void Course::viewStudent() {
 		cur = cur->pNext;
 	}
 }
+
 void Course::updateResult() {
 	string stu_id;
 	std::cout << "Enter student ID you want to delete:";
@@ -176,8 +176,7 @@ void Course::deleteStudent() {
 		pt.stu_id = stu.stu_id;
 		this->points.deleteNode(pt);
 	}
-	else
-		std::cout << "Course doesn't have this student" << "\n";
+	else std::cout << "Course doesn't have this student" << "\n";
 }
 
 ostream& operator<<(ostream& os, const Course::Point a) {

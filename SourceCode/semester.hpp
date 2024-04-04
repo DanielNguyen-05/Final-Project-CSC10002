@@ -24,4 +24,5 @@ struct Semester {
     void saveData(std::string schoolyear, int semester);
     void deallocate();
 };
+
 bool checkSemester(std::string curYear, int curSemester);

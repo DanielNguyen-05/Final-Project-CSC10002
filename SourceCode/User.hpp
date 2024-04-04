@@ -6,7 +6,7 @@
 #include <cstring>
 #include <stdlib.h>
 
-struct Users{
+struct Users {
 
     std::string Username = "";
     std::string Password = "";

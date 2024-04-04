@@ -1,20 +1,16 @@
 #include "schoolyear.hpp"
 
-bool year_exits(std::string year)
-{
+bool year_exits(std::string year) {
     std::ifstream fin;
     fin.open("Data\\SchoolYear.txt");
-    if (!fin.is_open())
-    {
+    if (!fin.is_open()) {
         std::cout << "Can't open file.";
         return false;
     }
     std::string temp;
-    while (!fin.eof())
-    {
+    while (!fin.eof()) {
         fin >> temp;
-        if (temp == year)
-        {
+        if (temp == year) {
             fin.close();
             return false;
         }
@@ -23,13 +19,11 @@ bool year_exits(std::string year)
     return true;
 }
 
-bool create_School_year(std::string curYear)
-{
+bool create_School_year(std::string curYear) {
     LinkedList<std::string> yearList;
     std::ifstream fin;
     fin.open("Data\\SchoolYear.txt");
-    if (!fin.is_open())
-    {
+    if (!fin.is_open()) {
         std::cout << "Can't open file.";
         return 0;
     }
@@ -42,8 +36,7 @@ bool create_School_year(std::string curYear)
     yearList.insertOrdered(curYear);
     std::ofstream fout;
     fout.open("Data\\SchoolYear.txt");
-    if (!fout.is_open())
-    {
+    if (!fout.is_open()) {
         std::cout << "Can't open file.";
         return 0;
     }

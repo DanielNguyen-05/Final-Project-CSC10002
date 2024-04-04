@@ -1,7 +1,7 @@
 #pragma once
 #include "semester.hpp"
 
-struct Student_Control{
+struct Student_Control {
 
     LinkedList<StudentCourses> stu_courses;
 

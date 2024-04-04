@@ -22,6 +22,7 @@ bool checkSemester(std::string curYear, int curSemester) {
     fin.close();
     return false;
 }
+
 void Semester::loadSemesterData(std::string schoolyear, int semester) // School Year -> Semester -> Course
 {
     char* intStr = new char[1];
@@ -95,6 +96,7 @@ void Semester::createCourse(std::string curYear, Course& course) {
         return;
     }
 }
+
 void Semester::viewCourseList() {
         Node<Course>* cur = this->courses.pHead;
         int no = 1;
@@ -150,6 +152,7 @@ void Semester::updateCourse() {
         }
         std::cout << "\t - Course not found!" << "\n";
 }
+
 void Semester::deleteCourse() {
     std::string course_id;
     std::cout << "\t - Enter the ID of the course you want to delete: ";
@@ -169,6 +172,7 @@ void Semester::deleteCourse() {
         }
     std::cout << "\t - Course not found!" << "\n";
 }
+
 void Semester::createSemester(std::string year,int semester) {
     std::string path = "Data\\" + year + "\\Semester " + std::to_string(semester);
     std::wstring folder(path.begin(), path.end());
@@ -225,6 +229,7 @@ void Semester::createSemester(std::string year,int semester) {
     std::cin.get();
     s.deallocate();
 }
+
 bool Semester::findCourse(Course& course) {
     Node<Course>* cur = this->courses.pHead;
     while (cur) {
@@ -236,6 +241,7 @@ bool Semester::findCourse(Course& course) {
     }
     return false;
 }
+
 void Semester::saveData(std::string schoolyear, int semester) {
     char intStr[10];
     sprintf(intStr, "%d", semester);
@@ -272,6 +278,7 @@ void Semester::saveData(std::string schoolyear, int semester) {
 
     f_courses_list.close();
 }
+
 void Semester::deallocate() {
     Node<Course>* cur = this->courses.pHead;
     while (cur) {

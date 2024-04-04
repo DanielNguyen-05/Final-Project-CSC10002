@@ -4,22 +4,18 @@
 #include <sstream>
 #include "student_control.hpp"
 
-void Student_Control::loadStudentCoursesData(Semester semester, string stu_id)
-{
+void Student_Control::loadStudentCoursesData(Semester semester, string stu_id) {
     Node<Course>* cur_course = semester.courses.pHead;
     Node<Student>* cur_stu;
     Node<Course::Point>* cur_point;
     StudentCourses tmp;
 
-    while(cur_course != nullptr)
-    {
+    while(cur_course != nullptr) {
         cur_stu = (cur_course -> data).students.pHead;
 
-        while(cur_stu != nullptr)
-        {
+        while(cur_stu != nullptr) {
             tmp.ID = "";
-            if(cur_stu -> data.stu_id == stu_id)
-            {
+            if(cur_stu -> data.stu_id == stu_id) {
                 tmp.class_name      = (cur_course->data).class_name;
                 tmp.course_name     = (cur_course->data).course_name;
                 tmp.teacher_name    = (cur_course->data).teacher_name;
@@ -33,8 +29,7 @@ void Student_Control::loadStudentCoursesData(Semester semester, string stu_id)
 
         cur_point = (cur_course->data).points.pHead;
 
-        while(cur_point != nullptr)
-        {
+        while(cur_point != nullptr) {
             if(cur_point -> data.stu_id == stu_id)
             {
                 tmp.stu_id      = (cur_point -> data).stu_id;
@@ -48,19 +43,14 @@ void Student_Control::loadStudentCoursesData(Semester semester, string stu_id)
             }
             cur_point = cur_point -> pNext;
         }
-        
-        if(tmp.ID != "")
-            stu_courses.insertAtTail(tmp);
-
+        if(tmp.ID != "") stu_courses.insertAtTail(tmp);
         cur_course = cur_course -> pNext;
     }
 }
-void Student_Control::viewCourses()
-{
+void Student_Control::viewCourses() {
     Node<StudentCourses> *cur = stu_courses.pHead;
 
-    while(cur != nullptr)
-    {
+    while(cur != nullptr) {
         std::cout   << "ID\tCourse name\tClass name\tTeacher name\tNumber of credit\tDay of week\tSession\n";
         std::cout   << (cur->data).ID << "\t"
                     << (cur->data).course_name << "\t"
@@ -72,12 +62,10 @@ void Student_Control::viewCourses()
     }
 }
 
-void Student_Control::viewScoreBoard()
-{
+void Student_Control::viewScoreBoard() {
     Node<StudentCourses> *cur = stu_courses.pHead;
 
-    while(cur != nullptr)
-    {
+    while(cur != nullptr) {
         std::cout   << "ID\tCourse name\tMidterm\tFinal\tOthers\tOverall\n";
         std::cout   << (cur->data).ID << "\t"
                     << (cur->data).course_name << "\t"
