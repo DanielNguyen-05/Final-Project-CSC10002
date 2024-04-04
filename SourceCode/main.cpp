@@ -55,7 +55,7 @@ STAFFMENU:
 	case 1:
 	CREATEYEAR:
 		system("cls");
-		std::cout << "What schoolYear do you want to create (Ex:202x-202y): " << std::endl;
+		std::cout << "What schoolYear do you want to create (Ex:202x-202y): ";
 		cin >> curYear;
 		system("cls");
 		if (!year_exits(curYear)) {
