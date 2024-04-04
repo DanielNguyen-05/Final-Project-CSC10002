@@ -13,6 +13,8 @@ bool checkSemester(std::string curYear, int curSemester) {
     std::ifstream fin;
     std::string path = "Data\\" + curYear + "\\Semester.txt";
     fin.open(path);
+    if (!fin.is_open())
+        return false;
     while (!fin.eof())
     {
         fin >> s;
@@ -98,59 +100,76 @@ void Semester::createCourse(std::string curYear, Course& course) {
 }
 
 void Semester::viewCourseList() {
-        Node<Course>* cur = this->courses.pHead;
-        int no = 1;
-        std::cout << "No \t ID of Course \t Course Name \t Class Name \t Teacher Name \t Credits \t Max Student \t Day Of Week \t Session" << "\n";
-        while (cur != nullptr) {
-            std::cout << no << "\t";
-            std::cout << cur->data.ID << "\t";
-            std::cout << cur->data.course_name << "\t";
-            std::cout << cur->data.class_name << "\t";
-            std::cout << cur->data.teacher_name << "\t";
-            std::cout << cur->data.num_of_credit << "\t";
-            std::cout << cur->data.max_student << "\t";
-            std::cout << cur->data.day_of_week << "\t";
-            std::cout << cur->data.session << "\n";
-            no++;
-            cur = cur->pNext;
-        }
+    system("cls");
+    Node<Course>* cur = this->courses.pHead;
+    int no = 1;
+
+    std::cout << "+-----+---------------+--------------------+---------------+--------------------+----------+---------------+---------------+----------+\n";
+
+    std::cout << "| " << std::left << std::setw(4) << "No";
+    std::cout << "| " << std::left << std::setw(14) << "ID of Course";
+    std::cout << "| " << std::left << std::setw(19) << "Course Name";
+    std::cout << "| " << std::left << std::setw(14) << "Class Name";
+    std::cout << "| " << std::left << std::setw(19) << "Teacher Name";
+    std::cout << "| " << std::left << std::setw(9) << "Credits";
+    std::cout << "| " << std::left << std::setw(14) << "Max Student";
+    std::cout << "| " << std::left << std::setw(14) << "Day Of Week";
+    std::cout << "| " << std::left << std::setw(9) << "Session" << "|\n";
+
+    std::cout << "+-----+---------------+--------------------+---------------+--------------------+----------+---------------+---------------+----------+\n";
+
+    while (cur != nullptr) {
+        std::cout << "| " << std::left << std::setw(4) << no;
+        std::cout << "| " << std::left << std::setw(14) << cur->data.ID;
+        std::cout << "| " << std::left << std::setw(19) << cur->data.course_name;
+        std::cout << "| " << std::left << std::setw(14) << cur->data.class_name;
+        std::cout << "| " << std::left << std::setw(19) << cur->data.teacher_name;
+        std::cout << "| " << std::left << std::setw(9) << cur->data.num_of_credit;
+        std::cout << "| " << std::left << std::setw(14) << cur->data.max_student;
+        std::cout << "| " << std::left << std::setw(14) << cur->data.day_of_week;
+        std::cout << "| " << std::left << std::setw(9) << cur->data.session << "|\n";
+
+        std::cout << "+-----+---------------+--------------------+---------------+--------------------+----------+---------------+---------------+----------+\n";
+
+        no++;
+        cur = cur->pNext;
+    }
 }
-
 void Semester::updateCourse() {
-        std::string course_id;
-        std::cout << "\t - Enter the ID of the course you want to update: ";
-        std::cin >> course_id;
+    std::string course_id;
+    std::cout << "\t - Enter the ID of the course you want to update: ";
+    std::cin >> course_id;
 
-        Node<Course>* cur = this->courses.pHead;
-        std::cout << "\t\t\t UPDATING THE COURSE "  << course_id  << ": " << "\n\n" ;
-        while (cur != nullptr) {
-            if (cur->data.ID == course_id) {
-                std::cout << "\t - Enter the new name of this course (ex: KTLT): ";
-                std::cin >> cur->data.course_name;
-                std::cout << "\t - Enter the new ID of this course (ex: CSC10002-23CLC03): ";
-                std::cin >> cur->data.ID;
-                std::cout << "\t - Enter the new class which this course belongs to (ex: 23CLC03): ";
-                std::cin >> cur->data.class_name;
-                std::cout << "\t - Enter the new teacher of this course: ";
-                std::cin >> cur->data.teacher_name;
-                std::cout << "\t - Enter the new number of credits in this course (ex: 4): ";
-                std::cin >> cur->data.num_of_credit;
-                std::cout << "\t - Enter the new maximum number of students in this course: ";
-                std::cin >> cur->data.max_student;
-                std::cout << "\t - Enter the new day of week when this course will be held (ex: MON/TUE/WED/THU/FRI/SAT): ";
-                std::cin >> cur->data.day_of_week;
-                std::cout << "\t- Here is the a list of sessions: " << "\n"
-                        <<     "\t\t 1. S1 (7:30 -> 9:15)" << "\n"
-                        <<     "\t\t 2. S2 (9:30 -> 11:15)" << "\n"
-                        <<     "\t\t 3. S3 (13:30 -> 15:15)" << "\n"
-                        <<     "\t\t 4. S4 (15:30 -> 17:15)" << "\n"
-                        << "\t - Which sessions, this course will be held (ex: S1): ";
-                std::cin >> cur->data.session;
-                return;
-            }
-            cur = cur->pNext;
+    Node<Course>* cur = this->courses.pHead;
+    std::cout << "\t\t\t UPDATING THE COURSE " << course_id << ": " << "\n\n";
+    while (cur != nullptr) {
+        if (cur->data.ID == course_id) {
+            std::cout << "\t - Enter the new name of this course (ex: KTLT): ";
+            std::cin >> cur->data.course_name;
+            std::cout << "\t - Enter the new ID of this course (ex: CSC10002-23CLC03): ";
+            std::cin >> cur->data.ID;
+            std::cout << "\t - Enter the new class which this course belongs to (ex: 23CLC03): ";
+            std::cin >> cur->data.class_name;
+            std::cout << "\t - Enter the new teacher of this course: ";
+            std::cin >> cur->data.teacher_name;
+            std::cout << "\t - Enter the new number of credits in this course (ex: 4): ";
+            std::cin >> cur->data.num_of_credit;
+            std::cout << "\t - Enter the new maximum number of students in this course: ";
+            std::cin >> cur->data.max_student;
+            std::cout << "\t - Enter the new day of week when this course will be held (ex: MON/TUE/WED/THU/FRI/SAT): ";
+            std::cin >> cur->data.day_of_week;
+            std::cout << "\t- Here is the a list of sessions: " << "\n"
+                << "\t\t 1. S1 (7:30 -> 9:15)" << "\n"
+                << "\t\t 2. S2 (9:30 -> 11:15)" << "\n"
+                << "\t\t 3. S3 (13:30 -> 15:15)" << "\n"
+                << "\t\t 4. S4 (15:30 -> 17:15)" << "\n"
+                << "\t - Which sessions, this course will be held (ex: S1): ";
+            std::cin >> cur->data.session;
+            return;
         }
-        std::cout << "\t - Course not found!" << "\n";
+        cur = cur->pNext;
+    }
+    std::cout << "\t - Course not found!" << "\n";
 }
 
 void Semester::deleteCourse() {
@@ -169,11 +188,11 @@ void Semester::deleteCourse() {
         }
         prev = cur;
         cur = cur->pNext;
-        }
+    }
     std::cout << "\t - Course not found!" << "\n";
 }
 
-void Semester::createSemester(std::string year,int semester) {
+void Semester::createSemester(std::string year, int semester) {
     std::string path = "Data\\" + year + "\\Semester " + std::to_string(semester);
     std::wstring folder(path.begin(), path.end());
     if (!CreateDirectoryW(folder.c_str(), NULL)) {
@@ -190,7 +209,7 @@ void Semester::createSemester(std::string year,int semester) {
     fIn.ignore();
     while (fIn >> tmp.semester_num) {
         char comma;
-        fIn >> comma; 
+        fIn >> comma;
 
 
         fIn >> tmp.start_day >> comma >> tmp.end_day;
@@ -273,7 +292,7 @@ void Semester::saveData(std::string schoolyear, int semester) {
         currentCourse.exportScoreboard("Data\\" + schoolyear + "\\Semester " + std::string(intStr) + "\\" + currentCourse.ID + "\\Point.csv");
         std::cout << "Data\\" + schoolyear + "\\Semester " + std::string(intStr) + "\\" + currentCourse.ID + "\\StudentList.csv";
         f_courses_list << currentCourse.ID << std::endl;
-        cur = cur ->pNext;
+        cur = cur->pNext;
     }
 
     f_courses_list.close();
