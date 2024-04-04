@@ -1,11 +1,11 @@
-#include"consoleView.h"
-#include"user.hpp"
-#include<stdlib.h>
-#include"semester.hpp"
-#include"schoolyear.hpp"
-#include"GeneralClass.hpp"
-#include"course.hpp"
-#include"student_control.hpp"
+#include "consoleView.hpp"
+#include "user.hpp"
+#include <stdlib.h>
+#include "semester.hpp"
+#include "schoolyear.hpp"
+#include "GeneralClass.hpp"
+#include "course.hpp"
+#include "student_control.hpp"
 
 
 int main() {

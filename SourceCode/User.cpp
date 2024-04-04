@@ -1,4 +1,4 @@
-#include "User.hpp"
+#include "user.hpp"
 #include <sstream>
 
 bool Users::isStudent(std::string username, std::string password)

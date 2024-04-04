@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
-#include "consoleView.h"
-#include "User.hpp"
+#include "consoleView.hpp"
+#include "user.hpp"
 
 void programInterface()
 {

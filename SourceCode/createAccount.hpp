@@ -1,5 +1,5 @@
 #pragma once
-#include<string>
+#include <string>
 
 void createStudentAccount(std::string username);
 void createStaffAccount();
