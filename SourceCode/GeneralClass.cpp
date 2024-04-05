@@ -14,7 +14,7 @@ bool class_existed (std::string schoolYear, std::string general_class) {
     return false;
 }
 
-void list_of_student ( std::string curYear, std::string curClass) {
+void list_of_student(std::string curYear, std::string curClass) {
     std::string ignore;
     std::string s;
     std::ifstream fin;
@@ -24,29 +24,29 @@ void list_of_student ( std::string curYear, std::string curClass) {
         std::cout << "Can't open file ";
         return;
     }
-    std::cout << "No \tStudent ID \tFirst name \tLast name \tGender \t\tDate of birth \t\tSocial ID \n";
-    std::cout << "---------------------------------------------------------------------------------------------------------------\n";
-    fin >> ignore;
-    while (!fin.eof()) {
-        getline ( fin, s, ',');
-        std::cout << s << " \t";
-        getline ( fin, s, ',');
-        std::cout << s << " \t";
-        getline ( fin, s, ',');
-        std::cout << s << " \t\t";
-        getline ( fin, s, ',');
-        std::cout << s << " \t\t";
-        getline ( fin, s, ',');
-        std::cout << s << " \t\t";
-        getline ( fin, s, ',');
-        std::cout << s << " \t\t";
-        getline ( fin, s);
-        std::cout << s << "\n";
+    std::cout << "+----+-------------+--------------+-------------+--------+----------------+-----------------+\n";
+    std::cout << "| No | Student ID  | First name   | Last name   | Gender | Date of birth  | Social ID       |\n";
+    std::cout << "+----+-------------+--------------+-------------+--------+----------------+-----------------+\n";
+    int count = 1;
+    getline(fin,ignore);
+    while (getline(fin, s, ',')) {
+        std::cout << "| " << std::setw(2) << count << " | ";
+        std::cout << std::setw(11) << s << " | ";
+        getline(fin, s, ',');
+        std::cout << std::setw(12) << s << " | ";
+        getline(fin, s, ',');
+        std::cout << std::setw(11) << s << " | ";
+        getline(fin, s, ',');
+        std::cout << std::setw(6) << s << " | ";
+        getline(fin, s, ',');
+        std::cout << std::setw(14) << s << " | ";
+        getline(fin, s);
+        std::cout << std::setw(15) << s << " |\n";
+        ++count;
     }
+    std::cout << "+----+-------------+--------------+-------------+--------+----------------+-----------------+\n";
     fin.close();
-    std::cout << "Enter to continue..." << std::endl;
-    std::cin.get();
-    std::cin.get();
+    system("pause");
 }
 
 bool create_General_class(std::string curYear, std::string curClass) {
@@ -79,9 +79,8 @@ bool create_General_class(std::string curYear, std::string curClass) {
     }
     ClassList.deallocate();
     fout.close();
-    std::cout << "Create class successfully!...Enter to continue \n";
-    std::cin.get();
-    std::cin.get();
+    std::cout << "Create class successfully!\n";
+    system("pause");
     return 1;
 }
 
@@ -123,7 +122,7 @@ bool add_1_student_to_class(std::string curYear, std::string curClass) {
     std::cin >> students.last_name;
     std::cout << "Enter Gender: ";
     std::cin >> students.gender;
-    std::cout << "Enter Date of birth: ";
+    std::cout << "Enter Date of birth (DD/MM/YYYY): ";
     std::cin >> students.date_of_birth;
     std::cout << "Enter Social ID: ";
     std::cin >> students.soci_id;
@@ -169,9 +168,8 @@ bool add_1_student_to_class(std::string curYear, std::string curClass) {
     }
     Studentlist.deallocate();
     fout.close();
-    std::cout << "Add student successfully!...Enter to continue \n";
-    std::cin.get();
-    std::cin.get();
+    std::cout << "Add student successfully!\n";
+    system("pause");
     return 1;
 }
 
@@ -233,9 +231,8 @@ bool import_student_by_csv(std::string curYear, std::string curClass) {
     }
     fout.close();
     Studentlist.deallocate();
-    std::cout << "Add student successfully!...Enter to continue \n";
-    std::cin.get();
-    std::cin.get();
+    std::cout << "Add student successfully!\n";
+    system("pause");
     return 1;
 }
 

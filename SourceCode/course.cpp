@@ -83,7 +83,29 @@ void Course::exportScoreboard(string path) {
 
 	fOut.close();
 }
+void Course::viewScoreboard() {
+	if (!this->points.pHead) return;
 
+	std::cout << "+----+-------------+-----------------+---------------+--------------+---------------+-------------+\n";
+	std::cout << "| No | Student ID  | Full Name       | Overall Point | Final Point  | Midterm Point | Others      |\n";
+	std::cout << "+----+-------------+-----------------+---------------+--------------+---------------+-------------+\n";
+
+	int no = 0;
+	Node<Point>* cur = this->points.pHead;
+	while (cur) {
+		no++;
+		std::cout << "| " << std::setw(2) << no << " | ";
+		std::cout << std::setw(11) << cur->data.stu_id << " | ";
+		std::cout << std::setw(15) << cur->data.full_name << " | ";
+		std::cout << std::setw(13) << cur->data.overall << " | ";
+		std::cout << std::setw(12) << cur->data.final << " | ";
+		std::cout << std::setw(13) << cur->data.midterm << " | ";
+		std::cout << std::setw(11) << cur->data.others << " |\n";
+		cur = cur->pNext;
+	}
+
+	std::cout << "+----+-------------+-----------------+---------------+--------------+---------------+-------------+\n";
+}
 void Course::outputCSV(string path) {
 	ofstream fOut(path);
 	Node<Student>* cur = this->students.pHead;
@@ -97,19 +119,6 @@ void Course::outputCSV(string path) {
 	}
 	fOut.close();
 }
-
-void Course::viewScoreboard() {
-	if (!this->points.pHead) return;
-	std::cout << "NO \t Student ID \t Full Name \t Overall Point \t Final Point \t Midterm Point \t Others" << "\n";
-	Node<Point>* cur = this->points.pHead;
-	int no = 0;
-	while (cur) {
-		no++;
-		std::cout << no << "," << cur->data;
-		cur = cur->pNext;
-	}
-}
-
 void Course::viewStudent() {
 	if (!this->students.pHead) return;
 	std::cout << "no,stu_id,first_name,last_name,gender,date_of_birth,soci_id" << "\n";
@@ -130,9 +139,8 @@ void Course::updateResult() {
 	pt.stu_id = stu_id;
 	Node<Point>* stu = this->points.findNode(pt);
 	if (stu == nullptr) {
-		std::cout << "Student is not existed....Enter to continue";
-		std::cin.get();
-		std::cin.get();
+		std::cout << "Student is not existed";
+		system("pause");
 		return;
 	}
 	std::cout << "Others Point: ";
@@ -177,11 +185,6 @@ void Course::deleteStudent() {
 		this->points.deleteNode(pt);
 	}
 	else std::cout << "Course doesn't have this student" << "\n";
-}
-
-ostream& operator<<(ostream& os, const Course::Point a) {
-	os << a.stu_id << "," << a.full_name << "," << a.overall << "," << a.final << "," << a.midterm << "," << a.others << "\n";
-	return os;
 }
 
 bool operator<(const Course::Point a, const Course::Point b) {

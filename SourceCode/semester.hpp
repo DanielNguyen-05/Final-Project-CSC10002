@@ -4,7 +4,6 @@
 #include <windows.h>
 #include <sys/stat.h>
 #include <limits>
-#include <iomanip>
 
 struct Semester {
     int semester_num;
