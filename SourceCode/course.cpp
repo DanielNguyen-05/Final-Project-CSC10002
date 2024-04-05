@@ -73,7 +73,7 @@ void Course::exportScoreboard(string path) {
 	fOut << "No,StudentID,FullName,Overall,Final,Midterm,Others" << endl;
 	int counter = 1;
 	Node<Point>* cur = this->points.pHead;
-	while(cur) {
+	while (cur) {
 		Point pt = cur->data;
 		fOut << counter << "," << pt.stu_id << "," << pt.full_name << "," << pt.overall << ","
 			<< pt.final << "," << pt.midterm << "," << pt.others << endl;
@@ -121,14 +121,26 @@ void Course::outputCSV(string path) {
 }
 void Course::viewStudent() {
 	if (!this->students.pHead) return;
-	std::cout << "no,stu_id,first_name,last_name,gender,date_of_birth,soci_id" << "\n";
+
+	std::cout << "+----+-------------+--------------+-------------+--------+----------------+-----------------+\n";
+	std::cout << "| No | Student ID  | First name   | Last name   | Gender | Date of birth  | Social ID       |\n";
+	std::cout << "+----+-------------+--------------+-------------+--------+----------------+-----------------+\n";
+
 	Node<Student>* cur = this->students.pHead;
 	int no = 0;
 	while (cur) {
 		no++;
-		std::cout << no << "," << cur->data;
+		std::cout << "| " << std::setw(2) << no << " | ";
+		std::cout << std::setw(11) << cur->data.stu_id << " | ";
+		std::cout << std::setw(12) << cur->data.first_name << " | ";
+		std::cout << std::setw(11) << cur->data.last_name << " | ";
+		std::cout << std::setw(6) << cur->data.gender << " | ";
+		std::cout << std::setw(14) << cur->data.date_of_birth << " | ";
+		std::cout << std::setw(15) << cur->data.soci_id << " |\n";
 		cur = cur->pNext;
 	}
+
+	std::cout << "+----+-------------+--------------+-------------+--------+----------------+-----------------+\n";
 }
 
 void Course::updateResult() {

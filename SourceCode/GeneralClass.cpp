@@ -30,7 +30,8 @@ void list_of_student(std::string curYear, std::string curClass) {
     int count = 1;
     getline(fin,ignore);
     while (getline(fin, s, ',')) {
-        std::cout << "| " << std::setw(2) << count << " | ";
+        std::cout << "| " << std::setw(2) << s << " | ";
+        getline(fin, s, ',');
         std::cout << std::setw(11) << s << " | ";
         getline(fin, s, ',');
         std::cout << std::setw(12) << s << " | ";
@@ -42,7 +43,6 @@ void list_of_student(std::string curYear, std::string curClass) {
         std::cout << std::setw(14) << s << " | ";
         getline(fin, s);
         std::cout << std::setw(15) << s << " |\n";
-        ++count;
     }
     std::cout << "+----+-------------+--------------+-------------+--------+----------------+-----------------+\n";
     fin.close();
