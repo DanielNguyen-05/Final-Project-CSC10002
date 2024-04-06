@@ -114,24 +114,31 @@ void Course::viewScoreboard() {
 	std::cout << "+----+-------------+-----------------+---------------+--------------+---------------+-------------+\n";
 }
 
+// This function writes a single student's data to the file.
+void writeStudent(ofstream& fOut, const Student& student, int no) {
+    fOut << no << ", "
+         << student.stu_id << ", "
+         << student.first_name << ", "
+         << student.last_name << ", "
+         << student.gender << ", "
+         << student.date_of_birth << ", "
+         << student.soci_id << "\n";
+}
+
 void Course::outputCSV(string path) {
-	ofstream fOut;
-	fOut.open(path);
-	Node<Student>* cur = this->students.pHead;
-	int no = 0;
-	fOut << "no, stu_id, first_name, last_name, gender, date_of_birth, soci_id" << "\n";
-	while (cur) {
-		no++;
-		fOut << no << ", ";
-		fOut << cur->data.stu_id << ", ";
-		fOut << cur->data.first_name << ", ";
-		fOut << cur->data.last_name << ", ";
-		fOut << cur->data.gender << ", ";
-		fOut << cur->data.date_of_birth << ", ";
-		fOut << cur->data.soci_id << "\n";
-		cur = cur->pNext;
-	}
-	fOut.close();
+    ofstream fOut(path);
+    if (!fOut) {
+        cerr << "Unable to open file at " << path << endl;
+        return;
+    }
+
+    const string header = "no, stu_id, first_name, last_name, gender, date_of_birth, soci_id\n";
+    fOut << header;
+
+    int no = 1;
+    for (Node<Student>* cur = this->students.pHead; cur; cur = cur->pNext, ++no) {
+        writeStudent(fOut, cur->data, no);
+    }
 }
 
 void Course::viewStudent() {
