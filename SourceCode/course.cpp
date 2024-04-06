@@ -114,7 +114,6 @@ void Course::viewScoreboard() {
 	std::cout << "+----+-------------+-----------------+---------------+--------------+---------------+-------------+\n";
 }
 
-// This function writes a single student's data to the file.
 void writeStudent(ofstream& fOut, const Student& student, int no) {
     fOut << no << ", "
          << student.stu_id << ", "
