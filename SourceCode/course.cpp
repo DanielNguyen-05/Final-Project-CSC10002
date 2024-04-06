@@ -77,24 +77,25 @@ void Course::exportScoreboard(string path) {
 		return;
 	}
 
-	fOut << "No,StudentID,FullName,Overall,Final,Midterm,Others" << endl;
+	fOut << "No, StudentID, FullName, Overall, Final, Midterm, Others" << endl;
 	int counter = 1;
 	Node<Point>* cur = this->points.pHead;
 	while (cur) {
 		Point pt = cur->data;
 		fOut << counter << "," << pt.stu_id << "," << pt.full_name << "," << pt.overall << ","
-			<< pt.final << "," << pt.midterm << "," << pt.others;
+			 << pt.final << "," << pt.midterm << "," << pt.others;
 		++counter;
 		if (cur->pNext) std::cout << "\n";
 		cur = cur->pNext;
 	}
 	fOut.close();
 }
+
 void Course::viewScoreboard() {
 	if (!this->points.pHead) return;
 	system("cls");
 	std::cout << "+----+-------------+-----------------+---------------+--------------+---------------+-------------+\n";
-	std::cout << "| No | Student ID  | Full Name       | Overall Point | Final Point  | Midterm Point | Others      |\n";
+	std::cout << "| No | Student ID  | 	  Full Name    | Overall Point |  Final Point | Midterm Point |    Others   |\n";
 	std::cout << "+----+-------------+-----------------+---------------+--------------+---------------+-------------+\n";
 
 	int no = 0;
@@ -118,16 +119,20 @@ void Course::outputCSV(string path) {
 	fOut.open(path);
 	Node<Student>* cur = this->students.pHead;
 	int no = 0;
-	fOut << "no,stu_id,first_name,last_name,gender,date_of_birth,soci_id" << "\n";
+	fOut << "no, stu_id, first_name, last_name, gender, date_of_birth, soci_id" << "\n";
 	while (cur) {
 		no++;
 		fOut << no << ", ";
-		fOut << cur->data;
+		fOut << cur->data.stu_id << ", ";
+		fOut << cur->data.first_name << ", ";
+		fOut << cur->data.last_name << ", ";
+		fOut << cur->data.gender << ", ";
+		fOut << cur->data.date_of_birth << ", ";
+		fOut << cur->data.soci_id << "\n";
 		cur = cur->pNext;
 	}
 	fOut.close();
 }
-
 
 void Course::viewStudent() {
 	if (!this->students.pHead) return;
