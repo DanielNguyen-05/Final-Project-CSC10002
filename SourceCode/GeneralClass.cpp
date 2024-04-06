@@ -236,4 +236,3 @@ bool import_student_by_csv(std::string curYear, std::string curClass) {
     system("pause");
     return 1;
 }
-
