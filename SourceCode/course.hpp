@@ -45,6 +45,7 @@ struct Course {
     bool stu_exists(string stu_id);
 
 };
+
 void writeStudent(ofstream& fOut, const Student& student, int no);
 ostream& operator<<(ostream& os, const Course::Point a);
 bool operator<(const Course::Point a, const Course::Point b);
