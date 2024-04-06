@@ -22,6 +22,7 @@ bool Course::stu_exists(string stu_id) {
 void Course::inputCSV(string path) {
 	ifstream fIn;
 	fIn.open(path);
+	if (!fIn.is_open()) return;
 	string ignore = "";
 	getline(fIn, ignore);
 	while (!fIn.eof()) {
@@ -47,6 +48,7 @@ void Course::inputCSV(string path) {
 void Course::importScoreboard(string path) {
 	ifstream fIn;
 	fIn.open(path);
+	if (!fIn.is_open()) return;
 	string ignore;
 	string tmp_no = "";
 	Point pt;
@@ -158,11 +160,15 @@ void Course::updateResult() {
 	std::cin >> stu_id;
 	Point pt;
 	pt.stu_id = stu_id;
-	Node<Point>* stu = this->points.findNode(pt);
-	if (stu == nullptr) {
+	if (!this->stu_exists(stu_id)) {
 		std::cout << "Student is not existed";
 		system("pause");
 		return;
+	}
+	Node<Point>* stu = this->points.findNode(pt);
+	if (stu == nullptr) {
+		stu = new Node<Point>;
+		this->points.insertOrdered(stu->data);
 	}
 	std::cout << "Others Point: ";
 	cin >> stu->data.others;
