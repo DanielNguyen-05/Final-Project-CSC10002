@@ -12,9 +12,8 @@ void Student_Control::loadStudentCoursesData(Semester semester, string stu_id) {
 
     while(cur_course != nullptr) {
         cur_stu = (cur_course -> data).students.pHead;
-
+        tmp.ID = "";
         while(cur_stu != nullptr) {
-            tmp.ID = "";
             if(cur_stu -> data.stu_id == stu_id) {
                 tmp.ID              = (cur_course->data).ID;
                 tmp.class_name      = (cur_course->data).class_name;
@@ -49,6 +48,7 @@ void Student_Control::loadStudentCoursesData(Semester semester, string stu_id) {
     }
 }
 void Student_Control::viewCourses() {
+    system("cls");
     Node<StudentCourses>* cur = stu_courses.pHead;
 
     std::cout << "+----+----------------------+----------------------+----------------------+----------------------+------------------+-------------+---------+\n";
@@ -74,6 +74,7 @@ void Student_Control::viewCourses() {
 }
 
 void Student_Control::viewScoreBoard() {
+    system("cls");
     Node<StudentCourses>* cur = stu_courses.pHead;
 
     std::cout << "+----+------------------+-----------+-----------+-----------+-----------+\n";

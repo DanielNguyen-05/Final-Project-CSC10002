@@ -20,14 +20,14 @@ bool Course::stu_exists(string stu_id) {
 }
 
 void Course::inputCSV(string path) {
-	ifstream fIn(path);
+	ifstream fIn;
+	fIn.open(path);
 	string ignore = "";
 	getline(fIn, ignore);
 	while (!fIn.eof()) {
 		Student stu;
 		string tmp_no = "";
 		getline(fIn, tmp_no, ',');
-		if (tmp_no == "") return;
 		getline(fIn, stu.stu_id, ',');
 		if (!this->stu_exists(stu.stu_id)) {
 			getline(fIn, stu.first_name, ',');
@@ -35,38 +35,45 @@ void Course::inputCSV(string path) {
 			getline(fIn, stu.gender, ',');
 			getline(fIn, stu.date_of_birth, ',');
 			getline(fIn, stu.soci_id);
-
-			this->students.insertOrdered(stu);
+			if(tmp_no != "")
+				this->students.insertOrdered(stu);
 		}
+		else
+			getline(fIn, ignore);
 	}
 	fIn.close();
 }
 
 void Course::importScoreboard(string path) {
-	ifstream fIn(path);
-	string ignore = "";
+	ifstream fIn;
+	fIn.open(path);
+	string ignore;
+	string tmp_no = "";
+	Point pt;
 	getline(fIn, ignore);
 	while (!fIn.eof()) {
-		Point pt;
-		string tmp_no = "";
 		getline(fIn, tmp_no, ',');
-		if (tmp_no == "") return;
+		if (tmp_no == "\n" || tmp_no == "") {
+			fIn.close();
+			return;
+		}
 		getline(fIn, pt.stu_id, ',');
 		getline(fIn, pt.full_name, ',');
 		getline(fIn, pt.overall, ',');
 		getline(fIn, pt.final, ',');
 		getline(fIn, pt.midterm, ',');
 		getline(fIn, pt.others);
-
 		this->points.insertOrdered(pt);
 	}
 	fIn.close();
 }
 
 void Course::exportScoreboard(string path) {
-	ofstream fOut(path);
+	ofstream fOut;
+	fOut.open(path);
 	if (!fOut.is_open()) {
-		cerr << "Error: Unable to open file for writing!" << endl;
+		cerr << "Error: Unable to open file for writing! -- " << path << endl;
+		system("pause");
 		return;
 	}
 
@@ -76,16 +83,17 @@ void Course::exportScoreboard(string path) {
 	while (cur) {
 		Point pt = cur->data;
 		fOut << counter << "," << pt.stu_id << "," << pt.full_name << "," << pt.overall << ","
-			<< pt.final << "," << pt.midterm << "," << pt.others << endl;
+			<< pt.final << "," << pt.midterm << "," << pt.others;
 		++counter;
+		if (cur->pNext)
+			std::cout << endl;
 		cur = cur->pNext;
 	}
-
 	fOut.close();
 }
 void Course::viewScoreboard() {
 	if (!this->points.pHead) return;
-
+	system("cls");
 	std::cout << "+----+-------------+-----------------+---------------+--------------+---------------+-------------+\n";
 	std::cout << "| No | Student ID  | Full Name       | Overall Point | Final Point  | Midterm Point | Others      |\n";
 	std::cout << "+----+-------------+-----------------+---------------+--------------+---------------+-------------+\n";
@@ -107,7 +115,8 @@ void Course::viewScoreboard() {
 	std::cout << "+----+-------------+-----------------+---------------+--------------+---------------+-------------+\n";
 }
 void Course::outputCSV(string path) {
-	ofstream fOut(path);
+	ofstream fOut;
+	fOut.open(path);
 	Node<Student>* cur = this->students.pHead;
 	int no = 0;
 	fOut << "no,stu_id,first_name,last_name,gender,date_of_birth,soci_id" << "\n";
@@ -121,7 +130,7 @@ void Course::outputCSV(string path) {
 }
 void Course::viewStudent() {
 	if (!this->students.pHead) return;
-
+	system("cls");
 	std::cout << "+----+-------------+--------------+-------------+--------+----------------+-----------------+\n";
 	std::cout << "| No | Student ID  | First name   | Last name   | Gender | Date of birth  | Social ID       |\n";
 	std::cout << "+----+-------------+--------------+-------------+--------+----------------+-----------------+\n";

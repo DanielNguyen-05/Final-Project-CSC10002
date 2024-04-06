@@ -18,7 +18,10 @@ int main() {
 	Student_Control curStudentControl;
 	
 START:
+	system("cls");
 	Users user;
+	user.Username = "";
+	user.Password = "";
 	programInterface();
 	int choice;
 	std::cin >> choice;
@@ -51,6 +54,7 @@ STAFFMENU:
 	std::cin >> choice;
 	switch (choice) {
 	case 0:
+		system("pause");
 		goto START;
 	case 1:
 	CREATEYEAR:
@@ -319,22 +323,20 @@ EDITSEMESTER:
 		goto EDITSEMESTER;
 	case 2:
 		curSemester.viewCourseList();
-		std::cout << "Enter to continue...";
-		std::cin.get();
-		std::cin.get();
+		system("pause");
 		system("cls");
 		goto EDITSEMESTER;
 	case 3:
 	INPUTCOURSE:
 		system("cls");
-		std::cout << "What course do you want to modify (Ex:CS161) : ";
+		std::cout << "What course do you want to modify (Ex:CS161-23CLC03) : ";
 		cin >> curCourse.ID;
 		system("cls");
 		if (!curSemester.findCourse(curCourse)) {
-			createCourseFail();
+			inputCourseFail();
 			while (std::cin >> choice) {
 				system("cls");
-				createCourseFail();
+				inputCourseFail();
 				if (choice == 0) {
 					system("cls");
 					goto EDITSEMESTER;
@@ -364,7 +366,7 @@ MODIFYCOURSE:
 		curSemester.saveData(curYear, curSemester.semester_num);
 		curSemester.deallocate();
 		system("cls");
-		goto LOGIN;
+		goto START;
 	case 1:
 		curCourse.viewStudent();
 		std::cout << "Enter to continue...";
@@ -387,8 +389,7 @@ MODIFYCOURSE:
 			break;
 		case 2:
 			curCourse.addStudent();
-			std::cin.get();
-			std::cin.get();
+			system("pause");
 			break;
 		default:
 			break;
@@ -397,8 +398,7 @@ MODIFYCOURSE:
 		goto MODIFYCOURSE;
 	case 3:
 		curCourse.deleteStudent();
-		std::cin.get();
-		std::cin.get();
+		system("pause");
 		system("cls");
 		goto MODIFYCOURSE;
 	case 4:

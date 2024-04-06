@@ -61,8 +61,7 @@ bool create_School_year(std::string curYear) {
     }
     yearList.deallocate();
     fout.close();
-    std::cout << "Create schoolYear successfully!...Enter to continue \n";
-    std::cin.get();
-    std::cin.get();
+    std::cout << "Create schoolYear successfully! \n";
+    system("pause");
     return 1;
 }

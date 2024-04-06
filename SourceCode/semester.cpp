@@ -43,7 +43,6 @@ void Semester::loadSemesterData(std::string schoolyear, int semester) // School 
 
     while(f_courses_list >> courses_id) //course_data , course student
     {
-        //load
         std::string courses_path = "Data\\" + schoolyear + "\\Semester " + std::string(intStr) + "\\" + courses_id + "\\" + courses_id + ".csv";
         fin.open(courses_path);
         std::getline(fin, line);
@@ -60,12 +59,15 @@ void Semester::loadSemesterData(std::string schoolyear, int semester) // School 
         getline(fin, tmp.session);
 
         fin.close();
-        std::string path = "Data\\" + schoolyear + "\\Semester " + std::string(intStr) + "\\" + courses_id + "\\";
-        tmp.inputCSV(path + "StudentList.csv");
-        tmp.importScoreboard(path + "Point.csv");
         this->courses.insertAtTail(tmp);
     }
-
+    Node<Course>* cur = this->courses.pHead;
+    while (cur) {
+        std::string path = "Data\\" + schoolyear + "\\Semester " + std::string(intStr) + "\\" + (cur->data).ID + "\\";
+        (cur->data).inputCSV(path + "StudentList.csv");
+        (cur->data).importScoreboard(path + "Point.csv");
+        cur = cur->pNext;
+    }
     f_courses_list.close();
 }
 
@@ -243,9 +245,8 @@ void Semester::createSemester(std::string year, int semester) {
             fOut << std::endl;
     }
     fOut.close();
-    std::cout << "Create semester successfully...Enter to continue\n";
-    std::cin.get();
-    std::cin.get();
+    std::cout << "Create semester successfully\n";
+    system("pause");
     s.deallocate();
 }
 
@@ -273,7 +274,7 @@ void Semester::saveData(std::string schoolyear, int semester) {
         return;
     }
     Node<Course>* cur = this->courses.pHead;
-    while(cur) {
+    while (cur) {
         Course currentCourse = cur->data;
         std::string course_data_path = "Data\\" + schoolyear + "\\Semester " + std::string(intStr) + "\\" + currentCourse.ID + "\\" + currentCourse.ID + ".csv";
 
@@ -290,7 +291,6 @@ void Semester::saveData(std::string schoolyear, int semester) {
 
         currentCourse.outputCSV("Data\\" + schoolyear + "\\Semester " + std::string(intStr) + "\\" + currentCourse.ID + "\\StudentList.csv");
         currentCourse.exportScoreboard("Data\\" + schoolyear + "\\Semester " + std::string(intStr) + "\\" + currentCourse.ID + "\\Point.csv");
-        std::cout << "Data\\" + schoolyear + "\\Semester " + std::string(intStr) + "\\" + currentCourse.ID + "\\StudentList.csv";
         f_courses_list << currentCourse.ID << std::endl;
         cur = cur->pNext;
     }
