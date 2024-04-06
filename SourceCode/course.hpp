@@ -46,7 +46,6 @@ struct Course {
 
 };
 
-ostream& operator<<(ostream& os, const Course::Point a);
 bool operator<(const Course::Point a, const Course::Point b);
 bool operator>(const Course::Point a, const Course::Point b);
 bool operator==(const Course::Point a, const Course::Point b);
