@@ -38,9 +38,7 @@ void Course::inputCSV(string path) {
 			getline(fIn, stu.soci_id);
 			if(tmp_no != "")
 				this->students.insertOrdered(stu);
-		}
-		else
-			getline(fIn, ignore);
+		} else getline(fIn, ignore);
 	}
 	fIn.close();
 }
@@ -87,8 +85,7 @@ void Course::exportScoreboard(string path) {
 		fOut << counter << "," << pt.stu_id << "," << pt.full_name << "," << pt.overall << ","
 			<< pt.final << "," << pt.midterm << "," << pt.others;
 		++counter;
-		if (cur->pNext)
-			std::cout << endl;
+		if (cur->pNext) std::cout << "\n";
 		cur = cur->pNext;
 	}
 	fOut.close();
@@ -113,9 +110,9 @@ void Course::viewScoreboard() {
 		std::cout << std::setw(11) << cur->data.others << " |\n";
 		cur = cur->pNext;
 	}
-
 	std::cout << "+----+-------------+-----------------+---------------+--------------+---------------+-------------+\n";
 }
+
 void Course::outputCSV(string path) {
 	ofstream fOut;
 	fOut.open(path);
@@ -130,11 +127,13 @@ void Course::outputCSV(string path) {
 	}
 	fOut.close();
 }
+
+
 void Course::viewStudent() {
 	if (!this->students.pHead) return;
 	system("cls");
 	std::cout << "+----+-------------+--------------+-------------+--------+----------------+-----------------+\n";
-	std::cout << "| No | Student ID  | First name   | Last name   | Gender | Date of birth  | Social ID       |\n";
+	std::cout << "| No | Student ID  |  First name  |  Last name  | Gender | Date of birth  | 	  Social ID   |\n";
 	std::cout << "+----+-------------+--------------+-------------+--------+----------------+-----------------+\n";
 
 	Node<Student>* cur = this->students.pHead;
@@ -150,7 +149,6 @@ void Course::viewStudent() {
 		std::cout << std::setw(15) << cur->data.soci_id << " |\n";
 		cur = cur->pNext;
 	}
-
 	std::cout << "+----+-------------+--------------+-------------+--------+----------------+-----------------+\n";
 }
 

@@ -26,7 +26,7 @@ void list_of_student(std::string curYear, std::string curClass) {
     }
     system("cls");
     std::cout << "+----+-------------+--------------+-------------+--------+----------------+-----------------+\n";
-    std::cout << "| No | Student ID  | First name   | Last name   | Gender | Date of birth  | Social ID       |\n";
+    std::cout << "| No | Student ID  | First name   | Last name   | Gender | Date of birth  |     Social ID   |\n";
     std::cout << "+----+-------------+--------------+-------------+--------+----------------+-----------------+\n";
     int count = 1;
     getline(fin,ignore);
@@ -113,10 +113,9 @@ bool add_1_student_to_class(std::string curYear, std::string curClass) {
     do {
         std::cout << "Enter Student ID: ";
         std::cin >> students.stu_id;
-        if (student_exist(curYear, curClass, students.stu_id)) {
-            std::cout << "Student_ID " << students.stu_id << " already exist\n";
-        }
-    } while (student_exist(curYear, curClass, students.stu_id));
+        if (student_exist(curYear, curClass, students.stu_id)) std::cout << "Student_ID " << students.stu_id << " already exist\n";
+    } 
+    while (student_exist(curYear, curClass, students.stu_id));
     std::cout << "Enter First name: ";
     std::cin >> students.first_name;
     std::cout << "Enter Last name: ";
@@ -237,3 +236,4 @@ bool import_student_by_csv(std::string curYear, std::string curClass) {
     return 1;
 }
 
+void 
