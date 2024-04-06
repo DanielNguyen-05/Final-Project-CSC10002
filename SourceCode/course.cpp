@@ -14,7 +14,7 @@ Course::Course(string ID, string course_name, string class_name, string teacher_
 bool Course::stu_exists(string stu_id) {
 	Student stu;
 	stu.stu_id = stu_id;
-	if (!this->students.findNode(stu)) return false;
+	if (this->students.findNode(stu) ==  nullptr) return false;
 	return true;
 
 }
@@ -38,7 +38,9 @@ void Course::inputCSV(string path) {
 			getline(fIn, stu.soci_id);
 			if(tmp_no != "")
 				this->students.insertOrdered(stu);
-		} else getline(fIn, ignore);
+		}
+		else
+			getline(fIn, ignore);
 	}
 	fIn.close();
 }
@@ -77,25 +79,25 @@ void Course::exportScoreboard(string path) {
 		return;
 	}
 
-	fOut << "No, StudentID, FullName, Overall, Final, Midterm, Others" << endl;
+	fOut << "No,StudentID,FullName,Overall,Final,Midterm,Others" << endl;
 	int counter = 1;
 	Node<Point>* cur = this->points.pHead;
 	while (cur) {
 		Point pt = cur->data;
 		fOut << counter << "," << pt.stu_id << "," << pt.full_name << "," << pt.overall << ","
-			 << pt.final << "," << pt.midterm << "," << pt.others;
+			<< pt.final << "," << pt.midterm << "," << pt.others;
 		++counter;
-		if (cur->pNext) std::cout << "\n";
+		if (cur->pNext)
+			std::cout << endl;
 		cur = cur->pNext;
 	}
 	fOut.close();
 }
-
 void Course::viewScoreboard() {
 	if (!this->points.pHead) return;
 	system("cls");
 	std::cout << "+----+-------------+-----------------+---------------+--------------+---------------+-------------+\n";
-	std::cout << "| No | Student ID  | 	  Full Name    | Overall Point |  Final Point | Midterm Point |    Others   |\n";
+	std::cout << "| No | Student ID  | Full Name       | Overall Point | Final Point  | Midterm Point | Others      |\n";
 	std::cout << "+----+-------------+-----------------+---------------+--------------+---------------+-------------+\n";
 
 	int no = 0;
@@ -111,40 +113,30 @@ void Course::viewScoreboard() {
 		std::cout << std::setw(11) << cur->data.others << " |\n";
 		cur = cur->pNext;
 	}
+
 	std::cout << "+----+-------------+-----------------+---------------+--------------+---------------+-------------+\n";
 }
-
-void writeStudent(ofstream& fOut, const Student& student, int no) {
-    fOut << no << ", "
-         << student.stu_id << ", "
-         << student.first_name << ", "
-         << student.last_name << ", "
-         << student.gender << ", "
-         << student.date_of_birth << ", "
-         << student.soci_id << "\n";
-}
-
 void Course::outputCSV(string path) {
-    ofstream fOut(path);
-    if (!fOut) {
-        cerr << "Unable to open file at " << path << endl;
-        return;
-    }
+	ofstream fOut;
+	fOut.open(path);
+	if (!fOut.is_open()) return;
 
-    const string header = "no, stu_id, first_name, last_name, gender, date_of_birth, soci_id\n";
-    fOut << header;
-
-    int no = 1;
-    for (Node<Student>* cur = this->students.pHead; cur; cur = cur->pNext, ++no) {
-        writeStudent(fOut, cur->data, no);
-    }
+	Node<Student>* cur = this->students.pHead;
+	int no = 0;
+	fOut << "no,stu_id,first_name,last_name,gender,date_of_birth,soci_id" << "\n";
+	while (cur) {
+		no++;
+		fOut << no << ",";
+		fOut << cur->data.stu_id << "," << cur->data.first_name << "," << cur->data.last_name << "," << cur->data.gender << "," << cur->data.date_of_birth << "," << cur->data.soci_id << "\n";
+		cur = cur->pNext;
+	}
+	fOut.close();
 }
-
 void Course::viewStudent() {
 	if (!this->students.pHead) return;
 	system("cls");
 	std::cout << "+----+-------------+--------------+-------------+--------+----------------+-----------------+\n";
-	std::cout << "| No | Student ID  |  First name  |  Last name  | Gender | Date of birth  | 	  Social ID   |\n";
+	std::cout << "| No | Student ID  | First name   | Last name   | Gender | Date of birth  | Social ID       |\n";
 	std::cout << "+----+-------------+--------------+-------------+--------+----------------+-----------------+\n";
 
 	Node<Student>* cur = this->students.pHead;
@@ -160,33 +152,50 @@ void Course::viewStudent() {
 		std::cout << std::setw(15) << cur->data.soci_id << " |\n";
 		cur = cur->pNext;
 	}
+
 	std::cout << "+----+-------------+--------------+-------------+--------+----------------+-----------------+\n";
 }
 
 void Course::updateResult() {
 	string stu_id;
-	std::cout << "Enter student ID you want to delete:";
+	std::cout << "Enter student ID you want to update:";
 	std::cin >> stu_id;
 	Point pt;
 	pt.stu_id = stu_id;
 	if (!this->stu_exists(stu_id)) {
-		std::cout << "Student is not existed";
+		std::cout << "Student is not existed\n";
 		system("pause");
 		return;
 	}
 	Node<Point>* stu = this->points.findNode(pt);
 	if (stu == nullptr) {
+		Student tmp;
+		tmp.stu_id = stu_id;
+		Node<Student>* cur = this->students.findNode(tmp);
 		stu = new Node<Point>;
+		stu->data.stu_id = stu_id;
+		stu->data.full_name = (cur->data).first_name + " " + (cur->data).last_name;
+		std::cout << "Others Point: ";
+		cin >> stu->data.others;
+		std::cout << "Midterm Point: ";
+		cin >> stu->data.midterm;
+		std::cout << "Final Point: ";
+		cin >> stu->data.final;
+		std::cout << "Overall: ";
+		cin >> stu->data.overall;
 		this->points.insertOrdered(stu->data);
+		delete cur;
 	}
-	std::cout << "Others Point: ";
-	cin >> stu->data.others;
-	std::cout << "Midterm Point: ";
-	cin >> stu->data.midterm;
-	std::cout << "Final Point: ";
-	cin >> stu->data.final;
-	std::cout << "Overall: ";
-	cin >> stu->data.overall;
+	else {
+		std::cout << "Others Point: ";
+		cin >> stu->data.others;
+		std::cout << "Midterm Point: ";
+		cin >> stu->data.midterm;
+		std::cout << "Final Point: ";
+		cin >> stu->data.final;
+		std::cout << "Overall: ";
+		cin >> stu->data.overall;
+	}
 }
 
 void Course::addStudent() {

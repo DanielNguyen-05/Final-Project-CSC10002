@@ -48,9 +48,11 @@ void LinkedList<T>::insertAtHead(T x) {
 	if (!pHead) {
 		pHead = new Node<T>;
 		pHead->data = x;
-	} else {
+	}
+	else {
 		Node<T>* cur = pHead;
-		while (cur->pNext) cur = cur->pNext;
+		while (cur->pNext)
+			cur = cur->pNext;
 		cur->pNext = new Node<T>;
 		cur->pNext->data = x;
 	}
@@ -65,7 +67,8 @@ void LinkedList<T>::insertAtTail(T x) {
 		return;
 	}
 	Node<T>* cur = pHead;
-	while (cur->pNext) cur = cur->pNext;
+	while (cur->pNext)
+		cur = cur->pNext;
 	cur->pNext = new Node<T>;
 	cur->pNext->data = x;
 	cur->pNext->pNext = nullptr;
@@ -77,6 +80,7 @@ void LinkedList<T>::insertOrdered(T x) {
 	newNode->data = x;
 	if (!pHead) {
 		pHead = newNode;
+		pHead->pNext = nullptr;
 		return;
 	}
 	if (pHead->data > x) {
@@ -103,22 +107,29 @@ void LinkedList<T>::printList() {
 template <typename T>
 Node<T>* LinkedList<T>::findNode(T x) {
 	Node<T>* cur = pHead;
-	while (cur && cur->data != x) cur = cur->pNext;
-	if (!cur) return nullptr;
+	while (cur && cur->data != x)
+		cur = cur->pNext;
+	if (!cur)
+		return nullptr;
 	return cur;
 }
 
 template <typename T>
 bool LinkedList<T>::deleteNode(T x) {
-	if (!pHead) return false;
+	if (!pHead) {
+		return false;
+	}
 	if (pHead->data == x) {
 		Node<T>* tmp = pHead;
 		pHead = pHead->pNext;
 		return true;
 	}
 	Node<T>* cur = pHead;
-	while (cur->pNext && cur->pNext->data != x) cur = cur->pNext;
-	if (!cur->pNext) return false;
+	while (cur->pNext && cur->pNext->data != x)
+		cur = cur->pNext;
+	if (!cur->pNext) {
+		return false;
+	}
 	Node<T>* tmp = cur->pNext;
 	cur->pNext = cur->pNext->pNext;
 	delete tmp;

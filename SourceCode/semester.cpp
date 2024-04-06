@@ -13,8 +13,10 @@ bool checkSemester(std::string curYear, int curSemester) {
     std::ifstream fin;
     std::string path = "Data\\" + curYear + "\\Semester.txt";
     fin.open(path);
-    if (!fin.is_open()) return false;
-    while (!fin.eof()) {
+    if (!fin.is_open())
+        return false;
+    while (!fin.eof())
+    {
         fin >> s;
         getline(fin, ignore);
         if (s == curSemester) return true;
@@ -39,7 +41,8 @@ void Semester::loadSemesterData(std::string schoolyear, int semester) // School 
     f_courses_list.open(courses_path);
     if(!f_courses_list.is_open()) return;
 
-    while(f_courses_list >> courses_id) /* course_data , course student */ {
+    while(f_courses_list >> courses_id) //course_data , course student
+    {
         std::string courses_path = "Data\\" + schoolyear + "\\Semester " + std::string(intStr) + "\\" + courses_id + "\\" + courses_id + ".csv";
         fin.open(courses_path);
         std::getline(fin, line);
@@ -302,4 +305,5 @@ void Semester::deallocate() {
         cur->data.points.deallocate();
         cur = cur->pNext;
     }
+    this->courses.deallocate();
 }
