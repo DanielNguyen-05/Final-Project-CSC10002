@@ -522,6 +522,8 @@ STUDENTVIEW:
 	system("cls");
 	switch (choice) {
 	case 0:
+		curSemester.deallocate();
+		curStudentControl.stu_courses.deallocate();
 		goto START;
 	case 1:
 		curStudentControl.viewScoreBoard();
@@ -532,6 +534,8 @@ STUDENTVIEW:
 		system("pause");
 		break;
 	case 3:
+		curSemester.deallocate();
+		curStudentControl.stu_courses.deallocate();
 		system("cls");
 		goto STUDENTMENU;
 	default:
