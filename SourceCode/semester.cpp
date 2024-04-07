@@ -212,18 +212,14 @@ void Semester::createSemester(std::string year, int semester) {
     while (fIn >> tmp.semester_num) {
         char comma;
         fIn >> comma;
-
-
         fIn >> tmp.start_day >> comma >> tmp.end_day;
 
         std::string ignore;
         std::getline(fIn, ignore, '\n');
 
-
         s.insertAtTail(tmp);
     }
     fIn.close();
-
 
     std::cout << "\t\t\t CREATING A NEW SEMESTER" << year << "  S" << semester << "\n\n";
     this->semester_num = semester;
