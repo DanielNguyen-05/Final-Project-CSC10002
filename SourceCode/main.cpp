@@ -82,7 +82,7 @@ STAFFMENU:
 		system("cls");
 		std::cout << "What school year do you want to edit: "<< std::endl;
 		listSchoolYear();
-		std::cout << "\n Your choice (Ex:202x-202y): ";
+		std::cout << "\n Your choice (Ex:2023-2024): ";
 		cin >> curYear;
 		system("cls");
 		if (year_exits(curYear)) {
@@ -471,7 +471,7 @@ STUDENTMENU:
 		system("cls");
 		studentChooseYear(user.Username);
 		listSchoolYear();
-		std::cout << "\n Your choice (Ex:202x-202y): ";
+		std::cout << "\n Your choice (Ex:2023-2024): ";
 		cin >> curYear;
 		system("cls");
 		if (year_exits(curYear)) {

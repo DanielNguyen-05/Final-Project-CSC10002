@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include "consoleView.hpp"
-#include "user.hpp"
+#include "User.hpp"
 
 void programInterface() {
 	std::cout   << "\tWhat would you like to do?\n"
