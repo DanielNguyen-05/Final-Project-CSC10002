@@ -56,7 +56,7 @@ bool create_School_year(std::string curYear) {
         fout << cur->data;
         cur = cur->pNext;
         if (cur)
-            std::cout << std::endl;
+            fout << std::endl;
     }
     yearList.deallocate();
     fout.close();
