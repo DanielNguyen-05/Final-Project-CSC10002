@@ -6,8 +6,31 @@ bool createDirectory(const std::string& path) {
 #else
     if (mkdir(path.c_str(), 0777) != 0) {
 #endif
-        std::cerr << "Error creating directory: " << path << std::endl;
         return false;
     }
     return true;
+}
+void createBasicData() {
+	createDirectory("Data");
+	createDirectory("Data\\Account");
+	createDirectory("Data\\Account\\AcademicStaff");
+	createDirectory("Data\\Account\\Student");
+	createDirectory("Data\\GeneralClasses");
+	std::ifstream fIn("Data\\SchoolYear.txt");
+	if (!fIn.is_open()) {
+		std::ofstream fOut("Data\\SchoolYear.txt");
+		fOut.close();
+	}
+	else
+		fIn.close();
+
+	fIn.open("Data\\Account\\AcademicStaff\\miTomThanhLong.txt");
+	if (!fIn.is_open()) {
+		std::ofstream fOut("Data\\Account\\AcademicStaff\\miTomThanhLong.txt");
+		fOut << "miTomKati";
+		fOut.close();
+	}
+	else
+		fIn.close();
+
 }

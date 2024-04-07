@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-
+#include<fstream>
 #ifdef _WIN32
 #include <direct.h>
 #else
@@ -8,3 +8,4 @@
 #endif
 
 bool createDirectory(const std::string& path);
+void createBasicData();

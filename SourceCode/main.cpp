@@ -1,5 +1,5 @@
 #include "consoleView.hpp"
-#include "user.hpp"
+#include "User.hpp"
 #include <stdlib.h>
 #include "semester.hpp"
 #include "schoolyear.hpp"
@@ -16,7 +16,8 @@ int main() {
 	std::string path;
 	Student curStudent;
 	Student_Control curStudentControl;
-	
+	createBasicData();
+
 START:
 	system("cls");
 	Users user;

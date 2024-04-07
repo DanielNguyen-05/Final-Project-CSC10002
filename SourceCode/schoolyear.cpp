@@ -42,11 +42,11 @@ bool create_School_year(std::string curYear) {
     }
     std::string path = "Data\\" + curYear;
     createDirectory(path);
+    createDirectory("Data\\GeneralClasses\\" + curYear);
     
     std::ofstream semester(path + "\\semester.txt");
 
     if (semester.is_open()) {
-        semester << "This is a text file created using C++!\n";
         semester.close();
     }
     else
@@ -56,7 +56,7 @@ bool create_School_year(std::string curYear) {
         fout << cur->data;
         cur = cur->pNext;
         if (cur)
-            std::cout << std::endl;
+            fout << std::endl;
     }
     yearList.deallocate();
     fout.close();
