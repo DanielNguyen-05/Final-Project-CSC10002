@@ -134,6 +134,7 @@ void Course::outputCSV(string path) {
 	}
 	fOut.close();
 }
+
 void Course::viewStudent() {
 	if (!this->students.pHead) return;
 	system("cls");
