@@ -1,8 +1,8 @@
 #pragma once
 #include "LinkedList.hpp"
-#include "student_courses.hpp"
 #include <iostream>
 #include <string>
+#include "student_courses.hpp"
 using namespace std;
 
 struct Student{

@@ -56,8 +56,10 @@ bool create_School_year(std::string curYear) {
         std::cerr << "Failed to create file.\n";
     Node<std::string>* cur = yearList.pHead;
     while (cur) {
-        fout << cur->data << std::endl;
+        fout << cur->data;
         cur = cur->pNext;
+        if (cur)
+            std::cout << std::endl;
     }
     yearList.deallocate();
     fout.close();

@@ -18,6 +18,8 @@ bool checkSemester(std::string curYear, int curSemester) {
     while (!fin.eof())
     {
         fin >> s;
+        if (s == 0)
+            break;
         getline(fin, ignore);
         if (s == curSemester) return true;
     }
@@ -74,10 +76,12 @@ void Semester::loadSemesterData(std::string schoolyear, int semester) // School 
 void Semester::createCourse(std::string curYear, Course& course) {
     std::cout << "\t\t\t CREATING A NEW COURSE - " << course.ID << "\n\n";
     std::cout << "\t - Enter the name of this course (ex: Ki thuat lap trinh): ";
+    std::cin.ignore();
     std::getline(std::cin, course.course_name);
     std::cout << "\t - Enter the class which this course belongs to (ex: 23CLC03): ";
     std::cin >> course.class_name;
     std::cout << "\t - Enter the teacher of this course: ";
+    std::cin.ignore();
     std::getline(std::cin, course.teacher_name);
     std::cout << "\t - Enter the number of credits in this course (ex: 4): ";
     std::cin >> course.num_of_credit;
@@ -205,7 +209,6 @@ void Semester::createSemester(std::string year, int semester) {
     Semester tmp;
     std::ifstream fIn("Data\\" + year + "\\Semester.txt");
     if (!fIn.is_open()) {
-        std::cout << "\t -Failed to open the file!" << "\n";
         return;
     }
     fIn.ignore();

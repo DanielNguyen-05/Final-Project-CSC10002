@@ -78,9 +78,9 @@ template <typename T>
 void LinkedList<T>::insertOrdered(T x) {
 	Node<T>* newNode = new Node<T>;
 	newNode->data = x;
+	newNode->pNext = nullptr;
 	if (!pHead) {
 		pHead = newNode;
-		pHead->pNext = nullptr;
 		return;
 	}
 	if (pHead->data > x) {
@@ -122,6 +122,7 @@ bool LinkedList<T>::deleteNode(T x) {
 	if (pHead->data == x) {
 		Node<T>* tmp = pHead;
 		pHead = pHead->pNext;
+		delete tmp;
 		return true;
 	}
 	Node<T>* cur = pHead;

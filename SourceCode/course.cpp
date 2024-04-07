@@ -12,9 +12,11 @@ Course::Course(string ID, string course_name, string class_name, string teacher_
 }
 
 bool Course::stu_exists(string stu_id) {
-	Student stu;
-	stu.stu_id = stu_id;
-	if (this->students.findNode(stu) ==  nullptr) return false;
+	Node<Student>* cur = this->students.pHead;
+	while (cur && cur->data.stu_id != stu_id)
+		cur = cur->pNext;
+	if (!cur)
+		return false;
 	return true;
 
 }
@@ -184,7 +186,7 @@ void Course::updateResult() {
 		std::cout << "Overall: ";
 		cin >> stu->data.overall;
 		this->points.insertOrdered(stu->data);
-		delete cur;
+		delete stu;
 	}
 	else {
 		std::cout << "Others Point: ";
