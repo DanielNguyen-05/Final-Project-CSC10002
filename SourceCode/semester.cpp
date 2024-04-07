@@ -30,7 +30,7 @@ bool checkSemester(std::string curYear, int curSemester) {
 void Semester::loadSemesterData(std::string schoolyear, int semester) // School Year -> Semester -> Course
 {
     char* intStr = new char[1];
-    sprintf(intStr,"%d",semester);
+    sprintf(intStr, "%d", semester);
     std::string courses_path = "Data\\" + schoolyear + "\\Semester " + std::string(intStr) + "\\CourseList.txt";
     std::string courses_id;
     std::string line;
@@ -41,14 +41,14 @@ void Semester::loadSemesterData(std::string schoolyear, int semester) // School 
     std::string tmpNum;
 
     f_courses_list.open(courses_path);
-    if(!f_courses_list.is_open()) return;
+    if (!f_courses_list.is_open()) return;
 
-    while(f_courses_list >> courses_id) //course_data , course student
+    while (f_courses_list >> courses_id) //course_data , course student
     {
         std::string courses_path = "Data\\" + schoolyear + "\\Semester " + std::string(intStr) + "\\" + courses_id + "\\" + courses_id + ".csv";
         fin.open(courses_path);
         std::getline(fin, line);
-        stringstream split(line); 
+        stringstream split(line);
         getline(fin, tmp.ID, ',');
         getline(fin, tmp.course_name, ',');
         getline(fin, tmp.class_name, ',');
@@ -98,11 +98,7 @@ void Semester::createCourse(std::string curYear, Course& course) {
     std::cin >> course.session;
     this->courses.insertAtTail(course);
     std::string path = "Data\\" + curYear + "\\Semester " + std::to_string(this->semester_num) + "\\" + course.ID;
-    std::wstring folder(path.begin(), path.end());
-    if (!CreateDirectoryW(folder.c_str(), NULL)) {
-        std::cout << "can't create folder Semester, please try again" << std::endl;
-        return;
-    }
+    createDirectory(path);
 }
 
 void Semester::viewCourseList() {
@@ -200,26 +196,18 @@ void Semester::deleteCourse() {
 
 void Semester::createSemester(std::string year, int semester) {
     std::string path = "Data\\" + year + "\\Semester " + std::to_string(semester);
-    std::wstring folder(path.begin(), path.end());
-    if (!CreateDirectoryW(folder.c_str(), NULL)) {
-        std::cout << "can't create folder Semester, please try again" << std::endl;
-        return;
-    }
+    createDirectory(path);
     LinkedList<Semester> s;
     Semester tmp;
     std::ifstream fIn("Data\\" + year + "\\Semester.txt");
     if (!fIn.is_open()) {
         return;
     }
-    fIn.ignore();
     while (fIn >> tmp.semester_num) {
         char comma;
         fIn >> comma;
-        fIn >> tmp.start_day >> comma >> tmp.end_day;
-
-        std::string ignore;
-        std::getline(fIn, ignore, '\n');
-
+        getline(fIn, tmp.start_day, ',');
+        getline(fIn, tmp.end_day);
         s.insertAtTail(tmp);
     }
     fIn.close();
@@ -230,7 +218,7 @@ void Semester::createSemester(std::string year, int semester) {
     std::cin >> this->start_day;
     std::cout << "\t - Enter the end date (ex: 20/01/2024): ";
     std::cin >> this->end_day;
-    s.insertAtHead(*this);
+    s.insertAtTail(*this);
     std::ofstream fOut("Data\\" + year + "\\Semester.txt");
     if (!fOut.is_open()) {
         std::cout << "\t -Failed to open the file!" << "\n";

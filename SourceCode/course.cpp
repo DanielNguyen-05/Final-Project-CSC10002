@@ -38,7 +38,6 @@ void Course::inputCSV(string path) {
 			getline(fIn, stu.gender, ',');
 			getline(fIn, stu.date_of_birth, ',');
 			getline(fIn, stu.soci_id);
-			if(tmp_no != "")
 				this->students.insertOrdered(stu);
 		}
 		else

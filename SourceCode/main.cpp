@@ -234,6 +234,7 @@ EDITGENERALCLASS:
 	system("cls");
 	goto EDITGENERALCLASS;
 SEMESTER:
+	system("cls");
 	semesterMainMenu();
 	cin >> choice;
 	switch (choice) {

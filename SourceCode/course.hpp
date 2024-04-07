@@ -45,7 +45,6 @@ struct Course {
     bool stu_exists(string stu_id);
 
 };
-
 bool operator<(const Course::Point a, const Course::Point b);
 bool operator>(const Course::Point a, const Course::Point b);
 bool operator==(const Course::Point a, const Course::Point b);

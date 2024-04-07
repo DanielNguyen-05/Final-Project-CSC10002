@@ -13,10 +13,8 @@ struct Node {
 
 template <typename T>
 struct LinkedList {
-	Node<T>* pHead;
-	LinkedList() {
-		pHead = nullptr;
-	}
+	Node<T>* pHead = nullptr;
+
 	void insertAtHead(T x);
 	void insertAtTail(T x);
 	void insertOrdered(T x);
@@ -45,17 +43,10 @@ Node<T>::Node(T* data) {
 
 template <typename T>
 void LinkedList<T>::insertAtHead(T x) {
-	if (!pHead) {
-		pHead = new Node<T>;
-		pHead->data = x;
-	}
-	else {
-		Node<T>* cur = pHead;
-		while (cur->pNext)
-			cur = cur->pNext;
-		cur->pNext = new Node<T>;
-		cur->pNext->data = x;
-	}
+	Node<T>* newNode = new Node<T>;
+	newNode->data = x;
+	newNode->pNext = pHead;
+	pHead = newNode;
 }
 
 template <typename T>
@@ -66,9 +57,11 @@ void LinkedList<T>::insertAtTail(T x) {
 		pHead->pNext = nullptr;
 		return;
 	}
+
 	Node<T>* cur = pHead;
 	while (cur->pNext)
 		cur = cur->pNext;
+
 	cur->pNext = new Node<T>;
 	cur->pNext->data = x;
 	cur->pNext->pNext = nullptr;

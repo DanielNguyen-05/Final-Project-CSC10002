@@ -1,9 +1,8 @@
 #pragma once
 #include "course.hpp"
 #include <string>
-#include <windows.h>
-#include <sys/stat.h>
-#include <limits>
+#include "subFunction.hpp"
+#include "limits"
 
 struct Semester {
     int semester_num;

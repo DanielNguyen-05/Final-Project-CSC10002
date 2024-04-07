@@ -1,6 +1,5 @@
 #pragma once
-#include <windows.h>
-#include <sys/stat.h>
+#include"subFunction.hpp"
 #include <string>
 #include <fstream>
 #include "LinkedList.hpp"
