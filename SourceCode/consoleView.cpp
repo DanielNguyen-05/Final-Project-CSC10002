@@ -237,7 +237,7 @@ void importStudent() {
         << "2.Import a student\n"
         << "0.Go back\n\n"
 
-        << "Your choice:";
+        << "Your choice: ";
 }
 
 void inputStudentFail(){
