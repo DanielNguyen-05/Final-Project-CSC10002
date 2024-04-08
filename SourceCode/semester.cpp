@@ -147,13 +147,13 @@ void Semester::updateCourse() {
     while (cur != nullptr) {
         if (cur->data.ID == course_id) {
             std::cout << "\t - Enter the new name of this course (ex: KTLT): ";
-            std::cin >> cur->data.course_name;
+            std::getline(std::cin, cur->data.course_name);
             std::cout << "\t - Enter the new ID of this course (ex: CSC10002-23CLC03): ";
             std::cin >> cur->data.ID;
             std::cout << "\t - Enter the new class which this course belongs to (ex: 23CLC03): ";
-            std::cin >> cur->data.class_name;
+            std::getline(std::cin, cur->data.class_name);
             std::cout << "\t - Enter the new teacher of this course: ";
-            std::cin >> cur->data.teacher_name;
+            std::getline(std::cin, cur->data.teacher_name);
             std::cout << "\t - Enter the new number of credits in this course (ex: 4): ";
             std::cin >> cur->data.num_of_credit;
             std::cout << "\t - Enter the new maximum number of students in this course: ";
