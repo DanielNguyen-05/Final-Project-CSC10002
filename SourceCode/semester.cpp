@@ -63,16 +63,19 @@ void Semester::loadSemesterData(std::string schoolyear, int semester) // School 
         fin.close();
         this->courses.insertAtTail(tmp);
     }
+    f_courses_list.close();
+}
+void Semester::loadCourseData(std::string curYear) {
+    char* intStr = new char[1];
+    sprintf(intStr, "%d", this->semester_num);
     Node<Course>* cur = this->courses.pHead;
     while (cur) {
-        std::string path = "Data\\" + schoolyear + "\\Semester " + std::string(intStr) + "\\" + (cur->data).ID + "\\";
+        std::string path = "Data\\" + curYear + "\\Semester " + std::string(intStr) + "\\" + (cur->data).ID + "\\";
         (cur->data).inputCSV(path + "StudentList.csv");
         (cur->data).importScoreboard(path + "Point.csv");
         cur = cur->pNext;
     }
-    f_courses_list.close();
 }
-
 void Semester::createCourse(std::string curYear, Course& course) {
     std::cout << "\t\t\t CREATING A NEW COURSE - " << course.ID << "\n\n";
     std::cout << "\t - Enter the name of this course (ex: Ki thuat lap trinh): ";

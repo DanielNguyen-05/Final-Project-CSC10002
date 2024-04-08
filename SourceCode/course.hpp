@@ -43,6 +43,7 @@ struct Course {
     void deleteStudent();
     void viewStudent();
     bool stu_exists(string stu_id);
+    void loadData(string curYear, int curSemester);
     void saveData(string curYear, int curSemester);
 };
 bool operator<(const Course::Point a, const Course::Point b);

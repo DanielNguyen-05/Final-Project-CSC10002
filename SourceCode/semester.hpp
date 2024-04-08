@@ -22,6 +22,7 @@ struct Semester {
     bool findCourse(Course& course);
     void saveData(std::string schoolyear, int semester);
     void deallocate();
+    void loadCourseData(std::string curYear);
 };
 
 bool checkSemester(std::string curYear, int curSemester);

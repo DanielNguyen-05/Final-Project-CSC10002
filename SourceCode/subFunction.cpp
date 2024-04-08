@@ -34,3 +34,6 @@ void createBasicData() {
 		fIn.close();
 
 }
+void StudentMenu() {
+
+}

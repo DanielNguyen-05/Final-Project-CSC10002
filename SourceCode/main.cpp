@@ -347,6 +347,7 @@ EDITSEMESTER:
 					goto INPUTCOURSE;
 			}
 		}
+		curCourse.loadData(curYear, curSemester.semester_num);
 		system("cls");
 		goto MODIFYCOURSE;
 	case 4:
@@ -372,9 +373,7 @@ MODIFYCOURSE:
 		goto START;
 	case 1:
 		curCourse.viewStudent();
-		std::cout << "Enter to continue...";
-		std::cin.get();
-		std::cin.get();
+		system("pause");
 		system("cls");
 		goto MODIFYCOURSE;
 	case 2:
@@ -418,6 +417,8 @@ MODIFYCOURSE:
 	case 7:
 		system("cls");
 		curCourse.saveData(curYear, curSemester.semester_num);
+		curCourse.students.deallocate();
+		curCourse.points.deallocate();
 		goto EDITSEMESTER;
 	default:
 		system("cls");
@@ -453,12 +454,13 @@ COURSEPOINT:
 		goto COURSEPOINT;
 	case 4:
 		system("cls");
+		curCourse.saveData(curYear, curSemester.semester_num);
 		goto MODIFYCOURSE;
 	default:
 		system("cls");
 		goto COURSEPOINT;
 	}
-	return 0;
+	goto COURSEPOINT;
 STUDENTMENU:
 	studentMenu();
 	std::cin >> choice;
@@ -507,6 +509,7 @@ STUDENTMENU:
 			}
 		}
 		curSemester.loadSemesterData(curYear, curSemester.semester_num);
+		curSemester.loadCourseData(curYear);
 		curStudentControl.loadStudentCoursesData(curSemester, user.Username);
 		goto STUDENTVIEW;
 		break;

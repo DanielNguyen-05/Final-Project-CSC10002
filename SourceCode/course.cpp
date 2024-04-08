@@ -233,6 +233,12 @@ void Course::deleteStudent() {
 	}
 	else std::cout << "Course doesn't have this student" << "\n";
 }
+void Course::loadData(string curYear, int curSemester) {
+	char* intStr = new char[1];
+	sprintf(intStr, "%d", curSemester);
+	this->inputCSV("Data\\" + curYear + "\\Semester " + std::string(intStr) + "\\" + this->ID + "\\StudentList.csv");
+	this->importScoreboard("Data\\" + curYear + "\\Semester " + std::string(intStr) + "\\" + this->ID + "\\Point.csv");
+}
 void Course::saveData(string curYear, int curSemester) {
 	char* intStr = new char[1];
 	sprintf(intStr, "%d", curSemester);

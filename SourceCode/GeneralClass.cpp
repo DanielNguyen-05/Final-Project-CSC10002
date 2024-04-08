@@ -3,15 +3,13 @@
 bool class_existed (std::string schoolYear, std::string general_class) {
     std::string temp;
     std::ifstream fin;
-    std::string path = "Data\\" + schoolYear + "\\GeneralClass.txt";
+    std::string path = "Data\\GeneralClasses" + schoolYear + "\\" + general_class + ".csv";
     fin.open (path);
     if (!fin.is_open()) return false;
-    while (!fin.eof()) {
-        fin >> temp;
-        if ( temp == general_class) return true;
+    else {
+        fin.close();
+        return true;
     }
-    fin.close();
-    return false;
 }
 
 void list_of_student(std::string curYear, std::string curClass) {
@@ -51,35 +49,8 @@ void list_of_student(std::string curYear, std::string curClass) {
 }
 
 bool create_General_class(std::string curYear, std::string curClass) {
-    LinkedList<std::string> ClassList;
-    std::ifstream fin;
-    fin.open("Data\\" + curYear + "\\GeneralClass.txt");
-    if (!fin.is_open()) {
-        std::cout << "Can't open file.";
-        return 0;
-    }
-    std::string ge_class;
-    while (!fin.eof()) {
-        std::getline(fin, ge_class);
-        ClassList.insertAtTail(ge_class);
-    }
-    fin.close();
-    ClassList.insertAtTail(curClass);
-    std::ofstream fout;
-    fout.open("Data\\" + curYear + "\\GeneralClass.txt");
-    if (!fout.is_open()) {
-        std::cout << "Can't open file.";
-        return 0;
-    }
-    Node<std::string>* cur = ClassList.pHead;
-    while (cur) {
-        fout << cur->data;
-        cur = cur->pNext;
-        if (cur)
-            fout << std::endl;
-    }
-    ClassList.deallocate();
-    fout.close();
+    ofstream fOut("Data\\GeneralClasses\\" + curYear + "\\" + curClass + ".csv");
+    fOut.close();
     std::cout << "Create class successfully!\n";
     system("pause");
     return 1;
