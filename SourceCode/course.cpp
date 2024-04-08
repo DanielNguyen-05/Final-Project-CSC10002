@@ -233,7 +233,12 @@ void Course::deleteStudent() {
 	}
 	else std::cout << "Course doesn't have this student" << "\n";
 }
-
+void Course::saveData(string curYear, int curSemester) {
+	char* intStr = new char[1];
+	sprintf(intStr, "%d", curSemester);
+	this->outputCSV("Data\\" + curYear + "\\Semester " + std::string(intStr) + "\\" + this->ID + "\\StudentList.csv");
+	this->exportScoreboard("Data\\" + curYear + "\\Semester " + std::string(intStr) + "\\" + this->ID + "\\Point.csv");
+}
 bool operator<(const Course::Point a, const Course::Point b) {
 	return a.stu_id < b.stu_id;
 }

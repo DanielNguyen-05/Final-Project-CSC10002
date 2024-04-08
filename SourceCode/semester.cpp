@@ -275,9 +275,6 @@ void Semester::saveData(std::string schoolyear, int semester) {
             << currentCourse.num_of_credit << "," << currentCourse.max_student << "," << currentCourse.day_of_week << "," << currentCourse.session << std::endl;
 
         fout.close();
-
-        currentCourse.outputCSV("Data\\" + schoolyear + "\\Semester " + std::string(intStr) + "\\" + currentCourse.ID + "\\StudentList.csv");
-        currentCourse.exportScoreboard("Data\\" + schoolyear + "\\Semester " + std::string(intStr) + "\\" + currentCourse.ID + "\\Point.csv");
         f_courses_list << currentCourse.ID << std::endl;
         cur = cur->pNext;
     }

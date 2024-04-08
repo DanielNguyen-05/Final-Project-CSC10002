@@ -365,6 +365,7 @@ MODIFYCOURSE:
 	switch (choice)
 	{
 	case 0:
+		curCourse.saveData(curYear, curSemester.semester_num);
 		curSemester.saveData(curYear, curSemester.semester_num);
 		curSemester.deallocate();
 		system("cls");
@@ -416,6 +417,7 @@ MODIFYCOURSE:
 		goto MODIFYCOURSE;
 	case 7:
 		system("cls");
+		curCourse.saveData(curYear, curSemester.semester_num);
 		goto EDITSEMESTER;
 	default:
 		system("cls");
@@ -426,6 +428,7 @@ COURSEPOINT:
 	cin >> choice;
 	switch (choice){
 	case 0:
+		curCourse.saveData(curYear, curSemester.semester_num);
 		curSemester.saveData(curYear, curSemester.semester_num);
 		curSemester.deallocate();
 		system("cls");
