@@ -19,7 +19,30 @@ bool year_exits(std::string year) {
     return true;
 }
 
+bool year_valid(std::string curyear)
+{
+    if (curyear.length() != 9)
+    {
+        return false;
+    }
+    std::string start_year = curyear.substr(0, 4);
+    std::string end_year = curyear.substr(5, 4);
+    int startyear = stoi(start_year);
+    int endyear = stoi(end_year);
+    if (startyear < 1996 || endyear < 1996 || startyear >= endyear)
+    {
+        return false;
+    }
+    return true;
+}
+
 bool create_School_year(std::string curYear) {
+    if ( !year_valid(curYear) )
+    {
+        std::cout << "Invalid year !!!\n";
+        system("pause");
+        return 0;
+    }
     LinkedList<std::string> yearList;
     std::ifstream fin;
     fin.open("Data\\SchoolYear.txt");

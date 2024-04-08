@@ -90,13 +90,13 @@ bool Users::login() {
 
     if (isStudent(username, password)) {
             system("cls");
-            std::cout << "Log in successfully. Welcome back " << Username << "!\n";
+            std::cout << "Log in successfully. Welcome " << Username << "!\n";
             return true;
     } else {
         if(isAcademicStaff(username, password)) {
             isStaff = true;
             system("cls");
-            std::cout << "Log in successfully. Welcome back " << Username << "!\n";
+            std::cout << "Log in successfully. Welcome " << Username << "!\n";
             return true;
         }
     }
