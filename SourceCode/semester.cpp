@@ -186,6 +186,14 @@ void Semester::updateCourse() {
     std::cout << "\t - Course not found!" << "\n";
 }
 
+void deleteFolder(const std::string& folderPath) {
+    try {
+        fs::remove_all(folderPath);
+        std::cout << "Folder deleted successfully!\n";
+    } catch (const std::filesystem::filesystem_error& e) {
+        std::cerr << "Error deleting folder: " << e.what() << '\n';
+    }
+}
 
 void Semester::deleteCourse() {
     std::string course_id;
@@ -205,6 +213,10 @@ void Semester::deleteCourse() {
         cur = cur->pNext;
     }
     std::cout << "\t - Course not found!" << "\n";
+
+    // delete whole folder of this course
+    std::string path = "Data\\" + std::to_string(this->semester_num) + "\\" + course_id;
+    deleteFolder(path);
 }
 
 void Semester::createSemester(std::string year, int semester) {

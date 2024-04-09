@@ -1,8 +1,11 @@
 #pragma once
 #include "course.hpp"
 #include <string>
+#include <filesystem>
 #include "subFunction.hpp"
 #include "limits"
+
+namespace fs = std::filesystem;
 
 struct Semester {
     int semester_num;
@@ -26,3 +29,4 @@ struct Semester {
 };
 
 bool checkSemester(std::string curYear, int curSemester);
+void deleteFolder(const std::string& folderPath);
