@@ -7,7 +7,6 @@
 #include <stdlib.h>
 
 struct Users {
-
     std::string Username = "";
     std::string Password = "";
 
@@ -18,12 +17,10 @@ struct Users {
     std::string date_of_birth;
     std::string soci_id;
 
-
     bool isStaff = false;
 
     bool isStudent(std::string username, std::string password);
     bool isAcademicStaff(std::string username, std::string password);
-
 
     bool login();
     void viewProfileInfo();

@@ -76,7 +76,7 @@ void Course::exportScoreboard(string path) {
 	ofstream fOut;
 	fOut.open(path);
 	if (!fOut.is_open()) {
-		cerr << "Error: Unable to open file for writing! -- " << path << endl;
+		cerr << "Error: Unable to open file for writing!" << path << endl;
 		system("pause");
 		return;
 	}
@@ -205,7 +205,7 @@ void Course::addStudent() {
 	std::cout << "Enter student ID:";
 	std::cin >> students.stu_id;
 	if (this->stu_exists(students.stu_id)) {
-		std::cout << "This student is existed";
+		std::cout << "This student is existed!";
 		return;
 	}
 	std::cout << "Enter First name: ";
@@ -223,15 +223,15 @@ void Course::addStudent() {
 
 void Course::deleteStudent() {
 	Student stu;
-	std::cout << "Enter student ID:";
+	std::cout << "Enter student ID: ";
 	std::cin >> stu.stu_id;
 	if (this->students.deleteNode(stu)) {
-		std::cout << "delete success" << "\n";
+		std::cout << "Delete successfully" << "\n";
 		Point pt;
 		pt.stu_id = stu.stu_id;
 		this->points.deleteNode(pt);
 	}
-	else std::cout << "Course doesn't have this student" << "\n";
+	else std::cout << "Course doesn't have this student!" << "\n";
 }
 void Course::loadData(string curYear, int curSemester) {
 	char* intStr = new char[1];

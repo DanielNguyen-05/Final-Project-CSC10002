@@ -4,7 +4,7 @@ bool year_exits(std::string year) {
     std::ifstream fin;
     fin.open("Data\\SchoolYear.txt");
     if (!fin.is_open()) {
-        std::cout << "Can't open file.";
+        std::cout << "Can't open file!";
         return false;
     }
     std::string temp;
@@ -39,7 +39,7 @@ bool year_valid(std::string curyear)
 bool create_School_year(std::string curYear) {
     if ( !year_valid(curYear) )
     {
-        std::cout << "Invalid year !!!\n";
+        std::cout << "Invalid year!!!\n";
         system("pause");
         return 0;
     }
@@ -47,7 +47,7 @@ bool create_School_year(std::string curYear) {
     std::ifstream fin;
     fin.open("Data\\SchoolYear.txt");
     if (!fin.is_open()) {
-        std::cout << "Can't open file.";
+        std::cout << "Can't open file!";
         return 0;
     }
     std::string year;
@@ -73,7 +73,7 @@ bool create_School_year(std::string curYear) {
         semester.close();
     }
     else
-        std::cerr << "Failed to create file.\n";
+        std::cerr << "Failed to create file!\n";
     Node<std::string>* cur = yearList.pHead;
     while (cur) {
         fout << cur->data;

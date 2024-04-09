@@ -78,7 +78,7 @@ void Semester::loadCourseData(std::string curYear) {
 }
 void Semester::createCourse(std::string curYear, Course& course) {
     std::cout << "\t\t\t CREATING A NEW COURSE - " << course.ID << "\n\n";
-    std::cout << "\t - Enter the name of this course (Ex: Ki thuat lap trinh): ";
+    std::cout << "\t - Enter the name of this course (Ex: Ky thuat lap trinh): ";
     // std::cin.ignore();
     std::getline(std::cin, course.course_name);
     std::cout << "\t - Enter the class which this course belongs to (Ex: 23CLC03): ";
@@ -154,15 +154,15 @@ void Semester::updateCourse() {
     std::cout << "\t\t\t UPDATING THE COURSE " << course_id << ": " << "\n\n";
     while (cur != nullptr) {
         if (cur->data.ID == course_id) {
-            std::cout << "\t - Enter the new name of this course (ex: KTLT): ";
+            std::cout << "\t - Enter the new name of this course (Ex: Ky thuat lap trinh): ";
             std::getline(std::cin, cur->data.course_name);
-            std::cout << "\t - Enter the new ID of this course (ex: CSC10002-23CLC03): ";
+            std::cout << "\t - Enter the new ID of this course (Ex: CSC10002-23CLC03): ";
             std::cin >> cur->data.ID;
-            std::cout << "\t - Enter the new class which this course belongs to (ex: 23CLC03): ";
+            std::cout << "\t - Enter the new class which this course belongs to (Ex: 23CLC03): ";
             std::getline(std::cin, cur->data.class_name);
             std::cout << "\t - Enter the new teacher of this course: ";
             std::getline(std::cin, cur->data.teacher_name);
-            std::cout << "\t - Enter the new number of credits in this course (ex: 4): ";
+            std::cout << "\t - Enter the new number of credits in this course (Ex: 4): ";
             std::cin >> cur->data.num_of_credit;
             std::cout << "\t - Enter the new maximum number of students in this course: ";
             std::cin >> cur->data.max_student;
@@ -173,7 +173,7 @@ void Semester::updateCourse() {
                 << "\t\t 2. S2 (9:30 -> 11:15)" << "\n"
                 << "\t\t 3. S3 (13:30 -> 15:15)" << "\n"
                 << "\t\t 4. S4 (15:30 -> 17:15)" << "\n"
-                << "\t - Which sessions, this course will be held (ex: S1): ";
+                << "\t - Which sessions, this course will be held (Ex: S1): ";
             if (cur->data.session == "S1") cur->data.session = "7:30 -> 9:15";
             else if (cur->data.session == "S2") cur->data.session = "9:30 -> 11:15";
             else if (cur->data.session == "S3") cur->data.session = "13:30 -> 15:15";
@@ -227,9 +227,9 @@ void Semester::createSemester(std::string year, int semester) {
 
     std::cout << "\t\t\t CREATING A NEW SEMESTER" << year << "  S" << semester << "\n\n";
     this->semester_num = semester;
-    std::cout << "\t - Enter the start date (ex: 05/09/2023): ";
+    std::cout << "\t - Enter the start date (Ex: 05/09/2023): ";
     std::cin >> this->start_day;
-    std::cout << "\t - Enter the end date (ex: 20/01/2024): ";
+    std::cout << "\t - Enter the end date (Ex: 20/01/2024): ";
     std::cin >> this->end_day;
     s.insertAtTail(*this);
     std::ofstream fOut("Data\\" + year + "\\Semester.txt");
@@ -245,7 +245,7 @@ void Semester::createSemester(std::string year, int semester) {
             fOut << std::endl;
     }
     fOut.close();
-    std::cout << "Create semester successfully\n";
+    std::cout << "Create semester successfully!\n";
     system("pause");
     s.deallocate();
 }
@@ -283,7 +283,7 @@ void Semester::saveData(std::string schoolyear, int semester) {
             std::cerr << "Error: Unable to open course data file for writing!" << std::endl;
             continue;
         }
-        fout << "ID,Course Name,Class name,Teacher name,num_of_credit,max student, day of week, session \n";
+        fout << "ID,Course name,Class name,Teacher name,num_of_credit,max student, day of week, session \n";
         fout << currentCourse.ID << "," << currentCourse.course_name << "," << currentCourse.class_name << "," << currentCourse.teacher_name << ","
             << currentCourse.num_of_credit << "," << currentCourse.max_student << "," << currentCourse.day_of_week << "," << currentCourse.session << std::endl;
 

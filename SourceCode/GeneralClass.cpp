@@ -103,7 +103,7 @@ bool add_1_student_to_class(std::string curYear, std::string curClass) {
     std::ifstream fin;
     fin.open("Data\\GeneralClasses\\" + curYear + "\\" + curClass + ".csv");
     if (!fin.is_open()) {
-        std::cout << "Can't open file.";
+        std::cout << "Can't open file!";
         return 0;
     }
     Student student_temp;
@@ -126,7 +126,7 @@ bool add_1_student_to_class(std::string curYear, std::string curClass) {
     std::ofstream fout;
     fout.open("Data\\GeneralClasses\\" + curYear + "\\" + curClass + ".csv");
     if (!fout.is_open()) {
-        std::cout << "Can't open file.";
+        std::cout << "Can't open file!";
         return 0;
     }
     Node<Student>* cur = Studentlist.pHead;
@@ -167,7 +167,7 @@ bool import_student_by_csv(std::string curYear, std::string curClass) {
     }
     fin.close();
     std::string input_file;
-    std::cout << "input import_file_path: ";
+    std::cout << "Input the importing file path: ";
     std::cin >> input_file;
     std::ifstream fin2;
     fin2.open(input_file);

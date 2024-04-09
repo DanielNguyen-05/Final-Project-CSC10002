@@ -60,7 +60,7 @@ STAFFMENU:
 	case 1:
 	CREATEYEAR:
 		system("cls");
-		std::cout << "What school year do you want to create (Ex:202x-202y): ";
+		std::cout << "What school year do you want to create (Ex:2023-2024): ";
 		cin >> curYear;
 		system("cls");
 		if (!year_exits(curYear)) {
@@ -153,7 +153,7 @@ GENERALCLASS:
 	case 1:
 	CREATECLASS:
 		system("cls");
-		std::cout << "What general class do you want to create (Ex:20CLC04) : " << std::endl ;
+		std::cout << "What general class do you want to create (Ex: 20CLC04) : " << std::endl ;
 		cin >> curClass;
 		system("cls");
 		if (class_existed(curYear, curClass)) {
@@ -177,7 +177,7 @@ GENERALCLASS:
 		system("cls");
 		std::cout << "What general class do you want to edit: " << std::endl;
 		view_list_of_general_class(curYear);
-		std::cout << "\n Your choice (Ex:20CLC04): ";
+		std::cout << "\n Your choice (Ex: 20CLC04): ";
 		cin >> curClass;
 		system("cls");
 		if (!class_existed(curYear, curClass)) {
@@ -304,7 +304,7 @@ EDITSEMESTER:
 	case 1:
 	CREATECOURSE:
 		system("cls");
-		std::cout << "What course do you want to create (Ex:CS161-23CLC03) : ";
+		std::cout << "What course do you want to create (Ex: CS161-23CLC03): ";
 		cin >> curCourse.ID;
 		system("cls");
 		if (curSemester.findCourse(curCourse)) {
@@ -331,7 +331,7 @@ EDITSEMESTER:
 	case 3:
 	INPUTCOURSE:
 		system("cls");
-		std::cout << "What course do you want to modify (Ex:CS161-23CLC03) : ";
+		std::cout << "What course do you want to modify (Ex: CS161-23CLC03): ";
 		cin >> curCourse.ID;
 		system("cls");
 		if (!curSemester.findCourse(curCourse)) {
@@ -385,7 +385,7 @@ MODIFYCOURSE:
 			break;
 		case 1:
 			system("cls");
-			std::cout << "Enter path of input file:";
+			std::cout << "Enter path of input file: ";
 			std::cin >> path;
 			curCourse.inputCSV(path);
 			break;
@@ -436,7 +436,7 @@ COURSEPOINT:
 		goto START;
 	case 1:
 		system("cls");
-		std::cout << "Enter path of input file:";
+		std::cout << "Enter path of input file: ";
 		std::cin >> path;
 		curCourse.importScoreboard(path);
 		system("cls");
@@ -476,7 +476,7 @@ STUDENTMENU:
 		system("cls");
 		studentChooseYear(user.Username);
 		listSchoolYear();
-		std::cout << "\n Your choice (Ex:2023-2024): ";
+		std::cout << "\n Your choice (Ex: 2023-2024): ";
 		cin >> curYear;
 		system("cls");
 		if (year_exits(curYear)) {
