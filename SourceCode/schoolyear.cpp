@@ -66,7 +66,8 @@ bool create_School_year(std::string curYear) {
     std::string path = "Data\\" + curYear;
     createDirectory(path);
     createDirectory("Data\\GeneralClasses\\" + curYear);
-    
+    std::ofstream fOut("Data\\GeneralClasses\\" + curYear + "\\GeneralClass.txt" );
+    fOut.close();
     std::ofstream semester(path + "\\semester.txt");
 
     if (semester.is_open()) {

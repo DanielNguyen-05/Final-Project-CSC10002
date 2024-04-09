@@ -3,7 +3,7 @@
 bool class_existed (std::string schoolYear, std::string general_class) {
     std::string temp;
     std::ifstream fin;
-    std::string path = "Data\\GeneralClasses" + schoolYear + "\\" + general_class + ".csv";
+    std::string path = "Data\\GeneralClasses\\" + schoolYear + "\\" + general_class + ".csv";
     fin.open (path);
     if (!fin.is_open()) return false;
     else {
@@ -49,8 +49,42 @@ void list_of_student(std::string curYear, std::string curClass) {
 }
 
 bool create_General_class(std::string curYear, std::string curClass) {
-    ofstream fOut("Data\\GeneralClasses\\" + curYear + "\\" + curClass + ".csv");
-    fOut.close();
+    LinkedList<std::string> ClassList;
+    std::ifstream fin;
+    fin.open("Data\\GeneralClasses\\" + curYear + "\\GeneralClass.txt");
+    if (!fin.is_open()) {
+        std::cout << "Can't open file.";
+        return 0;
+    }
+    std::string ge_class;
+    while (!fin.eof()) {
+        std::getline(fin, ge_class);
+        ClassList.insertAtTail(ge_class);
+    }
+    fin.close();
+    ClassList.insertAtTail(curClass);
+    std::ofstream fout;
+    fout.open("Data\\GeneralClasses\\" + curYear + "\\GeneralClass.txt");
+    if (!fout.is_open()) {
+        std::cout << "Can't open file.";
+        return 0;
+    }
+    Node<std::string>* cur = ClassList.pHead;
+    while (cur) {
+        fout << cur->data;
+        cur = cur->pNext;
+        if (cur)
+            fout << std::endl;
+    }
+    ClassList.deallocate();
+    fout.close();
+    fin.open("Data\\GeneralClasses\\" + curYear + "\\" + curClass + ".csv");
+    if (fin.is_open()) {
+        fout.open("Data\\GeneralClasses\\" + curYear + "\\" + curClass + ".csv");
+        fout.close();
+    }
+    else
+        fin.close();
     std::cout << "Create class successfully!\n";
     system("pause");
     return 1;

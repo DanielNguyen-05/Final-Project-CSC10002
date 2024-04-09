@@ -110,7 +110,7 @@ void listSchoolYear() {
 void view_list_of_general_class(std::string year) {
     std::ifstream fin;
     std::string s;
-    std::string path = "Data\\" + year + "\\GeneralClass.txt";
+    std::string path = "Data\\GeneralClasses\\" + year + "\\GeneralClass.txt";
     fin.open(path);
     if (!fin.is_open()) {
         std::cout << "Can't open file. ";

@@ -80,7 +80,7 @@ STAFFMENU:
 	case 2:
 	INPUTYEAR:
 		system("cls");
-		std::cout << "What school year do you want to edit: "<< std::endl;
+		std::cout << "What school year do you want to edit: " << std::endl;
 		listSchoolYear();
 		std::cout << "\n Your choice (Ex:2023-2024): ";
 		cin >> curYear;
@@ -153,7 +153,7 @@ GENERALCLASS:
 	case 1:
 	CREATECLASS:
 		system("cls");
-		std::cout << "What general class do you want to create (Ex: 20CLC04) : " << std::endl ;
+		std::cout << "What general class do you want to create (Ex: 20CLC04) : " ;
 		cin >> curClass;
 		system("cls");
 		if (class_existed(curYear, curClass)) {
@@ -175,7 +175,7 @@ GENERALCLASS:
 	case 2:
 	INPUTCLASS:
 		system("cls");
-		std::cout << "What general class do you want to edit: " << std::endl;
+		std::cout << "What general class do you want to edit: " <<std::endl;
 		view_list_of_general_class(curYear);
 		std::cout << "\n Your choice (Ex: 20CLC04): ";
 		cin >> curClass;
