@@ -59,6 +59,7 @@ bool create_General_class(std::string curYear, std::string curClass) {
     std::string ge_class;
     while (!fin.eof()) {
         std::getline(fin, ge_class);
+        if (ge_class != "")
         ClassList.insertAtTail(ge_class);
     }
     fin.close();
@@ -79,7 +80,7 @@ bool create_General_class(std::string curYear, std::string curClass) {
     ClassList.deallocate();
     fout.close();
     fin.open("Data\\GeneralClasses\\" + curYear + "\\" + curClass + ".csv");
-    if (fin.is_open()) {
+    if (!fin.is_open()) {
         fout.open("Data\\GeneralClasses\\" + curYear + "\\" + curClass + ".csv");
         fout.close();
     }
