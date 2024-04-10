@@ -1,6 +1,12 @@
 #include "semester.hpp"
 #include <sstream>
 
+#define S1 "7:30 -> 9:15"
+#define S2 "9:30 -> 11:15"
+#define S3 "13:30 -> 15:15"
+#define S4 "15:30 -> 17:15"
+
+
 Semester::Semester(int semester_num, std::string start_day, std::string end_day) {
     this->semester_num = semester_num;
     this->start_day = start_day;
@@ -99,10 +105,10 @@ void Semester::createCourse(std::string curYear, Course& course) {
         << "\t\t 3. S3 (13:30 -> 15:15)" << "\n"
         << "\t\t 4. S4 (15:30 -> 17:15)" << "\n"
         << "\t - Which sessions, this course will be held (Ex: S1): ";
-    if (course.session == "S1") course.session = "7:30 -> 9:15";
-    else if (course.session == "S2") course.session = "9:30 -> 11:15";
-    else if (course.session == "S3") course.session = "13:30 -> 15:15";
-    else course.session = "15:30 -> 17:15";
+    // if (course.session == "S1") course.session = "7:30 -> 9:15";
+    // else if (course.session == "S2") course.session = "9:30 -> 11:15";
+    // else if (course.session == "S3") course.session = "13:30 -> 15:15";
+    // else course.session = "15:30 -> 17:15";
     std::getline(std::cin, course.session);
     this->courses.insertAtTail(course);
     std::string path = "Data\\" + curYear + "\\Semester " + std::to_string(this->semester_num) + "\\" + course.ID;
