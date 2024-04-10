@@ -4,7 +4,7 @@ bool year_exits(std::string year) {
     std::ifstream fin;
     fin.open("Data\\SchoolYear.txt");
     if (!fin.is_open()) {
-        std::cout << "Can't open file!";
+        std::cout << "Can't open file SchoolYear.txt !!!";
         return false;
     }
     std::string temp;
@@ -47,7 +47,7 @@ bool create_School_year(std::string curYear) {
     std::ifstream fin;
     fin.open("Data\\SchoolYear.txt");
     if (!fin.is_open()) {
-        std::cout << "Can't open file!";
+        std::cout << "Can't open file SchoolYear.txt";
         return 0;
     }
     std::string year;
@@ -60,7 +60,7 @@ bool create_School_year(std::string curYear) {
     std::ofstream fout;
     fout.open("Data\\SchoolYear.txt");
     if (!fout.is_open()) {
-        std::cout << "Can't open file.";
+        std::cout << "Can't open file SchoolYear.txt";
         return 0;
     }
     std::string path = "Data\\" + curYear;

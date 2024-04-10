@@ -19,7 +19,7 @@ void list_of_student(std::string curYear, std::string curClass) {
     std::string path = "Data\\GeneralClasses\\" + curYear + "\\" + curClass + ".csv";
     fin.open(path);
     if (!fin.is_open()) {
-        std::cout << "Can't open file ";
+        std::cout << "Can't open " << curClass << ".csv !!!";
         return;
     }
     system("cls");
