@@ -384,6 +384,7 @@ MODIFYCOURSE:
 		case 1:
 			system("cls");
 			std::cout << "Enter path of input file: ";
+			std::cin.ignore();
 			std::getline(std::cin, path);
 			curCourse.inputCSV(path);
 			curCourse.matchStudentPoint();
