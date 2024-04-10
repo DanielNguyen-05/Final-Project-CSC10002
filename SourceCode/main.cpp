@@ -407,7 +407,7 @@ MODIFYCOURSE:
 		system("cls");
 		goto COURSEPOINT;
 	case 5:
-		curSemester.deleteCourse(curCourse.ID);
+		curSemester.deleteCourse(curYear, curCourse.ID);
 		system("pause");
 		system("cls");
 		goto EDITSEMESTER;
