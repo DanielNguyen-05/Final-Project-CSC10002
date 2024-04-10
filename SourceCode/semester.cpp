@@ -27,8 +27,7 @@ bool checkSemester(std::string curYear, int curSemester) {
     return false;
 }
 
-void Semester::loadSemesterData(std::string schoolyear, int semester) // School Year -> Semester -> Course
-{
+void Semester::loadSemesterData(std::string schoolyear, int semester) /* School Year -> Semester -> Course */ {
     char* intStr = new char[1];
     sprintf(intStr, "%d", semester);
     std::string courses_path = "Data\\" + schoolyear + "\\Semester " + std::string(intStr) + "\\CourseList.txt";
@@ -65,6 +64,7 @@ void Semester::loadSemesterData(std::string schoolyear, int semester) // School 
     }
     f_courses_list.close();
 }
+
 void Semester::loadCourseData(std::string curYear) {
     char* intStr = new char[1];
     sprintf(intStr, "%d", this->semester_num);
