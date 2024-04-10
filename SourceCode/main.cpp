@@ -213,20 +213,18 @@ EDITGENERALCLASS:
 		system("cls");
 		goto START;
 	case 1:
-		//update in4
-	case 2:
 		list_of_student(curYear, curClass);
 		break;
-	case 3:
+	case 2:
 		import_student_by_csv(curYear, curClass);
 		break;
-	case 4:
+	case 3:
 		add_1_student_to_class(curYear, curClass);
 		break;
-	case 5:
+	case 4:
 		system("cls");
 		goto INPUTCLASS;
-	case 6:
+	case 5:
 		system("cls");
 		goto STAFFMENU;
 	default:
@@ -386,8 +384,9 @@ MODIFYCOURSE:
 		case 1:
 			system("cls");
 			std::cout << "Enter path of input file: ";
-			std::cin >> path;
+			std::getline(std::cin, path);
 			curCourse.inputCSV(path);
+			curCourse.matchStudentPoint();
 			break;
 		case 2:
 			curCourse.addStudent();
@@ -407,9 +406,10 @@ MODIFYCOURSE:
 		system("cls");
 		goto COURSEPOINT;
 	case 5:
-		curSemester.deleteCourse();
+		curSemester.deleteCourse(curCourse.ID);
+		system("pause");
 		system("cls");
-		goto MODIFYCOURSE;
+		goto EDITSEMESTER;
 	case 6:
 		curSemester.updateCourse();
 		system("cls");
@@ -437,15 +437,14 @@ COURSEPOINT:
 	case 1:
 		system("cls");
 		std::cout << "Enter path of input file: ";
-		std::cin >> path;
+		std::cin.ignore();
+		std::getline(std::cin, path);
 		curCourse.importScoreboard(path);
 		system("cls");
 		goto COURSEPOINT;
 	case 2:
 		curCourse.viewScoreboard();
-		std::cout << "Enter to continue...";
-		std::cin.get();
-		std::cin.get();
+		system("pause");
 		system("cls");
 		goto COURSEPOINT;
 	case 3:

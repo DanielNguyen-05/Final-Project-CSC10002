@@ -37,6 +37,7 @@ struct Course {
     void outputCSV(string path);
     void importScoreboard(string path);
     void exportScoreboard(string path);
+    void loadScoreboard(string path);
     void viewScoreboard();
     void updateResult();
     void addStudent();
@@ -45,6 +46,7 @@ struct Course {
     bool stu_exists(string stu_id);
     void loadData(string curYear, int curSemester);
     void saveData(string curYear, int curSemester);
+    void matchStudentPoint();
 };
 bool operator<(const Course::Point a, const Course::Point b);
 bool operator>(const Course::Point a, const Course::Point b);

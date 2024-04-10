@@ -62,6 +62,36 @@ void Course::importScoreboard(string path) {
 			return;
 		}
 		getline(fIn, pt.stu_id, ',');
+		Node<Point>* cur = this->points.findNode(pt);
+		if (cur != nullptr) {
+			getline(fIn, (cur->data).full_name, ',');
+			getline(fIn, (cur->data).overall, ',');
+			getline(fIn, (cur->data).final, ',');
+			getline(fIn, (cur->data).midterm, ',');
+			getline(fIn, (cur->data).others);
+		}
+		else
+			getline(fIn, ignore);
+	}
+	std::cout << "import succesfully\n";
+	system("pause");
+	fIn.close();
+}
+void Course::loadScoreboard(string path) {
+	ifstream fIn;
+	fIn.open(path);
+	if (!fIn.is_open()) return;
+	string ignore;
+	string tmp_no = "";
+	Point pt;
+	getline(fIn, ignore);
+	while (!fIn.eof()) {
+		getline(fIn, tmp_no, ',');
+		if (tmp_no == "\n" || tmp_no == "") {
+			fIn.close();
+			return;
+		}
+		getline(fIn, pt.stu_id, ',');
 		getline(fIn, pt.full_name, ',');
 		getline(fIn, pt.overall, ',');
 		getline(fIn, pt.final, ',');
@@ -90,7 +120,7 @@ void Course::exportScoreboard(string path) {
 			<< pt.final << "," << pt.midterm << "," << pt.others;
 		++counter;
 		if (cur->pNext)
-			std::cout << endl;
+			fOut << endl;
 		cur = cur->pNext;
 	}
 	fOut.close();
@@ -219,6 +249,14 @@ void Course::addStudent() {
 	std::cout << "Enter Social ID: ";
 	std::cin >> students.soci_id;
 	this->students.insertOrdered(students);
+	Point pt;
+	pt.stu_id = students.stu_id;
+	pt.full_name = students.first_name + " " + students.last_name;
+	pt.final = "?";
+	pt.midterm = "?";
+	pt.others = "?";
+	pt.overall = "?";
+	this->points.insertOrdered(pt);
 }
 
 void Course::deleteStudent() {
@@ -233,11 +271,27 @@ void Course::deleteStudent() {
 	}
 	else std::cout << "Course doesn't have this student!" << "\n";
 }
+void Course::matchStudentPoint() {
+	Node<Student>* stu = this->students.pHead;
+	while (stu) {
+		Point pt;
+		pt.stu_id = stu->data.stu_id;
+		if (this->points.findNode(pt) == nullptr) {
+			pt.full_name = stu->data.first_name + " " + stu->data.last_name;
+			pt.final = "?";
+			pt.midterm = "?";
+			pt.others = "?";
+			pt.overall = "?";
+			this->points.insertOrdered(pt);
+		}
+		stu = stu->pNext;
+	}
+}
 void Course::loadData(string curYear, int curSemester) {
 	char* intStr = new char[1];
 	sprintf(intStr, "%d", curSemester);
 	this->inputCSV("Data\\" + curYear + "\\Semester " + std::string(intStr) + "\\" + this->ID + "\\StudentList.csv");
-	this->importScoreboard("Data\\" + curYear + "\\Semester " + std::string(intStr) + "\\" + this->ID + "\\Point.csv");
+	this->loadScoreboard("Data\\" + curYear + "\\Semester " + std::string(intStr) + "\\" + this->ID + "\\Point.csv");
 }
 void Course::saveData(string curYear, int curSemester) {
 	char* intStr = new char[1];

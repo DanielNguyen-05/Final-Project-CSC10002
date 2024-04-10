@@ -203,7 +203,7 @@ bool import_student_by_csv(std::string curYear, std::string curClass) {
     fin.close();
     std::string input_file;
     std::cout << "Input the importing file path: ";
-    std::cin >> input_file;
+    std::getline(std::cin, input_file);
     std::ifstream fin2;
     fin2.open(input_file);
     if (!fin2.is_open()) return 0;

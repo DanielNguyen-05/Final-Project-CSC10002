@@ -72,25 +72,26 @@ void Semester::loadCourseData(std::string curYear) {
     while (cur) {
         std::string path = "Data\\" + curYear + "\\Semester " + std::string(intStr) + "\\" + (cur->data).ID + "\\";
         (cur->data).inputCSV(path + "StudentList.csv");
-        (cur->data).importScoreboard(path + "Point.csv");
+        (cur->data).loadScoreboard(path + "Point.csv");
         cur = cur->pNext;
     }
 }
 void Semester::createCourse(std::string curYear, Course& course) {
     std::cout << "\t\t\t CREATING A NEW COURSE - " << course.ID << "\n\n";
     std::cout << "\t - Enter the name of this course (Ex: Ky thuat lap trinh): ";
-    // std::cin.ignore();
+     std::cin.ignore();
     std::getline(std::cin, course.course_name);
     std::cout << "\t - Enter the class which this course belongs to (Ex: 23CLC03): ";
     std::getline(std::cin, course.class_name);
     std::cout << "\t - Enter the teacher of this course: ";
-    // std::cin.ignore();
+     std::cin.ignore();
     std::getline(std::cin, course.teacher_name);
     std::cout << "\t - Enter the number of credits in this course (Ex: 4): ";
     std::cin >> course.num_of_credit;
     std::cout << "\t - Enter the maximum number of students in this course: ";
     std::cin >> course.max_student;
     std::cout << "\t - Enter the day of week when this course will be held (Ex: MON/TUE/WED/THU/FRI/SAT): ";
+    std::cin.ignore();
     std::getline(std::cin, course.day_of_week);
     std::cout << "\t- Here is the a list of sessions: " << "\n"
         << "\t\t 1. S1 (7:30 -> 9:15)" << "\n"
@@ -155,18 +156,22 @@ void Semester::updateCourse() {
     while (cur != nullptr) {
         if (cur->data.ID == course_id) {
             std::cout << "\t - Enter the new name of this course (Ex: Ky thuat lap trinh): ";
+            std::cin.ignore();
             std::getline(std::cin, cur->data.course_name);
             std::cout << "\t - Enter the new ID of this course (Ex: CSC10002-23CLC03): ";
             std::cin >> cur->data.ID;
             std::cout << "\t - Enter the new class which this course belongs to (Ex: 23CLC03): ";
+            std::cin.ignore();
             std::getline(std::cin, cur->data.class_name);
             std::cout << "\t - Enter the new teacher of this course: ";
+            std::cin.ignore();
             std::getline(std::cin, cur->data.teacher_name);
             std::cout << "\t - Enter the new number of credits in this course (Ex: 4): ";
             std::cin >> cur->data.num_of_credit;
             std::cout << "\t - Enter the new maximum number of students in this course: ";
             std::cin >> cur->data.max_student;
             std::cout << "\t - Enter the new day of week when this course will be held (ex: MON/TUE/WED/THU/FRI/SAT): ";
+            std::cin.ignore();
             std::getline(std::cin, cur->data.day_of_week);
             std::cout << "\t- Here is the a list of sessions: " << "\n"
                 << "\t\t 1. S1 (7:30 -> 9:15)" << "\n"
@@ -178,6 +183,7 @@ void Semester::updateCourse() {
             else if (cur->data.session == "S2") cur->data.session = "9:30 -> 11:15";
             else if (cur->data.session == "S3") cur->data.session = "13:30 -> 15:15";
             else cur->data.session = "15:30 -> 17:15";
+            std::cin.ignore();
             std::getline(std::cin, cur->data.session);
             return;
         }
@@ -186,11 +192,7 @@ void Semester::updateCourse() {
     std::cout << "\t - Course not found!" << "\n";
 }
 
-void Semester::deleteCourse() {
-    std::string course_id;
-    std::cout << "\t - Enter the ID of the course you want to delete: ";
-    std::cin >> course_id;
-
+void Semester::deleteCourse(std::string course_id) {
     Node<Course>* cur = this->courses.pHead;
     Node<Course>* prev = nullptr;
     while (cur != nullptr) {
@@ -204,13 +206,11 @@ void Semester::deleteCourse() {
         cur = cur->pNext;
     }
     std::cout << "\t - Course not found!" << "\n";
-
     // delete whole folder of this course
     std::string folder_path = "Data\\" + std::to_string(this->semester_num) + "\\" + course_id;
     std::string command = "rmdir /s /q \"" + folder_path + "\"";
     int result = std::system(command.c_str());
-
-    if (result == 0) std::cout << "Course is deleted successfully!\n";
+    if (result == 0) std::cout << "The course " << course_id << " is deleted successfully!\n";
     else std::cerr << "Failed to delete folder!\n";
 }
 

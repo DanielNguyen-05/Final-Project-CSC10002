@@ -20,7 +20,7 @@ struct Semester {
     void createCourse(std::string curYear, Course& course);
     void viewCourseList();
     void updateCourse();
-    void deleteCourse();
+    void deleteCourse(std::string course_id);
     bool findCourse(Course& course);
     void saveData(std::string schoolyear, int semester);
     void deallocate();
