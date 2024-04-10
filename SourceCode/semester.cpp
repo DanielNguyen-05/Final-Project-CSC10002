@@ -205,18 +205,15 @@ void Semester::deleteCourse(std::string year, std::string course_id) {
     }
     std::cout << "\t - Course not found!" << "\n";
     // Delete all files in the folder of this course
+    std::string file_path_1 = "Data/" + year + "/Semester" + std::to_string(this->semester_num) + "/" + course_id + "/" + course_id + ".csv";
+    std::string file_path_2 = "Data/" + year + "/Semester" + std::to_string(this->semester_num) + "/" + course_id + "/StudentList.csv";
+    std::string file_path_3 = "Data/" + year + "/Semester" + std::to_string(this->semester_num) + "/" + course_id + "/Point.csv";
     std::string folder_path = "Data/" + year + "/Semester" + std::to_string(this->semester_num) + "/" + course_id;
-    std::string command = "find \"" + folder_path + "\" -type f -exec rm -f {} \\;";
-    int result = std::system(command.c_str());        
-    if (result != 0) {
-        std::cerr << "Failed to delete files containing information of this course!\n";
-        return;
-    }    
+    remove(file_path_1.c_str());
+    remove(file_path_2.c_str());
+    remove(file_path_3.c_str());
     // Delete the folder
-    command = "rmdir \"" + folder_path + "\"";
-    result = std::system(command.c_str());
-    if (result == 0) std::cout << "The course " << course_id << " is deleted successfully!\n";
-    else std::cerr << "Failed to delete course!\n";
+    remove(folder_path.c_str());
 }
 
 void Semester::createSemester(std::string year, int semester) {

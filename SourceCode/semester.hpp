@@ -4,6 +4,7 @@
 #include "subFunction.hpp"
 #include <cstdlib>
 #include "limits"
+#include <stdio.h>
 
 
 struct Semester {
