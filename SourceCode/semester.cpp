@@ -179,13 +179,12 @@ void Semester::updateCourse() {
                 << "\t\t 3. S3 (13:30 -> 15:15)" << "\n"
                 << "\t\t 4. S4 (15:30 -> 17:15)" << "\n"
                 << "\t - Which sessions, this course will be held (Ex: S1): ";
+            std::cin.ignore();
+            std::getline(std::cin, cur->data.session);
             if (cur->data.session == "S1") cur->data.session = "7:30 -> 9:15";
             else if (cur->data.session == "S2") cur->data.session = "9:30 -> 11:15";
             else if (cur->data.session == "S3") cur->data.session = "13:30 -> 15:15";
             else cur->data.session = "15:30 -> 17:15";
-            std::cin.ignore();
-            std::getline(std::cin, cur->data.session);
-            return;
         }
         cur = cur->pNext;
     }
@@ -220,7 +219,6 @@ void Semester::deleteCourse(std::string year, std::string course_id) {
     if (result == 0) std::cout << "The course " << course_id << " is deleted successfully!\n";
     else std::cerr << "Failed to delete course!\n";
 }
-
 
 void Semester::createSemester(std::string year, int semester) {
     std::string path = "Data\\" + year + "\\Semester " + std::to_string(semester);
