@@ -186,11 +186,7 @@ void Semester::updateCourse() {
     std::cout << "\t - Course not found!" << "\n";
 }
 
-void Semester::deleteCourse() {
-    std::string course_id;
-    std::cout << "\t - Enter the ID of the course you want to delete: ";
-    std::cin >> course_id;
-
+void Semester::deleteCourse(std::string course_id) {
     Node<Course>* cur = this->courses.pHead;
     Node<Course>* prev = nullptr;
     while (cur != nullptr) {
@@ -210,7 +206,7 @@ void Semester::deleteCourse() {
     std::string command = "rmdir /s /q \"" + folder_path + "\"";
     int result = std::system(command.c_str());
 
-    if (result == 0) std::cout << "Course is deleted successfully!\n";
+    if (result == 0) std::cout << "The course " << course_id << " is deleted successfully!\n";
     else std::cerr << "Failed to delete folder!\n";
 }
 

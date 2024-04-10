@@ -407,7 +407,7 @@ MODIFYCOURSE:
 		system("cls");
 		goto COURSEPOINT;
 	case 5:
-		curSemester.deleteCourse();
+		curSemester.deleteCourse(sửa chỗ này nè Bảo);
 		system("cls");
 		goto MODIFYCOURSE;
 	case 6:
