@@ -161,7 +161,6 @@ void Semester::updateCourse() {
             std::cout << "\t - Enter the new ID of this course (Ex: CSC10002-23CLC03): ";
             std::cin >> cur->data.ID;
             std::cout << "\t - Enter the new class which this course belongs to (Ex: 23CLC03): ";
-            std::cin.ignore();
             std::getline(std::cin, cur->data.class_name);
             std::cout << "\t - Enter the new teacher of this course: ";
             std::cin.ignore();
