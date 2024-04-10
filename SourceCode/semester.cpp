@@ -1,12 +1,6 @@
 #include "semester.hpp"
 #include <sstream>
 
-#define S1 "7:30 -> 9:15"
-#define S2 "9:30 -> 11:15"
-#define S3 "13:30 -> 15:15"
-#define S4 "15:30 -> 17:15"
-
-
 Semester::Semester(int semester_num, std::string start_day, std::string end_day) {
     this->semester_num = semester_num;
     this->start_day = start_day;
@@ -82,36 +76,49 @@ void Semester::loadCourseData(std::string curYear) {
         cur = cur->pNext;
     }
 }
+
 void Semester::createCourse(std::string curYear, Course& course) {
     std::cout << "\t\t\t CREATING A NEW COURSE - " << course.ID << "\n\n";
-    std::cout << "\t - Enter the name of this course (Ex: Ky thuat lap trinh): ";
-     std::cin.ignore();
+
+    std::cout << "\t - Enter the name of this course (e.g., Programming Techniques): ";
+    std::cin.ignore();
     std::getline(std::cin, course.course_name);
-    std::cout << "\t - Enter the class which this course belongs to (Ex: 23CLC03): ";
+    
+    std::cout << "\t - Enter the class to which this course belongs (e.g., 23CLC03): ";
     std::getline(std::cin, course.class_name);
+    
     std::cout << "\t - Enter the teacher of this course: ";
-     std::cin.ignore();
     std::getline(std::cin, course.teacher_name);
-    std::cout << "\t - Enter the number of credits in this course (Ex: 4): ";
+    
+    std::cout << "\t - Enter the number of credits for this course (e.g., 4): ";
     std::cin >> course.num_of_credit;
-    std::cout << "\t - Enter the maximum number of students in this course: ";
+    
+    std::cout << "\t - Enter the maximum number of students for this course: ";
     std::cin >> course.max_student;
-    std::cout << "\t - Enter the day of week when this course will be held (Ex: MON/TUE/WED/THU/FRI/SAT): ";
+    
+    std::cout << "\t - Enter the day of the week when this course will be held (e.g., MON/TUE/WED/THU/FRI/SAT): ";
     std::cin.ignore();
     std::getline(std::cin, course.day_of_week);
-    std::cout << "\t- Here is the a list of sessions: " << "\n"
-        << "\t\t 1. S1 (7:30 -> 9:15)" << "\n"
-        << "\t\t 2. S2 (9:30 -> 11:15)" << "\n"
-        << "\t\t 3. S3 (13:30 -> 15:15)" << "\n"
-        << "\t\t 4. S4 (15:30 -> 17:15)" << "\n"
-        << "\t - Which sessions, this course will be held (Ex: S1): ";
-    // if (course.session == "S1") course.session = "7:30 -> 9:15";
-    // else if (course.session == "S2") course.session = "9:30 -> 11:15";
-    // else if (course.session == "S3") course.session = "13:30 -> 15:15";
-    // else course.session = "15:30 -> 17:15";
-    std::getline(std::cin, course.session);
+    
+    std::cout << "\t- Here is a list of sessions:\n"
+              << "\t\t 1. S1 (7:30 -> 9:15)\n"
+              << "\t\t 2. S2 (9:30 -> 11:15)\n"
+              << "\t\t 3. S3 (13:30 -> 15:15)\n"
+              << "\t\t 4. S4 (15:30 -> 17:15)\n"
+              << "\t - Enter the session for this course (e.g., S1): ";
+    std::string sessionInput;
+    std::getline(std::cin, sessionInput);
+    
+    if (sessionInput == "S1") course.session = "7:30 -> 9:15";
+    else if (sessionInput == "S2") course.session = "9:30 -> 11:15";
+    else if (sessionInput == "S3") course.session = "13:30 -> 15:15";
+    else if (sessionInput == "S4") course.session = "15:30 -> 17:15";
+    else {
+        std::cerr << "Invalid session input!\n";
+        return;
+    }
     this->courses.insertAtTail(course);
-    std::string path = "Data\\" + curYear + "\\Semester " + std::to_string(this->semester_num) + "\\" + course.ID;
+    std::string path = "Data/" + curYear + "/Semester " + std::to_string(this->semester_num) + "/" + course.ID;
     createDirectory(path);
 }
 
