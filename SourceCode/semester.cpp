@@ -222,15 +222,9 @@ void Semester::deleteCourse(std::string year, std::string course_id) {
     std::string file_path_1 = folder_path + "\\" + course_id + ".csv";
     std::string file_path_2 = folder_path + "\\StudentList.csv";
     std::string file_path_3 = folder_path + "\\Point.csv";
-    
-    // remove(file_path_1.c_str());
-    // remove(file_path_2.c_str());
-    // remove(file_path_3.c_str());
     system(("del " + file_path_1).c_str());
     system(("del " + file_path_2).c_str());
     system(("del " + file_path_3).c_str());
-    // Delete the folder
-    // remove(folder_path.c_str());
     system(("rmdir " + folder_path).c_str());
 }
 
