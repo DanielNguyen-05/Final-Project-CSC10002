@@ -35,7 +35,7 @@ border-radius: 20px;</string>
     <property name="geometry">
      <rect>
       <x>150</x>
-      <y>50</y>
+      <y>20</y>
       <width>371</width>
       <height>501</height>
      </rect>
@@ -51,13 +51,13 @@ border-radius:15px;</string>
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_3">
+   <widget class="QLabel" name="loginLabel">
     <property name="geometry">
      <rect>
-      <x>270</x>
-      <y>90</y>
-      <width>111</width>
-      <height>50</height>
+      <x>290</x>
+      <y>80</y>
+      <width>81</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="font">
@@ -66,6 +66,9 @@ border-radius:15px;</string>
       <pointsize>28</pointsize>
       <bold>true</bold>
      </font>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
     <property name="styleSheet">
      <string notr="true">color:rgba(255,255,255,210)</string>
@@ -77,7 +80,7 @@ border-radius:15px;</string>
      <bool>false</bool>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit">
+   <widget class="QLineEdit" name="usernameLabel">
     <property name="enabled">
      <bool>true</bool>
     </property>
@@ -122,7 +125,7 @@ padding-bottom:7px;</string>
      <bool>false</bool>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_2">
+   <widget class="QLineEdit" name="passwordLabel">
     <property name="geometry">
      <rect>
       <x>220</x>
@@ -151,15 +154,18 @@ padding-bottom:7px;</string>
     <property name="text">
      <string/>
     </property>
+    <property name="echoMode">
+     <enum>QLineEdit::NoEcho</enum>
+    </property>
     <property name="placeholderText">
      <string>Password</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="pushButton_Login">
     <property name="geometry">
      <rect>
-      <x>250</x>
-      <y>380</y>
+      <x>330</x>
+      <y>360</y>
       <width>161</width>
       <height>61</height>
      </rect>
@@ -197,6 +203,48 @@ background-color:rgba(105, 118, 132, 200);
      <string>Log In</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="pushButton_Cancel">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>370</y>
+      <width>141</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>MS Gothic</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton#pushButton{
+
+background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgba(50, 60, 60, 150), stop: 1 rgba(40, 90, 0, 226));
+
+color:rgba(255, 255, 255, 210);
+
+border-radius:5px;
+}
+QPushButton#pushButton:hover{
+
+background-color: qlineargradient(spread:pad, x1:0, y1:0.505682, x2:1, y2:0.477, stop:0 rgba(40, 67, 98, 219), stop: 1 rgba(105, 118, 132, 226));
+}
+
+QPushButton #pushButton:pressed{
+
+padding-left: 10px;
+
+padding-top:10px;
+
+background-color:rgba(105, 118, 132, 200);
+}</string>
+    </property>
+    <property name="text">
+     <string>Cancel</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -204,7 +252,7 @@ background-color:rgba(105, 118, 132, 200);
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>17</height>
+     <height>24</height>
     </rect>
    </property>
   </widget>
