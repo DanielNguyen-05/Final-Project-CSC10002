@@ -49,11 +49,10 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
     if (event->type() == QEvent::KeyPress) {
         QKeyEvent *keyEvent = static_cast<QKeyEvent*>(event);
         if (keyEvent->key() == Qt::Key_Return || keyEvent->key() == Qt::Key_Enter) {
-            // Tìm và di chuyển tới ô nhập tiếp theo
             int currentIndex = lineEdits.indexOf(static_cast<QLineEdit*>(obj));
             if (currentIndex != -1 && currentIndex < lineEdits.size() - 1) {
                 lineEdits[currentIndex + 1]->setFocus();
-                return true; // Ngăn chặn sự kiện phát tán
+                return true;
             }
         }
     }
