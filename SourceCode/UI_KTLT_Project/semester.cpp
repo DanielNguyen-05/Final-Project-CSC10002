@@ -1,0 +1,320 @@
+#include "semester.hpp"
+#include <sstream>
+
+Semester::Semester(int semester_num, std::string start_day, std::string end_day) {
+    this->semester_num = semester_num;
+    this->start_day = start_day;
+    this->end_day = end_day;
+}
+
+bool checkSemester(std::string curYear, int curSemester) {
+    std::string ignore;
+    int s;
+    std::ifstream fin;
+    std::string path = "Data\\" + curYear + "\\Semester.txt";
+    fin.open(path);
+    if (!fin.is_open())
+        return false;
+    while (!fin.eof())
+    {
+        fin >> s;
+        if (s == 0)
+            break;
+        getline(fin, ignore);
+        if (s == curSemester) return true;
+    }
+    fin.close();
+    return false;
+}
+
+void Semester::loadSemesterData(std::string schoolyear, int semester) // School Year -> Semester -> Course
+{
+    char* intStr = new char[1];
+    sprintf(intStr, "%d", semester);
+    std::string courses_path = "Data\\" + schoolyear + "\\Semester " + std::string(intStr) + "\\CourseList.txt";
+    std::string courses_id;
+    std::string line;
+    std::ifstream f_courses_list;
+    std::ifstream fin;
+
+    Course tmp;
+    std::string tmpNum;
+
+    f_courses_list.open(courses_path);
+    if (!f_courses_list.is_open()) return;
+
+    while (f_courses_list >> courses_id) //course_data , course student
+    {
+        std::string courses_path = "Data\\" + schoolyear + "\\Semester " + std::string(intStr) + "\\" + courses_id + "\\" + courses_id + ".csv";
+        fin.open(courses_path);
+        std::getline(fin, line);
+        stringstream split(line);
+        getline(fin, tmp.ID, ',');
+        getline(fin, tmp.course_name, ',');
+        getline(fin, tmp.class_name, ',');
+        getline(fin, tmp.teacher_name, ',');
+        getline(fin, tmpNum, ',');
+        tmp.num_of_credit = atoi(tmpNum.c_str());
+        getline(fin, tmpNum, ',');
+        tmp.max_student = atoi(tmpNum.c_str());
+        getline(fin, tmp.day_of_week, ',');
+        getline(fin, tmp.session);
+
+        fin.close();
+        this->courses.insertAtTail(tmp);
+    }
+    f_courses_list.close();
+}
+void Semester::loadCourseData(std::string curYear) {
+    char* intStr = new char[1];
+    sprintf(intStr, "%d", this->semester_num);
+    Node<Course>* cur = this->courses.pHead;
+    while (cur) {
+        std::string path = "Data\\" + curYear + "\\Semester " + std::string(intStr) + "\\" + (cur->data).ID + "\\";
+        (cur->data).inputCSV(path + "StudentList.csv");
+        (cur->data).loadScoreboard(path + "Point.csv");
+        cur = cur->pNext;
+    }
+}
+void Semester::createCourse(std::string curYear, Course& course) {
+    std::cout << "\t\t\t CREATING A NEW COURSE - " << course.ID << "\n\n";
+    std::cout << "\t - Enter the name of this course (Ex: Ky thuat lap trinh): ";
+     std::cin.ignore();
+    std::getline(std::cin, course.course_name);
+    std::cout << "\t - Enter the class which this course belongs to (Ex: 23CLC03): ";
+    std::getline(std::cin, course.class_name);
+    std::cout << "\t - Enter the teacher of this course: ";
+     std::cin.ignore();
+    std::getline(std::cin, course.teacher_name);
+    std::cout << "\t - Enter the number of credits in this course (Ex: 4): ";
+    std::cin >> course.num_of_credit;
+    std::cout << "\t - Enter the maximum number of students in this course: ";
+    std::cin >> course.max_student;
+    std::cout << "\t - Enter the day of week when this course will be held (Ex: MON/TUE/WED/THU/FRI/SAT): ";
+    std::cin.ignore();
+    std::getline(std::cin, course.day_of_week);
+    std::cout << "\t- Here is the a list of sessions: " << "\n"
+        << "\t\t 1. S1 (7:30 -> 9:15)" << "\n"
+        << "\t\t 2. S2 (9:30 -> 11:15)" << "\n"
+        << "\t\t 3. S3 (13:30 -> 15:15)" << "\n"
+        << "\t\t 4. S4 (15:30 -> 17:15)" << "\n"
+        << "\t - Which sessions, this course will be held (Ex: S1): ";
+    if (course.session == "S1") course.session = "7:30 -> 9:15";
+    else if (course.session == "S2") course.session = "9:30 -> 11:15";
+    else if (course.session == "S3") course.session = "13:30 -> 15:15";
+    else course.session = "15:30 -> 17:15";
+    std::getline(std::cin, course.session);
+    this->courses.insertAtTail(course);
+    std::string path = "Data\\" + curYear + "\\Semester " + std::to_string(this->semester_num) + "\\" + course.ID;
+    createDirectory(path);
+}
+
+void Semester::viewCourseList() {
+    system("cls");
+    Node<Course>* cur = this->courses.pHead;
+    int no = 1;
+
+    std::cout << "+-----+---------------+--------------------+---------------+--------------------+----------+---------------+---------------+----------+\n";
+
+    std::cout << "| " << std::left << std::setw(4) << "No";
+    std::cout << "| " << std::left << std::setw(14) << "ID of Course";
+    std::cout << "| " << std::left << std::setw(19) << "Course Name";
+    std::cout << "| " << std::left << std::setw(14) << "Class Name";
+    std::cout << "| " << std::left << std::setw(19) << "Teacher Name";
+    std::cout << "| " << std::left << std::setw(9) << "Credits";
+    std::cout << "| " << std::left << std::setw(14) << "Max Student";
+    std::cout << "| " << std::left << std::setw(14) << "Day Of Week";
+    std::cout << "| " << std::left << std::setw(9) << "Session" << "|\n";
+
+    std::cout << "+-----+---------------+--------------------+---------------+--------------------+----------+---------------+---------------+----------+\n";
+
+    while (cur != nullptr) {
+        std::cout << "| " << std::left << std::setw(4) << no;
+        std::cout << "| " << std::left << std::setw(14) << cur->data.ID;
+        std::cout << "| " << std::left << std::setw(19) << cur->data.course_name;
+        std::cout << "| " << std::left << std::setw(14) << cur->data.class_name;
+        std::cout << "| " << std::left << std::setw(19) << cur->data.teacher_name;
+        std::cout << "| " << std::left << std::setw(9) << cur->data.num_of_credit;
+        std::cout << "| " << std::left << std::setw(14) << cur->data.max_student;
+        std::cout << "| " << std::left << std::setw(14) << cur->data.day_of_week;
+        std::cout << "| " << std::left << std::setw(9) << cur->data.session << "|\n";
+
+        std::cout << "+-----+---------------+--------------------+---------------+--------------------+----------+---------------+---------------+----------+\n";
+
+        no++;
+        cur = cur->pNext;
+    }
+}
+
+void Semester::updateCourse() {
+    std::string course_id;
+    std::cout << "\t - Enter the ID of the course you want to update: ";
+    std::cin >> course_id;
+
+    Node<Course>* cur = this->courses.pHead;
+    std::cout << "\t\t\t UPDATING THE COURSE " << course_id << ": " << "\n\n";
+    while (cur != nullptr) {
+        if (cur->data.ID == course_id) {
+            std::cout << "\t - Enter the new name of this course (Ex: Ky thuat lap trinh): ";
+            std::cin.ignore();
+            std::getline(std::cin, cur->data.course_name);
+            std::cout << "\t - Enter the new ID of this course (Ex: CSC10002-23CLC03): ";
+            std::cin >> cur->data.ID;
+            std::cout << "\t - Enter the new class which this course belongs to (Ex: 23CLC03): ";
+            std::cin.ignore();
+            std::getline(std::cin, cur->data.class_name);
+            std::cout << "\t - Enter the new teacher of this course: ";
+            std::cin.ignore();
+            std::getline(std::cin, cur->data.teacher_name);
+            std::cout << "\t - Enter the new number of credits in this course (Ex: 4): ";
+            std::cin >> cur->data.num_of_credit;
+            std::cout << "\t - Enter the new maximum number of students in this course: ";
+            std::cin >> cur->data.max_student;
+            std::cout << "\t - Enter the new day of week when this course will be held (ex: MON/TUE/WED/THU/FRI/SAT): ";
+            std::cin.ignore();
+            std::getline(std::cin, cur->data.day_of_week);
+            std::cout << "\t- Here is the a list of sessions: " << "\n"
+                << "\t\t 1. S1 (7:30 -> 9:15)" << "\n"
+                << "\t\t 2. S2 (9:30 -> 11:15)" << "\n"
+                << "\t\t 3. S3 (13:30 -> 15:15)" << "\n"
+                << "\t\t 4. S4 (15:30 -> 17:15)" << "\n"
+                << "\t - Which sessions, this course will be held (Ex: S1): ";
+            if (cur->data.session == "S1") cur->data.session = "7:30 -> 9:15";
+            else if (cur->data.session == "S2") cur->data.session = "9:30 -> 11:15";
+            else if (cur->data.session == "S3") cur->data.session = "13:30 -> 15:15";
+            else cur->data.session = "15:30 -> 17:15";
+            std::cin.ignore();
+            std::getline(std::cin, cur->data.session);
+            return;
+        }
+        cur = cur->pNext;
+    }
+    std::cout << "\t - Course not found!" << "\n";
+}
+
+void Semester::deleteCourse(std::string course_id) {
+    Node<Course>* cur = this->courses.pHead;
+    Node<Course>* prev = nullptr;
+    while (cur != nullptr) {
+        if (cur->data.ID == course_id) {
+            if (prev == nullptr) this->courses.pHead = cur->pNext;
+            else prev->pNext = cur->pNext;
+            delete cur;
+            return;
+        }
+        prev = cur;
+        cur = cur->pNext;
+    }
+    std::cout << "\t - Course not found!" << "\n";
+    // delete all files in the folder of this course
+    std::string folder_path = "Data/" + std::to_string(this->semester_num) + "/" + course_id;
+    std::string command = "find \"" + folder_path + "\" -type f -exec rm -f {} \\;";
+    int result = std::system(command.c_str());
+    if (result != 0) {
+        std::cerr << "Failed to delete files contain information of this course!\n";
+        return;
+    }
+    // delete the folder
+    command = "rmdir \"" + folder_path + "\"";
+    result = std::system(command.c_str());
+    if (result == 0) std::cout << "The course " << course_id << " is deleted successfully!\n";
+    else std::cerr << "Failed to delete course!\n";
+}
+
+void Semester::createSemester(std::string year, int semester) {
+    std::string path = "Data\\" + year + "\\Semester " + std::to_string(semester);
+    createDirectory(path);
+    LinkedList<Semester> s;
+    Semester tmp;
+    std::ifstream fIn("Data\\" + year + "\\Semester.txt");
+    if (!fIn.is_open()) {
+        return;
+    }
+    while (fIn >> tmp.semester_num) {
+        char comma;
+        fIn >> comma;
+        getline(fIn, tmp.start_day, ',');
+        getline(fIn, tmp.end_day);
+        s.insertAtTail(tmp);
+    }
+    fIn.close();
+
+    std::cout << "\t\t\t CREATING A NEW SEMESTER" << year << "  S" << semester << "\n\n";
+    this->semester_num = semester;
+    std::cout << "\t - Enter the start date (Ex: 05/09/2023): ";
+    std::cin >> this->start_day;
+    std::cout << "\t - Enter the end date (Ex: 20/01/2024): ";
+    std::cin >> this->end_day;
+    s.insertAtTail(*this);
+    std::ofstream fOut("Data\\" + year + "\\Semester.txt");
+    if (!fOut.is_open()) {
+        std::cout << "\t -Failed to open the file!" << "\n";
+        return;
+    }
+    Node<Semester>* cur = s.pHead;
+    while (cur) {
+        fOut << cur->data.semester_num << "," << cur->data.start_day << "," << cur->data.end_day;
+        cur = cur->pNext;
+        if (cur)
+            fOut << std::endl;
+    }
+    fOut.close();
+    std::cout << "Create semester successfully!\n";
+    system("pause");
+    s.deallocate();
+}
+
+bool Semester::findCourse(Course& course) {
+    Node<Course>* cur = this->courses.pHead;
+    while (cur) {
+        if (cur->data.ID == course.ID) {
+            course = cur->data;
+            return true;
+        }
+        cur = cur->pNext;
+    }
+    return false;
+}
+
+void Semester::saveData(std::string schoolyear, int semester) {
+    char intStr[10];
+    sprintf(intStr, "%d", semester);
+
+    std::string courses_path = "Data\\" + schoolyear + "\\Semester " + std::string(intStr) + "\\CourseList.txt";
+
+    std::ofstream f_courses_list(courses_path);
+    if (!f_courses_list.is_open()) {
+        std::cerr << "Error: Unable to open file for writing!" << std::endl;
+        return;
+    }
+    Node<Course>* cur = this->courses.pHead;
+    while (cur) {
+        Course currentCourse = cur->data;
+        std::string course_data_path = "Data\\" + schoolyear + "\\Semester " + std::string(intStr) + "\\" + currentCourse.ID + "\\" + currentCourse.ID + ".csv";
+
+        std::ofstream fout(course_data_path);
+        if (!fout.is_open()) {
+            std::cerr << "Error: Unable to open course data file for writing!" << std::endl;
+            continue;
+        }
+        fout << "ID,Course name,Class name,Teacher name,num_of_credit,max student, day of week, session \n";
+        fout << currentCourse.ID << "," << currentCourse.course_name << "," << currentCourse.class_name << "," << currentCourse.teacher_name << ","
+            << currentCourse.num_of_credit << "," << currentCourse.max_student << "," << currentCourse.day_of_week << "," << currentCourse.session << std::endl;
+
+        fout.close();
+        f_courses_list << currentCourse.ID << std::endl;
+        cur = cur->pNext;
+    }
+
+    f_courses_list.close();
+}
+
+void Semester::deallocate() {
+    Node<Course>* cur = this->courses.pHead;
+    while (cur) {
+        cur->data.students.deallocate();
+        cur->data.points.deallocate();
+        cur = cur->pNext;
+    }
+    this->courses.deallocate();
+}

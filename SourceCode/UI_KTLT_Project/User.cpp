@@ -1,0 +1,166 @@
+#include "User.hpp"
+#include <sstream>
+
+bool Users::isStudent(std::string username, std::string password) {
+    std::string account_file = "Data\\Account\\Student\\" + username + ".txt";
+    std::string account_pass;
+    std::string line;
+
+    std::ifstream fin;
+    fin.open(account_file.c_str());
+    if(!fin.is_open()) {
+        // system("cls");
+        // std::cerr << "Wrong password or username!" << std::endl;
+        return false;
+    }
+
+    // fin >> account_pass;
+   
+    
+    std::getline(fin, line);
+    fin.close();
+    std::stringstream split(line);
+
+    std::getline(split, account_pass, ',');
+
+    if(account_pass != password) {
+        // system("cls");
+        // std::cerr << "Wrong password or username!" << std::endl;
+        return false;
+    }
+
+    std::getline(split, user_id, ',');
+    std::getline(split, first_name, ',');
+    std::getline(split, last_name, ',');
+    std::getline(split, gender, ',');
+    std::getline(split, date_of_birth, ',');
+    std::getline(split, soci_id);
+
+    Username = username;
+    Password = password;
+
+    return true;
+}
+
+bool Users::isAcademicStaff(std::string username, std::string password) {
+    std::string account_file = "Data\\Account\\AcademicStaff\\" + username + ".txt";
+    std::string account_pass;
+    std::string line;
+
+    std::ifstream fin(account_file);
+    if(!fin.is_open()) {
+        // system("cls");
+        // std::cerr << "Wrong password or username!" << std::endl;
+        return false;
+    }
+
+    std::getline(fin, line);
+    fin.close();
+    stringstream split(line);
+
+    std::getline(split,account_pass,',');
+
+    if(account_pass != password) {
+        // system("cls");
+        // std::cerr << "Wrong password or username!" << std::endl;
+        return false;
+    }
+
+    std::getline(split, user_id, ',');
+    std::getline(split, first_name, ',');
+    std::getline(split, last_name, ',');
+    std::getline(split, gender, ',');
+    std::getline(split, date_of_birth, ',');
+    std::getline(split, soci_id);
+
+    Username = username;
+    Password = password;
+
+    return true;
+}
+
+bool Users::login() {
+
+    if (isStudent(Username,Password)) {
+            system("cls");
+            return true;
+    } else {
+        if(isAcademicStaff(Username, Password)) {
+            isStaff = true;
+            return true;
+        }
+    }
+    system("cls");
+    return false;
+}
+
+void Users::viewProfileInfo() {
+    std::cout   << "\t\t\tUSER PROFILE INFORMATION:\n"
+                << "User ID: " << user_id << "\n"
+                << "Full name: " << last_name +" "+ first_name << "\n"
+                << "Gender: " << gender << "\n"
+                << "Date of birth: " << date_of_birth << "\n"
+                << "Social ID: " << soci_id << "\n";
+}
+
+bool Users::changePassword() {
+    if(Password == "") {
+        std::cerr << "Don't have user's data.";
+        return false;
+    }
+
+    std::string password , new_password , re_new_password;
+
+    std::cout << "Current password: ";
+    std::cin >> password;
+
+    std::cout << "New password: ";
+    std::cin >> new_password;
+    
+    std::cout << "Re-type new password: ";
+    std::cin >> re_new_password;
+
+    if(password != Password) {
+        std::cerr << "Wrong password. Please try again!\n"; 
+        return false;
+    } 
+
+    if(new_password.size() < 8) {
+        std::cerr << "Error: Password must be longer than 8 characters. Please try again!\n";
+        return false;
+    }
+    
+    if(new_password == Password) {
+        std::cerr << "New password must be different from current password!\n";
+        return false;
+    }
+
+    if(new_password != re_new_password) {
+        std::cerr << "Error: Password do not match. Please try again!\n";
+        return false;
+    }
+
+
+    std::ofstream fout;
+    if(isStaff) fout.open("Data\\Account\\AcademicStaff\\" + Username + ".txt");
+    else fout.open("Data\\Account\\Student\\" + Username + ".txt");
+    
+    if(!fout.is_open()) {
+        std::cerr << "Don't have user's data.";
+        return false;
+    }
+
+    Password = new_password;
+    fout << new_password;
+    fout.close();
+
+    std::cout << "Change password successfully!\n";
+    return true;
+}
+
+void Users::logout() {
+    Username = "";
+    Password = "";
+
+    std::cout << "Log out successfully!";
+}

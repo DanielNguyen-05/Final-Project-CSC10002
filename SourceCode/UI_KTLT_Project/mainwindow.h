@@ -4,7 +4,8 @@
 #include <QMainWindow>
 #include <QMessageBox>
 #include <QLineEdit>
-#include <QKeyEvent> 
+#include <QKeyEvent>
+#include "User.hpp"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -19,7 +20,8 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-
+public:
+    Users user;
 private slots:
     void on_pushButton_Login_clicked();
     void on_pushButton_Cancel_clicked();

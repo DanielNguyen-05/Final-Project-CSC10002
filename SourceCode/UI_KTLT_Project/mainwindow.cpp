@@ -25,10 +25,12 @@ void MainWindow::on_pushButton_Login_clicked()
 {
     QString UserName = ui->usernameLabel->text();
     QString PassWord = ui->passwordLabel->text();
-    if (UserName == "dbtien" && PassWord == "fithcmus") {
+    user.Username = UserName.toStdString();
+    user.Password = PassWord.toStdString();
+    if(user.login()){
         QMessageBox::information(this, "hello", "Log in successfully!");
     }
-    else {
+    else{
         QMessageBox::information(this, "hello", "Your Username or Password is incorrect!");
     }
 }
