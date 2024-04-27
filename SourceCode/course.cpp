@@ -219,15 +219,45 @@ void Course::updateResult() {
 		delete stu;
 	}
 	else {
-		std::cout << "Others Point: ";
-		cin >> stu->data.others;
-		std::cout << "Midterm Point: ";
-		cin >> stu->data.midterm;
-		std::cout << "Final Point: ";
-		cin >> stu->data.final;
-		std::cout << "Overall: ";
-		cin >> stu->data.overall;
+		cout << "\tWhich type of point do you want to update?" << endl;
+		cout << "1. Others Point" << endl;
+		cout << "2. Midterm Point" << endl;
+		cout << "3. Final Point" << endl;
+		cout << "4. Overall Point" << endl;
+		cout << "5. All" << endl;
+		cout << "P/s: You can select multiple options separated by commas!" << endl;
+		cout << "\n\tYour choice: ";
+		string choice;
+		cin >> choice;
+		if (choice.find("1") != string::npos) {
+			cout << "Others Point: ";
+			cin >> stu->data.others;
+		}
+		if (choice.find("2") != string::npos) {
+			cout << "Midterm Point: ";
+			cin >> stu->data.midterm;
+		}
+		if (choice.find("3") != string::npos) {
+			cout << "Final Point: ";
+			cin >> stu->data.final;
+		}
+		if (choice.find("4") != string::npos) {
+			cout << "Overall Point: ";
+			cin >> stu->data.overall;
+		}
+		if (choice.find("5") != string::npos) {
+			cout << "Others Point: ";
+			cin >> stu->data.others;
+			cout << "Midterm Point: ";
+			cin >> stu->data.midterm;
+			cout << "Final Point: ";
+			cin >> stu->data.final;
+			cout << "Overall Point: ";
+			cin >> stu->data.overall;
+		}
+		this->points.insertOrdered(stu->data);
 	}
+	this->points.deleteNode(pt);
 }
 
 void Course::addStudent() {

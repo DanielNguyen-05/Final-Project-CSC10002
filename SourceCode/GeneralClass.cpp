@@ -24,7 +24,7 @@ void list_of_student(std::string curYear, std::string curClass) {
     }
     system("cls");
     std::cout << "+----+-------------+--------------+-------------+--------+----------------+-----------------+\n";
-    std::cout << "| No | Student ID  | First name   | Last name   | Gender | Date of birth  | Social ID       |\n";
+    std::cout << "| No | Student ID  |  First name  |  Last name  | Gender | Date of birth  |     Social ID   |\n";
     std::cout << "+----+-------------+--------------+-------------+--------+----------------+-----------------+\n";
     int count = 1;
     getline(fin,ignore);

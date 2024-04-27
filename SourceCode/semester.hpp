@@ -6,7 +6,6 @@
 #include "limits"
 #include <stdio.h>
 
-
 struct Semester {
     int semester_num;
     std::string start_day;

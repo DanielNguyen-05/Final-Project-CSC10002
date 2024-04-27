@@ -7,7 +7,6 @@
 #include "course.hpp"
 #include "student_control.hpp"
 
-
 int main() {
 	Semester curSemester;
 	std::string curYear;
