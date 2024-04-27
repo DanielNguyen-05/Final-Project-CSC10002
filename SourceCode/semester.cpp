@@ -115,11 +115,21 @@ void Semester::createCourse(std::string curYear, Course& course) {
     else if (sessionInput == "S4") course.session = "15:30 -> 17:15";
     else {
         std::cerr << "Invalid session input!\n";
-        return;
+        cout << "Enter 0 to go back previous page";
+        char select;
+        cin >> select;
+        if (select == '0') return;
+
+        system("cls");
+        return this->createCourse(curYear, course);
     }
     this->courses.insertAtTail(course);
-    std::string path = "Data/" + curYear + "/Semester" + std::to_string(this->semester_num) + "/" + course.ID;
+    std::string path = "Data\\" + curYear + "\\Semester" + std::to_string(this->semester_num) + "\\" + course.ID;
     createDirectory(path);
+    std::ofstream fout(path + "\\Student.csv");
+    if (fout.is_open()) fout.close();
+    fout.open(path + "\\Point.csv");
+    if (fout.is_open()) fout.close();
 }
 
 void Semester::viewCourseList() {
@@ -264,8 +274,13 @@ void Semester::updateCourse() {
                 }
                 else {
                     cout << "Invalid choice!" << endl;
-                    system("pause");
-                    return; // chỗ này cho hiện ra cho người ta muốn thoát mẹ chương trình hay muốn nhập lại, nếu muốn nhập lại thì gọi lại hàm updateCourse()
+                    cout << "Enter 0 to go back previous page";
+                    char select;
+                    cin >> select;
+                    if (select == '0') return;
+
+                    system("cls");
+                    return updateCourse();
                 }
             }
             std::cout << "\t - Course updated successfully!" << "\n";

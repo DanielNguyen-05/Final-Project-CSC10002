@@ -195,29 +195,9 @@ void Course::updateResult() {
 	std::cin >> stu_id;
 	Point pt;
 	pt.stu_id = stu_id;
-	if (!this->stu_exists(stu_id)) {
-		std::cout << "Student is not existed\n";
-		system("pause");
-		return;
-	}
 	Node<Point>* stu = this->points.findNode(pt);
 	if (stu == nullptr) {
-		Student tmp;
-		tmp.stu_id = stu_id;
-		Node<Student>* cur = this->students.findNode(tmp);
-		stu = new Node<Point>;
-		stu->data.stu_id = stu_id;
-		stu->data.full_name = (cur->data).first_name + " " + (cur->data).last_name;
-		std::cout << "Others Point: ";
-		cin >> stu->data.others;
-		std::cout << "Midterm Point: ";
-		cin >> stu->data.midterm;
-		std::cout << "Final Point: ";
-		cin >> stu->data.final;
-		std::cout << "Overall: ";
-		cin >> stu->data.overall;
-		this->points.insertOrdered(stu->data);
-		delete stu;
+		std::cout << "Student is not exist";
 	}
 	else {
 		cout << "\tWhich type of point do you want to update?" << endl;
@@ -262,8 +242,13 @@ void Course::updateResult() {
 			}
 			else {
 				cout << "Invalid choice!" << endl;
-				system("pause");
-				return; // chỗ này cho hiện ra cho người ta muốn thoát mẹ chương trình hay muốn nhập lại, nếu muốn nhập lại thì gọi lại hàm updateResult()
+				cout << "Enter 0 to go back previous page";
+				char select;
+				cin >> select;
+				if (select == '0') return;
+
+				system("cls");
+				return updateResult();
 			}
 		}
 		std::cout << "\t - Point updated successfully!" << endl;
@@ -331,14 +316,14 @@ void Course::matchStudentPoint() {
 void Course::loadData(string curYear, int curSemester) {
 	char* intStr = new char[1];
 	sprintf(intStr, "%d", curSemester);
-	this->inputCSV("Data\\" + curYear + "\\Semester " + std::string(intStr) + "\\" + this->ID + "\\StudentList.csv");
-	this->loadScoreboard("Data\\" + curYear + "\\Semester " + std::string(intStr) + "\\" + this->ID + "\\Point.csv");
+	this->inputCSV("Data\\" + curYear + "\\Semester" + std::string(intStr) + "\\" + this->ID + "\\StudentList.csv");
+	this->loadScoreboard("Data\\" + curYear + "\\Semester" + std::string(intStr) + "\\" + this->ID + "\\Point.csv");
 }
 void Course::saveData(string curYear, int curSemester) {
 	char* intStr = new char[1];
 	sprintf(intStr, "%d", curSemester);
-	this->outputCSV("Data\\" + curYear + "\\Semester " + std::string(intStr) + "\\" + this->ID + "\\StudentList.csv");
-	this->exportScoreboard("Data\\" + curYear + "\\Semester " + std::string(intStr) + "\\" + this->ID + "\\Point.csv");
+	this->outputCSV("Data\\" + curYear + "\\Semester" + std::string(intStr) + "\\" + this->ID + "\\StudentList.csv");
+	this->exportScoreboard("Data\\" + curYear + "\\Semester" + std::string(intStr) + "\\" + this->ID + "\\Point.csv");
 }
 bool operator<(const Course::Point a, const Course::Point b) {
 	return a.stu_id < b.stu_id;
