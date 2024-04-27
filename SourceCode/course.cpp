@@ -1,4 +1,5 @@
 #include "course.hpp"
+#include <sstream>
 
 Course::Course(string ID, string course_name, string class_name, string teacher_name, int num_of_creadit, int max_student, string day_of_week, string session) {
 	this->ID = ID;
@@ -228,36 +229,46 @@ void Course::updateResult() {
 		cout << "P/s: You can select multiple options separated by commas!" << endl;
 		cout << "\n\tYour choice: ";
 		string choice;
-		cin >> choice;
-		if (choice.find("1") != string::npos) {
-			cout << "Others Point: ";
-			cin >> stu->data.others;
+		std::cin.ignore();
+		std::getline(cin, choice);
+		std::stringstream ss(choice);
+		std::string token;
+		while (std::getline(ss, token, ',')) {
+			if (token == "1") {
+				cout << "Others Point: ";
+				cin >> stu->data.others;
+			}
+			else if (token == "2") {
+				cout << "Midterm Point: ";
+				cin >> stu->data.midterm;
+			}
+			else if (token == "3") {
+				cout << "Final Point: ";
+				cin >> stu->data.final;
+			}
+			else if (token == "4") {
+				cout << "Overall Point: ";
+				cin >> stu->data.overall;
+			}
+			else if (token == "5") {
+				cout << "Others Point: ";
+				cin >> stu->data.others;
+				cout << "Midterm Point: ";
+				cin >> stu->data.midterm;
+				cout << "Final Point: ";
+				cin >> stu->data.final;
+				cout << "Overall Point: ";
+				cin >> stu->data.overall;
+			}
+			else {
+				cout << "Invalid choice!" << endl;
+				system("pause");
+				return; // chỗ này cho hiện ra cho người ta muốn thoát mẹ chương trình hay muốn nhập lại, nếu muốn nhập lại thì gọi lại hàm updateResult()
+			}
 		}
-		if (choice.find("2") != string::npos) {
-			cout << "Midterm Point: ";
-			cin >> stu->data.midterm;
-		}
-		if (choice.find("3") != string::npos) {
-			cout << "Final Point: ";
-			cin >> stu->data.final;
-		}
-		if (choice.find("4") != string::npos) {
-			cout << "Overall Point: ";
-			cin >> stu->data.overall;
-		}
-		if (choice.find("5") != string::npos) {
-			cout << "Others Point: ";
-			cin >> stu->data.others;
-			cout << "Midterm Point: ";
-			cin >> stu->data.midterm;
-			cout << "Final Point: ";
-			cin >> stu->data.final;
-			cout << "Overall Point: ";
-			cin >> stu->data.overall;
-		}
-		this->points.insertOrdered(stu->data);
+		std::cout << "\t - Point updated successfully!" << endl;
+		return;
 	}
-	this->points.deleteNode(pt);
 }
 
 void Course::addStudent() {

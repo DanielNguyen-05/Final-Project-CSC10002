@@ -168,35 +168,108 @@ void Semester::updateCourse() {
     std::cout << "\t\t\t UPDATING THE COURSE " << course_id << ": " << "\n\n";
     while (cur != nullptr) {
         if (cur->data.ID == course_id) {
-            std::cout << "\t - Enter the new name of this course (Ex: Ky thuat lap trinh): ";
+            cout << "\t Which information do you want to update?" << "\n";
+            cout << "\t 1. Course name" << "\n";
+            cout << "\t 2. Course ID" << "\n";
+            cout << "\t 3. Class name" << "\n";
+            cout << "\t 4. Teacher name" << "\n";
+            cout << "\t 5. Number of credits" << "\n";
+            cout << "\t 6. Maximum number of students" << "\n";
+            cout << "\t 7. Day of week" << "\n";
+            cout << "\t 8. Session" << "\n";
+            cout << "\t 9. All" << "\n";
+            cout << "P/s: You can select multiple options separated by commas!" << "\n";
+            cout << "\t - Your choice: ";
+            std::string choice;
             std::cin.ignore();
-            std::getline(std::cin, cur->data.course_name);
-            std::cout << "\t - Enter the new ID of this course (Ex: CSC10002-23CLC03): ";
-            std::cin >> cur->data.ID;
-            std::cout << "\t - Enter the new class which this course belongs to (Ex: 23CLC03): ";
-            std::getline(std::cin, cur->data.class_name);
-            std::cout << "\t - Enter the new teacher of this course: ";
-            std::cin.ignore();
-            std::getline(std::cin, cur->data.teacher_name);
-            std::cout << "\t - Enter the new number of credits in this course (Ex: 4): ";
-            std::cin >> cur->data.num_of_credit;
-            std::cout << "\t - Enter the new maximum number of students in this course: ";
-            std::cin >> cur->data.max_student;
-            std::cout << "\t - Enter the new day of week when this course will be held (ex: MON/TUE/WED/THU/FRI/SAT): ";
-            std::cin.ignore();
-            std::getline(std::cin, cur->data.day_of_week);
-            std::cout << "\t- Here is the a list of sessions: " << "\n"
-                << "\t\t 1. S1 (7:30 -> 9:15)" << "\n"
-                << "\t\t 2. S2 (9:30 -> 11:15)" << "\n"
-                << "\t\t 3. S3 (13:30 -> 15:15)" << "\n"
-                << "\t\t 4. S4 (15:30 -> 17:15)" << "\n"
-                << "\t - Which sessions, this course will be held (Ex: S1): ";
-            std::cin.ignore();
-            std::getline(std::cin, cur->data.session);
-            if (cur->data.session == "S1") cur->data.session = "7:30 -> 9:15";
-            else if (cur->data.session == "S2") cur->data.session = "9:30 -> 11:15";
-            else if (cur->data.session == "S3") cur->data.session = "13:30 -> 15:15";
-            else cur->data.session = "15:30 -> 17:15";
+            std::getline(std::cin, choice);
+            std::stringstream ss(choice);
+            std::string token;
+            while (std::getline(ss, token, ',')) {
+                if (token == "1") {
+                    std::cout << "\t - Enter the new name of this course (Ex: Ky thuat lap trinh): ";
+                    std::cin.ignore();
+                    std::getline(std::cin, cur->data.course_name);
+                }
+                else if (token == "2") {
+                    std::cout << "\t - Enter the new ID of this course (Ex: CSC10002-23CLC03): ";
+                    std::cin >> cur->data.ID;
+                }
+                else if (token == "3") {
+                    std::cout << "\t - Enter the new class which this course belongs to (Ex: 23CLC03): ";
+                    std::getline(std::cin, cur->data.class_name);
+                }
+                else if (token == "4") {
+                    std::cout << "\t - Enter the new teacher of this course: ";
+                    std::cin.ignore();
+                    std::getline(std::cin, cur->data.teacher_name);
+                }
+                else if (token == "5") {
+                    std::cout << "\t - Enter the new number of credits in this course (Ex: 4): ";
+                    std::cin >> cur->data.num_of_credit;
+                }
+                else if (token == "6") {
+                    std::cout << "\t - Enter the new maximum number of students in this course: ";
+                    std::cin >> cur->data.max_student;
+                }
+                else if (token == "7") {
+                    std::cout << "\t - Enter the new day of week when this course will be held (ex: MON/TUE/WED/THU/FRI/SAT): ";
+                    std::cin.ignore();
+                    std::getline(std::cin, cur->data.day_of_week);
+                }
+                else if (token == "8") {
+                    std::cout << "\t- Here is the a list of sessions: " << "\n"
+                        << "\t\t 1. S1 (7:30 -> 9:15)" << "\n"
+                        << "\t\t 2. S2 (9:30 -> 11:15)" << "\n"
+                        << "\t\t 3. S3 (13:30 -> 15:15)" << "\n"
+                        << "\t\t 4. S4 (15:30 -> 17:15)" << "\n"
+                        << "\t - Which sessions, this course will be held (Ex: S1): ";
+                    std::cin.ignore();
+                    std::getline(std::cin, cur->data.session);
+                    if (cur->data.session == "S1") cur->data.session = "7:30 -> 9:15";
+                    else if (cur->data.session == "S2") cur->data.session = "9:30 -> 11:15";
+                    else if (cur->data.session == "S3") cur->data.session = "13:30 -> 15:15";
+                    else cur->data.session = "15:30 -> 17:15";
+                }
+                else if (token == "9") {
+                    std::cout << "\t - Enter the new name of this course (Ex: Ky thuat lap trinh): ";
+                    std::cin.ignore();
+                    std::getline(std::cin, cur->data.course_name);
+                    std::cout << "\t - Enter the new ID of this course (Ex: CSC10002-23CLC03): ";
+                    std::cin >> cur->data.ID;
+                    std::cout << "\t - Enter the new class which this course belongs to (Ex: 23CLC03): ";
+                    std::getline(std::cin, cur->data.class_name);
+                    std::cout << "\t - Enter the new teacher of this course: ";
+                    std:cin.ignore();
+                    std::getline(std::cin, cur->data.teacher_name);
+                    std::cout << "\t - Enter the new number of credits in this course (Ex: 4): ";
+                    std::cin >> cur->data.num_of_credit;
+                    std::cout << "\t - Enter the new maximum number of students in this course: ";
+                    std::cin >> cur->data.max_student;
+                    std::cout << "\t - Enter the new day of week when this course will be held (ex: MON/TUE/WED/THU/FRI/SAT): ";
+                    std::cin.ignore();
+                    std::getline(std::cin, cur->data.day_of_week);
+                    std::cout << "\t- Here is the a list of sessions: " << "\n"
+                              << "\t\t 1. S1 (7:30 -> 9:15)" << "\n"
+                              << "\t\t 2. S2 (9:30 -> 11:15)" << "\n"
+                              << "\t\t 3. S3 (13:30 -> 15:15)" << "\n"
+                              << "\t\t 4. S4 (15:30 -> 17:15)" << "\n"
+                              << "\t - Which sessions, this course will be held (Ex: S1): ";
+                    std::cin.ignore();
+                    std::getline(std::cin, cur->data.session);
+                    if (cur->data.session == "S1") cur->data.session = "7:30 -> 9:15";
+                    else if (cur->data.session == "S2") cur->data.session = "9:30 -> 11:15";
+                    else if (cur->data.session == "S3") cur->data.session = "13:30 -> 15:15";
+                    else cur->data.session = "15:30 -> 17:15";
+                }
+                else {
+                    cout << "Invalid choice!" << endl;
+                    system("pause");
+                    return; // chỗ này cho hiện ra cho người ta muốn thoát mẹ chương trình hay muốn nhập lại, nếu muốn nhập lại thì gọi lại hàm updateCourse()
+                }
+            }
+            std::cout << "\t - Course updated successfully!" << "\n";
+            return;
         }
         cur = cur->pNext;
     }
