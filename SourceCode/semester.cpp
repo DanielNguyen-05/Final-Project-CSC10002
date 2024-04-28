@@ -126,7 +126,7 @@ void Semester::createCourse(std::string curYear, Course& course) {
     this->courses.insertAtTail(course);
     std::string path = "Data\\" + curYear + "\\Semester" + std::to_string(this->semester_num) + "\\" + course.ID;
     createDirectory(path);
-    std::ofstream fout(path + "\\Student.csv");
+    std::ofstream fout(path + "\\StudentList.csv");
     if (fout.is_open()) fout.close();
     fout.open(path + "\\Point.csv");
     if (fout.is_open()) fout.close();
@@ -250,7 +250,7 @@ void Semester::updateCourse() {
                     std::cout << "\t - Enter the new class which this course belongs to (Ex: 23CLC03): ";
                     std::getline(std::cin, cur->data.class_name);
                     std::cout << "\t - Enter the new teacher of this course: ";
-                    std:cin.ignore();
+                    std::cin.ignore();
                     std::getline(std::cin, cur->data.teacher_name);
                     std::cout << "\t - Enter the new number of credits in this course (Ex: 4): ";
                     std::cin >> cur->data.num_of_credit;

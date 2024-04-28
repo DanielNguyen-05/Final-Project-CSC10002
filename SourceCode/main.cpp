@@ -89,13 +89,16 @@ STAFFMENU:
 			while (std::cin >> choice) {
 				system("cls");
 				inputSchoolYearFail();
-				if (choice == 0)
+				if (choice == 0) {
+					system("cls");
 					goto STAFFMENU;
-				if (choice == 1)
+				}
+				if (choice == 1) {
+					system("cls");
 					goto INPUTYEAR;
+				}
 			}
 		}
-		system("cls");
 		goto EDITSCHOOLYEAR;
 	case 3:
 		system("cls");
@@ -106,8 +109,10 @@ STAFFMENU:
 					system("cls");
 					goto STAFFMENU;
 				}
-				if (choice == 1)
+				if (choice == 1) {
+					system("cls");
 					break;
+				}
 			}
 		}
 		system("pause");
@@ -164,8 +169,10 @@ GENERALCLASS:
 					system("cls");
 					goto GENERALCLASS;
 				}
-				if (choice == 1)
+				if (choice == 1) {
+					system("cls");
 					goto CREATECLASS;
+				}
 			}
 		}
 		create_General_class(curYear, curClass);
