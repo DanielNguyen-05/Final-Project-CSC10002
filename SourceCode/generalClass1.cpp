@@ -1,4 +1,4 @@
-#include "GeneralClass.hpp"
+#include "generalClass.hpp"
 
 bool classExisted (std::string schoolYear, std::string general_class) {
     std::string temp;
