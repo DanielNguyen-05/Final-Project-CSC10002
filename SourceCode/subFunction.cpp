@@ -12,21 +12,21 @@ bool createDirectory(const std::string& path) {
 }
 void createBasicData() {
 	createDirectory("Data");
-	createDirectory("Data\\Account");
-	createDirectory("Data\\Account\\AcademicStaff");
-	createDirectory("Data\\Account\\Student");
-	createDirectory("Data\\GeneralClasses");
-	std::ifstream fIn("Data\\SchoolYear.txt");
+	createDirectory("Data/Account");
+	createDirectory("Data/Account/AcademicStaff");
+	createDirectory("Data/Account/Student");
+	createDirectory("Data/GeneralClasses");
+	std::ifstream fIn("Data/SchoolYear.txt");
 	if (!fIn.is_open()) {
-		std::ofstream fOut("Data\\SchoolYear.txt");
+		std::ofstream fOut("Data/SchoolYear.txt");
 		fOut.close();
 	}
 	else
 		fIn.close();
 
-	fIn.open("Data\\Account\\AcademicStaff\\miTomThanhLong.txt");
+	fIn.open("Data/Account/AcademicStaff/miTomThanhLong.txt");
 	if (!fIn.is_open()) {
-		std::ofstream fOut("Data\\Account\\AcademicStaff\\miTomThanhLong.txt");
+		std::ofstream fOut("Data/Account/AcademicStaff/miTomThanhLong.txt");
 		fOut << "miTomKati";
 		fOut.close();
 	}
