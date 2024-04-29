@@ -1,8 +1,8 @@
 #include "student.hpp"
+#include "studentControl.hpp"
 #include <fstream>
 #include <cstring>
 #include <sstream>
-#include "student_control.hpp"
 
 void StudentControl::loadStudentCoursesData(Semester semester, string stu_id) {
     Node<Course>* cur_course = semester.courses.pHead;
@@ -52,7 +52,7 @@ void StudentControl::viewCourses() {
     Node<StudentCourses>* cur = stu_courses.pHead;
 
     std::cout << "+----+----------------------+----------------------+----------------------+----------------------+------------------+-------------+---------+\n";
-    std::cout << "| NO | Course ID            | Course name          | Class name           | Teacher name         | Number of credit | Day of week | Session |\n";
+    std::cout << "| No |      Course ID       |     Course name      |      Class name      |     Teacher name     | Number of credit | Day of week | Session |\n";
     std::cout << "+----+----------------------+----------------------+----------------------+----------------------+------------------+-------------+---------+\n";
 
     int no = 0;
@@ -78,7 +78,7 @@ void StudentControl::viewScoreboard() {
     Node<StudentCourses>* cur = stu_courses.pHead;
 
     std::cout << "+----+--------------------+-----------+-----------+-----------+-----------+\n";
-    std::cout << "| NO | Course name        | Midterm   | Final     | Others    | Overall   |\n";
+    std::cout << "| No |    Course name     |  Midterm  |   Final   |  Others   |  Overall  |\n";
     std::cout << "+----+--------------------+-----------+-----------+-----------+-----------+\n";
 
     int no = 0;

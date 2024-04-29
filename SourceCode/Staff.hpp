@@ -1,5 +1,5 @@
 #pragma once
-#include "User.hpp"
+#include "user.hpp"
 
 struct AcademicStaff : Users {
     

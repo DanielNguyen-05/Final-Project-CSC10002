@@ -3,5 +3,5 @@
 
 void createStudentAccount(std::string username);
 void createStaffAccount();
-std::string add1(std::string year);
+std::string addOne(std::string year);
 void createClassAccountFromfile(std::string classname);

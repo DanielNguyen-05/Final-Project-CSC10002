@@ -112,7 +112,7 @@ void createStudentAccount(std::string username) {
     fout.close();
 }
 
-std::string add1(std::string year) {
+std::string addOne(std::string year) {
     std::string new_year = year;
     if(year[1] == '9') {
         new_year[0] = year[0] + 1;
@@ -126,7 +126,7 @@ void createClassAccountFromfile(std::string classname) {
     std::string path = "Data\\Account\\Student\\" ;
 
     std::string start_year_1 = classname.substr(0,2);
-    std::string start_year_2 = add1(start_year_1);
+    std::string start_year_2 = addOne(start_year_1);
 
     std::string path_in = "Data\\GeneralClasses\\20" + start_year_1 + "-" + "20" + start_year_2 + "\\" + classname + ".csv";
 

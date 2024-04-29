@@ -1,10 +1,10 @@
 #pragma once
 #include "course.hpp"
-#include <string>
 #include "subFunction.hpp"
-#include <cstdlib>
 #include "limits"
 #include <stdio.h>
+#include <string>
+#include <cstdlib>
 
 struct Semester {
     int semester_num;

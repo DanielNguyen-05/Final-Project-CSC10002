@@ -1,11 +1,11 @@
 #include "consoleView.hpp"
-#include "User.hpp"
-#include <stdlib.h>
+#include "user.hpp"
 #include "semester.hpp"
 #include "schoolyear.hpp"
-#include "GeneralClass.hpp"
+#include "generalClass.hpp"
 #include "course.hpp"
-#include "student_control.hpp"
+#include "studentControl.hpp"
+#include <stdlib.h>
 
 int main() {
 	Semester curSemester;
@@ -62,7 +62,7 @@ STAFFMENU:
 		std::cout << "What school year do you want to create (Ex:2023-2024): ";
 		cin >> curYear;
 		system("cls");
-		if (!year_exits(curYear)) {
+		if (!yearExisted(curYear)) {
 			createSchoolYearFail();
 			while (std::cin >> choice) {
 				system("cls");
@@ -73,7 +73,7 @@ STAFFMENU:
 					goto CREATEYEAR;
 			}
 		}
-		create_School_year(curYear);
+		createSchoolYear(curYear);
 		system("cls");
 		goto STAFFMENU;
 	case 2:
@@ -84,7 +84,7 @@ STAFFMENU:
 		std::cout << "\n Your choice (Ex:2023-2024): ";
 		cin >> curYear;
 		system("cls");
-		if (year_exits(curYear)) {
+		if (yearExisted(curYear)) {
 			inputSchoolYearFail();
 			while (std::cin >> choice) {
 				system("cls");
@@ -175,14 +175,14 @@ GENERALCLASS:
 				}
 			}
 		}
-		create_General_class(curYear, curClass);
+		createGeneralClass(curYear, curClass);
 		system("cls");
 		goto GENERALCLASS;
 	case 2:
 	INPUTCLASS:
 		system("cls");
 		std::cout << "What general class do you want to edit: " <<std::endl;
-		view_list_of_general_class(curYear);
+		viewListOfGeneralClass(curYear);
 		std::cout << "\n Your choice (Ex: 20CLC04): ";
 		cin >> curClass;
 		system("cls");
@@ -219,13 +219,13 @@ EDITGENERALCLASS:
 		system("cls");
 		goto START;
 	case 1:
-		list_of_student(curYear, curClass);
+		listOfStudent(curYear, curClass);
 		break;
 	case 2:
-		import_student_by_csv(curYear, curClass);
+		importStudent(curYear, curClass);
 		break;
 	case 3:
-		add_1_student_to_class(curYear, curClass);
+		addOneStudentToClass(curYear, curClass);
 		break;
 	case 4:
 		system("cls");
@@ -485,7 +485,7 @@ STUDENTMENU:
 		std::cout << "\n Your choice (Ex: 2023-2024): ";
 		cin >> curYear;
 		system("cls");
-		if (year_exits(curYear)) {
+		if (yearExisted(curYear)) {
 			inputSchoolYearFail();
 			while (std::cin >> choice) {
 				system("cls");

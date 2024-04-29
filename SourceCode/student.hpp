@@ -1,9 +1,10 @@
 #pragma once
-#include "LinkedList.hpp"
+#include "linkedList.hpp"
+#include "studentCourses.hpp"
+#include "user.hpp"
 #include <iostream>
 #include <string>
-#include "student_courses.hpp"
-#include "User.hpp"
+
 using namespace std;
 
 struct Student : Users{

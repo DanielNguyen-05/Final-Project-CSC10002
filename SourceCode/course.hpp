@@ -1,8 +1,8 @@
 #pragma once
 #include "student.hpp"
-#include "LinkedList.hpp"
+#include "linkedList.hpp"
 #include <fstream>
-#include<iomanip>
+#include <iomanip>
 
 using namespace std;
 
@@ -43,7 +43,7 @@ struct Course {
     void addStudent();
     void deleteStudent();
     void viewStudent();
-    bool stu_exists(string stu_id);
+    bool studentExistedInCourse(string stu_id);
     void loadData(string curYear, int curSemester);
     void saveData(string curYear, int curSemester);
     void matchStudentPoint();

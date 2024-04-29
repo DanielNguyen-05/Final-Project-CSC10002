@@ -12,7 +12,7 @@ Course::Course(string ID, string course_name, string class_name, string teacher_
 	this->session = session;
 }
 
-bool Course::stu_exists(string stu_id) {
+bool Course::studentExistedInCourse(string stu_id) {
 	Node<Student>* cur = this->students.pHead;
 	while (cur && cur->data.stu_id != stu_id)
 		cur = cur->pNext;
@@ -33,7 +33,7 @@ void Course::inputCSV(string path) {
 		string tmp_no = "";
 		getline(fIn, tmp_no, ',');
 		getline(fIn, stu.stu_id, ',');
-		if (!this->stu_exists(stu.stu_id)) {
+		if (!this->studentExistedInCourse(stu.stu_id)) {
 			getline(fIn, stu.first_name, ',');
 			getline(fIn, stu.last_name, ',');
 			getline(fIn, stu.gender, ',');
@@ -130,7 +130,7 @@ void Course::viewScoreboard() {
 	if (!this->points.pHead) return;
 	system("cls");
 	std::cout << "+----+-------------+-----------------+---------------+--------------+---------------+-------------+\n";
-	std::cout << "| No | Student ID  | Full Name       | Overall Point | Final Point  | Midterm Point | Others      |\n";
+	std::cout << "| No | Student ID  |    Full Name    | Overall Point | Final Point  | Midterm Point |    Others   |\n";
 	std::cout << "+----+-------------+-----------------+---------------+--------------+---------------+-------------+\n";
 
 	int no = 0;
@@ -169,7 +169,7 @@ void Course::viewStudent() {
 	if (!this->students.pHead) return;
 	system("cls");
 	std::cout << "+----+-------------+--------------+-------------+--------+----------------+-----------------+\n";
-	std::cout << "| No | Student ID  | First name   | Last name   | Gender | Date of birth  | Social ID       |\n";
+	std::cout << "| No | Student ID  |  First name  |  Last name  | Gender | Date of birth  |    Social ID    |\n";
 	std::cout << "+----+-------------+--------------+-------------+--------+----------------+-----------------+\n";
 
 	Node<Student>* cur = this->students.pHead;
@@ -191,13 +191,13 @@ void Course::viewStudent() {
 
 void Course::updateResult() {
 	string stu_id;
-	std::cout << "Enter student ID you want to update:";
+	std::cout << "Enter student ID you want to update: ";
 	std::cin >> stu_id;
 	Point pt;
 	pt.stu_id = stu_id;
 	Node<Point>* stu = this->points.findNode(pt);
 	if (stu == nullptr) {
-		std::cout << "Student is not exist";
+		std::cout << "Student is not exist!";
 	}
 	else {
 		cout << "\tWhich type of point do you want to update?" << endl;
@@ -258,9 +258,9 @@ void Course::updateResult() {
 
 void Course::addStudent() {
 	Student students;
-	std::cout << "Enter student ID:";
+	std::cout << "Enter student ID: ";
 	std::cin >> students.stu_id;
-	if (this->stu_exists(students.stu_id)) {
+	if (this->studentExistedInCourse(students.stu_id)) {
 		std::cout << "This student is existed!";
 		return;
 	}
@@ -290,12 +290,12 @@ void Course::deleteStudent() {
 	std::cout << "Enter student ID: ";
 	std::cin >> stu.stu_id;
 	if (this->students.deleteNode(stu)) {
-		std::cout << "Delete successfully" << "\n";
+		std::cout << "Delete successfully!" << "\n";
 		Point pt;
 		pt.stu_id = stu.stu_id;
 		this->points.deleteNode(pt);
 	}
-	else std::cout << "Course doesn't have this student!" << "\n";
+	else std::cout << "Course does not have this student!" << "\n";
 }
 void Course::matchStudentPoint() {
 	Node<Student>* stu = this->students.pHead;

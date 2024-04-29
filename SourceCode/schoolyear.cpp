@@ -1,6 +1,6 @@
 #include "schoolyear.hpp"
 
-bool year_exits(std::string year) {
+bool yearExisted(std::string year) {
     std::ifstream fin;
     fin.open("Data\\SchoolYear.txt");
     if (!fin.is_open()) {
@@ -19,7 +19,7 @@ bool year_exits(std::string year) {
     return true;
 }
 
-bool year_valid(std::string curyear)
+bool yearValid(std::string curyear)
 {
     if (curyear.length() != 9)
     {
@@ -36,8 +36,8 @@ bool year_valid(std::string curyear)
     return true;
 }
 
-bool create_School_year(std::string curYear) {
-    if ( !year_valid(curYear) )
+bool createSchoolYear(std::string curYear) {
+    if ( !yearValid(curYear) )
     {
         std::cout << "Invalid year!!!\n";
         system("pause");

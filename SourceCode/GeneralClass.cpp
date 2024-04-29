@@ -1,6 +1,6 @@
 #include "GeneralClass.hpp"
 
-bool class_existed (std::string schoolYear, std::string general_class) {
+bool classExisted (std::string schoolYear, std::string general_class) {
     std::string temp;
     std::ifstream fin;
     std::string path = "Data\\GeneralClasses\\" + schoolYear + "\\" + general_class + ".csv";
@@ -12,7 +12,7 @@ bool class_existed (std::string schoolYear, std::string general_class) {
     }
 }
 
-void list_of_student(std::string curYear, std::string curClass) {
+void listOfStudent(std::string curYear, std::string curClass) {
     std::string ignore;
     std::string s;
     std::ifstream fin;
@@ -48,7 +48,7 @@ void list_of_student(std::string curYear, std::string curClass) {
     system("pause");
 }
 
-bool create_General_class(std::string curYear, std::string curClass) {
+bool createGeneralClass(std::string curYear, std::string curClass) {
     LinkedList<std::string> ClassList;
     std::ifstream fin;
     fin.open("Data\\GeneralClasses\\" + curYear + "\\GeneralClass.txt");
@@ -91,7 +91,7 @@ bool create_General_class(std::string curYear, std::string curClass) {
     return 1;
 }
 
-bool student_exist(std::string curYear, std::string curClass, std::string Student_id) {
+bool studentExistedInGeneralClass(std::string curYear, std::string curClass, std::string Student_id) {
     ifstream fin;
     fin.open("Data\\GeneralClasses\\" + curYear + "\\" + curClass + ".csv");
     if (!fin.is_open()) {
@@ -114,15 +114,15 @@ bool student_exist(std::string curYear, std::string curClass, std::string Studen
     return false;
 }
 
-bool add_1_student_to_class(std::string curYear, std::string curClass) {
+bool addOneStudentToClass(std::string curYear, std::string curClass) {
     Student students;
     do {
         std::cout << "Enter Student ID: ";
         std::cin >> students.stu_id;
-        if (student_exist(curYear, curClass, students.stu_id)) {
+        if (studentExistedInGeneralClass(curYear, curClass, students.stu_id)) {
             std::cout << "Student_ID " << students.stu_id << " already exist\n";
         }
-    } while (student_exist(curYear, curClass, students.stu_id));
+    } while (studentExistedInGeneralClass(curYear, curClass, students.stu_id));
     std::cout << "Enter First name: ";
     std::cin >> students.first_name;
     std::cout << "Enter Last name: ";
@@ -180,7 +180,7 @@ bool add_1_student_to_class(std::string curYear, std::string curClass) {
     return 1;
 }
 
-bool import_student_by_csv(std::string curYear, std::string curClass) {
+bool importStudent(std::string curYear, std::string curClass) {
     std::ifstream fin;
     fin.open("Data\\GeneralClasses\\" + curYear + "\\" + curClass + ".csv");
     if (!fin.is_open())
@@ -213,7 +213,7 @@ bool import_student_by_csv(std::string curYear, std::string curClass) {
     while (!fin2.eof()) {
         getline(fin2, skip_no, ',');
         getline(fin2, student_temp.stu_id, ',');
-        if (student_exist(curYear, curClass, student_temp.stu_id)) {
+        if (studentExistedInGeneralClass(curYear, curClass, student_temp.stu_id)) {
             getline(fin, skip_behind_studentID);
             continue;
         }

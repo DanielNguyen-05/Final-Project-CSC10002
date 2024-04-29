@@ -1,7 +1,7 @@
+#include "consoleView.hpp"
+#include "user.hpp"
 #include <iostream>
 #include <string>
-#include "consoleView.hpp"
-#include "User.hpp"
 
 void programInterface() {
 	std::cout   << "\tWhat would you like to do?\n"
@@ -17,7 +17,7 @@ void chooseRole() {
                 << "2. Student\n"
                 << "0. Stop program\n\n"
 
-                <<"Your choice: ";
+                << "Your choice: ";
 }
 
 void loginFail() {
@@ -52,7 +52,7 @@ void createNewSchoolYear() {
 }
 
 void isNOTcreated() {
-    std::cout    << "The new school year 202x-202x is created successfully!\n"
+    std::cout   << "The new school year 202x-202x is created successfully!\n"
                 << "1. Continue creating a new school year\n"
                 << "0. Back to MAIN MENU \n\n"
 
@@ -95,7 +95,7 @@ void listSchoolYear() {
     std::ifstream fIn;
     fIn.open("Data//SchoolYear.txt");
     if (!fIn.is_open()) {
-        std::cerr << "error open SchoolYear.txt";
+        std::cerr << "There are some errors in opening SchoolYear.txt";
     }
     std::string year;
     int no = 0;
@@ -107,13 +107,13 @@ void listSchoolYear() {
     fIn.close();
 }
 
-void view_list_of_general_class(std::string year) {
+void viewListOfGeneralClass(std::string year) {
     std::ifstream fin;
     std::string s;
     std::string path = "Data\\GeneralClasses\\" + year + "\\GeneralClass.txt";
     fin.open(path);
     if (!fin.is_open()) {
-        std::cout << "Can't open file. ";
+        std::cout << "Can't open file!";
         return;
     }
     while (!fin.eof()) {
@@ -124,7 +124,7 @@ void view_list_of_general_class(std::string year) {
 }
 
 void inputClassFail() {
-    std::cout << "This class is not existed\n"
+    std::cout << "This class is not existed!\n"
         << "1. Re-enter it \n"
         << "0. Back to previous page \n\n"
 
@@ -132,7 +132,7 @@ void inputClassFail() {
 }
 
 void editGeneralClassMenu() {
-    std::cout << "What would you like to do ?\n"
+    std::cout << "\tWhat would you like to do ?\n"
         
         << "1. View list of students in the class\n"
         << "2. Import the list of students from .csv file into the general class\n"
@@ -145,7 +145,7 @@ void editGeneralClassMenu() {
 }
 
 void createSchoolYearFail() {
-    std::cout << "This school year is existed\n"
+    std::cout << "\tThis school year is existed\n"
         << "1. Re-enter it \n"
         << "0. Back to previous page \n\n"
 
@@ -153,7 +153,7 @@ void createSchoolYearFail() {
 }
 
 void semesterMainMenu() {
-    std::cout << "What would you like to do ?\n"
+    std::cout << "\tWhat would you like to do ?\n"
         << "0. Log out\n"
         << "1. Create a new semesters\n"
         << "2. Edit an existed semesters\n"
@@ -164,7 +164,7 @@ void semesterMainMenu() {
 }
 
 void inputSemesterFail() {
-    std::cout << "This semester is not existed\n"
+    std::cout << "\tThis semester is not existed!\n"
         << "1. Re-enter it \n"
         << "0. Back to previous page \n\n"
 
@@ -172,7 +172,7 @@ void inputSemesterFail() {
 }
 
 void createSemesterFail() {
-    std::cout << "This semester is existed\n"
+    std::cout << "\tThis semester is not existed!\n"
         << "1. Re-enter it \n"
         << "0. Back to previous page \n\n"
 
@@ -180,7 +180,7 @@ void createSemesterFail() {
 }
 
 void createClassFail() {
-    std::cout << "This general class is existed\n"
+    std::cout << "\tThis general class is not existed!\n"
         << "1. Re-enter it \n"
         << "0. Back to previous page \n\n"
 
@@ -188,7 +188,7 @@ void createClassFail() {
 }
 
 void editSemesterMenu() {
-    std::cout << "What would you like to do ?\n"
+    std::cout << "\tWhat would you like to do ?\n"
         
         << "1. Create new courses\n"
         << "2. View all courses in this semester \n"
@@ -200,7 +200,7 @@ void editSemesterMenu() {
 }
 
 void inputCourseFail() {
-    std::cout << "This course is not existed\n"
+    std::cout << "\tThis course is not existed!\n"
         << "1. Re-enter it \n"
         << "0. Back to previous page \n\n"
 
@@ -208,7 +208,7 @@ void inputCourseFail() {
 }
 
 void createCourseFail() {
-    std::cout << "This course is existed\n"
+    std::cout << "\tThis course is not existed!\n"
         << "1. Re-enter it \n"
         << "0. Back to previous page \n\n"
 
@@ -216,7 +216,7 @@ void createCourseFail() {
 }
 
 void modifyCourseMenu() {
-        std::cout << "What would you like to do ?\n"
+        std::cout << "\tWhat would you like to do?\n"
             
             << "1. View all students in this course\n"
             << "2. Import students into this course\n"
@@ -231,7 +231,7 @@ void modifyCourseMenu() {
 }
 
 void importStudent() {
-    std::cout << "Import Student:\n"
+    std::cout << "\tImport Student: \n"
         << "1.Import a list of student by CSV file\n"
         << "2.Import a student\n"
         << "0.Go back\n\n"
@@ -240,7 +240,7 @@ void importStudent() {
 }
 
 void inputStudentFail(){
-    std::cout << "This student is not existed\n"
+    std::cout << "\tThis student is not existed\n"
         << "1. Re-enter it \n"
         << "0. Back to previous page \n\n"
 
@@ -248,7 +248,7 @@ void inputStudentFail(){
 }
 
 void editCoursePointMenu() {
-    std::cout << "What would you like to do ?\n"
+    std::cout << "\tWhat would you like to do?\n"
         
         << "1. Import a point .csv file for a course\n"
         << "2. View scoreboard of a course\n"
@@ -260,12 +260,12 @@ void editCoursePointMenu() {
 }
 
 void studentChooseYear(std::string username) {
-    std::cout << "Hello,." << username << std::endl
-            << "Enter a school year which you want to check \n" ;
+    std::cout << "\tHello, " << username << "\n"
+              << "Enter a school year which you want to check: \n" ;
 }
 
 void studentMenu() {
-    std::cout << "What would you like to do ?\n"
+    std::cout << "\tWhat would you like to do?\n"
         
         << "1. View your profile\n"
         << "2. View courses and scoreboard\n"
@@ -276,7 +276,7 @@ void studentMenu() {
 }
 
 void studentView() {
-    std::cout << "What would you like to do ?\n"
+    std::cout << "\tWhat would you like to do?\n"
         
         << "1. View your scoreboard\n"
         << "2. View list of your courses\n"
