@@ -320,8 +320,7 @@ EDITSEMESTER:
 					system("cls");
 					goto EDITSEMESTER;
 				}
-				if (choice == 1)
-					goto CREATECOURSE;
+				if (choice == 1) goto CREATECOURSE;
 			}
 		}
 		curSemester.createCourse(curYear, curCourse);
