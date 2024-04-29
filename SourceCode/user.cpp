@@ -56,7 +56,7 @@ bool Users::isAcademicStaff(std::string username, std::string password) {
 
     std::getline(fin, line);
     fin.close();
-    stringstream split(line);
+    std::stringstream split(line);
 
     std::getline(split,account_pass,',');
 
