@@ -6,6 +6,7 @@
 #include "course.hpp"
 #include "studentControl.hpp"
 #include <stdlib.h>
+#include "student.hpp"
 
 int main() {
 	Semester curSemester;
@@ -160,7 +161,7 @@ GENERALCLASS:
 		std::cout << "\tWhat general class do you want to create (Ex: 20CLC04) : " ;
 		cin >> curClass;
 		system("cls");
-		if (class_existed(curYear, curClass)) {
+		if (classExisted(curYear, curClass)) {
 			createClassFail();
 			while (std::cin >> choice) {
 				system("cls");
@@ -186,7 +187,7 @@ GENERALCLASS:
 		std::cout << "\n- Your choice (Ex: 20CLC04): ";
 		cin >> curClass;
 		system("cls");
-		if (!class_existed(curYear, curClass)) {
+		if (!classExisted(curYear, curClass)) {
 			inputClassFail();
 			while (std::cin >> choice) {
 				system("cls");

@@ -7,7 +7,7 @@
 #include <iomanip>
 #include <sstream>
 
-bool class_existed(std::string  input_file_generalclass, std::string general_class);
+bool classExisted(std::string  input_file_generalclass, std::string general_class);
 void listOfStudent(std::string curYear, std::string curClass);
 bool createGeneralClass(std::string curYear, std::string curClass);
 bool studentExistedInGeneralClass(std::string curYear, std::string curClass, std::string Student_id);
