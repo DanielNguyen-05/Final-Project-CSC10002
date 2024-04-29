@@ -2,7 +2,7 @@
 #include <sstream>
 
 bool Users::isStudent(std::string username, std::string password) {
-    std::string account_file = "Data\\Account\\Student\\" + username + ".txt";
+    std::string account_file = "Data/Account/Student/" + username + ".txt";
     std::string account_pass;
     std::string line;
 
@@ -43,7 +43,7 @@ bool Users::isStudent(std::string username, std::string password) {
 }
 
 bool Users::isAcademicStaff(std::string username, std::string password) {
-    std::string account_file = "Data\\Account\\AcademicStaff\\" + username + ".txt";
+    std::string account_file = "Data/Account/AcademicStaff/" + username + ".txt";
     std::string account_pass;
     std::string line;
 
@@ -153,8 +153,8 @@ bool Users::changePassword() {
 
 
     std::ofstream fout;
-    if(isStaff) fout.open("Data\\Account\\AcademicStaff\\" + Username + ".txt");
-    else fout.open("Data\\Account\\Student\\" + Username + ".txt");
+    if(isStaff) fout.open("Data/Account/AcademicStaff/" + Username + ".txt");
+    else fout.open("Data/Account/Student/" + Username + ".txt");
     
     if(!fout.is_open()) {
         std::cerr << "Don't have user's data.";

@@ -3,7 +3,7 @@
 bool classExisted (std::string schoolYear, std::string general_class) {
     std::string temp;
     std::ifstream fin;
-    std::string path = "Data\\GeneralClasses\\" + schoolYear + "\\" + general_class + ".csv";
+    std::string path = "Data/GeneralClasses/" + schoolYear + "/" + general_class + ".csv";
     fin.open (path);
     if (!fin.is_open()) return false;
     else {
@@ -16,7 +16,7 @@ void listOfStudent(std::string curYear, std::string curClass) {
     std::string ignore;
     std::string s;
     std::ifstream fin;
-    std::string path = "Data\\GeneralClasses\\" + curYear + "\\" + curClass + ".csv";
+    std::string path = "Data/GeneralClasses/" + curYear + "/" + curClass + ".csv";
     fin.open(path);
     if (!fin.is_open()) {
         std::cout << "Can't open " << curClass << ".csv !!!";
@@ -51,7 +51,7 @@ void listOfStudent(std::string curYear, std::string curClass) {
 bool createGeneralClass(std::string curYear, std::string curClass) {
     LinkedList<std::string> ClassList;
     std::ifstream fin;
-    fin.open("Data\\GeneralClasses\\" + curYear + "\\GeneralClass.txt");
+    fin.open("Data/GeneralClasses/" + curYear + "/GeneralClass.txt");
     if (!fin.is_open()) {
         std::cout << "Can't open file.";
         return 0;
@@ -65,7 +65,7 @@ bool createGeneralClass(std::string curYear, std::string curClass) {
     fin.close();
     ClassList.insertAtTail(curClass);
     std::ofstream fout;
-    fout.open("Data\\GeneralClasses\\" + curYear + "\\GeneralClass.txt");
+    fout.open("Data/GeneralClasses/" + curYear + "/GeneralClass.txt");
     if (!fout.is_open()) {
         std::cout << "Can't open file.";
         return 0;
@@ -79,9 +79,9 @@ bool createGeneralClass(std::string curYear, std::string curClass) {
     }
     ClassList.deallocate();
     fout.close();
-    fin.open("Data\\GeneralClasses\\" + curYear + "\\" + curClass + ".csv");
+    fin.open("Data/GeneralClasses/" + curYear + "/" + curClass + ".csv");
     if (!fin.is_open()) {
-        fout.open("Data\\GeneralClasses\\" + curYear + "\\" + curClass + ".csv");
+        fout.open("Data/GeneralClasses/" + curYear + "/" + curClass + ".csv");
         fout.close();
     }
     else
@@ -93,7 +93,7 @@ bool createGeneralClass(std::string curYear, std::string curClass) {
 
 bool studentExistedInGeneralClass(std::string curYear, std::string curClass, std::string Student_id) {
     ifstream fin;
-    fin.open("Data\\GeneralClasses\\" + curYear + "\\" + curClass + ".csv");
+    fin.open("Data/GeneralClasses/" + curYear + "/" + curClass + ".csv");
     if (!fin.is_open()) {
         return false;
     }
@@ -136,7 +136,7 @@ bool addOneStudentToClass(std::string curYear, std::string curClass) {
     LinkedList<Student> Studentlist;
 
     std::ifstream fin;
-    fin.open("Data\\GeneralClasses\\" + curYear + "\\" + curClass + ".csv");
+    fin.open("Data/GeneralClasses/" + curYear + "/" + curClass + ".csv");
     if (!fin.is_open()) {
         std::cout << "Can't open file!";
         return 0;
@@ -159,7 +159,7 @@ bool addOneStudentToClass(std::string curYear, std::string curClass) {
     
     Studentlist.insertOrdered(students);
     std::ofstream fout;
-    fout.open("Data\\GeneralClasses\\" + curYear + "\\" + curClass + ".csv");
+    fout.open("Data/GeneralClasses/" + curYear + "/" + curClass + ".csv");
     if (!fout.is_open()) {
         std::cout << "Can't open file!";
         return 0;
@@ -182,7 +182,7 @@ bool addOneStudentToClass(std::string curYear, std::string curClass) {
 
 bool importStudent(std::string curYear, std::string curClass) {
     std::ifstream fin;
-    fin.open("Data\\GeneralClasses\\" + curYear + "\\" + curClass + ".csv");
+    fin.open("Data/GeneralClasses/" + curYear + "/" + curClass + ".csv");
     if (!fin.is_open())
         return 0;
     LinkedList<Student> Studentlist;
@@ -226,7 +226,7 @@ bool importStudent(std::string curYear, std::string curClass) {
     }
     fin2.close();
     std::ofstream fout;
-    fout.open("Data\\GeneralClasses\\" + curYear + "\\" + curClass + ".csv");
+    fout.open("Data/GeneralClasses/" + curYear + "/" + curClass + ".csv");
     if (!fout.is_open()) return 0;
     Node <Student>* cur = Studentlist.pHead;
     int no = 1;

@@ -11,7 +11,7 @@ bool checkSemester(std::string curYear, int curSemester) {
     std::string ignore;
     int s;
     std::ifstream fin;
-    std::string path = "Data\\" + curYear + "\\Semester.txt";
+    std::string path = "Data/" + curYear + "/Semester.txt";
     fin.open(path);
     if (!fin.is_open())
         return false;
@@ -30,7 +30,7 @@ bool checkSemester(std::string curYear, int curSemester) {
 void Semester::loadSemesterData(std::string schoolyear, int semester) /* School Year -> Semester -> Course */ {
     char* intStr = new char[1];
     sprintf(intStr, "%d", semester);
-    std::string courses_path = "Data\\" + schoolyear + "\\Semester" + std::string(intStr) + "\\CourseList.txt";
+    std::string courses_path = "Data/" + schoolyear + "/Semester" + std::string(intStr) + "/CourseList.txt";
     std::string courses_id;
     std::string line;
     std::ifstream f_courses_list;
@@ -44,7 +44,7 @@ void Semester::loadSemesterData(std::string schoolyear, int semester) /* School 
 
     while (f_courses_list >> courses_id) //course_data , course student
     {
-        std::string courses_path = "Data\\" + schoolyear + "\\Semester" + std::string(intStr) + "\\" + courses_id + "\\" + courses_id + ".csv";
+        std::string courses_path = "Data/" + schoolyear + "/Semester" + std::string(intStr) + "/" + courses_id + "/" + courses_id + ".csv";
         fin.open(courses_path);
         std::getline(fin, line);
         stringstream split(line);
@@ -70,7 +70,7 @@ void Semester::loadCourseData(std::string curYear) {
     sprintf(intStr, "%d", this->semester_num);
     Node<Course>* cur = this->courses.pHead;
     while (cur) {
-        std::string path = "Data\\" + curYear + "\\Semester" + std::string(intStr) + "\\" + (cur->data).ID + "\\";
+        std::string path = "Data/" + curYear + "/Semester" + std::string(intStr) + "/" + (cur->data).ID + "/";
         (cur->data).inputCSV(path + "StudentList.csv");
         (cur->data).loadScoreboard(path + "Point.csv");
         cur = cur->pNext;
@@ -124,11 +124,11 @@ void Semester::createCourse(std::string curYear, Course& course) {
         return this->createCourse(curYear, course);
     }
     this->courses.insertAtTail(course);
-    std::string path = "Data\\" + curYear + "\\Semester" + std::to_string(this->semester_num) + "\\" + course.ID;
+    std::string path = "Data/" + curYear + "/Semester" + std::to_string(this->semester_num) + "/" + course.ID;
     createDirectory(path);
-    std::ofstream fout(path + "\\StudentList.csv");
+    std::ofstream fout(path + "/StudentList.csv");
     if (fout.is_open()) fout.close();
-    fout.open(path + "\\Point.csv");
+    fout.open(path + "/Point.csv");
     if (fout.is_open()) fout.close();
 }
 
@@ -306,10 +306,10 @@ void Semester::deleteCourse(std::string year, std::string course_id) {
     }
     std::cout << "\t - Course not found!" << "\n";
     // Delete all files in the folder of this course
-    std::string folder_path = "Data\\" + year + "\\Semester" + std::to_string(this->semester_num) + "\\" + course_id;
-    std::string file_path_1 = folder_path + "\\" + course_id + ".csv";
-    std::string file_path_2 = folder_path + "\\StudentList.csv";
-    std::string file_path_3 = folder_path + "\\Point.csv";
+    std::string folder_path = "Data/" + year + "/Semester" + std::to_string(this->semester_num) + "/" + course_id;
+    std::string file_path_1 = folder_path + "/" + course_id + ".csv";
+    std::string file_path_2 = folder_path + "/StudentList.csv";
+    std::string file_path_3 = folder_path + "/Point.csv";
     system(("del " + file_path_1).c_str());
     system(("del " + file_path_2).c_str());
     system(("del " + file_path_3).c_str());
@@ -317,11 +317,11 @@ void Semester::deleteCourse(std::string year, std::string course_id) {
 }
 
 void Semester::createSemester(std::string year, int semester) {
-    std::string path = "Data\\" + year + "\\Semester" + std::to_string(semester);
+    std::string path = "Data/" + year + "/Semester" + std::to_string(semester);
     createDirectory(path);
     LinkedList<Semester> s;
     Semester tmp;
-    std::ifstream fIn("Data\\" + year + "\\Semester.txt");
+    std::ifstream fIn("Data/" + year + "/Semester.txt");
     if (!fIn.is_open()) {
         return;
     }
@@ -341,7 +341,7 @@ void Semester::createSemester(std::string year, int semester) {
     std::cout << "\t - Enter the end date (Ex: 20/01/2024): ";
     std::cin  >> this->end_day;
     s.insertAtTail(*this);
-    std::ofstream fOut("Data\\" + year + "\\Semester.txt");
+    std::ofstream fOut("Data/" + year + "/Semester.txt");
     if (!fOut.is_open()) {
         std::cout << "\t -Failed to open the file!" << "\n";
         return;
@@ -375,7 +375,7 @@ void Semester::saveData(std::string schoolyear, int semester) {
     char intStr[10];
     sprintf(intStr, "%d", semester);
 
-    std::string courses_path = "Data\\" + schoolyear + "\\Semester" + std::string(intStr) + "\\CourseList.txt";
+    std::string courses_path = "Data/" + schoolyear + "/Semester" + std::string(intStr) + "/CourseList.txt";
 
     std::ofstream f_courses_list(courses_path);
     if (!f_courses_list.is_open()) {
@@ -385,7 +385,7 @@ void Semester::saveData(std::string schoolyear, int semester) {
     Node<Course>* cur = this->courses.pHead;
     while (cur) {
         Course currentCourse = cur->data;
-        std::string course_data_path = "Data\\" + schoolyear + "\\Semester" + std::string(intStr) + "\\" + currentCourse.ID + "\\" + currentCourse.ID + ".csv";
+        std::string course_data_path = "Data/" + schoolyear + "/Semester" + std::string(intStr) + "/" + currentCourse.ID + "/" + currentCourse.ID + ".csv";
 
         std::ofstream fout(course_data_path);
         if (!fout.is_open()) {

@@ -2,7 +2,7 @@
 
 bool yearExisted(std::string year) {
     std::ifstream fin;
-    fin.open("Data\\SchoolYear.txt");
+    fin.open("Data/SchoolYear.txt");
     if (!fin.is_open()) {
         std::cout << "Can't open file SchoolYear.txt !!!";
         return false;
@@ -45,7 +45,7 @@ bool createSchoolYear(std::string curYear) {
     }
     LinkedList<std::string> yearList;
     std::ifstream fin;
-    fin.open("Data\\SchoolYear.txt");
+    fin.open("Data/SchoolYear.txt");
     if (!fin.is_open()) {
         std::cout << "Can't open file SchoolYear.txt";
         return 0;
@@ -58,17 +58,17 @@ bool createSchoolYear(std::string curYear) {
     fin.close();
     yearList.insertOrdered(curYear);
     std::ofstream fout;
-    fout.open("Data\\SchoolYear.txt");
+    fout.open("Data/SchoolYear.txt");
     if (!fout.is_open()) {
         std::cout << "Can't open file SchoolYear.txt";
         return 0;
     }
-    std::string path = "Data\\" + curYear;
+    std::string path = "Data/" + curYear;
     createDirectory(path);
-    createDirectory("Data\\GeneralClasses\\" + curYear);
-    std::ofstream fOut("Data\\GeneralClasses\\" + curYear + "\\GeneralClass.txt" );
+    createDirectory("Data/GeneralClasses/" + curYear);
+    std::ofstream fOut("Data/GeneralClasses/" + curYear + "/GeneralClass.txt" );
     fOut.close();
-    std::ofstream semester(path + "\\semester.txt");
+    std::ofstream semester(path + "/semester.txt");
 
     if (semester.is_open()) {
         semester.close();

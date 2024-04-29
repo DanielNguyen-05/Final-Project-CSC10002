@@ -25,7 +25,7 @@ void createStaffAccount() {
         return;
     }
 
-    std::string path = "Data\\Account\\AcademicStaff\\" + username + ".txt";
+    std::string path = "Data/Account/AcademicStaff/" + username + ".txt";
     std::ifstream fin;
     fin.open(path);
 
@@ -69,7 +69,7 @@ void createStaffAccount() {
 }
 
 void createStudentAccount(std::string username) {
-    std::string path = "Data\\Account\\Student\\" + username + ".txt";
+    std::string path = "Data/Account/Student/" + username + ".txt";
     std::ifstream fin;
     fin.open(path);
 
@@ -123,12 +123,12 @@ std::string addOne(std::string year) {
 }
 
 void createClassAccountFromfile(std::string classname) {
-    std::string path = "Data\\Account\\Student\\" ;
+    std::string path = "Data/Account/Student/" ;
 
     std::string start_year_1 = classname.substr(0,2);
     std::string start_year_2 = addOne(start_year_1);
 
-    std::string path_in = "Data\\GeneralClasses\\20" + start_year_1 + "-" + "20" + start_year_2 + "\\" + classname + ".csv";
+    std::string path_in = "Data/GeneralClasses/20" + start_year_1 + "-" + "20" + start_year_2 + "/" + classname + ".csv";
 
     std::ifstream fin, checker;
     std::ofstream fout;
