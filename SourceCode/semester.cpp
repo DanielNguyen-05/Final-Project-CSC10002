@@ -246,16 +246,16 @@ void Semester::updateCourse() {
                     std::cin.ignore();
                     std::getline(std::cin, cur->data.course_name);
                     std::cout << "\t - Enter the new ID of this course (Ex: CSC10002-23CLC03): ";
-                    std::cin >> cur->data.ID;
+                    std::cin  >> cur->data.ID;
                     std::cout << "\t - Enter the new class which this course belongs to (Ex: 23CLC03): ";
                     std::getline(std::cin, cur->data.class_name);
                     std::cout << "\t - Enter the new teacher of this course: ";
                     std::cin.ignore();
                     std::getline(std::cin, cur->data.teacher_name);
                     std::cout << "\t - Enter the new number of credits in this course (Ex: 4): ";
-                    std::cin >> cur->data.num_of_credit;
+                    std::cin  >> cur->data.num_of_credit;
                     std::cout << "\t - Enter the new maximum number of students in this course: ";
-                    std::cin >> cur->data.max_student;
+                    std::cin  >> cur->data.max_student;
                     std::cout << "\t - Enter the new day of week when this course will be held (ex: MON/TUE/WED/THU/FRI/SAT): ";
                     std::cin.ignore();
                     std::getline(std::cin, cur->data.day_of_week);
@@ -267,16 +267,16 @@ void Semester::updateCourse() {
                               << "\t - Which sessions, this course will be held (Ex: S1): ";
                     std::cin.ignore();
                     std::getline(std::cin, cur->data.session);
-                    if (cur->data.session == "S1") cur->data.session = "7:30 -> 9:15";
+                    if      (cur->data.session == "S1") cur->data.session = "7:30 -> 9:15";
                     else if (cur->data.session == "S2") cur->data.session = "9:30 -> 11:15";
                     else if (cur->data.session == "S3") cur->data.session = "13:30 -> 15:15";
-                    else cur->data.session = "15:30 -> 17:15";
+                    else                                cur->data.session = "15:30 -> 17:15";
                 }
                 else {
                     cout << "Invalid choice!" << endl;
                     cout << "Enter 0 to go back previous page";
                     char select;
-                    cin >> select;
+                    cin  >> select;
                     if (select == '0') return;
 
                     system("cls");
@@ -337,9 +337,9 @@ void Semester::createSemester(std::string year, int semester) {
     std::cout << "\t\t\t CREATING A NEW SEMESTER" << year << "  S" << semester << "\n\n";
     this->semester_num = semester;
     std::cout << "\t - Enter the start date (Ex: 05/09/2023): ";
-    std::cin >> this->start_day;
+    std::cin  >> this->start_day;
     std::cout << "\t - Enter the end date (Ex: 20/01/2024): ";
-    std::cin >> this->end_day;
+    std::cin  >> this->end_day;
     s.insertAtTail(*this);
     std::ofstream fOut("Data\\" + year + "\\Semester.txt");
     if (!fOut.is_open()) {

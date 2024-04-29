@@ -19,7 +19,7 @@ struct Student : Users{
 };
 
 ostream& operator<<(ostream& os, const Student a);
-bool operator<(const Student a, const Student b);
-bool operator>(const Student a, const Student b);
-bool operator==(const Student a, const Student b);
-bool operator!=(const Student a, const Student b);
+bool operator<     (const Student a, const Student b);
+bool operator>     (const Student a, const Student b);
+bool operator==    (const Student a, const Student b);
+bool operator!=    (const Student a, const Student b);

@@ -3,7 +3,6 @@
 #include "linkedList.hpp"
 #include <fstream>
 #include <iomanip>
-
 using namespace std;
 
 struct Course {

@@ -11,17 +11,17 @@ void programInterface() {
                 << "Your choice: ";
 }
 
-void chooseRole() {
-    std::cout   << "\tAre you a Staff or a Student?\n"
-                << "1. Academic Staff\n"
-                << "2. Student\n"
-                << "0. Stop program\n\n"
+// void chooseRole() {
+//     std::cout   << "\tAre you a Staff or a Student?\n"
+//                 << "1. Academic Staff\n"
+//                 << "2. Student\n"
+//                 << "0. Stop program\n\n"
 
-                << "Your choice: ";
-}
+//                 << "Your choice: ";
+// }
 
 void loginFail() {
-    std::cout   << "\tWhat would you like to do?\n"
+    std::cout   << "\tThere are some errors with your login!\n"
                 << "1. Re-login\n"
                 << "0. Back to previous page\n\n"
                 
@@ -30,7 +30,7 @@ void loginFail() {
 
 void staffMainMenu(std::string username) {
     std::cout   << "\t\t\tMAIN MENU\n"
-                << "Hello " << username << "\n"
+                << "Hello, " << username << "\n"
                 << "1. Create a new school year\n"
                 << "2. Edit an existed school year\n"  
                 << "3. Change password\n"  
@@ -52,7 +52,7 @@ void createNewSchoolYear() {
 }
 
 void isNOTcreated() {
-    std::cout   << "The new school year 202x-202x is created successfully!\n"
+    std::cout   << "\tThe new school year 202x-202x is created successfully!\n" // coi lại chỗ này, phải cho người ta biết người ta muốn tạo năm nào
                 << "1. Continue creating a new school year\n"
                 << "0. Back to MAIN MENU \n\n"
 
@@ -60,7 +60,7 @@ void isNOTcreated() {
 }
 
 void editSchoolYearMenu() {
-    std::cout   << "What would you like to do ?\n"
+    std::cout   << "\tWhat would you like to do?\n"
                 
                 << "1. Work on General Classes\n"
                 << "2. Work on Semester\n"
@@ -72,7 +72,7 @@ void editSchoolYearMenu() {
 }
 
 void generalClassMenu() {
-    std::cout   << "What would you like to do ?\n"
+    std::cout   << "\tWhat would you like to do?\n"
                 
                 << "1. Create a new general class\n"
                 << "2. Edit an existed general class\n"
@@ -84,7 +84,7 @@ void generalClassMenu() {
 }
 
 void inputSchoolYearFail() {
-    std::cout   << "This school year is not existed\n"
+    std::cout   << "\tThis school year is not existed!\n"
                 << "1. Re-enter it \n"
                 << "0. Back to previous page \n\n"
 
@@ -95,7 +95,7 @@ void listSchoolYear() {
     std::ifstream fIn;
     fIn.open("Data//SchoolYear.txt");
     if (!fIn.is_open()) {
-        std::cerr << "There are some errors in opening SchoolYear.txt";
+        std::cerr << "There are some errors in opening SchoolYear.txt!";
     }
     std::string year;
     int no = 0;
@@ -124,7 +124,7 @@ void viewListOfGeneralClass(std::string year) {
 }
 
 void inputClassFail() {
-    std::cout << "This class is not existed!\n"
+    std::cout << "\tThis class is not existed!\n"
         << "1. Re-enter it \n"
         << "0. Back to previous page \n\n"
 
@@ -132,7 +132,7 @@ void inputClassFail() {
 }
 
 void editGeneralClassMenu() {
-    std::cout << "\tWhat would you like to do ?\n"
+    std::cout << "\tWhat would you like to do?\n"
         
         << "1. View list of students in the class\n"
         << "2. Import the list of students from .csv file into the general class\n"
@@ -145,7 +145,7 @@ void editGeneralClassMenu() {
 }
 
 void createSchoolYearFail() {
-    std::cout << "\tThis school year is existed\n"
+    std::cout << "\tThis school year is existed!\n"
         << "1. Re-enter it \n"
         << "0. Back to previous page \n\n"
 
@@ -153,7 +153,7 @@ void createSchoolYearFail() {
 }
 
 void semesterMainMenu() {
-    std::cout << "\tWhat would you like to do ?\n"
+    std::cout << "\tWhat would you like to do?\n"
         << "0. Log out\n"
         << "1. Create a new semesters\n"
         << "2. Edit an existed semesters\n"
@@ -172,7 +172,7 @@ void inputSemesterFail() {
 }
 
 void createSemesterFail() {
-    std::cout << "\tThis semester is not existed!\n"
+    std::cout << "\tThis semester has been already existed!\n"
         << "1. Re-enter it \n"
         << "0. Back to previous page \n\n"
 
@@ -180,7 +180,7 @@ void createSemesterFail() {
 }
 
 void createClassFail() {
-    std::cout << "\tThis general class is not existed!\n"
+    std::cout << "\tThis general class has been already existed!\n"
         << "1. Re-enter it \n"
         << "0. Back to previous page \n\n"
 
@@ -188,7 +188,7 @@ void createClassFail() {
 }
 
 void editSemesterMenu() {
-    std::cout << "\tWhat would you like to do ?\n"
+    std::cout << "\tWhat would you like to do?\n"
         
         << "1. Create new courses\n"
         << "2. View all courses in this semester \n"
@@ -208,7 +208,7 @@ void inputCourseFail() {
 }
 
 void createCourseFail() {
-    std::cout << "\tThis course is not existed!\n"
+    std::cout << "\tThis course has been already existed!\n"
         << "1. Re-enter it \n"
         << "0. Back to previous page \n\n"
 
@@ -240,7 +240,7 @@ void importStudent() {
 }
 
 void inputStudentFail(){
-    std::cout << "\tThis student is not existed\n"
+    std::cout << "\tThis student has been already existed!\n"
         << "1. Re-enter it \n"
         << "0. Back to previous page \n\n"
 

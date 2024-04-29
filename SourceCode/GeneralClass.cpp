@@ -124,15 +124,15 @@ bool addOneStudentToClass(std::string curYear, std::string curClass) {
         }
     } while (studentExistedInGeneralClass(curYear, curClass, students.stu_id));
     std::cout << "Enter First name: ";
-    std::cin >> students.first_name;
+    std::cin  >> students.first_name;
     std::cout << "Enter Last name: ";
-    std::cin >> students.last_name;
+    std::cin  >> students.last_name;
     std::cout << "Enter Gender: ";
-    std::cin >> students.gender;
+    std::cin  >> students.gender;
     std::cout << "Enter Date of birth (DD/MM/YYYY): ";
-    std::cin >> students.date_of_birth;
+    std::cin  >> students.date_of_birth;
     std::cout << "Enter Social ID: ";
-    std::cin >> students.soci_id;
+    std::cin  >> students.soci_id;
     LinkedList<Student> Studentlist;
 
     std::ifstream fin;

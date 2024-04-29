@@ -10,11 +10,11 @@ void createStaffAccount() {
     std::string re_pass;
 
     std::cout << "Please input username: ";
-    std::cin >> username;
+    std::cin  >> username;
     std::cout << "Please input password: ";
-    std::cin >> password;
+    std::cin  >> password;
     std::cout << "Please re_type password: ";
-    std::cin >> re_pass;
+    std::cin  >> re_pass;
     if(re_pass.size() < 8) {
         std::cerr << "Error: Password must be longer than 8 characters. Please try again!\n";
         return;

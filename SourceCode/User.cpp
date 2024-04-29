@@ -83,10 +83,10 @@ bool Users::login() {
     std::string username;
     std::string password;
     std::cout << "Please input username: ";
-    std::cin >> username;
+    std::cin  >> username;
 
     std::cout << "Please input password: ";
-    std::cin >> password;
+    std::cin  >> password;
 
     if (isStudent(username, password)) {
             system("cls");
@@ -96,12 +96,12 @@ bool Users::login() {
         if(isAcademicStaff(username, password)) {
             isStaff = true;
             system("cls");
-            std::cout << "Log in successfully. Welcome " << Username << "!\n";
+            std::cout << "Log in successfully! Welcome, " << Username << "!\n";
             return true;
         }
     }
     system("cls");
-    std::cerr << "Wrong password or username!" << std::endl;
+    std::cerr << "Wrong password or username!\n";
     return false;
 }
 
@@ -115,7 +115,7 @@ void Users::viewProfileInfo() {
 }
 
 bool Users::changePassword() {
-    if(Password == "") {
+    if(Password   == "") {
         std::cerr << "Don't have user's data.";
         return false;
     }
@@ -123,31 +123,31 @@ bool Users::changePassword() {
     std::string password , new_password , re_new_password;
 
     std::cout << "Current password: ";
-    std::cin >> password;
+    std::cin  >> password;
 
     std::cout << "New password: ";
-    std::cin >> new_password;
+    std::cin  >> new_password;
     
     std::cout << "Re-type new password: ";
-    std::cin >> re_new_password;
+    std::cin  >> re_new_password;
 
-    if(password != Password) {
+    if(password   != Password) {
         std::cerr << "Wrong password. Please try again!\n"; 
         return false;
     } 
 
     if(new_password.size() < 8) {
-        std::cerr << "Error: Password must be longer than 8 characters. Please try again!\n";
+        std::cerr   << "Error: Password must be longer than 8 characters. Please try again!\n";
         return false;
     }
     
     if(new_password == Password) {
-        std::cerr << "New password must be different from current password!\n";
+        std::cerr   << "New password must be different from current password!\n";
         return false;
     }
 
     if(new_password != re_new_password) {
-        std::cerr << "Error: Password do not match. Please try again!\n";
+        std::cerr   << "Error: Password do not match. Please try again!\n";
         return false;
     }
 
