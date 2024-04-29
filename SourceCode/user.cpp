@@ -90,13 +90,15 @@ bool Users::login() {
 
     if (isStudent(username, password)) {
             system("cls");
-            std::cout << "Log in successfully. Welcome " << Username << "!\n";
+            std::cout << "Log in successfully! Welcome " << Username << "!\n";
+            system("cls");
             return true;
     } else {
         if(isAcademicStaff(username, password)) {
             isStaff = true;
             system("cls");
             std::cout << "Log in successfully! Welcome, " << Username << "!\n";
+            system("cls");
             return true;
         }
     }
@@ -116,7 +118,7 @@ void Users::viewProfileInfo() {
 
 bool Users::changePassword() {
     if(Password   == "") {
-        std::cerr << "Don't have user's data.";
+        std::cerr << "The user's data is not existed!";
         return false;
     }
 
@@ -132,7 +134,7 @@ bool Users::changePassword() {
     std::cin  >> re_new_password;
 
     if(password   != Password) {
-        std::cerr << "Wrong password. Please try again!\n"; 
+        std::cerr << "Your old password is wrong. Please try again!\n"; 
         return false;
     } 
 
@@ -157,7 +159,7 @@ bool Users::changePassword() {
     else fout.open("Data/Account/Student/" + Username + ".txt");
     
     if(!fout.is_open()) {
-        std::cerr << "Don't have user's data.";
+        std::cerr << "The user's data is not existed!";
         return false;
     }
 

@@ -11,26 +11,15 @@ void programInterface() {
                 << "Your choice: ";
 }
 
-// void chooseRole() {
-//     std::cout   << "\tAre you a Staff or a Student?\n"
-//                 << "1. Academic Staff\n"
-//                 << "2. Student\n"
-//                 << "0. Stop program\n\n"
-
-//                 << "Your choice: ";
-// }
-
 void loginFail() {
-    std::cout   << "\tThere are some errors with your login!\n"
-                << "1. Re-login\n"
+    std::cout   << "1. Re-login\n"
                 << "0. Back to previous page\n\n"
                 
                 << "Your choice: ";
 }
 
 void staffMainMenu(std::string username) {
-    std::cout   << "\t\t\tMAIN MENU\n"
-                << "Hello, " << username << "\n"
+    std::cout   << "\t\tMAIN MENU\n"
                 << "1. Create a new school year\n"
                 << "2. Edit an existed school year\n"  
                 << "3. Change password\n"  
@@ -48,7 +37,7 @@ void changePasswordFail() {
 }
 
 void createNewSchoolYear() {
-    std::cout   << "\t\t\tCREATING A NEW SCHOOL YEAR\n";
+    std::cout   << "\t\tCREATING A NEW SCHOOL YEAR\n";
 }
 
 void isNOTcreated() {
