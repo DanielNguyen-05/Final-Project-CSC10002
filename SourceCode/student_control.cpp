@@ -4,7 +4,7 @@
 #include <sstream>
 #include "student_control.hpp"
 
-void Student_Control::loadStudentCoursesData(Semester semester, string stu_id) {
+void StudentControl::loadStudentCoursesData(Semester semester, string stu_id) {
     Node<Course>* cur_course = semester.courses.pHead;
     Node<Student>* cur_stu;
     Node<Course::Point>* cur_point;
@@ -47,7 +47,7 @@ void Student_Control::loadStudentCoursesData(Semester semester, string stu_id) {
         cur_course = cur_course -> pNext;
     }
 }
-void Student_Control::viewCourses() {
+void StudentControl::viewCourses() {
     system("cls");
     Node<StudentCourses>* cur = stu_courses.pHead;
 
@@ -73,7 +73,7 @@ void Student_Control::viewCourses() {
     std::cout << "+----+----------------------+----------------------+----------------------+----------------------+------------------+-------------+---------+\n";
 }
 
-void Student_Control::viewScoreBoard() {
+void StudentControl::viewScoreboard() {
     system("cls");
     Node<StudentCourses>* cur = stu_courses.pHead;
 
