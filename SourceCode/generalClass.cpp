@@ -49,7 +49,14 @@ void listOfStudent(std::string curYear, std::string curClass) {
     }
     std::cout << "+----+-------------+--------------+-------------+--------+----------------+-----------------+\n";
     fin.close();
-    system("pause");
+    std::cout << "Press enter to continue...";
+    std::cin.ignore();
+    std::cin.get();
+    #ifdef _WIN32
+    system("cls");
+    #else
+        system("clear");
+    #endif
 }
 
 bool createGeneralClass(std::string curYear, std::string curClass) {
@@ -91,7 +98,14 @@ bool createGeneralClass(std::string curYear, std::string curClass) {
     else
         fin.close();
     std::cout << "Create class successfully!\n";
-    system("pause");
+    std::cout << "Press enter to continue...";
+    std::cin.ignore();
+    std::cin.get();
+    #ifdef _WIN32
+        system("cls");
+    #else
+        system("clear");
+    #endif
     return 1;
 }
 
@@ -180,7 +194,14 @@ bool addOneStudentToClass(std::string curYear, std::string curClass) {
     Studentlist.deallocate();
     fout.close();
     std::cout << "Add student successfully!\n";
-    system("pause");
+    std::cout << "Press enter to continue...";
+    std::cin.ignore();
+    std::cin.get();
+    #ifdef _WIN32
+        system("cls");
+    #else
+        system("clear");
+    #endif
     return 1;
 }
 
@@ -244,7 +265,14 @@ bool importStudent(std::string curYear, std::string curClass) {
     fout.close();
     Studentlist.deallocate();
     std::cout << "Add student successfully!\n";
-    system("pause");
+    std::cout << "Press enter to continue...";
+    std::cin.ignore();
+    std::cin.get();
+    #ifdef _WIN32
+        system("cls");
+    #else
+        system("clear");
+    #endif
     return 1;
 }
 

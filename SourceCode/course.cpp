@@ -72,7 +72,14 @@ void Course::importScoreboard(string path) {
 		else getline(fIn, ignore);
 	}
 	std::cout << "import succesfully\n";
-	system("pause");
+    std::cout << "Press enter to continue...";
+    std::cin.ignore();
+    std::cin.get();
+    #ifdef _WIN32
+        system("cls");
+    #else
+        system("clear");
+    #endif
 	fIn.close();
 }
 void Course::loadScoreboard(string path) {
@@ -105,7 +112,14 @@ void Course::exportScoreboard(string path) {
 	fOut.open(path);
 	if (!fOut.is_open()) {
 		cerr << "Error: Unable to open file for writing!" << path << endl;
-		system("pause");
+		std::cout << "Press enter to continue...";
+		std::cin.ignore();
+		std::cin.get();
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		return;
 	}
 

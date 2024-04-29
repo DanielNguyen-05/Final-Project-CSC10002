@@ -37,10 +37,16 @@ bool yearValid(std::string curyear)
 }
 
 bool createSchoolYear(std::string curYear) {
-    if ( !yearValid(curYear) )
-    {
+    if (!yearValid(curYear)) {
         std::cout << "Invalid year!!!\n";
-        system("pause");
+        std::cout << "Press enter to continue...";
+        std::cin.ignore();
+        std::cin.get();
+        #ifdef _WIN32
+            system("cls");
+        #else
+            system("clear");
+        #endif
         return 0;
     }
     LinkedList<std::string> yearList;
@@ -85,6 +91,13 @@ bool createSchoolYear(std::string curYear) {
     yearList.deallocate();
     fout.close();
     std::cout << "Create schoolYear successfully! \n";
-    system("pause");
+    std::cout << "Press enter to continue...";
+    std::cin.ignore();
+    std::cin.get();
+    #ifdef _WIN32
+        system("cls");
+    #else
+        system("clear");
+    #endif
     return 1;
 }

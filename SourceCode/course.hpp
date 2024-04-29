@@ -3,6 +3,11 @@
 #include "linkedList.hpp"
 #include <fstream>
 #include <iomanip>
+#ifdef _WIN32
+#include <direct.h>
+#else
+#include <sys/stat.h>
+#endif
 using namespace std;
 
 struct Course {

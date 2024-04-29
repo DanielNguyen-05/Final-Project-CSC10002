@@ -95,7 +95,14 @@ bool Users::login() {
                 system("clear");
             #endif
             std::cout << "Log in successfully! Welcome " << Username << "!\n";
-            system("pause");
+            std::cout << "Press enter to continue...";
+            std::cin.ignore();
+            std::cin.get();
+            #ifdef _WIN32
+                system("cls");
+            #else
+                system("clear");
+            #endif
             return true;
     } else {
         if(isAcademicStaff(username, password)) {
@@ -106,7 +113,14 @@ bool Users::login() {
                 system("clear");
             #endif
             std::cout << "Log in successfully! Welcome, " << Username << "!\n";
-            system("pause");
+            std::cout << "Press enter to continue...";
+            std::cin.ignore();
+            std::cin.get();
+            #ifdef _WIN32
+                system("cls");
+            #else
+                system("clear");
+            #endif
             return true;
         }
     }

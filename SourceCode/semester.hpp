@@ -5,6 +5,11 @@
 #include <stdio.h>
 #include <string>
 #include <cstdlib>
+#ifdef _WIN32
+#include <direct.h>
+#else
+#include <sys/stat.h>
+#endif
 
 struct Semester {
     int semester_num;

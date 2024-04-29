@@ -71,7 +71,14 @@ STAFFMENU:
 	std::cin >> choice;
 	switch (choice) {
 	case 0:
-		system("pause");
+        std::cout << "Press enter to continue...";
+        std::cin.ignore();
+        std::cin.get();
+        #ifdef _WIN32
+            system("cls");
+        #else
+            system("clear");
+        #endif
 		goto START;
 	case 1:
 	CREATEYEAR:
@@ -180,7 +187,14 @@ STAFFMENU:
 				}
 			}
 		}
-		system("pause");
+        std::cout << "Press enter to continue...";
+        std::cin.ignore();
+        std::cin.get();
+        #ifdef _WIN32
+            system("cls");
+        #else
+            system("clear");
+        #endif
 		break;
 	case 4:
 		#ifdef _WIN32
@@ -189,7 +203,14 @@ STAFFMENU:
 			system("clear");
 		#endif
 		user.viewProfileInfo();
-		system("pause");
+        std::cout << "Press enter to continue...";
+        std::cin.ignore();
+        std::cin.get();
+        #ifdef _WIN32
+            system("cls");
+        #else
+            system("clear");
+        #endif
 		break;
 	default:
 		break;
@@ -545,7 +566,14 @@ EDITSEMESTER:
 		goto EDITSEMESTER;
 	case 2:
 		curSemester.viewCourseList();
-		system("pause");
+        std::cout << "Press enter to continue...";
+        std::cin.ignore();
+        std::cin.get();
+        #ifdef _WIN32
+            system("cls");
+        #else
+            system("clear");
+        #endif
 		#ifdef _WIN32
 			system("cls");
 		#else
@@ -633,7 +661,14 @@ MODIFYCOURSE:
 		goto START;
 	case 1:
 		curCourse.viewStudent();
-		system("pause");
+        std::cout << "Press enter to continue...";
+        std::cin.ignore();
+        std::cin.get();
+        #ifdef _WIN32
+            system("cls");
+        #else
+            system("clear");
+        #endif
 		#ifdef _WIN32
 			system("cls");
 		#else
@@ -661,7 +696,14 @@ MODIFYCOURSE:
 			break;
 		case 2:
 			curCourse.addStudent();
-			system("pause");
+			std::cout << "Press enter to continue...";
+			std::cin.ignore();
+			std::cin.get();
+			#ifdef _WIN32
+				system("cls");
+			#else
+				system("clear");
+			#endif
 			break;
 		default:
 			break;
@@ -674,7 +716,14 @@ MODIFYCOURSE:
 		goto MODIFYCOURSE;
 	case 3:
 		curCourse.deleteStudent();
-		system("pause");
+        std::cout << "Press enter to continue...";
+        std::cin.ignore();
+        std::cin.get();
+        #ifdef _WIN32
+            system("cls");
+        #else
+            system("clear");
+        #endif
 		#ifdef _WIN32
 			system("cls");
 		#else
@@ -690,7 +739,14 @@ MODIFYCOURSE:
 		goto COURSEPOINT;
 	case 5:
 		curSemester.deleteCourse(curYear, curCourse.ID);
-		system("pause");
+        std::cout << "Press enter to continue...";
+        std::cin.ignore();
+        std::cin.get();
+        #ifdef _WIN32
+            system("cls");
+        #else
+            system("clear");
+        #endif
 		#ifdef _WIN32
 			system("cls");
 		#else
@@ -755,7 +811,14 @@ COURSEPOINT:
 		goto COURSEPOINT;
 	case 2:
 		curCourse.viewScoreboard();
-		system("pause");
+        std::cout << "Press enter to continue...";
+        std::cin.ignore();
+        std::cin.get();
+        #ifdef _WIN32
+            system("cls");
+        #else
+            system("clear");
+        #endif
 		#ifdef _WIN32
 			system("cls");
 		#else
@@ -878,7 +941,14 @@ STUDENTMENU:
 		goto STUDENTMENU;
 		break;
 	}
-	system("pause");
+    std::cout << "Press enter to continue...";
+    std::cin.ignore();
+    std::cin.get();
+    #ifdef _WIN32
+        system("cls");
+    #else
+        system("clear");
+    #endif
 	#ifdef _WIN32
    		system("cls");
 	#else
@@ -905,11 +975,25 @@ STUDENTVIEW:
 		goto START;
 	case 1:
 		curStudentControl.viewScoreboard();
-		system("pause");
+        std::cout << "Press enter to continue...";
+        std::cin.ignore();
+        std::cin.get();
+        #ifdef _WIN32
+            system("cls");
+        #else
+            system("clear");
+        #endif
 		break;
 	case 2:
 		curStudentControl.viewCourses();
-		system("pause");
+        std::cout << "Press enter to continue...";
+        std::cin.ignore();
+        std::cin.get();
+        #ifdef _WIN32
+            system("cls");
+        #else
+            system("clear");
+        #endif
 		break;
 	case 3:
 		curSemester.deallocate();

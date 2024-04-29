@@ -355,7 +355,14 @@ void Semester::createSemester(std::string year, int semester) {
     }
     fOut.close();
     std::cout << "Create semester successfully!\n";
-    system("pause");
+    std::cout << "Press enter to continue...";
+    std::cin.ignore();
+    std::cin.get();
+    #ifdef _WIN32
+        system("cls");
+    #else
+        system("clear");
+    #endif
     s.deallocate();
 }
 
