@@ -7,6 +7,11 @@
 #include "studentControl.hpp"
 #include <stdlib.h>
 #include "student.hpp"
+#ifdef _WIN32
+#include <direct.h>
+#else
+#include <sys/stat.h>
+#endif
 
 int main() {
 	Semester curSemester;
@@ -19,7 +24,12 @@ int main() {
 	createBasicData();
 
 START:
-	system("cls");
+	// system("cls");
+	#ifdef _WIN32
+   		system("cls");
+	#else
+		system("clear");
+	#endif
 	Users user;
 	user.Username = "";
 	user.Password = "";
@@ -65,6 +75,7 @@ STAFFMENU:
 		system("cls");
 		if (!yearExisted(curYear)) {
 			createSchoolYearFail();
+			system("cls");
 			while (std::cin >> choice) {
 				system("cls");
 				inputSchoolYearFail();
