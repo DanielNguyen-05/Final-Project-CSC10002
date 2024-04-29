@@ -4,6 +4,11 @@
 #include <fstream>
 #include <cstring>
 #include <stdlib.h>
+#ifdef _WIN32
+#include <direct.h>
+#else
+#include <sys/stat.h>
+#endif
 
 struct Users {
     std::string Username = "";

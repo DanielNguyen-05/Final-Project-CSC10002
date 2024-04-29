@@ -89,20 +89,32 @@ bool Users::login() {
     std::cin  >> password;
 
     if (isStudent(username, password)) {
-            system("cls");
+            #ifdef _WIN32
+                system("cls");
+            #else
+                system("clear");
+            #endif
             std::cout << "Log in successfully! Welcome " << Username << "!\n";
             system("pause");
             return true;
     } else {
         if(isAcademicStaff(username, password)) {
             isStaff = true;
-            system("cls");
+            #ifdef _WIN32
+                system("cls");
+            #else
+                system("clear");
+            #endif
             std::cout << "Log in successfully! Welcome, " << Username << "!\n";
             system("pause");
             return true;
         }
     }
-    system("cls");
+	#ifdef _WIN32
+		system("cls");
+	#else
+		system("clear");
+	#endif
     std::cerr << "Wrong password or username!\n";
     return false;
 }
