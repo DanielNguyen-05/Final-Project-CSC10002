@@ -1,6 +1,6 @@
 #pragma once
 #include"subFunction.hpp"
-#include "LinkedList.hpp"
+#include "linkedList.hpp"
 #include <string>
 #include <fstream>
 
