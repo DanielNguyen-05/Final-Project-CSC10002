@@ -1,5 +1,10 @@
 #pragma once
 #include "semester.hpp"
+#ifdef _WIN32
+#include <direct.h>
+#else
+#include <sys/stat.h>
+#endif
 
 struct StudentControl {
 

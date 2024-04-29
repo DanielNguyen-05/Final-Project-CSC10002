@@ -22,7 +22,11 @@ void listOfStudent(std::string curYear, std::string curClass) {
         std::cout << "Can't open " << curClass << ".csv !!!";
         return;
     }
-    system("cls");
+    #ifdef _WIN32
+   		system("cls");
+	#else
+		system("clear");
+	#endif
     std::cout << "+----+-------------+--------------+-------------+--------+----------------+-----------------+\n";
     std::cout << "| No | Student ID  |  First name  |  Last name  | Gender | Date of birth  |    Social ID    |\n";
     std::cout << "+----+-------------+--------------+-------------+--------+----------------+-----------------+\n";

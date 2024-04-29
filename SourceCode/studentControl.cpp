@@ -48,7 +48,11 @@ void StudentControl::loadStudentCoursesData(Semester semester, string stu_id) {
     }
 }
 void StudentControl::viewCourses() {
-    system("cls");
+    #ifdef _WIN32
+   		system("cls");
+	#else
+		system("clear");
+	#endif
     Node<StudentCourses>* cur = stu_courses.pHead;
 
     std::cout << "+----+----------------------+----------------------+----------------------+----------------------+------------------+-------------+---------+\n";
@@ -74,7 +78,11 @@ void StudentControl::viewCourses() {
 }
 
 void StudentControl::viewScoreboard() {
-    system("cls");
+    #ifdef _WIN32
+   		system("cls");
+	#else
+		system("clear");
+	#endif
     Node<StudentCourses>* cur = stu_courses.pHead;
 
     std::cout << "+----+--------------------+-----------+-----------+-----------+-----------+\n";

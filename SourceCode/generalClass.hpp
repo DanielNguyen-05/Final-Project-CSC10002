@@ -6,6 +6,11 @@
 #include "student.hpp"
 #include <iomanip>
 #include <sstream>
+#ifdef _WIN32
+#include <direct.h>
+#else
+#include <sys/stat.h>
+#endif
 
 bool classExisted(std::string  input_file_generalclass, std::string general_class);
 void listOfStudent(std::string curYear, std::string curClass);

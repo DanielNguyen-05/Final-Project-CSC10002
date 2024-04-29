@@ -19,7 +19,6 @@ int main() {
 	createBasicData();
 
 START:
-	// system("cls");
 	#ifdef _WIN32
    		system("cls");
 	#else
@@ -33,15 +32,27 @@ START:
 	std::cin >> choice;
 	if (choice == 0)
 		return 0;
-	system("cls");
+	#ifdef _WIN32
+   		system("cls");
+	#else
+		system("clear");
+	#endif;
 LOGIN:
 	if(!user.login()) {
-		system("cls");
+		#ifdef _WIN32
+   			system("cls");
+		#else
+			system("clear");
+		#endif
 		std::cerr << "Wrong password or username!" << std::endl;
 	LOGINFAIL:
 		loginFail();
 		std::cin >> choice;
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		switch (choice) {
 		case 0:
 			goto START;
@@ -64,14 +75,26 @@ STAFFMENU:
 		goto START;
 	case 1:
 	CREATEYEAR:
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		std::cout << "]\tWhat school year do you want to create (Ex:2023-2024): ";
 		cin >> curYear;
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		if (!yearExisted(curYear)) {
 			createSchoolYearFail();
 			while (std::cin >> choice) {
-				system("cls");
+				#ifdef _WIN32
+					system("cls");
+				#else
+					system("clear");
+				#endif
 				inputSchoolYearFail();
 				if (choice == 0)
 					goto STAFFMENU;
@@ -80,43 +103,79 @@ STAFFMENU:
 			}
 		}
 		createSchoolYear(curYear);
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		goto STAFFMENU;
 	case 2:
 	INPUTYEAR:
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		std::cout << "\tWhat school year do you want to edit: " << std::endl;
 		listSchoolYear();
 		std::cout << "\n- Your choice (Ex:2023-2024): ";
 		cin >> curYear;
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		if (yearExisted(curYear)) {
 			inputSchoolYearFail();
 			while (std::cin >> choice) {
-				system("cls");
+				#ifdef _WIN32
+					system("cls");
+				#else
+					system("clear");
+				#endif
 				inputSchoolYearFail();
 				if (choice == 0) {
-					system("cls");
+					#ifdef _WIN32
+						system("cls");
+					#else
+						system("clear");
+					#endif
 					goto STAFFMENU;
 				}
 				if (choice == 1) {
-					system("cls");
+					#ifdef _WIN32
+						system("cls");
+					#else
+						system("clear");
+					#endif
 					goto INPUTYEAR;
 				}
 			}
 		}
 		goto EDITSCHOOLYEAR;
 	case 3:
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		while (!user.changePassword()) {
 			changePasswordFail();
 			while (std::cin >> choice) {
 				if (choice == 0) {
-					system("cls");
+					#ifdef _WIN32
+						system("cls");
+					#else
+						system("clear");
+					#endif;
 					goto STAFFMENU;
 				}
 				if (choice == 1) {
-					system("cls");
+					#ifdef _WIN32
+						system("cls");
+					#else
+						system("clear");
+					#endif
 					break;
 				}
 			}
@@ -124,19 +183,31 @@ STAFFMENU:
 		system("pause");
 		break;
 	case 4:
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		user.viewProfileInfo();
 		system("pause");
 		break;
 	default:
 		break;
 	}
-	system("cls");
+	#ifdef _WIN32
+   		system("cls");
+	#else
+		system("clear");
+	#endif
 	goto STAFFMENU;
 EDITSCHOOLYEAR:
 	editSchoolYearMenu();
 	cin >> choice;
-	system("cls");
+	#ifdef _WIN32
+   		system("cls");
+	#else
+		system("clear");
+	#endif
 	switch (choice)
 	{
 	case 0:
@@ -158,62 +229,118 @@ GENERALCLASS:
 	switch (choice)
 	{
 	case 0:
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		goto START;
 	case 1:
 	CREATECLASS:
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		std::cout << "\tWhat general class do you want to create (Ex: 20CLC04) : " ;
 		cin >> curClass;
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		if (classExisted(curYear, curClass)) {
 			createClassFail();
 			while (std::cin >> choice) {
-				system("cls");
+				#ifdef _WIN32
+					system("cls");
+				#else
+					system("clear");
+				#endif
 				createClassFail();
 				if (choice == 0) {
-					system("cls");
+					#ifdef _WIN32
+						system("cls");
+					#else
+						system("clear");
+					#endif
 					goto GENERALCLASS;
 				}
 				if (choice == 1) {
-					system("cls");
+					#ifdef _WIN32
+						system("cls");
+					#else
+						system("clear");
+					#endif
 					goto CREATECLASS;
 				}
 			}
 		}
 		createGeneralClass(curYear, curClass);
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif	
 		goto GENERALCLASS;
 	case 2:
 	INPUTCLASS:
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		std::cout << "\tWhat general class do you want to edit: " <<std::endl;
 		viewListOfGeneralClass(curYear);
 		std::cout << "\n- Your choice (Ex: 20CLC04): ";
 		cin >> curClass;
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		if (!classExisted(curYear, curClass)) {
 			inputClassFail();
 			while (std::cin >> choice) {
-				system("cls");
+				#ifdef _WIN32
+					system("cls");
+				#else
+					system("clear");
+				#endif
 				inputClassFail();
 				if (choice == 0) {
-					system("cls");
+					#ifdef _WIN32
+						system("cls");
+					#else
+						system("clear");
+					#endif
 					goto EDITSCHOOLYEAR;
 				}
 				if (choice == 1)
 					goto INPUTCLASS;
 			}
 		}
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		goto EDITGENERALCLASS;
 	case 3:
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		goto STAFFMENU;
 	case 4:
 		goto EDITSCHOOLYEAR;
 	default:
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		goto GENERALCLASS;
 	}
 EDITGENERALCLASS:
@@ -222,7 +349,11 @@ EDITGENERALCLASS:
 	switch (choice)
 	{
 	case 0:
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		goto START;
 	case 1:
 		listOfStudent(curYear, curClass);
@@ -234,18 +365,34 @@ EDITGENERALCLASS:
 		addOneStudentToClass(curYear, curClass);
 		break;
 	case 4:
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		goto INPUTCLASS;
 	case 5:
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		goto STAFFMENU;
 	default:
 		break;
 	}
-	system("cls");
+	#ifdef _WIN32
+   		system("cls");
+	#else
+		system("clear");
+	#endif
 	goto EDITGENERALCLASS;
 SEMESTER:
-	system("cls");
+	#ifdef _WIN32
+   		system("cls");
+	#else
+		system("clear");
+	#endif
 	semesterMainMenu();
 	cin >> choice;
 	switch (choice) {
@@ -253,14 +400,26 @@ SEMESTER:
 		goto START;
 	case 1:
 	CREATESEMESTER:
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		std::cout << "\tWhat semester do you want to create: " ;
 		cin >> curSemester.semester_num;
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		if (checkSemester(curYear, curSemester.semester_num)) {
 			createSemesterFail();
 			while (std::cin >> choice) {
-				system("cls");
+				#ifdef _WIN32
+					system("cls");
+				#else
+					system("clear");
+				#endif
 				createSemesterFail();
 				if (choice == 0)
 					goto SEMESTER;
@@ -269,18 +428,34 @@ SEMESTER:
 			}
 		}
 		curSemester.createSemester(curYear, curSemester.semester_num);
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		goto SEMESTER;
 	case 2:
 	INPUTSEMESTER:
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		std::cout << "\tWhat semester do you want to edit: ";
 		cin >> curSemester.semester_num;
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		if (!checkSemester(curYear, curSemester.semester_num)) {
 			inputSemesterFail();
 			while (std::cin >> choice) {
-				system("cls");
+				#ifdef _WIN32
+					system("cls");
+				#else
+					system("clear");
+				#endif
 				inputSemesterFail();
 				if (choice == 0)
 					goto SEMESTER;
@@ -291,13 +466,25 @@ SEMESTER:
 		curSemester.loadSemesterData(curYear, curSemester.semester_num);
 		goto EDITSEMESTER;
 	case 3:
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		goto EDITSCHOOLYEAR;
 	case 4:
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		goto STAFFMENU;
 	default:
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		goto SEMESTER;
 		break;
 	}
@@ -309,47 +496,91 @@ EDITSEMESTER:
 	case 0:
 		curSemester.saveData(curYear, curSemester.semester_num);
 		curSemester.deallocate();
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		goto START;
 	case 1:
 	CREATECOURSE:
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		std::cout << "\tWhat course do you want to create (Ex: CS161-23CLC03): ";
 		cin >> curCourse.ID;
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		if (curSemester.findCourse(curCourse)) {
 			createCourseFail();
 			while (std::cin >> choice) {
-				system("cls");
+				#ifdef _WIN32
+					system("cls");
+				#else
+					system("clear");
+				#endif
 				createCourseFail();
 				if (choice == 0) {
-					system("cls");
+					#ifdef _WIN32
+						system("cls");
+					#else
+						system("clear");
+					#endif
 					goto EDITSEMESTER;
 				}
 				if (choice == 1) goto CREATECOURSE;
 			}
 		}
 		curSemester.createCourse(curYear, curCourse);
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		goto EDITSEMESTER;
 	case 2:
 		curSemester.viewCourseList();
 		system("pause");
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		goto EDITSEMESTER;
 	case 3:
 	INPUTCOURSE:
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		std::cout << "\tWhat course do you want to modify (Ex: CS161-23CLC03): ";
 		cin >> curCourse.ID;
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		if (!curSemester.findCourse(curCourse)) {
 			inputCourseFail();
 			while (std::cin >> choice) {
-				system("cls");
+				#ifdef _WIN32
+					system("cls");
+				#else
+					system("clear");
+				#endif
 				inputCourseFail();
 				if (choice == 0) {
-					system("cls");
+					#ifdef _WIN32
+						system("cls");
+					#else
+						system("clear");
+					#endif
 					goto EDITSEMESTER;
 				}
 				if (choice == 1)
@@ -357,33 +588,57 @@ EDITSEMESTER:
 			}
 		}
 		curCourse.loadData(curYear, curSemester.semester_num);
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		goto MODIFYCOURSE;
 	case 4:
 		curSemester.saveData(curYear, curSemester.semester_num);
 		curSemester.deallocate();
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		goto SEMESTER;
 	default:
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		goto EDITSEMESTER;
 	}
 MODIFYCOURSE:
 	modifyCourseMenu();
 	cin >> choice;
-	system("cls");
+	#ifdef _WIN32
+   		system("cls");
+	#else
+		system("clear");
+	#endif
 	switch (choice)
 	{
 	case 0:
 		curCourse.saveData(curYear, curSemester.semester_num);
 		curSemester.saveData(curYear, curSemester.semester_num);
 		curSemester.deallocate();
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		goto START;
 	case 1:
 		curCourse.viewStudent();
 		system("pause");
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		goto MODIFYCOURSE;
 	case 2:
 		importStudent();
@@ -393,7 +648,11 @@ MODIFYCOURSE:
 		case 0:
 			break;
 		case 1:
-			system("cls");
+			#ifdef _WIN32
+				system("cls");
+			#else
+				system("clear");
+			#endif
 			std::cout << "- Enter the path of your input file: ";
 			std::cin.ignore();
 			std::getline(std::cin, path);
@@ -407,33 +666,61 @@ MODIFYCOURSE:
 		default:
 			break;
 		}
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		goto MODIFYCOURSE;
 	case 3:
 		curCourse.deleteStudent();
 		system("pause");
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		goto MODIFYCOURSE;
 	case 4:
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		goto COURSEPOINT;
 	case 5:
 		curSemester.deleteCourse(curYear, curCourse.ID);
 		system("pause");
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		goto EDITSEMESTER;
 	case 6:
 		curSemester.updateCourse();
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		goto MODIFYCOURSE;
 	case 7:
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		curCourse.saveData(curYear, curSemester.semester_num);
 		curCourse.students.deallocate();
 		curCourse.points.deallocate();
 		goto EDITSEMESTER;
 	default:
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		goto MODIFYCOURSE;
 	}
 COURSEPOINT:
@@ -444,38 +731,70 @@ COURSEPOINT:
 		curCourse.saveData(curYear, curSemester.semester_num);
 		curSemester.saveData(curYear, curSemester.semester_num);
 		curSemester.deallocate();
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		goto START;
 	case 1:
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		std::cout << "- Enter the path of your input file: ";
 		std::cin.ignore();
 		std::getline(std::cin, path);
 		curCourse.importScoreboard(path);
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		goto COURSEPOINT;
 	case 2:
 		curCourse.viewScoreboard();
 		system("pause");
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		goto COURSEPOINT;
 	case 3:
 		curCourse.updateResult();
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		goto COURSEPOINT;
 	case 4:
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		curCourse.saveData(curYear, curSemester.semester_num);
 		goto MODIFYCOURSE;
 	default:
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		goto COURSEPOINT;
 	}
 	goto COURSEPOINT;
 STUDENTMENU:
 	studentMenu();
 	std::cin >> choice;
-	system("cls");
+	#ifdef _WIN32
+   		system("cls");
+	#else
+		system("clear");
+	#endif
 	switch (choice) {
 	case 0:
 		goto START;
@@ -484,16 +803,28 @@ STUDENTMENU:
 		break;
 	case 2:
 	STUDENTYEAR:
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		studentChooseYear(user.Username);
 		listSchoolYear();
 		std::cout << "\n- Your choice (Ex: 2023-2024): ";
 		cin >> curYear;
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		if (yearExisted(curYear)) {
 			inputSchoolYearFail();
 			while (std::cin >> choice) {
-				system("cls");
+				#ifdef _WIN32
+					system("cls");
+				#else
+					system("clear");
+				#endif
 				inputSchoolYearFail();
 				if (choice == 0)
 					goto START;
@@ -501,17 +832,33 @@ STUDENTMENU:
 					goto STUDENTYEAR;
 			}
 		}
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		std::cout << "- Enter your semester you want to check (Ex: 2): ";
 	STUDENTSEMESTER:
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		std::cout << "\tWhat semester do you want to check: ";
 		cin >> curSemester.semester_num;
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		if (!checkSemester(curYear, curSemester.semester_num)) {
 			inputSemesterFail();
 			while (std::cin >> choice) {
-				system("cls");
+				#ifdef _WIN32
+					system("cls");
+				#else
+					system("clear");
+				#endif
 				inputSemesterFail();
 				if (choice == 0)
 					goto STUDENTYEAR;
@@ -532,13 +879,25 @@ STUDENTMENU:
 		break;
 	}
 	system("pause");
-	system("cls");
+	#ifdef _WIN32
+   		system("cls");
+	#else
+		system("clear");
+	#endif
 	goto STUDENTMENU;
 STUDENTVIEW:
-	system("cls");
+	#ifdef _WIN32
+   		system("cls");
+	#else
+		system("clear");
+	#endif
 	studentView();
 	std::cin >> choice;
-	system("cls");
+	#ifdef _WIN32
+   		system("cls");
+	#else
+		system("clear");
+	#endif
 	switch (choice) {
 	case 0:
 		curSemester.deallocate();
@@ -555,7 +914,11 @@ STUDENTVIEW:
 	case 3:
 		curSemester.deallocate();
 		curStudentControl.stu_courses.deallocate();
-		system("cls");
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		goto STUDENTMENU;
 	default:
 		break;
