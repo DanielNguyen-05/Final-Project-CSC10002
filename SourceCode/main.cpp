@@ -7,11 +7,6 @@
 #include "studentControl.hpp"
 #include <stdlib.h>
 #include "student.hpp"
-#ifdef _WIN32
-#include <direct.h>
-#else
-#include <sys/stat.h>
-#endif
 
 int main() {
 	Semester curSemester;
@@ -75,7 +70,6 @@ STAFFMENU:
 		system("cls");
 		if (!yearExisted(curYear)) {
 			createSchoolYearFail();
-			system("cls");
 			while (std::cin >> choice) {
 				system("cls");
 				inputSchoolYearFail();
