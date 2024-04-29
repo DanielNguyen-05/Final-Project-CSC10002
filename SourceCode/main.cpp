@@ -14,7 +14,7 @@ int main() {
 	Course curCourse;
 	std::string path;
 	Student curStudent;
-	Student_Control curStudentControl;
+	StudentControl curStudentControl;
 	createBasicData();
 
 START:
@@ -540,7 +540,7 @@ STUDENTVIEW:
 		curStudentControl.stu_courses.deallocate();
 		goto START;
 	case 1:
-		curStudentControl.viewScoreBoard();
+		curStudentControl.viewScoreboard();
 		system("pause");
 		break;
 	case 2:
