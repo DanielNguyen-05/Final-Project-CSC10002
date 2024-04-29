@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-#include "LinkedList.hpp"
+#include "linkedList.hpp"
 #include "student.hpp"
 #include <iomanip>
 #include <sstream>
