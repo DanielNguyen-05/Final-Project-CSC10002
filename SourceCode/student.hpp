@@ -5,13 +5,8 @@
 #include "student_courses.hpp"
 using namespace std;
 
-struct Student{
+struct Student : Users{
     string stu_id;
-    string first_name;
-    string last_name;
-    string gender;
-    string date_of_birth;
-    string soci_id;
 
     LinkedList<StudentCourses> stu_courses;
 
