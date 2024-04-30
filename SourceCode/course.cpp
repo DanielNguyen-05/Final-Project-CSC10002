@@ -213,28 +213,33 @@ void Course::viewStudent() {
 
 void Course::updateResult() {
 	string stu_id;
-#ifdef _WIN32
-	system("cls");
-#else
-	system("clear");
-#endif
+	#ifdef _WIN32
+		system("cls");
+	#else
+		system("clear");
+	#endif
 	std::cout << "- Enter student ID you want to update: ";
 	std::cin >> stu_id;
 	Point pt;
 	pt.stu_id = stu_id;
 	Node<Point>* stu = this->points.findNode(pt);
 	if (stu == nullptr) {
-		std::cout << "Student is not existed!";
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
+		std::cout << "\tStudent is not existed!";
 		std::cout << "\nPress enter to continue...";
 		std::cin.ignore();
 		std::cin.get();
-#ifdef _WIN32
-		system("cls");
-#else
-		system("clear");
-#endif
 	}
 	else {
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		cout << "\tWhich type of point do you want to update?\n";
 		cout << "1. Others Point\n";
 		cout << "2. Midterm Point\n";
@@ -242,76 +247,97 @@ void Course::updateResult() {
 		cout << "4. Overall Point\n";
 		cout << "5. All\n";
 		cout << "P/s: You can select multiple options separated by commas!\n";
-		cout << "\n\tYour choice: ";
+		cout << "\n- Your choice: ";
 		string choice;
 		std::cin.ignore();
 		std::getline(cin, choice);
 		std::stringstream ss(choice);
 		std::string token;
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		while (std::getline(ss, token, ',')) {
 			if (token == "1") {
-				cout << "Others Point: ";
+				cout << "- Others Point: ";
 				cin >> stu->data.others;
 			}
 			else if (token == "2") {
-				cout << "Midterm Point: ";
+				cout << "- Midterm Point: ";
 				cin >> stu->data.midterm;
 			}
 			else if (token == "3") {
-				cout << "Final Point: ";
+				cout << "- Final Point: ";
 				cin >> stu->data.final;
 			}
 			else if (token == "4") {
-				cout << "Overall Point: ";
+				cout << "- Overall Point: ";
 				cin >> stu->data.overall;
 			}
 			else if (token == "5") {
-				cout << "Others Point: ";
+				cout << "- Others Point: ";
 				cin >> stu->data.others;
-				cout << "Midterm Point: ";
+				cout << "- Midterm Point: ";
 				cin >> stu->data.midterm;
-				cout << "Final Point: ";
+				cout << "- Final Point: ";
 				cin >> stu->data.final;
-				cout << "Overall Point: ";
+				cout << "- Overall Point: ";
 				cin >> stu->data.overall;
 			}
 			else {
-				cout << "Invalid choice!\n";
-				cout << "Enter 0 to go back previous page";
-				char select;
-				cin >> select;
-				if (select == '0') return;
-
-#ifdef _WIN32
-				system("cls");
-#else
-				system("clear");
-#endif
+				#ifdef _WIN32
+					system("cls");
+				#else
+					system("clear");
+				#endif
+				cout << "\tInvalid choice!\n";
+                cout << "\nPress enter to re-type the ID of student again!";
+				std::cin.ignore();
+				std::cin.get();
+				#ifdef _WIN32
+					system("cls");
+				#else
+					system("clear");
+				#endif
 				return updateResult();
 			}
 		}
-		std::cout << "\t - Point updated successfully!\n";
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
+		std::cout << "\tPoint updated successfully!\n";
+		std::cout << "\nPress enter to continue...";
+		std::cin.ignore();
+		std::cin.get();
 		return;
 	}
 }
 
 void Course::addStudent() {
 	Student students;
-	std::cout << "Enter student ID: ";
+	std::cout << "- Enter student ID: ";
 	std::cin >> students.stu_id;
 	if (this->studentExistedInCourse(students.stu_id)) {
-		std::cout << "This student is existed!";
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
+		std::cout << "\tThis student is existed!";
 		return;
 	}
-	std::cout << "Enter First name: ";
+	std::cout << "- Enter First name: ";
 	std::cin >> students.first_name;
-	std::cout << "Enter Last name: ";
+	std::cout << "- Enter Last name: ";
 	std::cin >> students.last_name;
-	std::cout << "Enter Gender: ";
+	std::cout << "- Enter Gender: ";
 	std::cin >> students.gender;
-	std::cout << "Enter Date of birth: ";
+	std::cout << "- Enter Date of birth: ";
 	std::cin >> students.date_of_birth;
-	std::cout << "Enter Social ID: ";
+	std::cout << "- Enter Social ID: ";
 	std::cin >> students.soci_id;
 	this->students.insertOrdered(students);
 	Point pt;
@@ -326,15 +352,28 @@ void Course::addStudent() {
 
 void Course::deleteStudent() {
 	Student stu;
-	std::cout << "Enter student ID: ";
+	std::cout << "- Enter student ID: ";
 	std::cin >> stu.stu_id;
 	if (this->students.deleteNode(stu)) {
-		std::cout << "Delete successfully!\n";
+        #ifdef _WIN32
+            system("cls");
+        #else
+            system("clear");
+        #endif
+		std::cout << "\tDelete successfully!\n";
+		
 		Point pt;
 		pt.stu_id = stu.stu_id;
 		this->points.deleteNode(pt);
 	}
-	else std::cout << "Course does not have this student!\n";
+	else {
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
+		std::cout << "\tCourse does not have this student!\n";
+	}
 }
 void Course::matchStudentPoint() {
 	Node<Student>* stu = this->students.pHead;

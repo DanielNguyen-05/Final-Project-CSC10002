@@ -206,6 +206,11 @@ void Semester::updateCourse() {
     std::cin >> course_id;
 
     Node<Course>* cur = this->courses.pHead;
+    #ifdef _WIN32
+		system("cls");
+	#else
+		system("clear");
+	#endif
     std::cout << "\t\t UPDATING THE COURSE " << course_id << ": " << "\n\n";
     while (cur != nullptr) {
         if (cur->data.ID == course_id) {
@@ -226,6 +231,11 @@ void Semester::updateCourse() {
             std::getline(std::cin, choice);
             std::stringstream ss(choice);
             std::string token;
+            #ifdef _WIN32
+                system("cls");
+            #else
+                system("clear");
+            #endif
             while (std::getline(ss, token, ',')) {
                 if (token == "1") {
                     std::cout << "- Enter the new name of this course (Ex: Ky thuat lap trinh): ";
@@ -304,11 +314,10 @@ void Semester::updateCourse() {
                     else                                cur->data.session = "15:30 -> 17:15";
                 }
                 else {
-                    cout << "Invalid choice!" << endl;
-                    cout << "Enter 0 to go back previous page";
-                    char select;
-                    cin  >> select;
-                    if (select == '0') return;
+                    cout << "\tInvalid choice!" << endl;
+                    cout << "\nPress enter to return the the previous page!";
+                    std::cin.ignore();
+                    std::cin.get();
                     #ifdef _WIN32
                         system("cls");
                     #else
@@ -322,20 +331,24 @@ void Semester::updateCourse() {
             #else
                 system("clear");
             #endif
-            std::cout << "\t - Course updated successfully!" << "\n";
+            std::cout << "\tCourse updated successfully!" << "\n";
             std::cout << "\nPress enter to continue...";
             std::cin.ignore();
             std::cin.get();
-            #ifdef _WIN32
-                system("cls");
-            #else
-                system("clear");
-            #endif
             return;
         }
         cur = cur->pNext;
     }
-    std::cout << "\t - Course not found!" << "\n";
+    #ifdef _WIN32
+        system("cls");
+    #else
+        system("clear");
+    #endif
+    std::cout << "\tCourse not found!" << "\n";
+    std::cout << "\nPress enter to continue...";
+    std::cin.ignore();
+    std::cin.get();
+    return;
 }
 
 void Semester::deleteCourse(std::string year, std::string course_id) {

@@ -8,14 +8,14 @@ void programInterface() {
                 << "1. Log in\n"
                 << "0. Stop program\n\n"
 
-                << "Your choice: ";
+                << "- Your choice: ";
 }
 
 void loginFail() {
     std::cout   << "1. Re-login\n"
                 << "0. Back to previous page\n\n"
                 
-                << "Your choice: ";
+                << "- Your choice: ";
 }
 
 void staffMainMenu(std::string username) {
@@ -26,14 +26,14 @@ void staffMainMenu(std::string username) {
                 << "4. View your profile\n"  
                 << "0. Log out\n\n"
 
-                << "Your choice: ";
+                << "- Your choice: ";
 }
 
 void changePasswordFail() {
     std::cout   << "1. Re-enter it \n"
                 << "0. Back to MAIN MENU \n\n"
 
-                << "Your choice: ";
+                << "- Your choice: ";
 }
 
 void createNewSchoolYear() {
@@ -45,7 +45,7 @@ void isNOTcreated() {
                 << "1. Continue creating a new school year\n"
                 << "0. Back to MAIN MENU \n\n"
 
-                << "Your choice: ";
+                << "- Your choice: ";
 }
 
 void editSchoolYearMenu() {
@@ -57,7 +57,7 @@ void editSchoolYearMenu() {
                 << "4. Go back to the Main Menu\n"
                 << "0. Log out\n\n"
 
-                << "Your choice: ";
+                << "- Your choice: ";
 }
 
 void generalClassMenu() {
@@ -69,7 +69,7 @@ void generalClassMenu() {
                 << "4. Go back to the Main Menu\n"
                 << "0. Log out\n\n"
 
-                << "Your choice: ";
+                << "- Your choice: ";
 }
 
 void inputSchoolYearFail() {
@@ -77,7 +77,7 @@ void inputSchoolYearFail() {
                 << "1. Re-enter it \n"
                 << "0. Back to previous page \n\n"
 
-                << "Your choice: ";
+                << "- Your choice: ";
 }
 
 void listSchoolYear() {
@@ -117,7 +117,7 @@ void inputClassFail() {
         << "1. Re-enter it \n"
         << "0. Back to previous page \n\n"
 
-        << "Your choice: ";
+        << "- Your choice: ";
 }
 
 void editGeneralClassMenu() {
@@ -131,7 +131,7 @@ void editGeneralClassMenu() {
         << "6. Go back to the Main Menu\n"
         << "0. Log out\n\n"
 
-        << "Your choice: ";
+        << "- Your choice: ";
 }
 
 void createSchoolYearFail() {
@@ -139,7 +139,7 @@ void createSchoolYearFail() {
         << "1. Re-enter it \n"
         << "0. Back to previous page \n\n"
 
-        << "Your choice: ";
+        << "- Your choice: ";
 }
 
 void semesterMainMenu() {
@@ -150,7 +150,7 @@ void semesterMainMenu() {
         << "4. Go back to the Main Menu\n"
         << "0. Log out\n"
 
-        << "Your choice: ";
+        << "- Your choice: ";
 }
 
 void inputSemesterFail() {
@@ -158,7 +158,7 @@ void inputSemesterFail() {
         << "1. Re-enter it \n"
         << "0. Back to previous page \n\n"
 
-        << "Your choice: ";
+        << "- Your choice: ";
 }
 
 void createSemesterFail() {
@@ -166,7 +166,7 @@ void createSemesterFail() {
         << "1. Re-enter it \n"
         << "0. Back to previous page \n\n"
 
-        << "Your choice: ";
+        << "- Your choice: ";
 }
 
 void createClassFail() {
@@ -174,7 +174,7 @@ void createClassFail() {
         << "1. Re-enter it \n"
         << "0. Back to previous page \n\n"
 
-        << "Your choice: ";
+        << "- Your choice: ";
 }
 
 void editSemesterMenu() {
@@ -186,7 +186,7 @@ void editSemesterMenu() {
         << "4. Go back to the previous page to work on Semesters\n"
         << "0. Log out\n\n"
 
-        << "Your choice: ";
+        << "- Your choice: ";
 }
 
 void inputCourseFail() {
@@ -194,7 +194,7 @@ void inputCourseFail() {
         << "1. Re-enter it \n"
         << "0. Back to previous page \n\n"
 
-        << "Your choice: ";
+        << "- Your choice: ";
 }
 
 void createCourseFail() {
@@ -202,7 +202,7 @@ void createCourseFail() {
         << "1. Re-enter it \n"
         << "0. Back to previous page \n\n"
 
-        << "Your choice: ";
+        << "- Your choice: ";
 }
 
 void modifyCourseMenu() {
@@ -217,7 +217,7 @@ void modifyCourseMenu() {
             << "7. Go back to the previous page\n"
             << "0. Log out\n\n"
 
-            << "Your choice: ";
+            << "- Your choice: ";
 }
 
 void importStudent() {
@@ -226,7 +226,7 @@ void importStudent() {
         << "2.Import a student\n"
         << "0.Go back\n\n"
 
-        << "Your choice: ";
+        << "- Your choice: ";
 }
 
 void inputStudentFail(){
@@ -234,7 +234,7 @@ void inputStudentFail(){
         << "1. Re-enter it \n"
         << "0. Back to previous page \n\n"
 
-        << "Your choice: ";
+        << "- Your choice: ";
 }
 
 void editCoursePointMenu() {
@@ -246,7 +246,7 @@ void editCoursePointMenu() {
         << "4. Go back to the previous page\n"
         << "0. Log out\n\n"
 
-        << "Your choice: ";
+        << "- Your choice: ";
 }
 
 void studentChooseYear(std::string username) {
@@ -262,7 +262,7 @@ void studentMenu() {
         << "3. Change password\n"
         << "0. Log out\n\n"
 
-        << "Your choice: ";
+        << "- Your choice: ";
 }
 
 void studentView() {
@@ -273,5 +273,5 @@ void studentView() {
         << "3. Back to main menu\n"
         << "0. Log out\n\n"
 
-        << "Your choice: ";
+        << "- Your choice: ";
 }

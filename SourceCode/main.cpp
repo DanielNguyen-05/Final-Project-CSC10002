@@ -722,7 +722,6 @@ MODIFYCOURSE:
 		case 2:
 			curCourse.addStudent();
 			std::cout << "\nPress enter to continue...";
-
 			std::cin.ignore();
 			std::cin.get();
 			#ifdef _WIN32
