@@ -441,7 +441,7 @@ void Semester::saveData(std::string schoolyear, int semester) {
             std::cerr << "Error: Unable to open course data file for writing!" << std::endl;
             continue;
         }
-        fout << "ID,Course name,Class name,Teacher name,num_of_credit,max student, day of week, session \n";
+        fout << "ID,Course Name,Class name,Teacher name,num_of_credit,max student, day of week, session \n";
         fout << currentCourse.ID << "," << currentCourse.course_name << "," << currentCourse.class_name << "," << currentCourse.teacher_name << ","
             << currentCourse.num_of_credit << "," << currentCourse.max_student << "," << currentCourse.day_of_week << "," << currentCourse.session << std::endl;
 

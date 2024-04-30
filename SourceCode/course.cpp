@@ -213,13 +213,26 @@ void Course::viewStudent() {
 
 void Course::updateResult() {
 	string stu_id;
-	std::cout << "\t- Enter student ID you want to update: ";
+    #ifdef _WIN32
+        system("cls");
+    #else
+        system("clear");
+    #endif
+	std::cout << "- Enter student ID you want to update: ";
 	std::cin >> stu_id;
 	Point pt;
 	pt.stu_id = stu_id;
 	Node<Point>* stu = this->points.findNode(pt);
 	if (stu == nullptr) {
 		std::cout << "Student is not existed!";
+		std::cout << "\nPress enter to continue...";
+		std::cin.ignore();
+		std::cin.get();
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 	}
 	else {
 		cout << "\tWhich type of point do you want to update?\n";
