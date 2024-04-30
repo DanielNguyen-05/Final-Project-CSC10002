@@ -30,4 +30,6 @@ struct Users {
     void viewProfileInfo();
     bool changePassword();
     void logout();
+
+    void saveData();
 };

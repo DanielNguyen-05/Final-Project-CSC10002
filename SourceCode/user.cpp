@@ -179,21 +179,10 @@ bool Users::changePassword() {
         return false;
     }
 
-
-    std::ofstream fout;
-    if(isStaff) fout.open("Data/Account/AcademicStaff/" + Username + ".txt");
-    else fout.open("Data/Account/Student/" + Username + ".txt");
-    
-    if(!fout.is_open()) {
-        std::cerr << "The user's data is not existed!";
-        return false;
-    }
-
     Password = new_password;
-    fout << new_password;
-    fout.close();
-
+   
     std::cout << "Change password successfully!\n";
+    saveData();
     return true;
 }
 
@@ -202,4 +191,18 @@ void Users::logout() {
     Password = "";
 
     std::cout << "Log out successfully!";
+}
+
+void Users::saveData()
+{
+    std::ofstream fout;
+    if(isStaff) fout.open("Data/Account/AcademicStaff/" + Username + ".txt");
+    else fout.open("Data/Account/Student/" + Username + ".txt");
+    
+    if(!fout.is_open()) {
+        std::cerr << "The user's data is not existed!";
+        return;
+    }
+    fout << Password << "," << user_id << "," << first_name << "," << last_name << "," << gender << "," << date_of_birth << "," << soci_id;
+    fout.close();
 }
