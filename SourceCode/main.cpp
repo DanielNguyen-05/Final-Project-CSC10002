@@ -408,13 +408,16 @@ EDITGENERALCLASS:
 		addOneStudentToClass(curYear, curClass);
 		break;
 	case 4:
+		viewScoreboard(curYear, curClass);
+		break;
+	case 5:
 		#ifdef _WIN32
 			system("cls");
 		#else
 			system("clear");
 		#endif
 		goto INPUTCLASS;
-	case 5:
+	case 6:
 		#ifdef _WIN32
 			system("cls");
 		#else
@@ -913,7 +916,7 @@ STUDENTMENU:
 				#endif
 				inputSchoolYearFail();
 				if (choice == 0)
-					goto START;
+					goto STUDENTMENU;
 				if (choice == 1)
 					goto STUDENTYEAR;
 			}

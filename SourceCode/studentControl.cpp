@@ -4,6 +4,20 @@
 #include <cstring>
 #include <sstream>
 
+double StudentControl::calcGPA() {
+    int count = 0;
+    double sum = 0;
+    Node<StudentCourses>* cur_course = this->stu_courses.pHead;
+    while (cur_course) {
+        if (cur_course->data.overall != "?") {
+            sum += stod(cur_course->data.overall) * cur_course->data.num_of_credit;
+            count += cur_course->data.num_of_credit;
+        }
+        cur_course = cur_course->pNext;
+    }
+    if (count == 0) return -1;
+    return sum / count;
+}
 void StudentControl::loadStudentCoursesData(Semester semester, string stu_id) {
     Node<Course>* cur_course = semester.courses.pHead;
     Node<Student>* cur_stu;

@@ -72,14 +72,14 @@ void Course::importScoreboard(string path) {
 		else getline(fIn, ignore);
 	}
 	std::cout << "import succesfully\n";
-    std::cout << "\nPress enter to continue...";
-    std::cin.ignore();
-    std::cin.get();
-    #ifdef _WIN32
-        system("cls");
-    #else
-        system("clear");
-    #endif
+	std::cout << "\nPress enter to continue...";
+	std::cin.ignore();
+	std::cin.get();
+#ifdef _WIN32
+	system("cls");
+#else
+	system("clear");
+#endif
 	fIn.close();
 }
 void Course::loadScoreboard(string path) {
@@ -115,11 +115,11 @@ void Course::exportScoreboard(string path) {
 		std::cout << "\nPress enter to continue...";
 		std::cin.ignore();
 		std::cin.get();
-		#ifdef _WIN32
-			system("cls");
-		#else
-			system("clear");
-		#endif
+#ifdef _WIN32
+		system("cls");
+#else
+		system("clear");
+#endif
 		return;
 	}
 
@@ -128,13 +128,13 @@ void Course::exportScoreboard(string path) {
 	Node<Point>* cur = this->points.pHead;
 	while (cur) {
 		Point pt = cur->data;
-		fOut	<< counter << "," 
-				<< pt.stu_id << "," 
-				<< pt.full_name << "," 
-				<< pt.overall << ","
-				<< pt.final << "," 
-				<< pt.midterm << "," 
-				<< pt.others;
+		fOut << counter << ","
+			<< pt.stu_id << ","
+			<< pt.full_name << ","
+			<< pt.overall << ","
+			<< pt.final << ","
+			<< pt.midterm << ","
+			<< pt.others;
 		++counter;
 		if (cur->pNext) fOut << endl;
 		cur = cur->pNext;
@@ -143,11 +143,11 @@ void Course::exportScoreboard(string path) {
 }
 void Course::viewScoreboard() {
 	if (!this->points.pHead) return;
-	#ifdef _WIN32
-        system("cls");
-    #else
-        system("clear");
-    #endif
+#ifdef _WIN32
+	system("cls");
+#else
+	system("clear");
+#endif
 	std::cout << "+----+-------------+-----------------+---------------+--------------+---------------+-------------+\n";
 	std::cout << "| No | Student ID  |    Full Name    | Overall Point | Final Point  | Midterm Point |    Others   |\n";
 	std::cout << "+----+-------------+-----------------+---------------+--------------+---------------+-------------+\n";
@@ -186,11 +186,11 @@ void Course::outputCSV(string path) {
 }
 void Course::viewStudent() {
 	if (!this->students.pHead) return;
-    #ifdef _WIN32
-        system("cls");
-    #else
-        system("clear");
-    #endif
+#ifdef _WIN32
+	system("cls");
+#else
+	system("clear");
+#endif
 	std::cout << "+----+-------------+--------------+-------------+--------+----------------+-----------------+\n";
 	std::cout << "| No | Student ID  |  First name  |  Last name  | Gender | Date of birth  |    Social ID    |\n";
 	std::cout << "+----+-------------+--------------+-------------+--------+----------------+-----------------+\n";
@@ -200,12 +200,12 @@ void Course::viewStudent() {
 	while (cur) {
 		no++;
 		std::cout << "| " << std::setw(2) << no << " | ";
-		std::cout << std::setw(11) << cur->data.stu_id			<< " | ";
-		std::cout << std::setw(12) << cur->data.first_name 		<< " | ";
-		std::cout << std::setw(11) << cur->data.last_name 		<< " | ";
-		std::cout << std::setw(6)  << cur->data.gender 			<< " | ";
-		std::cout << std::setw(14) << cur->data.date_of_birth 	<< " | ";
-		std::cout << std::setw(15) << cur->data.soci_id 		<< " |\n";
+		std::cout << std::setw(11) << cur->data.stu_id << " | ";
+		std::cout << std::setw(12) << cur->data.first_name << " | ";
+		std::cout << std::setw(11) << cur->data.last_name << " | ";
+		std::cout << std::setw(6) << cur->data.gender << " | ";
+		std::cout << std::setw(14) << cur->data.date_of_birth << " | ";
+		std::cout << std::setw(15) << cur->data.soci_id << " |\n";
 		cur = cur->pNext;
 	}
 	std::cout << "+----+-------------+--------------+-------------+--------+----------------+-----------------+\n";
@@ -213,11 +213,11 @@ void Course::viewStudent() {
 
 void Course::updateResult() {
 	string stu_id;
-    #ifdef _WIN32
-        system("cls");
-    #else
-        system("clear");
-    #endif
+#ifdef _WIN32
+	system("cls");
+#else
+	system("clear");
+#endif
 	std::cout << "- Enter student ID you want to update: ";
 	std::cin >> stu_id;
 	Point pt;
@@ -228,11 +228,11 @@ void Course::updateResult() {
 		std::cout << "\nPress enter to continue...";
 		std::cin.ignore();
 		std::cin.get();
-		#ifdef _WIN32
-			system("cls");
-		#else
-			system("clear");
-		#endif
+#ifdef _WIN32
+		system("cls");
+#else
+		system("clear");
+#endif
 	}
 	else {
 		cout << "\tWhich type of point do you want to update?\n";
@@ -251,42 +251,42 @@ void Course::updateResult() {
 		while (std::getline(ss, token, ',')) {
 			if (token == "1") {
 				cout << "Others Point: ";
-				cin  >> stu->data.others;
+				cin >> stu->data.others;
 			}
 			else if (token == "2") {
 				cout << "Midterm Point: ";
-				cin  >> stu->data.midterm;
+				cin >> stu->data.midterm;
 			}
 			else if (token == "3") {
 				cout << "Final Point: ";
-				cin  >> stu->data.final;
+				cin >> stu->data.final;
 			}
 			else if (token == "4") {
 				cout << "Overall Point: ";
-				cin  >> stu->data.overall;
+				cin >> stu->data.overall;
 			}
 			else if (token == "5") {
 				cout << "Others Point: ";
-				cin  >> stu->data.others;
+				cin >> stu->data.others;
 				cout << "Midterm Point: ";
-				cin  >> stu->data.midterm;
+				cin >> stu->data.midterm;
 				cout << "Final Point: ";
-				cin  >> stu->data.final;
+				cin >> stu->data.final;
 				cout << "Overall Point: ";
-				cin  >> stu->data.overall;
+				cin >> stu->data.overall;
 			}
 			else {
 				cout << "Invalid choice!\n";
 				cout << "Enter 0 to go back previous page";
 				char select;
-				cin  >> select;
+				cin >> select;
 				if (select == '0') return;
 
-				#ifdef _WIN32
-					system("cls");
-				#else
-					system("clear");
-				#endif
+#ifdef _WIN32
+				system("cls");
+#else
+				system("clear");
+#endif
 				return updateResult();
 			}
 		}
@@ -304,30 +304,30 @@ void Course::addStudent() {
 		return;
 	}
 	std::cout << "Enter First name: ";
-	std::cin  >> students.first_name;
+	std::cin >> students.first_name;
 	std::cout << "Enter Last name: ";
-	std::cin  >> students.last_name;
+	std::cin >> students.last_name;
 	std::cout << "Enter Gender: ";
-	std::cin  >> students.gender;
+	std::cin >> students.gender;
 	std::cout << "Enter Date of birth: ";
-	std::cin  >> students.date_of_birth;
+	std::cin >> students.date_of_birth;
 	std::cout << "Enter Social ID: ";
-	std::cin  >> students.soci_id;
+	std::cin >> students.soci_id;
 	this->students.insertOrdered(students);
 	Point pt;
-	pt.stu_id 		= students.stu_id;
-	pt.full_name 	= students.first_name + " " + students.last_name;
-	pt.final 		= "?";
-	pt.midterm 		= "?";
-	pt.others 		= "?";
-	pt.overall 		= "?";
+	pt.stu_id = students.stu_id;
+	pt.full_name = students.first_name + " " + students.last_name;
+	pt.final = "?";
+	pt.midterm = "?";
+	pt.others = "?";
+	pt.overall = "?";
 	this->points.insertOrdered(pt);
 }
 
 void Course::deleteStudent() {
 	Student stu;
 	std::cout << "Enter student ID: ";
-	std::cin  >> stu.stu_id;
+	std::cin >> stu.stu_id;
 	if (this->students.deleteNode(stu)) {
 		std::cout << "Delete successfully!\n";
 		Point pt;
@@ -343,9 +343,9 @@ void Course::matchStudentPoint() {
 		pt.stu_id = stu->data.stu_id;
 		if (this->points.findNode(pt) == nullptr) {
 			pt.full_name = stu->data.first_name + " " + stu->data.last_name;
-			pt.final   = "?";
+			pt.final = "?";
 			pt.midterm = "?";
-			pt.others  = "?";
+			pt.others = "?";
 			pt.overall = "?";
 			this->points.insertOrdered(pt);
 		}

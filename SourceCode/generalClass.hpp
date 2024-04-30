@@ -3,9 +3,12 @@
 #include <string>
 #include <fstream>
 #include "linkedList.hpp"
-#include "student.hpp"
+#include "semester.hpp"
 #include <iomanip>
 #include <sstream>
+#include "consoleView.hpp"
+#include "schoolyear.hpp"
+#include "studentControl.hpp"
 #ifdef _WIN32
 #include <direct.h>
 #else
@@ -18,3 +21,4 @@ bool createGeneralClass(std::string curYear, std::string curClass);
 bool studentExistedInGeneralClass(std::string curYear, std::string curClass, std::string Student_id);
 bool addOneStudentToClass(std::string curYear, std::string curClass);
 bool importStudent(std::string curYear, std::string curClass);
+void viewScoreboard(std::string classYear, std::string curClass);

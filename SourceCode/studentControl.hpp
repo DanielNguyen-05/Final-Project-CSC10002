@@ -13,4 +13,5 @@ struct StudentControl {
     void loadStudentCoursesData(Semester semester, string stu_id);
     void viewCourses();
     void viewScoreboard();
+    double calcGPA();
 };

@@ -126,8 +126,9 @@ void editGeneralClassMenu() {
         << "1. View list of students in the class\n"
         << "2. Import the list of students from .csv file into the general class\n"
         << "3. Add a student to class\n"
-        << "4. Go back to the previous page to choose another class\n"
-        << "5. Go back to the Main Menu\n"
+        << "4. View scoreboard of class\n"
+        << "5. Go back to the previous page to choose another class\n"
+        << "6. Go back to the Main Menu\n"
         << "0. Log out\n\n"
 
         << "Your choice: ";

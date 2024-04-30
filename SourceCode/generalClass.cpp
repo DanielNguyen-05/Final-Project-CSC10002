@@ -276,3 +276,119 @@ bool importStudent(std::string curYear, std::string curClass) {
     return 1;
 }
 
+void viewScoreboard(std::string classYear, std::string curClass) {
+START:
+        #ifdef _WIN32
+            system("cls");
+        #else
+            system("clear");
+        #endif;
+
+        std::string curYear;
+        Semester curSemester;
+        int choice;
+        GENERALYEAR:
+    #ifdef _WIN32
+            system("cls");
+    #else
+            system("clear");
+    #endif
+            std::cout << "Enter school year you want to check:" << std::endl;
+            listSchoolYear();
+            std::cout << "\n- Your choice (Ex: 2023-2024): ";
+            cin >> curYear;
+    #ifdef _WIN32
+            system("cls");
+    #else
+            system("clear");
+    #endif
+            if (yearExisted(curYear)) {
+                inputSchoolYearFail();
+                while (std::cin >> choice) {
+    #ifdef _WIN32
+                    system("cls");
+    #else
+                    system("clear");
+    #endif
+                    inputSchoolYearFail();
+                    if (choice == 0)
+                        goto START;
+                    if (choice == 1)
+                        goto GENERALYEAR;
+                }
+            }
+    #ifdef _WIN32
+            system("cls");
+    #else
+            system("clear");
+    #endif
+            std::cout << "- Enter your semester you want to check (Ex: 2): ";
+        GENERALSEMESTER:
+    #ifdef _WIN32
+            system("cls");
+    #else
+            system("clear");
+    #endif
+            std::cout << "What semester do you want to check: ";
+            cin >> curSemester.semester_num;
+    #ifdef _WIN32
+            system("cls");
+    #else
+            system("clear");
+    #endif
+            if (!checkSemester(curYear, curSemester.semester_num)) {
+                inputSemesterFail();
+                while (std::cin >> choice) {
+    #ifdef _WIN32
+                    system("cls");
+    #else
+                    system("clear");
+    #endif
+                    inputSemesterFail();
+                    if (choice == 0)
+                        goto GENERALYEAR;
+                    if (choice == 1)
+                        goto GENERALSEMESTER;
+                }
+            }
+    curSemester.loadSemesterData(curYear, curSemester.semester_num);
+    curSemester.loadCourseData(curYear);
+    std::ifstream fin("Data\\GeneralClasses\\" + curYear + "\\" + curClass + ".csv");
+    if (!fin.is_open()) return;
+    StudentControl cur_stu;
+    std::string ignore;
+    Student stu;
+    double GPA;
+    std::string no;
+    getline(fin, ignore);
+    cout << "+----+----------+-----------+-----------+-------+" << endl;
+    cout << "| No | Stu ID   | First Name| Last Name | GPA   |" << endl;
+    cout << "+----+----------+-----------+-----------+-------+" << endl;
+    while (!fin.eof()) {
+        getline(fin, no, ',');
+        if (no == "") break;
+        getline(fin, stu.stu_id, ',');
+        getline(fin, stu.first_name, ',');
+        getline(fin, stu.last_name, ',');
+        getline(fin, ignore);
+        cur_stu.loadStudentCoursesData(curSemester, stu.stu_id);
+        GPA = cur_stu.calcGPA();
+        cout << "| " << setw(2) << no << " | "
+            << setw(8) << stu.stu_id << " | "
+            << setw(9) << stu.first_name << " | "
+            << setw(9) << stu.last_name << " | ";
+        if(GPA != -1)
+            cout << setw(5) << fixed << setprecision(2) << GPA << " |" << endl;
+        else
+            cout << setw(5) << "?" << " |" << endl;
+    }
+    fin.close();
+    curSemester.deallocate();
+    Node<Course>* curCourse = curSemester.courses.pHead;
+    while (curCourse) {
+        curCourse->data.students.deallocate();
+        curCourse->data.points.deallocate();
+        curCourse = curCourse->pNext;
+    }
+    system("pause");
+}

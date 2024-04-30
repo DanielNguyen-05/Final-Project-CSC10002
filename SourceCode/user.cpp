@@ -61,8 +61,8 @@ bool Users::isAcademicStaff(std::string username, std::string password) {
     std::getline(split,account_pass,',');
 
     if(account_pass != password) {
-        // system("cls");
-        // std::cerr << "Wrong password or username!" << std::endl;
+         //system("cls");
+         //std::cerr << "Wrong password or username!" << std::endl;
         return false;
     }
 
