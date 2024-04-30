@@ -361,9 +361,9 @@ START:
     double GPA;
     std::string no;
     getline(fin, ignore);
-    cout << "+----+----------+-----------+-----------+-------+" << endl;
-    cout << "| No | Stu ID   | First Name| Last Name | GPA   |" << endl;
-    cout << "+----+----------+-----------+-----------+-------+" << endl;
+    cout << "+----+------------+-----------+-----------+-------+" << endl;
+    cout << "| No | Student ID |First Name | Last Name |  GPA  |" << endl;
+    cout << "+----+------------+-----------+-----------+-------+" << endl;
     while (!fin.eof()) {
         getline(fin, no, ',');
         if (no == "") break;
