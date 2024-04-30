@@ -36,7 +36,7 @@ START:
    		system("cls");
 	#else
 		system("clear");
-	#endif;
+	#endif
 LOGIN:
 	if(!user.login()) {
 		#ifdef _WIN32
@@ -196,7 +196,7 @@ STAFFMENU:
 						system("cls");
 					#else
 						system("clear");
-					#endif;
+					#endif
 					goto STAFFMENU;
 				}
 				if (choice == 1) {
