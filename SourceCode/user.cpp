@@ -94,7 +94,7 @@ bool Users::login() {
             #else
                 system("clear");
             #endif
-            std::cout << "Log in successfully! Welcome " << Username << "!\n";
+            std::cout << "\tLog in successfully! Welcome " << Username << "!\n";
             std::cout << "\nPress enter to continue...";
             std::cin.ignore();
             std::cin.get();
@@ -112,7 +112,7 @@ bool Users::login() {
             #else
                 system("clear");
             #endif
-            std::cout << "Log in successfully! Welcome, " << Username << "!\n";
+            std::cout << "\tLog in successfully! Welcome, " << Username << "!\n";
             std::cout << "\nPress enter to continue...";
             std::cin.ignore();
             std::cin.get();
@@ -129,7 +129,7 @@ bool Users::login() {
 	#else
 		system("clear");
 	#endif
-    std::cerr << "Wrong password or username!\n";
+    std::cerr << "\tWrong password or username!\n\n";
     return false;
 }
 
@@ -160,28 +160,52 @@ bool Users::changePassword() {
     std::cin  >> re_new_password;
 
     if(password   != Password) {
-        std::cerr << "Your old password is wrong. Please try again!\n"; 
+        #ifdef _WIN32
+            system("cls");
+        #else
+            system("clear");
+        #endif
+        std::cerr << "\tYour old password is wrong. Please try again!\n\n"; 
         return false;
     } 
 
     if(new_password.size() < 8) {
-        std::cerr   << "Error: Password must be longer than 8 characters. Please try again!\n";
+        #ifdef _WIN32
+            system("cls");
+        #else
+            system("clear");
+        #endif
+        std::cerr   << "\tError: Password must be longer than 8 characters. Please try again!\n\n";
         return false;
     }
     
     if(new_password == Password) {
-        std::cerr   << "New password must be different from current password!\n";
+        #ifdef _WIN32
+            system("cls");
+        #else
+            system("clear");
+        #endif
+        std::cerr   << "\tNew password must be different from current password!\n\n";
         return false;
     }
 
     if(new_password != re_new_password) {
-        std::cerr   << "Error: Password do not match. Please try again!\n";
+        #ifdef _WIN32
+            system("cls");
+        #else
+            system("clear");
+        #endif
+        std::cerr   << "\tError: Password do not match. Please try again!\n\n";
         return false;
     }
 
     Password = new_password;
-   
-    std::cout << "Change password successfully!\n";
+    #ifdef _WIN32
+        system("cls");
+    #else
+        system("clear");
+    #endif
+    std::cout << "\tChange password successfully!\n";
     saveData();
     return true;
 }
