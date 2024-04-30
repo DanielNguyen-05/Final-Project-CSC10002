@@ -37,7 +37,7 @@ void changePasswordFail() {
 }
 
 void createNewSchoolYear() {
-    std::cout   << "\t\tCREATING A NEW SCHOOL YEAR\n";
+    std::cout   << "\t\t CREATING A NEW SCHOOL YEAR\n";
 }
 
 void isNOTcreated() {
@@ -143,11 +143,11 @@ void createSchoolYearFail() {
 
 void semesterMainMenu() {
     std::cout << "\tWhat would you like to do?\n"
-        << "0. Log out\n"
         << "1. Create a new semesters\n"
         << "2. Edit an existed semesters\n"
         << "3. Go back to the previous page\n"
         << "4. Go back to the Main Menu\n"
+        << "0. Log out\n"
 
         << "Your choice: ";
 }

@@ -21,25 +21,19 @@ bool yearExisted(std::string year) {
 
 bool yearValid(std::string curyear)
 {
-    if (curyear.length() != 9)
-    {
-        return false;
-    }
+    if (curyear.length() != 9) return false;
     std::string start_year = curyear.substr(0, 4);
     std::string end_year = curyear.substr(5, 4);
     int startyear = stoi(start_year);
     int endyear = stoi(end_year);
-    if (startyear < 1996 || endyear < 1996 || startyear >= endyear)
-    {
-        return false;
-    }
+    if (startyear < 1996 || endyear < 1996 || startyear >= endyear) return false;
     return true;
 }
 
 bool createSchoolYear(std::string curYear) {
     if (!yearValid(curYear)) {
         std::cout << "Invalid year!!!\n";
-        std::cout << "Press enter to continue...";
+        std::cout << "\nPress enter to continue...";
         std::cin.ignore();
         std::cin.get();
         #ifdef _WIN32
@@ -91,7 +85,7 @@ bool createSchoolYear(std::string curYear) {
     yearList.deallocate();
     fout.close();
     std::cout << "Create schoolYear successfully! \n";
-    std::cout << "Press enter to continue...";
+    std::cout << "\nPress enter to continue...";
     std::cin.ignore();
     std::cin.get();
     #ifdef _WIN32

@@ -11,9 +11,9 @@ Student::Student(string stu_id, string first_name, string last_name, string gend
 
 ostream& operator<<(ostream& os, const Student a) {
     os  << a.stu_id << "," 
-        << a.first_name 
-        << "," << a.last_name 
-        << "," << a.gender << "," 
+        << a.first_name << "," 
+        << a.last_name << "," 
+        << a.gender << "," 
         << a.date_of_birth << "," 
         << a.soci_id << "\n";
     return os;

@@ -72,7 +72,7 @@ void Course::importScoreboard(string path) {
 		else getline(fIn, ignore);
 	}
 	std::cout << "import succesfully\n";
-    std::cout << "Press enter to continue...";
+    std::cout << "\nPress enter to continue...";
     std::cin.ignore();
     std::cin.get();
     #ifdef _WIN32
@@ -112,7 +112,7 @@ void Course::exportScoreboard(string path) {
 	fOut.open(path);
 	if (!fOut.is_open()) {
 		cerr << "Error: Unable to open file for writing!" << path << endl;
-		std::cout << "Press enter to continue...";
+		std::cout << "\nPress enter to continue...";
 		std::cin.ignore();
 		std::cin.get();
 		#ifdef _WIN32
@@ -143,7 +143,11 @@ void Course::exportScoreboard(string path) {
 }
 void Course::viewScoreboard() {
 	if (!this->points.pHead) return;
-	system("cls");
+	#ifdef _WIN32
+        system("cls");
+    #else
+        system("clear");
+    #endif
 	std::cout << "+----+-------------+-----------------+---------------+--------------+---------------+-------------+\n";
 	std::cout << "| No | Student ID  |    Full Name    | Overall Point | Final Point  | Midterm Point |    Others   |\n";
 	std::cout << "+----+-------------+-----------------+---------------+--------------+---------------+-------------+\n";
@@ -182,7 +186,11 @@ void Course::outputCSV(string path) {
 }
 void Course::viewStudent() {
 	if (!this->students.pHead) return;
-	system("cls");
+    #ifdef _WIN32
+        system("cls");
+    #else
+        system("clear");
+    #endif
 	std::cout << "+----+-------------+--------------+-------------+--------+----------------+-----------------+\n";
 	std::cout << "| No | Student ID  |  First name  |  Last name  | Gender | Date of birth  |    Social ID    |\n";
 	std::cout << "+----+-------------+--------------+-------------+--------+----------------+-----------------+\n";
@@ -261,7 +269,11 @@ void Course::updateResult() {
 				cin  >> select;
 				if (select == '0') return;
 
-				system("cls");
+				#ifdef _WIN32
+					system("cls");
+				#else
+					system("clear");
+				#endif
 				return updateResult();
 			}
 		}

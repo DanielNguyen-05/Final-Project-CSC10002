@@ -67,11 +67,22 @@ LOGIN:
 	else
 		goto STUDENTMENU;
 STAFFMENU:
+    #ifdef _WIN32
+        system("cls");
+    #else
+        system("clear");
+    #endif
 	staffMainMenu(user.Username);
 	std::cin >> choice;
+    #ifdef _WIN32
+        system("cls");
+    #else
+        system("clear");
+    #endif
 	switch (choice) {
 	case 0:
-        std::cout << "Press enter to continue...";
+		std::cout << "You are logging out..." << std::endl;
+        std::cout << "\nPress enter to continue...";
         std::cin.ignore();
         std::cin.get();
         #ifdef _WIN32
@@ -87,7 +98,8 @@ STAFFMENU:
 		#else
 			system("clear");
 		#endif
-		std::cout << "]\tWhat school year do you want to create (Ex:2023-2024): ";
+		createNewSchoolYear();
+		std::cout << "What school year do you want to create (Ex:2023-2024): ";
 		cin >> curYear;
 		#ifdef _WIN32
 			system("cls");
@@ -104,8 +116,18 @@ STAFFMENU:
 				#endif
 				inputSchoolYearFail();
 				if (choice == 0)
+					#ifdef _WIN32
+						system("cls");
+					#else
+						system("clear");
+					#endif
 					goto STAFFMENU;
 				if (choice == 1)
+					#ifdef _WIN32
+						system("cls");
+					#else
+						system("clear");
+					#endif
 					goto CREATEYEAR;
 			}
 		}
@@ -187,7 +209,7 @@ STAFFMENU:
 				}
 			}
 		}
-        std::cout << "Press enter to continue...";
+        std::cout << "\nPress enter to continue...";
         std::cin.ignore();
         std::cin.get();
         #ifdef _WIN32
@@ -203,7 +225,7 @@ STAFFMENU:
 			system("clear");
 		#endif
 		user.viewProfileInfo();
-        std::cout << "Press enter to continue...";
+        std::cout << "\nPress enter to continue...";
         std::cin.ignore();
         std::cin.get();
         #ifdef _WIN32
@@ -263,7 +285,7 @@ GENERALCLASS:
 		#else
 			system("clear");
 		#endif
-		std::cout << "\tWhat general class do you want to create (Ex: 20CLC04) : " ;
+		std::cout << "What general class do you want to create (Ex: 20CLC04) : " ;
 		cin >> curClass;
 		#ifdef _WIN32
 			system("cls");
@@ -311,7 +333,7 @@ GENERALCLASS:
 		#else
 			system("clear");
 		#endif
-		std::cout << "\tWhat general class do you want to edit: " <<std::endl;
+		std::cout << "What general class do you want to edit: " <<std::endl;
 		viewListOfGeneralClass(curYear);
 		std::cout << "\n- Your choice (Ex: 20CLC04): ";
 		cin >> curClass;
@@ -426,7 +448,7 @@ SEMESTER:
 		#else
 			system("clear");
 		#endif
-		std::cout << "\tWhat semester do you want to create: " ;
+		std::cout << "What semester do you want to create: " ;
 		cin >> curSemester.semester_num;
 		#ifdef _WIN32
 			system("cls");
@@ -462,7 +484,7 @@ SEMESTER:
 		#else
 			system("clear");
 		#endif
-		std::cout << "\tWhat semester do you want to edit: ";
+		std::cout << "What semester do you want to edit: ";
 		cin >> curSemester.semester_num;
 		#ifdef _WIN32
 			system("cls");
@@ -530,7 +552,7 @@ EDITSEMESTER:
 		#else
 			system("clear");
 		#endif
-		std::cout << "\tWhat course do you want to create (Ex: CS161-23CLC03): ";
+		std::cout << "What course do you want to create (Ex: CS161-23CLC03): ";
 		cin >> curCourse.ID;
 		#ifdef _WIN32
 			system("cls");
@@ -566,7 +588,7 @@ EDITSEMESTER:
 		goto EDITSEMESTER;
 	case 2:
 		curSemester.viewCourseList();
-        std::cout << "Press enter to continue...";
+        std::cout << "\nPress enter to continue...";
         std::cin.ignore();
         std::cin.get();
         #ifdef _WIN32
@@ -587,7 +609,7 @@ EDITSEMESTER:
 		#else
 			system("clear");
 		#endif
-		std::cout << "\tWhat course do you want to modify (Ex: CS161-23CLC03): ";
+		std::cout << "What course do you want to modify (Ex: CS161-23CLC03): ";
 		cin >> curCourse.ID;
 		#ifdef _WIN32
 			system("cls");
@@ -661,7 +683,7 @@ MODIFYCOURSE:
 		goto START;
 	case 1:
 		curCourse.viewStudent();
-        std::cout << "Press enter to continue...";
+        std::cout << "\nPress enter to continue...";
         std::cin.ignore();
         std::cin.get();
         #ifdef _WIN32
@@ -696,7 +718,8 @@ MODIFYCOURSE:
 			break;
 		case 2:
 			curCourse.addStudent();
-			std::cout << "Press enter to continue...";
+			std::cout << "\nPress enter to continue...";
+
 			std::cin.ignore();
 			std::cin.get();
 			#ifdef _WIN32
@@ -716,7 +739,7 @@ MODIFYCOURSE:
 		goto MODIFYCOURSE;
 	case 3:
 		curCourse.deleteStudent();
-        std::cout << "Press enter to continue...";
+        std::cout << "\nPress enter to continue...";
         std::cin.ignore();
         std::cin.get();
         #ifdef _WIN32
@@ -739,7 +762,7 @@ MODIFYCOURSE:
 		goto COURSEPOINT;
 	case 5:
 		curSemester.deleteCourse(curYear, curCourse.ID);
-        std::cout << "Press enter to continue...";
+        std::cout << "\nPress enter to continue...";
         std::cin.ignore();
         std::cin.get();
         #ifdef _WIN32
@@ -811,7 +834,7 @@ COURSEPOINT:
 		goto COURSEPOINT;
 	case 2:
 		curCourse.viewScoreboard();
-        std::cout << "Press enter to continue...";
+        std::cout << "\nPress enter to continue...";
         std::cin.ignore();
         std::cin.get();
         #ifdef _WIN32
@@ -907,7 +930,7 @@ STUDENTMENU:
 		#else
 			system("clear");
 		#endif
-		std::cout << "\tWhat semester do you want to check: ";
+		std::cout << "What semester do you want to check: ";
 		cin >> curSemester.semester_num;
 		#ifdef _WIN32
 			system("cls");
@@ -941,7 +964,7 @@ STUDENTMENU:
 		goto STUDENTMENU;
 		break;
 	}
-    std::cout << "Press enter to continue...";
+    std::cout << "\nPress enter to continue...";
     std::cin.ignore();
     std::cin.get();
     #ifdef _WIN32
@@ -975,7 +998,7 @@ STUDENTVIEW:
 		goto START;
 	case 1:
 		curStudentControl.viewScoreboard();
-        std::cout << "Press enter to continue...";
+        std::cout << "\nPress enter to continue...";
         std::cin.ignore();
         std::cin.get();
         #ifdef _WIN32
@@ -986,7 +1009,7 @@ STUDENTVIEW:
 		break;
 	case 2:
 		curStudentControl.viewCourses();
-        std::cout << "Press enter to continue...";
+        std::cout << "\nPress enter to continue...";
         std::cin.ignore();
         std::cin.get();
         #ifdef _WIN32
