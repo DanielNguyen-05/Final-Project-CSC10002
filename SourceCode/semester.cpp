@@ -98,7 +98,28 @@ void Semester::createCourse(std::string curYear, Course& course) {
     
     std::cout << "\t - Enter the day of the week when this course will be held (Ex: MON/TUE/WED/THU/FRI/SAT): ";
     std::cin.ignore();
-    std::getline(std::cin, course.day_of_week);
+    std::string day;
+    std::getline(std::cin, day);
+    if (day == "MON") course.day_of_week = "MONDAY";
+    else if (day == "TUE") course.day_of_week = "TUESDAY";
+    else if (day == "WED") course.day_of_week = "WEDNESDAY";
+    else if (day == "THU") course.day_of_week = "THURSDAY";
+    else if (day == "FRI") course.day_of_week = "FRIDAY";
+    else if (day == "SAT") course.day_of_week = "SATURDAY";
+    else {
+        std::cerr << "Invalid day of week input!\n";
+        cout << "Enter 0 to go back previous page";
+        char select;
+        cin >> select;
+        if (select == '0') return;
+
+        #ifdef _WIN32
+            system("cls");
+        #else
+            system("clear");
+        #endif
+        return this->createCourse(curYear, course);
+    }
     
     std::cout << "\t- Here is a list of sessions:\n"
               << "\t\t 1. S1 (7:30 -> 9:15)\n"
@@ -155,7 +176,7 @@ void Semester::viewCourseList() {
     std::cout << "| " << std::left << std::setw(9) << "Credits";
     std::cout << "| " << std::left << std::setw(14) << "Max Student";
     std::cout << "| " << std::left << std::setw(14) << "Day Of Week";
-    std::cout << "| " << std::left << std::setw(9) << "Session" << "|\n";
+    std::cout << "| " << std::left << std::setw(9) << "Session" << "       |\n";
 
     std::cout << "+-----+---------------+--------------------+---------------+--------------------+----------+---------------+---------------+-----------------+\n";
 
@@ -168,7 +189,7 @@ void Semester::viewCourseList() {
         std::cout << "| " << std::left << std::setw(9) << cur->data.num_of_credit;
         std::cout << "| " << std::left << std::setw(14) << cur->data.max_student;
         std::cout << "| " << std::left << std::setw(14) << cur->data.day_of_week;
-        std::cout << "| " << std::left << std::setw(9) << cur->data.session << "|\n";
+        std::cout << "| " << std::left << std::setw(9) << cur->data.session << "               |\n";
 
         std::cout << "+-----+---------------+--------------------+---------------+--------------------+----------+---------------+---------------+-----------------+\n";
 

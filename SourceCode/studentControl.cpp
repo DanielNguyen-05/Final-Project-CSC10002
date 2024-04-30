@@ -76,14 +76,14 @@ void StudentControl::viewCourses() {
     int no = 0;
     while (cur != nullptr) {
         no++;
-        std::cout << "| " << std::setw(2) << no << " | ";
-        std::cout << std::setw(20) << (cur->data).ID << " | ";
-        std::cout << std::setw(20) << (cur->data).course_name << " | ";
-        std::cout << std::setw(20) << (cur->data).class_name << " | ";
-        std::cout << std::setw(20) << (cur->data).teacher_name << " | ";
-        std::cout << std::setw(16) << (cur->data).num_of_credit << " | ";
-        std::cout << std::setw(11) << (cur->data).day_of_week << " | ";
-        std::cout << std::setw(7)  << (cur->data).session << " |\n";
+        std::cout << "| " << std::setw(2) << no << "               | ";
+        std::cout << std::setw(20) << (cur->data).ID << "               | ";
+        std::cout << std::setw(20) << (cur->data).course_name << "               | ";
+        std::cout << std::setw(20) << (cur->data).class_name << "               | ";
+        std::cout << std::setw(20) << (cur->data).teacher_name << "               | ";
+        std::cout << std::setw(16) << (cur->data).num_of_credit << "               | ";
+        std::cout << std::setw(11) << (cur->data).day_of_week << "               | ";
+        std::cout << std::setw(7)  << (cur->data).session << "               |\n";
 
         cur = cur->pNext;
     }
