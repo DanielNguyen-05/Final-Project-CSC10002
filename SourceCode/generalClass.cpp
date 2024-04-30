@@ -282,7 +282,7 @@ START:
             system("cls");
         #else
             system("clear");
-        #endif;
+        #endif
 
         std::string curYear;
         Semester curSemester;

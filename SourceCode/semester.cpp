@@ -191,7 +191,7 @@ void Semester::viewCourseList() {
         std::cout << "| " << std::left << std::setw(9) << cur->data.num_of_credit;
         std::cout << "| " << std::left << std::setw(14) << cur->data.max_student;
         std::cout << "| " << std::left << std::setw(14) << cur->data.day_of_week;
-        std::cout << "| " << std::left << std::setw(9) << cur->data.session << "               |\n";
+        std::cout << "| " << std::left << std::setw(16) << cur->data.session << "|\n";
 
         std::cout << "+-----+---------------+--------------------+---------------+--------------------+----------+---------------+---------------+-----------------+\n";
 
