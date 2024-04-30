@@ -46,21 +46,23 @@ void Semester::loadSemesterData(std::string schoolyear, int semester) /* School 
     {
         std::string courses_path = "Data/" + schoolyear + "/Semester" + std::string(intStr) + "/" + courses_id + "/" + courses_id + ".csv";
         fin.open(courses_path);
-        std::getline(fin, line);
-        stringstream split(line);
-        getline(fin, tmp.ID, ',');
-        getline(fin, tmp.course_name, ',');
-        getline(fin, tmp.class_name, ',');
-        getline(fin, tmp.teacher_name, ',');
-        getline(fin, tmpNum, ',');
-        tmp.num_of_credit = atoi(tmpNum.c_str());
-        getline(fin, tmpNum, ',');
-        tmp.max_student = atoi(tmpNum.c_str());
-        getline(fin, tmp.day_of_week, ',');
-        getline(fin, tmp.session);
-
-        fin.close();
-        this->courses.insertAtTail(tmp);
+        if(fin.is_open())
+        {
+            std::getline(fin, line);
+            stringstream split(line);
+            getline(fin, tmp.ID, ',');
+            getline(fin, tmp.course_name, ',');
+            getline(fin, tmp.class_name, ',');
+            getline(fin, tmp.teacher_name, ',');
+            getline(fin, tmpNum, ',');
+            tmp.num_of_credit = atoi(tmpNum.c_str());
+            getline(fin, tmpNum, ',');
+            tmp.max_student = atoi(tmpNum.c_str());
+            getline(fin, tmp.day_of_week, ',');
+            getline(fin, tmp.session);
+            fin.close();
+            this->courses.insertAtTail(tmp);
+        }
     }
     f_courses_list.close();
 }
