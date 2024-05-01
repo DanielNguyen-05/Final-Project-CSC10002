@@ -313,7 +313,7 @@ void viewScoreboard(std::string curYear, std::string curClass) {
         
     curSemester.loadSemesterData(curYear, curSemester.semester_num);
     curSemester.loadCourseData(curYear);
-    std::ifstream fin("Data\\GeneralClasses\\" + curYear + "\\" + curClass + ".csv");
+    std::ifstream fin("Data/GeneralClasses/" + curYear + "/" + curClass + ".csv");
     if (!fin.is_open()) return;
     StudentControl cur_stu;
     std::string ignore;
@@ -345,11 +345,13 @@ void viewScoreboard(std::string curYear, std::string curClass) {
     }
     fin.close();
     curSemester.deallocate();
-    Node<Course>* curCourse = curSemester.courses.pHead;
-    while (curCourse) {
-        curCourse->data.students.deallocate();
-        curCourse->data.points.deallocate();
-        curCourse = curCourse->pNext;
-    }
-    system("pause");
+
+    std::cout << "\nPress enter to continue...";
+    std::cin.ignore();
+    std::cin.get();
+    #ifdef _WIN32
+        system("cls");
+    #else
+        system("clear");
+    #endif
 }
