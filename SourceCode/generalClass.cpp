@@ -46,8 +46,9 @@ void listOfStudent(std::string curYear, std::string curClass) {
         std::cout << std::setw(14) << s << " | ";
         getline(fin, s);
         std::cout << std::setw(15) << s << " |\n";
+        std::cout << "+----+-------------+--------------+-------------+--------+----------------+-----------------+\n";
     }
-    std::cout << "+----+-------------+--------------+-------------+--------+----------------+-----------------+\n";
+    // std::cout << "+----+-------------+--------------+-------------+--------+----------------+-----------------+\n";
     fin.close();
     std::cout << "\nPress enter to continue...";
     std::cin.ignore();
@@ -381,6 +382,7 @@ START:
             cout << setw(5) << fixed << setprecision(2) << GPA << " |" << endl;
         else
             cout << setw(5) << "?" << " |" << endl;
+        cout << "+----+------------+-----------+-----------+-------+" << endl;
     }
     fin.close();
     curSemester.deallocate();
