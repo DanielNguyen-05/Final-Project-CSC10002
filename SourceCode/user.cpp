@@ -129,7 +129,7 @@ bool Users::login() {
 	#else
 		system("clear");
 	#endif
-    std::cerr << "\tWrong password or username!\n\n";
+    std::cout << "\tWrong password or username!\n\n";
     return false;
 }
 
@@ -144,7 +144,7 @@ void Users::viewProfileInfo() {
 
 bool Users::changePassword() {
     if(Password   == "") {
-        std::cerr << "The user's data is not existed!";
+        std::cout << "The user's data is not existed!";
         return false;
     }
 

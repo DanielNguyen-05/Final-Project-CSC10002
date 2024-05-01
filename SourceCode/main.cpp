@@ -772,11 +772,6 @@ MODIFYCOURSE:
         #else
             system("clear");
         #endif
-		#ifdef _WIN32
-			system("cls");
-		#else
-			system("clear");
-		#endif
 		goto EDITSEMESTER;
 	case 6:
 		curSemester.updateCourse();

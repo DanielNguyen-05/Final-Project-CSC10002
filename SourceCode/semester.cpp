@@ -371,7 +371,7 @@ void Semester::deleteCourse(std::string year, std::string course_id) {
     #else
         system("clear");
     #endif
-    std::cout << "\t This course is deleted successfully" << "\n";
+    std::cout << "\tThis course is deleted successfully" << "\n";
     std::cout << "\nPress enter to continue...";
     std::cin.ignore();
     std::cin.get();
@@ -398,19 +398,18 @@ void Semester::deleteCourse(std::string year, std::string course_id) {
 
     #endif
 
-    if(!isAppear) std::cout << "- Course not found!" << "\n";
-    else std::cout << "- Delete course successfully! \n";
-
-    // std::cout << "\nPress enter to continue...";
-    // std::cin.ignore();
-    // std::cin.get();
-    // #ifdef _WIN32
-    //     system("cls");
-    // #else
-    //     system("clear");
-    // #endif
+    if(!isAppear) {
+        std::cout << "\tCourse not found!" << "\n";
+        std::cout << "\nPress enter to continue...";
+        std::cin.ignore();
+        std::cin.get();
+        #ifdef _WIN32
+            system("cls");
+        #else
+            system("clear");
+        #endif
+    }
 }
-
 void Semester::createSemester(std::string year, int semester) {
     std::string path = "Data/" + year + "/Semester" + std::to_string(semester);
     createDirectory(path);
