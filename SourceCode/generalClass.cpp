@@ -398,7 +398,7 @@ START:
         cur_stu.loadStudentCoursesData(curSemester, stu.stu_id);
         GPA = cur_stu.calcGPA();
         cout << "| " << setw(2) << no << " | "
-            << setw(8) << stu.stu_id << " | "
+            << setw(10) << stu.stu_id << " | "
             << setw(9) << stu.first_name << " | "
             << setw(9) << stu.last_name << " | ";
         if(GPA != -1)
