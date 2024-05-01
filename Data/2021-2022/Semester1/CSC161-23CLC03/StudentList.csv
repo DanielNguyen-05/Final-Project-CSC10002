@@ -1,4 +1,4 @@
-no,student_id,first_name,last_name,gender,date_of_birth,social_id
+no,stu_id,first_name,last_name,gender,date_of_birth,soci_id
 1,21127003,Bich,Le,Female,03/01/2003,456789123
 2,21127004,Chau,Pham,Female,04/01/2003,789123456
 3,21127005,Dang,Vu,Male,05/01/2003,321654987
@@ -18,4 +18,4 @@ no,student_id,first_name,last_name,gender,date_of_birth,social_id
 17,21127020,Phu,Luu,Male,20/01/2003,456321789
 18,21127069,Hoa,Ngo,Female,09012003,258369147
 19,21127070,Phuong,Luu,Male,20/01/2003,456321789
-20,23127157,Nguyen,Bao,Male,19/03/2005,0844xxxxxx
+20,23127165,Dang,Nguyen,Male,26/11/2005,087205xxxxxx
