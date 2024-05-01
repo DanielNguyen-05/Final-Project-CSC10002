@@ -80,25 +80,25 @@ void Semester::loadCourseData(std::string curYear) {
 }
 
 void Semester::createCourse(std::string curYear, Course& course) {
-    std::cout << "\t\t\t CREATING A NEW COURSE - " << course.ID << "\n\n";
+    std::cout << "\t\t CREATING A NEW COURSE - " << course.ID << "\n\n";
 
-    std::cout << "\t - Enter the name of this course (Ex: Programming Techniques): ";
+    std::cout << "- Enter the name of this course (Ex: Programming Techniques): ";
     std::cin.ignore();
     std::getline(std::cin, course.course_name);
     
-    std::cout << "\t - Enter the class to which this course belongs (Ex: 23CLC03): ";
+    std::cout << "- Enter the class to which this course belongs (Ex: 23CLC03): ";
     std::getline(std::cin, course.class_name);
     
-    std::cout << "\t - Enter the teacher of this course: ";
+    std::cout << "- Enter the teacher of this course: ";
     std::getline(std::cin, course.teacher_name);
     
-    std::cout << "\t - Enter the number of credits for this course (Ex: 4): ";
+    std::cout << "- Enter the number of credits for this course (Ex: 4): ";
     std::cin >> course.num_of_credit;
     
-    std::cout << "\t - Enter the maximum number of students for this course: ";
+    std::cout << "- Enter the maximum number of students for this course: ";
     std::cin >> course.max_student;
     
-    std::cout << "\t - Enter the day of the week when this course will be held (Ex: MON/TUE/WED/THU/FRI/SAT): ";
+    std::cout << "- Enter the day of the week when this course will be held (Ex: MON/TUE/WED/THU/FRI/SAT): ";
     std::cin.ignore();
     std::string day;
     std::getline(std::cin, day);
@@ -109,7 +109,7 @@ void Semester::createCourse(std::string curYear, Course& course) {
     else if (day == "FRI") course.day_of_week = "FRIDAY";
     else if (day == "SAT") course.day_of_week = "SATURDAY";
     else {
-        std::cerr << "Invalid day of week input!\n";
+        std::cerr << "\tInvalid day of week input!\n";
         cout << "Enter 0 to go back previous page";
         char select;
         cin >> select;
@@ -123,12 +123,12 @@ void Semester::createCourse(std::string curYear, Course& course) {
         return this->createCourse(curYear, course);
     }
     
-    std::cout << "\t- Here is a list of sessions:\n"
-              << "\t\t 1. S1 (7:30 -> 9:15)\n"
-              << "\t\t 2. S2 (9:30 -> 11:15)\n"
-              << "\t\t 3. S3 (13:30 -> 15:15)\n"
-              << "\t\t 4. S4 (15:30 -> 17:15)\n\n"
-              << "\t - Enter the session for this course (Ex: S1): ";
+    std::cout << "- Here is a list of sessions:\n"
+              << "\t1. S1 (7:30 -> 9:15)\n"
+              << "\t2. S2 (9:30 -> 11:15)\n"
+              << "\t3. S3 (13:30 -> 15:15)\n"
+              << "\t4. S4 (15:30 -> 17:15)\n\n"
+              << "- Enter the session for this course (Ex: S1): ";
     std::string sessionInput;
     std::getline(std::cin, sessionInput);
     
@@ -137,7 +137,7 @@ void Semester::createCourse(std::string curYear, Course& course) {
     else if (sessionInput == "S3") course.session = "13:30 -> 15:15";
     else if (sessionInput == "S4") course.session = "15:30 -> 17:15";
     else {
-        std::cerr << "Invalid session input!\n";
+        std::cerr << "\tInvalid session input!\n";
         cout << "Enter 0 to go back previous page";
         char select;
         cin >> select;
@@ -183,12 +183,12 @@ void Semester::viewCourseList() {
     std::cout << "+-----+---------------+--------------------+---------------+--------------------+----------+---------------+---------------+-----------------+\n";
 
     while (cur != nullptr) {
-        std::cout << "| " << std::left << std::setw(4) << no;
+        std::cout << "| " << std::left << std::setw(4)  << no;
         std::cout << "| " << std::left << std::setw(14) << cur->data.ID;
         std::cout << "| " << std::left << std::setw(19) << cur->data.course_name;
         std::cout << "| " << std::left << std::setw(14) << cur->data.class_name;
         std::cout << "| " << std::left << std::setw(19) << cur->data.teacher_name;
-        std::cout << "| " << std::left << std::setw(9) << cur->data.num_of_credit;
+        std::cout << "| " << std::left << std::setw(9)  << cur->data.num_of_credit;
         std::cout << "| " << std::left << std::setw(14) << cur->data.max_student;
         std::cout << "| " << std::left << std::setw(14) << cur->data.day_of_week;
         std::cout << "| " << std::left << std::setw(16) << cur->data.session << "|\n";
@@ -269,11 +269,11 @@ void Semester::updateCourse() {
                     std::getline(std::cin, cur->data.day_of_week);
                 }
                 else if (token == "8") {
-                    std::cout << "- Here is the a list of sessions: " << "\n"
-                        << "\t 1. S1 (7:30 -> 9:15)" << "\n"
-                        << "\t 2. S2 (9:30 -> 11:15)" << "\n"
-                        << "\t 3. S3 (13:30 -> 15:15)" << "\n"
-                        << "\t 4. S4 (15:30 -> 17:15)" << "\n"
+                    std::cout << "- Here is the a list of sessions: " << "\n\n"
+                        << "\t1. S1 (7:30 -> 9:15)" << "\n"
+                        << "\t2. S2 (9:30 -> 11:15)" << "\n"
+                        << "\t3. S3 (13:30 -> 15:15)" << "\n"
+                        << "\t4. S4 (15:30 -> 17:15)" << "\n"
                         << "- Which sessions, this course will be held (Ex: S1): ";
                     std::cin.ignore();
                     std::getline(std::cin, cur->data.session);
@@ -300,11 +300,11 @@ void Semester::updateCourse() {
                     std::cout << "- Enter the new day of week when this course will be held (ex: MON/TUE/WED/THU/FRI/SAT): ";
                     std::cin.ignore();
                     std::getline(std::cin, cur->data.day_of_week);
-                    std::cout << "- Here is the a list of sessions: " << "\n"
-                              << "\t 1. S1 (7:30 -> 9:15)" << "\n"
-                              << "\t 2. S2 (9:30 -> 11:15)" << "\n"
-                              << "\t 3. S3 (13:30 -> 15:15)" << "\n"
-                              << "\t 4. S4 (15:30 -> 17:15)" << "\n"
+                    std::cout << "- Here is the a list of sessions: " << "\n\n"
+                              << "\t1. S1 (7:30 -> 9:15)" << "\n"
+                              << "\t2. S2 (9:30 -> 11:15)" << "\n"
+                              << "\t3. S3 (13:30 -> 15:15)" << "\n"
+                              << "\t4. S4 (15:30 -> 17:15)" << "\n"
                               << "- Which sessions, this course will be held (Ex: S1): ";
                     std::cin.ignore();
                     std::getline(std::cin, cur->data.session);
@@ -369,7 +369,7 @@ void Semester::deleteCourse(std::string year, std::string course_id) {
     #else
         system("clear");
     #endif
-    std::cout << "- Course not found!" << "\n";
+    std::cout << "\t This course is deleted successfully" << "\n";
     std::cout << "\nPress enter to continue...";
     std::cin.ignore();
     std::cin.get();
