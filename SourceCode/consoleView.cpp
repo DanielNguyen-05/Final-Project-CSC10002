@@ -148,7 +148,7 @@ void semesterMainMenu() {
         << "2. Edit an existed semesters\n"
         << "3. Go back to the previous page\n"
         << "4. Go back to the Main Menu\n"
-        << "0. Log out\n"
+        << "0. Log out\n\n"
 
         << "- Your choice: ";
 }
@@ -251,7 +251,7 @@ void editCoursePointMenu() {
 
 void studentChooseYear(std::string username) {
     std::cout << "\tHello, " << username << "\n"
-              << "Enter a school year which you want to check: \n" ;
+              << "Enter a school year which you want to check: " ;
 }
 
 void studentMenu() {

@@ -555,7 +555,7 @@ EDITSEMESTER:
 		#else
 			system("clear");
 		#endif
-		std::cout << "What course do you want to create (Ex: CS161-23CLC03): ";
+		std::cout << "What course do you want to create (Ex: CSC161-23CLC03): ";
 		cin >> curCourse.ID;
 		#ifdef _WIN32
 			system("cls");
@@ -612,7 +612,7 @@ EDITSEMESTER:
 		#else
 			system("clear");
 		#endif
-		std::cout << "What course do you want to modify (Ex: CS161-23CLC03): ";
+		std::cout << "What course do you want to modify (Ex: CSC161-23CLC03): ";
 		cin >> curCourse.ID;
 		#ifdef _WIN32
 			system("cls");
