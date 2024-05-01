@@ -371,14 +371,11 @@ void Semester::deleteCourse(std::string year, std::string course_id) {
     #else
         system("clear");
     #endif
-<<<<<<< HEAD
     std::cout << "\t This course is deleted successfully" << "\n";
     std::cout << "\nPress enter to continue...";
     std::cin.ignore();
     std::cin.get();
-=======
 
->>>>>>> 5074d1b59477a78e56487ade2ecf5e9cd38a90bd
     #ifdef _WIN32
         // Delete all files in the folder of this course
         std::string folder_path = "Data\\" + year + "\\Semester" + std::to_string(this->semester_num) + "\\" + course_id;
