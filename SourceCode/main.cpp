@@ -285,7 +285,7 @@ GENERALCLASS:
 		#else
 			system("clear");
 		#endif
-		std::cout << "What general class do you want to create (Ex: 20CLC04) : " ;
+		std::cout << "\tWhat general class do you want to create (Ex: 20CLC04) : " ;
 		cin >> curClass;
 		#ifdef _WIN32
 			system("cls");
@@ -333,7 +333,7 @@ GENERALCLASS:
 		#else
 			system("clear");
 		#endif
-		std::cout << "What general class do you want to edit: " <<std::endl;
+		std::cout << "\tWhat general class do you want to edit: " <<std::endl;
 		viewListOfGeneralClass(curYear);
 		std::cout << "\n- Your choice (Ex: 20CLC04): ";
 		cin >> curClass;

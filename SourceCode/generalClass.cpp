@@ -135,21 +135,34 @@ bool studentExistedInGeneralClass(std::string curYear, std::string curClass, std
 bool addOneStudentToClass(std::string curYear, std::string curClass) {
     Student students;
     do {
-        std::cout << "Enter Student ID: ";
+        std::cout << "- Enter Student ID: ";
         std::cin >> students.stu_id;
         if (studentExistedInGeneralClass(curYear, curClass, students.stu_id)) {
-            std::cout << "Student_ID " << students.stu_id << " already exist\n";
+			#ifdef _WIN32
+				system("cls");
+			#else
+				system("clear");
+			#endif
+            std::cout << "Student_ID " << students.stu_id << " has been already existed\n";
+            std::cout << "\nPress enter to continue...";
+            std::cin.ignore();
+            std::cin.get();
+			#ifdef _WIN32
+				system("cls");
+			#else
+				system("clear");
+			#endif
         }
     } while (studentExistedInGeneralClass(curYear, curClass, students.stu_id));
-    std::cout << "Enter First name: ";
+    std::cout << "- Enter First name: ";
     std::cin  >> students.first_name;
-    std::cout << "Enter Last name: ";
+    std::cout << "- Enter Last name: ";
     std::cin  >> students.last_name;
-    std::cout << "Enter Gender: ";
+    std::cout << "- Enter Gender: ";
     std::cin  >> students.gender;
-    std::cout << "Enter Date of birth (DD/MM/YYYY): ";
+    std::cout << "- Enter Date of birth (DD/MM/YYYY): ";
     std::cin  >> students.date_of_birth;
-    std::cout << "Enter Social ID: ";
+    std::cout << "- Enter Social ID: ";
     std::cin  >> students.soci_id;
     LinkedList<Student> Studentlist;
 
