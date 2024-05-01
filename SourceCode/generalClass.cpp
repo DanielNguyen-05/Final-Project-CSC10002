@@ -300,81 +300,17 @@ bool importStudent(std::string curYear, std::string curClass) {
     return 1;
 }
 
-void viewScoreboard(std::string classYear, std::string curClass) {
-START:
-        #ifdef _WIN32
-            system("cls");
-        #else
-            system("clear");
-        #endif
+void viewScoreboard(std::string curYear, std::string curClass) {
 
-        std::string curYear;
-        Semester curSemester;
-        int choice;
-        GENERALYEAR:
-            #ifdef _WIN32
-                    system("cls");
-            #else
-                    system("clear");
-            #endif
-            std::cout << "Enter school year you want to check: " << std::endl;
-            listSchoolYear();
-            std::cout << "\n- Your choice (Ex: 2023-2024): ";
-            cin >> curYear;
-            #ifdef _WIN32
-                system("cls");
-            #else
-                system("clear");
-            #endif
-            if (yearExisted(curYear)) {
-                inputSchoolYearFail();
-                while (std::cin >> choice) {
-                    #ifdef _WIN32
-                        system("cls");
-                    #else
-                        system("clear");
-                    #endif
-                    inputSchoolYearFail();
-                    if (choice == 0)
-                        goto START;
-                    if (choice == 1)
-                        goto GENERALYEAR;
-                }
-            }
-            #ifdef _WIN32
-                system("cls");
-            #else
-                system("clear");
-            #endif
-            std::cout << "- Enter your semester you want to check (Ex: 2): ";
-        GENERALSEMESTER:
-            #ifdef _WIN32
-                system("cls");
-            #else
-                system("clear");
-            #endif
-            std::cout << "What semester do you want to check: ";
-            cin >> curSemester.semester_num;
-            #ifdef _WIN32
-                system("cls");
-            #else
-                system("clear");
-            #endif
-            if (!checkSemester(curYear, curSemester.semester_num)) {
-                inputSemesterFail();
-                while (std::cin >> choice) {
-    #               ifdef _WIN32
-                        system("cls");
-                    #else
-                        system("clear");
-                    #endif
-                    inputSemesterFail();
-                    if (choice == 0)
-                        goto GENERALYEAR;
-                    if (choice == 1)
-                        goto GENERALSEMESTER;
-                }
-            }
+    Semester curSemester;
+    std::cout << "What semester do you want to view scoreboard: ";
+    std::cin >> curSemester.semester_num;
+    #ifdef _WIN32
+        system("cls");
+    #else
+        system("clear");
+    #endif
+        
     curSemester.loadSemesterData(curYear, curSemester.semester_num);
     curSemester.loadCourseData(curYear);
     std::ifstream fin("Data\\GeneralClasses\\" + curYear + "\\" + curClass + ".csv");

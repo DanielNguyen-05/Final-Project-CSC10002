@@ -408,6 +408,11 @@ EDITGENERALCLASS:
 		addOneStudentToClass(curYear, curClass);
 		break;
 	case 4:
+		#ifdef _WIN32
+			system("cls");
+		#else
+			system("clear");
+		#endif
 		viewScoreboard(curYear, curClass);
 		break;
 	case 5:
