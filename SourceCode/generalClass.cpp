@@ -331,8 +331,12 @@ void viewScoreboard(std::string curYear, std::string curClass) {
         getline(fin, stu.first_name, ',');
         getline(fin, stu.last_name, ',');
         getline(fin, ignore);
+
+        std::cout << stu.stu_id << "\n";
+
         cur_stu.loadStudentCoursesData(curSemester, stu.stu_id);
         GPA = cur_stu.calcGPA();
+
         cout << "| " << setw(2) << no << " | "
             << setw(10) << stu.stu_id << " | "
             << setw(9) << stu.first_name << " | "
