@@ -251,7 +251,7 @@ void editCoursePointMenu() {
 
 void studentChooseYear(std::string username) {
     std::cout << "\tHello, " << username << "\n"
-              << "Enter a school year which you want to check: " ;
+              << "Enter a school year which you want to check:\n" ;
 }
 
 void studentMenu() {
