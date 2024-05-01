@@ -9,11 +9,11 @@ void createStaffAccount() {
     std::string password;
     std::string re_pass;
 
-    std::cout << "Please input username: ";
+    std::cout << "- Please input username: ";
     std::cin  >> username;
-    std::cout << "Please input password: ";
+    std::cout << "- Please input password: ";
     std::cin  >> password;
-    std::cout << "Please re_type password: ";
+    std::cout << "- Please re_type password: ";
     std::cin  >> re_pass;
     if(re_pass.size() < 8) {
         std::cerr << "Error: Password must be longer than 8 characters. Please try again!\n";
@@ -31,7 +31,7 @@ void createStaffAccount() {
 
     if(fin.is_open()) {
         fin.close();
-        std::cerr << "Username has existed";
+        std::cerr << "\tThe username has been existed";
         return;
     } 
     std::ofstream fout;
@@ -39,29 +39,29 @@ void createStaffAccount() {
     fout.open(path);
     fout << password << ",";
     std::string tmp;
-    std::cout   << "\t\t\tUSER PROFILE INFORMATION:\n";
+    std::cout   << "\t\tUSER PROFILE INFORMATION:\n";
     
-    std::cout   << "User ID: ";
+    std::cout   << "- User ID: ";
     std::cin    >> tmp;
     fout << tmp << ",";
     
-    std::cout   << "First name: ";
+    std::cout   << "- First name: ";
     std::cin    >> tmp;
     fout << tmp << ",";
 
-    std::cout   << "Last name: ";
+    std::cout   << "- Last name: ";
     std::cin    >> tmp;
     fout << tmp << ",";
 
-    std::cout   << "Gender: ";
+    std::cout   << "- Gender: ";
     std::cin    >> tmp;
     fout << tmp << ",";
 
-    std::cout   << "Date of birth (d/m/y): ";
+    std::cout   << "- Date of birth (dd/mm/yyyy): ";
     std::cin    >> tmp;
     fout << tmp << ",";
 
-    std::cout   << "Social ID: ";
+    std::cout   << "- Social ID: ";
     std::cin    >> tmp;
     fout << tmp << ",";
 
@@ -75,7 +75,7 @@ void createStudentAccount(std::string username) {
 
     if(fin.is_open()){
         fin.close();
-        std::cerr << "Username has existed";
+        std::cerr << "\tThe username has been existed";
         return;
     } 
     std::ofstream fout;
@@ -83,29 +83,29 @@ void createStudentAccount(std::string username) {
     fout << "12345678,";
 
     std::string tmp;
-    std::cout   << "\t\t\tUSER PROFILE INFORMATION:\n";
+    std::cout   << "\t\tUSER PROFILE INFORMATION:\n";
 
-    std::cout   << "User ID: ";
+    std::cout   << "- User ID: ";
     std::cin    >> tmp;
     fout << tmp << ",";
     
-    std::cout   << "First name: ";
+    std::cout   << "- First name: ";
     std::cin    >> tmp;
     fout << tmp << ",";
 
-    std::cout   << "Last name: ";
+    std::cout   << "- Last name: ";
     std::cin    >> tmp;
     fout << tmp << ",";
 
-    std::cout   << "Gender: ";
+    std::cout   << "- Gender: ";
     std::cin    >> tmp;
     fout << tmp << ",";
 
-    std::cout   << "Date of birth (d/m/y): ";
+    std::cout   << "- Date of birth (dd/mm/yyyy): ";
     std::cin    >> tmp;
     fout << tmp << ",";
 
-    std::cout   << "Social ID: ";
+    std::cout   << "- Social ID: ";
     std::cin    >> tmp;
     fout << tmp << ",";
     

@@ -48,7 +48,6 @@ void listOfStudent(std::string curYear, std::string curClass) {
         std::cout << std::setw(15) << s << " |\n";
         std::cout << "+----+-------------+--------------+-------------+--------+----------------+-----------------+\n";
     }
-    // std::cout << "+----+-------------+--------------+-------------+--------+----------------+-----------------+\n";
     fin.close();
     std::cout << "\nPress enter to continue...";
     std::cin.ignore();
@@ -98,7 +97,7 @@ bool createGeneralClass(std::string curYear, std::string curClass) {
     }
     else
         fin.close();
-    std::cout << "Create class successfully!\n";
+    std::cout << "\tThis class is created successfully!\n";
     std::cout << "\nPress enter to continue...";
     std::cin.ignore();
     std::cin.get();
@@ -144,7 +143,7 @@ bool addOneStudentToClass(std::string curYear, std::string curClass) {
 			#else
 				system("clear");
 			#endif
-            std::cout << "Student_ID " << students.stu_id << " has been already existed\n";
+            std::cout << "\tStudent_ID " << students.stu_id << " has been already existed\n";
             std::cout << "\nPress enter to continue...";
             std::cin.ignore();
             std::cin.get();
@@ -207,7 +206,7 @@ bool addOneStudentToClass(std::string curYear, std::string curClass) {
     }
     Studentlist.deallocate();
     fout.close();
-    std::cout << "Add student successfully!\n";
+    std::cout << "\tThis student is added successfully!\n";
     std::cout << "\nPress enter to continue...";
     std::cin.ignore();
     std::cin.get();
@@ -288,7 +287,7 @@ bool importStudent(std::string curYear, std::string curClass) {
     #else
         system("clear");
     #endif
-    std::cout << "\tAdd student successfully!\n";
+    std::cout << "\tThis student is added successfully!\n";
     std::cout << "\nPress enter to continue...";
     std::cin.ignore();
     std::cin.get();

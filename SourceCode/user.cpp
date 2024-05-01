@@ -82,10 +82,10 @@ bool Users::isAcademicStaff(std::string username, std::string password) {
 bool Users::login() {
     std::string username;
     std::string password;
-    std::cout << "Please input username: ";
+    std::cout << "- Please input username: ";
     std::cin  >> username;
 
-    std::cout << "Please input password: ";
+    std::cout << "- Please input password: ";
     std::cin  >> password;
 
     if (isStudent(username, password)) {
@@ -94,7 +94,7 @@ bool Users::login() {
             #else
                 system("clear");
             #endif
-            std::cout << "\tLog in successfully! Welcome " << Username << "!\n";
+            std::cout << "\tLog in successfully! Welcome, student " << Username << "!\n";
             std::cout << "\nPress enter to continue...";
             std::cin.ignore();
             std::cin.get();
@@ -112,7 +112,7 @@ bool Users::login() {
             #else
                 system("clear");
             #endif
-            std::cout << "\tLog in successfully! Welcome, " << Username << "!\n";
+            std::cout << "\tLog in successfully! Welcome, staff " << Username << "!\n";
             std::cout << "\nPress enter to continue...";
             std::cin.ignore();
             std::cin.get();
@@ -129,12 +129,12 @@ bool Users::login() {
 	#else
 		system("clear");
 	#endif
-    std::cout << "\tWrong password or username!\n\n";
+    std::cout << "\t\tWrong password or username!\n";
     return false;
 }
 
 void Users::viewProfileInfo() {
-    std::cout   << "\t\t USER PROFILE INFORMATION:\n"
+    std::cout   << "\t\tUSER PROFILE INFORMATION:\n"
                 << "- User ID: " << user_id << "\n"
                 << "- Full name: " << last_name +" "+ first_name << "\n"
                 << "- Gender: " << gender << "\n"
@@ -149,19 +149,19 @@ bool Users::changePassword() {
         #else
             system("clear");
         #endif
-        std::cout << "\tThe user's data is not existed! Please try again!\n\n";
+        std::cout << "\tThe user's data is not existed! Please try again!\n";
         return false;
     }
 
     std::string password , new_password , re_new_password;
 
-    std::cout << "Current password: ";
+    std::cout << "- Current password: ";
     std::cin  >> password;
 
-    std::cout << "New password: ";
+    std::cout << "- New password: ";
     std::cin  >> new_password;
     
-    std::cout << "Re-type new password: ";
+    std::cout << "- Re-type new password: ";
     std::cin  >> re_new_password;
 
     if(password   != Password) {
@@ -170,7 +170,7 @@ bool Users::changePassword() {
         #else
             system("clear");
         #endif
-        std::cerr << "\tYour old password is wrong. Please try again!\n\n"; 
+        std::cerr << "\tYour old password is wrong. Please try again!\n"; 
         return false;
     } 
 
@@ -180,7 +180,7 @@ bool Users::changePassword() {
         #else
             system("clear");
         #endif
-        std::cerr   << "\tError: Password must be longer than 8 characters. Please try again!\n\n";
+        std::cerr   << "\tError: Password must be longer than 8 characters. Please try again!\n";
         return false;
     }
     
@@ -190,7 +190,7 @@ bool Users::changePassword() {
         #else
             system("clear");
         #endif
-        std::cerr   << "\tNew password must be different from current password!\n\n";
+        std::cerr   << "\tNew password must be different from current password!\n";
         return false;
     }
 
@@ -200,7 +200,7 @@ bool Users::changePassword() {
         #else
             system("clear");
         #endif
-        std::cerr   << "\tError: Password do not match. Please try again!\n\n";
+        std::cerr   << "\tError: Password do not match. Please try again!\n";
         return false;
     }
 

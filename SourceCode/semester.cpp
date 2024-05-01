@@ -123,7 +123,7 @@ void Semester::createCourse(std::string curYear, Course& course) {
         return this->createCourse(curYear, course);
     }
     
-    std::cout << "- Here is a list of sessions:\n"
+    std::cout << "- Here is a list of sessions:\n\n"
               << "\t1. S1 (7:30 -> 9:15)\n"
               << "\t2. S2 (9:30 -> 11:15)\n"
               << "\t3. S3 (13:30 -> 15:15)\n"
@@ -132,7 +132,7 @@ void Semester::createCourse(std::string curYear, Course& course) {
     std::string sessionInput;
     std::getline(std::cin, sessionInput);
     
-    if (sessionInput == "S1") course.session = "7:30 -> 9:15";
+    if      (sessionInput == "S1") course.session = "7:30 -> 9:15";
     else if (sessionInput == "S2") course.session = "9:30 -> 11:15";
     else if (sessionInput == "S3") course.session = "13:30 -> 15:15";
     else if (sessionInput == "S4") course.session = "15:30 -> 17:15";
@@ -170,15 +170,15 @@ void Semester::viewCourseList() {
 
     std::cout << "+-----+---------------+--------------------+---------------+--------------------+----------+---------------+---------------+-----------------+\n";
 
-    std::cout << "| " << std::left << std::setw(4) << "No";
+    std::cout << "| " << std::left << std::setw(4)  << "No";
     std::cout << "| " << std::left << std::setw(14) << "ID of Course";
     std::cout << "| " << std::left << std::setw(19) << "Course Name";
     std::cout << "| " << std::left << std::setw(14) << "Class Name";
     std::cout << "| " << std::left << std::setw(19) << "Teacher Name";
-    std::cout << "| " << std::left << std::setw(9) << "Credits";
+    std::cout << "| " << std::left << std::setw(9)  << "Credits";
     std::cout << "| " << std::left << std::setw(14) << "Max Student";
     std::cout << "| " << std::left << std::setw(14) << "Day Of Week";
-    std::cout << "| " << std::left << std::setw(9) << "Session" << "       |\n";
+    std::cout << "| " << std::left << std::setw(9)  << "Session" << "       |\n";
 
     std::cout << "+-----+---------------+--------------------+---------------+--------------------+----------+---------------+---------------+-----------------+\n";
 
@@ -331,7 +331,7 @@ void Semester::updateCourse() {
             #else
                 system("clear");
             #endif
-            std::cout << "\tCourse updated successfully!" << "\n";
+            std::cout << "\tThis course is updated successfully!" << "\n";
             std::cout << "\nPress enter to continue...";
             std::cin.ignore();
             std::cin.get();
@@ -344,7 +344,7 @@ void Semester::updateCourse() {
     #else
         system("clear");
     #endif
-    std::cout << "\tCourse not found!" << "\n";
+    std::cout << "\tThis course is not found!" << "\n";
     std::cout << "\nPress enter to continue...";
     std::cin.ignore();
     std::cin.get();
@@ -395,11 +395,10 @@ void Semester::deleteCourse(std::string year, std::string course_id) {
         system(("rm " + file_path_2).c_str());
         system(("rm " + file_path_3).c_str());
         system(("rm -r " + folder_path).c_str());
-
     #endif
 
     if(!isAppear) {
-        std::cout << "\tCourse not found!" << "\n";
+        std::cout << "\tThis course is not found!" << "\n";
         std::cout << "\nPress enter to continue...";
         std::cin.ignore();
         std::cin.get();
@@ -454,7 +453,7 @@ void Semester::createSemester(std::string year, int semester) {
     #else
         system("clear");
     #endif
-    std::cout << "\tThe semester is created successfully!\n";
+    std::cout << "\tThis semester is created successfully!\n";
     std::cout << "\nPress enter to continue...";
     std::cin.ignore();
     std::cin.get();
@@ -499,7 +498,7 @@ void Semester::saveData(std::string schoolyear, int semester) {
             std::cerr << "Error: Unable to open course data file for writing!" << std::endl;
             continue;
         }
-        fout << "ID,Course Name,Class name,Teacher name,num_of_credit,max student, day of week, session \n";
+        fout << "ID,Course Name,Class name,Teacher name,num_of_credit,max student,day of week,session \n";
         fout << currentCourse.ID << "," << currentCourse.course_name << "," << currentCourse.class_name << "," << currentCourse.teacher_name << ","
             << currentCourse.num_of_credit << "," << currentCourse.max_student << "," << currentCourse.day_of_week << "," << currentCourse.session << std::endl;
 
