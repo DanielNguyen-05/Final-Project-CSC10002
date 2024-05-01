@@ -317,7 +317,13 @@ void Course::updateResult() {
 }
 
 void Course::addStudent() {
+	#ifdef _WIN32
+		system("cls");
+	#else
+		system("clear");
+	#endif
 	Student students;
+	std::cout << "\tADDING A STUDENT TO THE COURSE\n\n";
 	std::cout << "- Enter student ID: ";
 	std::cin >> students.stu_id;
 	if (this->studentExistedInCourse(students.stu_id)) {
@@ -327,6 +333,9 @@ void Course::addStudent() {
 			system("clear");
 		#endif
 		std::cout << "\tThis student is existed!";
+		std::cout << "\nPress enter to continue...";
+		std::cin.ignore();
+		std::cin.get();
 		return;
 	}
 	std::cout << "- Enter First name: ";
@@ -347,11 +356,18 @@ void Course::addStudent() {
 	pt.midterm = "?";
 	pt.others = "?";
 	pt.overall = "?";
+    #ifdef _WIN32
+        system("cls");
+    #else
+        system("clear");
+    #endif
+	std::cout << "\tThis student is added successfully!\n";
 	this->points.insertOrdered(pt);
 }
 
 void Course::deleteStudent() {
 	Student stu;
+	std::cout << "\tDELETE A STUDENT OUT OF THE COURSE\n\n";
 	std::cout << "- Enter student ID: ";
 	std::cin >> stu.stu_id;
 	if (this->students.deleteNode(stu)) {
@@ -360,8 +376,7 @@ void Course::deleteStudent() {
         #else
             system("clear");
         #endif
-		std::cout << "\tDelete successfully!\n";
-		
+		std::cout << "\tThis student is deleted successfully!\n";
 		Point pt;
 		pt.stu_id = stu.stu_id;
 		this->points.deleteNode(pt);
@@ -373,6 +388,9 @@ void Course::deleteStudent() {
 			system("clear");
 		#endif
 		std::cout << "\tCourse does not have this student!\n";
+		std::cout << "\nPress enter to continue...";
+		std::cin.ignore();
+		std::cin.get();
 	}
 }
 void Course::matchStudentPoint() {
