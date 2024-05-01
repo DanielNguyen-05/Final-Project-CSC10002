@@ -129,7 +129,7 @@ bool Users::login() {
 	#else
 		system("clear");
 	#endif
-    std::cout << "\tWrong password or username!\n\n";
+    std::cout << "\tWrong password or username!\n";
     return false;
 }
 
@@ -149,7 +149,7 @@ bool Users::changePassword() {
         #else
             system("clear");
         #endif
-        std::cout << "\tThe user's data is not existed! Please try again!\n\n";
+        std::cout << "\tThe user's data is not existed! Please try again!\n";
         return false;
     }
 
@@ -170,7 +170,7 @@ bool Users::changePassword() {
         #else
             system("clear");
         #endif
-        std::cerr << "\tYour old password is wrong. Please try again!\n\n"; 
+        std::cerr << "\tYour old password is wrong. Please try again!\n"; 
         return false;
     } 
 
@@ -180,7 +180,7 @@ bool Users::changePassword() {
         #else
             system("clear");
         #endif
-        std::cerr   << "\tError: Password must be longer than 8 characters. Please try again!\n\n";
+        std::cerr   << "\tError: Password must be longer than 8 characters. Please try again!\n";
         return false;
     }
     
@@ -190,7 +190,7 @@ bool Users::changePassword() {
         #else
             system("clear");
         #endif
-        std::cerr   << "\tNew password must be different from current password!\n\n";
+        std::cerr   << "\tNew password must be different from current password!\n";
         return false;
     }
 
@@ -200,7 +200,7 @@ bool Users::changePassword() {
         #else
             system("clear");
         #endif
-        std::cerr   << "\tError: Password do not match. Please try again!\n\n";
+        std::cerr   << "\tError: Password do not match. Please try again!\n";
         return false;
     }
 
