@@ -241,7 +241,12 @@ bool importStudent(std::string curYear, std::string curClass) {
     }
     fin.close();
     std::string input_file;
-    std::cout << "Input the importing file path: ";
+    #ifdef _WIN32
+        system("cls");
+    #else
+        system("clear");
+    #endif
+    std::cout << "- Input the importing file path: ";
     std::cin.ignore();
     std::getline(std::cin, input_file);
     std::ifstream fin2;
@@ -278,7 +283,12 @@ bool importStudent(std::string curYear, std::string curClass) {
     }
     fout.close();
     Studentlist.deallocate();
-    std::cout << "Add student successfully!\n";
+    #ifdef _WIN32
+        system("cls");
+    #else
+        system("clear");
+    #endif
+    std::cout << "\tAdd student successfully!\n";
     std::cout << "\nPress enter to continue...";
     std::cin.ignore();
     std::cin.get();
@@ -302,28 +312,28 @@ START:
         Semester curSemester;
         int choice;
         GENERALYEAR:
-    #ifdef _WIN32
-            system("cls");
-    #else
-            system("clear");
-    #endif
-            std::cout << "Enter school year you want to check:" << std::endl;
+            #ifdef _WIN32
+                    system("cls");
+            #else
+                    system("clear");
+            #endif
+            std::cout << "Enter school year you want to check: " << std::endl;
             listSchoolYear();
             std::cout << "\n- Your choice (Ex: 2023-2024): ";
             cin >> curYear;
-    #ifdef _WIN32
-            system("cls");
-    #else
-            system("clear");
-    #endif
+            #ifdef _WIN32
+                system("cls");
+            #else
+                system("clear");
+            #endif
             if (yearExisted(curYear)) {
                 inputSchoolYearFail();
                 while (std::cin >> choice) {
-    #ifdef _WIN32
-                    system("cls");
-    #else
-                    system("clear");
-    #endif
+                    #ifdef _WIN32
+                        system("cls");
+                    #else
+                        system("clear");
+                    #endif
                     inputSchoolYearFail();
                     if (choice == 0)
                         goto START;
@@ -331,33 +341,33 @@ START:
                         goto GENERALYEAR;
                 }
             }
-    #ifdef _WIN32
-            system("cls");
-    #else
-            system("clear");
-    #endif
+            #ifdef _WIN32
+                system("cls");
+            #else
+                system("clear");
+            #endif
             std::cout << "- Enter your semester you want to check (Ex: 2): ";
         GENERALSEMESTER:
-    #ifdef _WIN32
-            system("cls");
-    #else
-            system("clear");
-    #endif
+            #ifdef _WIN32
+                system("cls");
+            #else
+                system("clear");
+            #endif
             std::cout << "What semester do you want to check: ";
             cin >> curSemester.semester_num;
-    #ifdef _WIN32
-            system("cls");
-    #else
-            system("clear");
-    #endif
+            #ifdef _WIN32
+                system("cls");
+            #else
+                system("clear");
+            #endif
             if (!checkSemester(curYear, curSemester.semester_num)) {
                 inputSemesterFail();
                 while (std::cin >> choice) {
-    #ifdef _WIN32
-                    system("cls");
-    #else
-                    system("clear");
-    #endif
+    #               ifdef _WIN32
+                        system("cls");
+                    #else
+                        system("clear");
+                    #endif
                     inputSemesterFail();
                     if (choice == 0)
                         goto GENERALYEAR;
