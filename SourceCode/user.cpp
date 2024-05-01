@@ -129,7 +129,7 @@ bool Users::login() {
 	#else
 		system("clear");
 	#endif
-    std::cout << "\tWrong password or username!\n";
+    std::cout << "\t\tWrong password or username!\n";
     return false;
 }
 
@@ -155,13 +155,13 @@ bool Users::changePassword() {
 
     std::string password , new_password , re_new_password;
 
-    std::cout << "Current password: ";
+    std::cout << "- Current password: ";
     std::cin  >> password;
 
-    std::cout << "New password: ";
+    std::cout << "- New password: ";
     std::cin  >> new_password;
     
-    std::cout << "Re-type new password: ";
+    std::cout << "- Re-type new password: ";
     std::cin  >> re_new_password;
 
     if(password   != Password) {
