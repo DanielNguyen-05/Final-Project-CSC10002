@@ -135,16 +135,21 @@ bool Users::login() {
 
 void Users::viewProfileInfo() {
     std::cout   << "\t\t USER PROFILE INFORMATION:\n"
-                << "User ID: " << user_id << "\n"
-                << "Full name: " << last_name +" "+ first_name << "\n"
-                << "Gender: " << gender << "\n"
-                << "Date of birth: " << date_of_birth << "\n"
-                << "Social ID: " << soci_id << "\n";
+                << "- User ID: " << user_id << "\n"
+                << "- Full name: " << last_name +" "+ first_name << "\n"
+                << "- Gender: " << gender << "\n"
+                << "- Date of birth: " << date_of_birth << "\n"
+                << "- Social ID: " << soci_id << "\n";
 }
 
 bool Users::changePassword() {
     if(Password   == "") {
-        std::cout << "The user's data is not existed!";
+        #ifdef _WIN32
+            system("cls");
+        #else
+            system("clear");
+        #endif
+        std::cout << "\tThe user's data is not existed! Please try again!\n\n";
         return false;
     }
 
@@ -214,7 +219,7 @@ void Users::logout() {
     Username = "";
     Password = "";
 
-    std::cout << "Log out successfully!";
+    std::cout << "\tLog out successfully!";
 }
 
 void Users::saveData()
