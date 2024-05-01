@@ -354,11 +354,13 @@ void Semester::updateCourse() {
 void Semester::deleteCourse(std::string year, std::string course_id) {
     Node<Course>* cur = this->courses.pHead;
     Node<Course>* prev = nullptr;
+    bool isAppear = 0;
     while (cur != nullptr) {
         if (cur->data.ID == course_id) {
             if (prev == nullptr) this->courses.pHead = cur->pNext;
             else prev->pNext = cur->pNext;
             delete cur;
+            isAppear = 1;
             break;
         }
         prev = cur;
@@ -369,24 +371,47 @@ void Semester::deleteCourse(std::string year, std::string course_id) {
     #else
         system("clear");
     #endif
+<<<<<<< HEAD
     std::cout << "\t This course is deleted successfully" << "\n";
     std::cout << "\nPress enter to continue...";
     std::cin.ignore();
     std::cin.get();
+=======
+
+>>>>>>> 5074d1b59477a78e56487ade2ecf5e9cd38a90bd
     #ifdef _WIN32
-        system("cls");
+        // Delete all files in the folder of this course
+        std::string folder_path = "Data\\" + year + "\\Semester" + std::to_string(this->semester_num) + "\\" + course_id;
+        std::string file_path_1 = folder_path + "\\" + course_id + ".csv";
+        std::string file_path_2 = folder_path + "\\StudentList.csv";
+        std::string file_path_3 = folder_path + "\\Point.csv";
+        system(("del " + file_path_1).c_str());
+        system(("del " + file_path_2).c_str());
+        system(("del " + file_path_3).c_str());
+        system(("rmdir " + folder_path).c_str());
     #else
-        system("clear");
+        std::string folder_path = "Data/" + year + "/Semester" + std::to_string(this->semester_num) + "/" + course_id;
+        std::string file_path_1 = folder_path + "/" + course_id + ".csv";
+        std::string file_path_2 = folder_path + "/StudentList.csv";
+        std::string file_path_3 = folder_path + "/Point.csv";
+        system(("rm " + file_path_1).c_str());
+        system(("rm " + file_path_2).c_str());
+        system(("rm " + file_path_3).c_str());
+        system(("rm -r " + folder_path).c_str());
+
     #endif
-    // Delete all files in the folder of this course
-    std::string folder_path = "Data/" + year + "/Semester" + std::to_string(this->semester_num) + "/" + course_id;
-    std::string file_path_1 = folder_path + "/" + course_id + ".csv";
-    std::string file_path_2 = folder_path + "/StudentList.csv";
-    std::string file_path_3 = folder_path + "/Point.csv";
-    system(("del " + file_path_1).c_str());
-    system(("del " + file_path_2).c_str());
-    system(("del " + file_path_3).c_str());
-    system(("rmdir " + folder_path).c_str());
+
+    if(!isAppear) std::cout << "- Course not found!" << "\n";
+    else std::cout << "- Delete course successfully! \n";
+
+    // std::cout << "\nPress enter to continue...";
+    // std::cin.ignore();
+    // std::cin.get();
+    // #ifdef _WIN32
+    //     system("cls");
+    // #else
+    //     system("clear");
+    // #endif
 }
 
 void Semester::createSemester(std::string year, int semester) {
