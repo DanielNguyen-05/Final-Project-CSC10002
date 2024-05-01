@@ -24,10 +24,10 @@ void createBasicData() {
 	else
 		fIn.close();
 
-	fIn.open("Data/Account/AcademicStaff/miTomThanhLong.txt");
+	fIn.open("Data/Account/AcademicStaff/TaiKhoanHeThong.txt");
 	if (!fIn.is_open()) {
-		std::ofstream fOut("Data/Account/AcademicStaff/miTomThanhLong.txt");
-		fOut << "miTomKati";
+		std::ofstream fOut("Data/Account/AcademicStaff/TaiKhoanHeThong.txt");
+		fOut << "Day la tai khoan cua he thong\n";
 		fOut.close();
 	}
 	else

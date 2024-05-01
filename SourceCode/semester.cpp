@@ -410,6 +410,7 @@ void Semester::deleteCourse(std::string year, std::string course_id) {
         #endif
     }
 }
+
 void Semester::createSemester(std::string year, int semester) {
     std::string path = "Data/" + year + "/Semester" + std::to_string(semester);
     createDirectory(path);
@@ -428,7 +429,7 @@ void Semester::createSemester(std::string year, int semester) {
     }
     fIn.close();
 
-    std::cout << "\t\t CREATING A NEW SEMESTER S" << semester << " IN " << year << "\n\n";
+    std::cout << "\t\t CREATING A NEW SEMESTER " << semester << " IN " << year << "\n\n";
     this->semester_num = semester;
     std::cout << "- Enter the start date (Ex: 05/09/2023): ";
     std::cin  >> this->start_day;
@@ -453,7 +454,7 @@ void Semester::createSemester(std::string year, int semester) {
     #else
         system("clear");
     #endif
-    std::cout << "Create semester successfully!\n";
+    std::cout << "\tThe semester is created successfully!\n";
     std::cout << "\nPress enter to continue...";
     std::cin.ignore();
     std::cin.get();

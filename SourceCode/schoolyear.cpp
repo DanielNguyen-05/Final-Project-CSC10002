@@ -32,7 +32,7 @@ bool yearValid(std::string curyear)
 
 bool createSchoolYear(std::string curYear) {
     if (!yearValid(curYear)) {
-        std::cout << "Invalid year!!!\n";
+        std::cout << "\tInvalid year!!!\n";
         std::cout << "\nPress enter to continue...";
         std::cin.ignore();
         std::cin.get();
@@ -84,7 +84,7 @@ bool createSchoolYear(std::string curYear) {
     }
     yearList.deallocate();
     fout.close();
-    std::cout << "Create schoolYear successfully! \n";
+    std::cout << "\tThe school year is created successfully!";
     std::cout << "\nPress enter to continue...";
     std::cin.ignore();
     std::cin.get();
