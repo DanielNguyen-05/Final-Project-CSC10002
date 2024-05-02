@@ -184,6 +184,7 @@ void editSemesterMenu() {
         << "2. View all courses in this semester \n"
         << "3. Modify a course\n"
         << "4. Go back to the previous page to work on Semesters\n"
+        << "5. Go back to MAIN MENU\n"
         << "0. Log out\n\n"
 
         << "- Your choice: ";
@@ -215,6 +216,7 @@ void modifyCourseMenu() {
             << "5. Delete this course\n"
             << "6. Update information for this course\n"
             << "7. Go back to the previous page\n"
+            << "8. Go back to MAIN MENU\n"
             << "0. Log out\n\n"
 
             << "- Your choice: ";
@@ -244,6 +246,8 @@ void editCoursePointMenu() {
         << "2. View scoreboard of a course\n"
         << "3. Update a student's result\n"
         << "4. Go back to the previous page\n"
+        << "5. Go back to MAIN MENU\n"
+
         << "0. Log out\n\n"
 
         << "- Your choice: ";

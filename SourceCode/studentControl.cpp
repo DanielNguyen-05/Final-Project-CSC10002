@@ -68,40 +68,42 @@ void StudentControl::loadStudentCoursesData(Semester semester, string stu_id) {
     }
 }
 void StudentControl::viewCourses() {
-    #ifdef _WIN32
-   		system("cls");
-	#else
-		system("clear");
-	#endif
+#ifdef _WIN32
+    system("cls");
+#else
+    system("clear");
+#endif
+
     Node<StudentCourses>* cur = stu_courses.pHead;
 
-    std::cout << "+----+----------------------+----------------------+----------------------+----------------------+-------------------+-------------+-----------------+\n";
-    std::cout << "| No |      Course ID       |     Course name      |      Class name      |     Teacher name     | Number of credits | Day of week |     Session     |\n";
-    std::cout << "+----+----------------------+----------------------+----------------------+----------------------+-------------------+-------------+-----------------+\n";
+    std::cout << "+----+----------------------+----------------------+----------------------+----------------------+-------------------+-------------+-------------------+\n";
+    std::cout << "| No |      Course ID       |     Course name      |      Class name      |     Teacher name     | Number of credits | Day of week |      Session      |\n";
+    std::cout << "+----+----------------------+----------------------+----------------------+----------------------+-------------------+-------------+-------------------+\n";
 
     int no = 0;
     while (cur != nullptr) {
         no++;
         std::cout << "| " << std::setw(2) << no << " | ";
-        std::cout << std::setw(20) << (cur->data).ID << " | ";
-        std::cout << std::setw(20) << (cur->data).course_name << " | ";
-        std::cout << std::setw(20) << (cur->data).class_name << " | ";
-        std::cout << std::setw(20) << (cur->data).teacher_name << " | ";
-        std::cout << std::setw(17) << (cur->data).num_of_credit << " | ";
-        std::cout << std::setw(11) << (cur->data).day_of_week << " | ";
-        std::cout << std::setw(7)  << (cur->data).session << "    |\n";
+        std::cout << std::left << std::setw(20) << (cur->data).ID << " | ";
+        std::cout << std::left << std::setw(20) << (cur->data).course_name << " | ";
+        std::cout << std::setw(20) << std::right << (cur->data).class_name << " | ";
+        std::cout << std::setw(20) << std::right << (cur->data).teacher_name << " | ";
+        std::cout << std::setw(17) << std::right << (cur->data).num_of_credit << " | ";
+        std::cout << std::setw(11) << std::right << (cur->data).day_of_week << " | ";
+        std::cout << std::setw(17) << std::right << (cur->data).session <<" |\n";
 
         cur = cur->pNext;
-        std::cout << "+----+----------------------+----------------------+----------------------+----------------------+-------------------+-------------+-----------------+\n";
+        std::cout << "+----+----------------------+----------------------+----------------------+----------------------+-------------------+-------------+-------------------+\n";
     }
 }
 
 void StudentControl::viewScoreboard() {
-    #ifdef _WIN32
-   		system("cls");
-	#else
-		system("clear");
-	#endif
+#ifdef _WIN32
+    system("cls");
+#else
+    system("clear");
+#endif
+
     Node<StudentCourses>* cur = stu_courses.pHead;
 
     std::cout << "+----+--------------------+-----------+-----------+-----------+-----------+\n";
@@ -112,15 +114,13 @@ void StudentControl::viewScoreboard() {
     while (cur != nullptr) {
         no++;
         std::cout << "| " << std::setw(2) << no << " | ";
-        std::cout << std::setw(18) << (cur->data).course_name << " | ";
-        std::cout << std::setw(9) << (cur->data).midterm << " | ";
-        std::cout << std::setw(9) << (cur->data).final << " | ";
-        std::cout << std::setw(9) << (cur->data).others << " | ";
-        std::cout << std::setw(9) << (cur->data).overall << " |\n";
+        std::cout << std::left << std::setw(18) << (cur->data).course_name << " | ";
+        std::cout << std::right << std::setw(9) << (cur->data).midterm << " | ";
+        std::cout << std::right << std::setw(9) << (cur->data).final << " | ";
+        std::cout << std::right << std::setw(9) << (cur->data).others << " | ";
+        std::cout << std::right << std::setw(9) << (cur->data).overall << " |\n";
 
         cur = cur->pNext;
         std::cout << "+----+--------------------+-----------+-----------+-----------+-----------+\n";
     }
-
-    
 }

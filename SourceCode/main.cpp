@@ -370,14 +370,20 @@ GENERALCLASS:
 		#endif
 		goto EDITGENERALCLASS;
 	case 3:
-		#ifdef _WIN32
+	#ifdef _WIN32
 			system("cls");
-		#else
+	#else
 			system("clear");
-		#endif
-		goto STAFFMENU;
-	case 4:
+	#endif
 		goto EDITSCHOOLYEAR;
+
+	case 4:
+	#ifdef _WIN32
+			system("cls");
+	#else
+			system("clear");
+	#endif
+		goto STAFFMENU;
 	default:
 		#ifdef _WIN32
 			system("cls");
@@ -661,6 +667,13 @@ EDITSEMESTER:
 			system("clear");
 		#endif
 		goto SEMESTER;
+	case 5:
+	#ifdef _WIN32
+			system("cls");
+	#else
+			system("clear");
+	#endif
+		goto STAFFMENU;
 	default:
 		#ifdef _WIN32
 			system("cls");
@@ -796,6 +809,13 @@ MODIFYCOURSE:
 		curCourse.students.deallocate();
 		curCourse.points.deallocate();
 		goto EDITSEMESTER;
+	case 8:
+		#ifdef _WIN32
+				system("cls");
+		#else
+				system("clear");
+		#endif
+		goto STAFFMENU;
 	default:
 		#ifdef _WIN32
 			system("cls");
@@ -866,6 +886,13 @@ COURSEPOINT:
 		#endif
 		curCourse.saveData(curYear, curSemester.semester_num);
 		goto MODIFYCOURSE;
+	case 5:
+	#ifdef _WIN32
+			system("cls");
+	#else
+			system("clear");
+	#endif
+		goto STAFFMENU;
 	default:
 		#ifdef _WIN32
 			system("cls");
