@@ -41,7 +41,7 @@ void createNewSchoolYear() {
 }
 
 void isNOTcreated() {
-    std::cout   << "\tThe new school year 202x-202x is created successfully!\n" // coi lại chỗ này, phải cho người ta biết người ta muốn tạo năm nào
+    std::cout   << "\tThe new school year 202x-202x is created successfully!\n" 
                 << "1. Continue creating a new school year\n"
                 << "0. Back to MAIN MENU \n\n"
 
@@ -55,6 +55,7 @@ void editSchoolYearMenu() {
                 << "2. Work on Semester\n"
                 << "3. Go back to the previous page to choose another year\n"
                 << "4. Go back to the Main Menu\n"
+                << "5. Create Staff Account\n"
                 << "0. Log out\n\n"
 
                 << "- Your choice: ";

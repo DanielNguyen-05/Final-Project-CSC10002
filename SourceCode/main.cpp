@@ -7,6 +7,7 @@
 #include "studentControl.hpp"
 #include <stdlib.h>
 #include "student.hpp"
+#include "createAccount.hpp"
 
 int main() {
 	Semester curSemester;
@@ -233,6 +234,17 @@ STAFFMENU:
         #else
             system("clear");
         #endif
+		break;
+	case 5:
+		createStaffAccount();
+		std::cout << "\nPress enter to continue...";
+		std::cin.ignore();
+		std::cin.get();
+	#ifdef _WIN32
+			system("cls");
+	#else
+			system("clear");
+	#endif
 		break;
 	default:
 		break;
