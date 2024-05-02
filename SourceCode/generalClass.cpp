@@ -376,7 +376,7 @@ GENERALSEMESTER:
     }
     curSemester.loadSemesterData(curYear, curSemester.semester_num);
     curSemester.loadCourseData(curYear);
-    std::ifstream fin("Data\\GeneralClasses\\" + curYear + "\\" + curClass + ".csv");
+    std::ifstream fin("Data\\GeneralClasses\\" + classYear + "\\" + curClass + ".csv");
     if (!fin.is_open()) return;
     StudentControl cur_stu;
     std::string ignore;
