@@ -5,29 +5,17 @@
 #include <sstream>
 
 double StudentControl::calcGPA() {
-    // int count = 0;
-    // double sum = 0;
-    // Node<StudentCourses>* cur_course = this->stu_courses.pHead;
-    // while (cur_course) {
-    //     if (cur_course->data.overall != "?") {
-    //         sum += stod(cur_course->data.overall) * cur_course->data.num_of_credit;
-    //         count += cur_course->data.num_of_credit;
-    //     }
-    //     cur_course = cur_course->pNext;
-    // }
-    // if (count == 0) return -1;
-    // return sum / count;
-
-    
     Node <StudentCourses> *cur;
     cur = stu_courses.pHead;
 
     double GPA_f = 0;
     double total_credit = 0;
     while(cur != nullptr) {
-        GPA_f += atof((cur->data).overall.c_str());
-        total_credit += (cur->data).num_of_credit;
-        cur = cur -> pNext;
+        if (cur->data.overall != "?") {
+            GPA_f += atof((cur->data).overall.c_str());
+            total_credit += (cur->data).num_of_credit;
+            }
+            cur = cur->pNext;
     }
 
     GPA_f = GPA_f / total_credit;
@@ -94,14 +82,14 @@ void StudentControl::viewCourses() {
     int no = 0;
     while (cur != nullptr) {
         no++;
-        std::cout << "| " << std::setw(2) << no << "               | ";
-        std::cout << std::setw(20) << (cur->data).ID << "               | ";
-        std::cout << std::setw(20) << (cur->data).course_name << "               | ";
-        std::cout << std::setw(20) << (cur->data).class_name << "               | ";
-        std::cout << std::setw(20) << (cur->data).teacher_name << "               | ";
-        std::cout << std::setw(16) << (cur->data).num_of_credit << "               | ";
-        std::cout << std::setw(11) << (cur->data).day_of_week << "               | ";
-        std::cout << std::setw(7)  << (cur->data).session << "               |\n";
+        std::cout << "| " << std::setw(2) << no << " | ";
+        std::cout << std::setw(20) << (cur->data).ID << " | ";
+        std::cout << std::setw(20) << (cur->data).course_name << " | ";
+        std::cout << std::setw(20) << (cur->data).class_name << " | ";
+        std::cout << std::setw(20) << (cur->data).teacher_name << " | ";
+        std::cout << std::setw(17) << (cur->data).num_of_credit << " | ";
+        std::cout << std::setw(11) << (cur->data).day_of_week << " | ";
+        std::cout << std::setw(7)  << (cur->data).session << "    |\n";
 
         cur = cur->pNext;
         std::cout << "+----+----------------------+----------------------+----------------------+----------------------+-------------------+-------------+-----------------+\n";

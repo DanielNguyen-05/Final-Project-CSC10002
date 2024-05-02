@@ -215,33 +215,33 @@ void Course::viewStudent() {
 
 void Course::updateResult() {
 	string stu_id;
-	#ifdef _WIN32
-		system("cls");
-	#else
-		system("clear");
-	#endif
+#ifdef _WIN32
+	system("cls");
+#else
+	system("clear");
+#endif
 	std::cout << "- Enter student ID you want to update: ";
 	std::cin >> stu_id;
 	Point pt;
 	pt.stu_id = stu_id;
 	Node<Point>* stu = this->points.findNode(pt);
 	if (stu == nullptr) {
-		#ifdef _WIN32
-			system("cls");
-		#else
-			system("clear");
-		#endif
+#ifdef _WIN32
+		system("cls");
+#else
+		system("clear");
+#endif
 		std::cout << "\tStudent is not existed!";
 		std::cout << "\nPress enter to continue...";
 		std::cin.ignore();
 		std::cin.get();
 	}
 	else {
-		#ifdef _WIN32
-			system("cls");
-		#else
-			system("clear");
-		#endif
+#ifdef _WIN32
+		system("cls");
+#else
+		system("clear");
+#endif
 		cout << "\tWhich type of point do you want to update?\n";
 		cout << "1. Others Point\n";
 		cout << "2. Midterm Point\n";
@@ -255,11 +255,11 @@ void Course::updateResult() {
 		std::getline(cin, choice);
 		std::stringstream ss(choice);
 		std::string token;
-		#ifdef _WIN32
-			system("cls");
-		#else
-			system("clear");
-		#endif
+#ifdef _WIN32
+		system("cls");
+#else
+		system("clear");
+#endif
 		while (std::getline(ss, token, ',')) {
 			if (token == "1") {
 				cout << "- Others Point: ";
@@ -288,28 +288,28 @@ void Course::updateResult() {
 				cin >> stu->data.overall;
 			}
 			else {
-				#ifdef _WIN32
-					system("cls");
-				#else
-					system("clear");
-				#endif
+#ifdef _WIN32
+				system("cls");
+#else
+				system("clear");
+#endif
 				cout << "\tInvalid choice!\n";
-                cout << "\nPress enter to re-type the ID of student again!";
+				cout << "\nPress enter to re-type the ID of student again!";
 				std::cin.ignore();
 				std::cin.get();
-				#ifdef _WIN32
-					system("cls");
-				#else
-					system("clear");
-				#endif
+#ifdef _WIN32
+				system("cls");
+#else
+				system("clear");
+#endif
 				return updateResult();
 			}
 		}
-		#ifdef _WIN32
-			system("cls");
-		#else
-			system("clear");
-		#endif
+#ifdef _WIN32
+		system("cls");
+#else
+		system("clear");
+#endif
 		std::cout << "\tPoint updated successfully!\n";
 		std::cout << "\nPress enter to continue...";
 		std::cin.ignore();
@@ -319,21 +319,21 @@ void Course::updateResult() {
 }
 
 void Course::addStudent() {
-	#ifdef _WIN32
-		system("cls");
-	#else
-		system("clear");
-	#endif
+#ifdef _WIN32
+	system("cls");
+#else
+	system("clear");
+#endif
 	Student students;
 	std::cout << "\tADDING A STUDENT TO THE COURSE\n\n";
 	std::cout << "- Enter student ID: ";
 	std::cin >> students.stu_id;
 	if (this->studentExistedInCourse(students.stu_id)) {
-		#ifdef _WIN32
-			system("cls");
-		#else
-			system("clear");
-		#endif
+#ifdef _WIN32
+		system("cls");
+#else
+		system("clear");
+#endif
 		std::cout << "\tThis student is existed!";
 		std::cout << "\nPress enter to continue...";
 		std::cin.ignore();
@@ -358,11 +358,11 @@ void Course::addStudent() {
 	pt.midterm = "?";
 	pt.others = "?";
 	pt.overall = "?";
-    #ifdef _WIN32
-        system("cls");
-    #else
-        system("clear");
-    #endif
+#ifdef _WIN32
+	system("cls");
+#else
+	system("clear");
+#endif
 	std::cout << "\tThis student is added successfully!\n";
 	this->points.insertOrdered(pt);
 }
@@ -373,22 +373,22 @@ void Course::deleteStudent() {
 	std::cout << "- Enter student ID: ";
 	std::cin >> stu.stu_id;
 	if (this->students.deleteNode(stu)) {
-        #ifdef _WIN32
-            system("cls");
-        #else
-            system("clear");
-        #endif
+#ifdef _WIN32
+		system("cls");
+#else
+		system("clear");
+#endif
 		std::cout << "\tThis student is deleted successfully!\n";
 		Point pt;
 		pt.stu_id = stu.stu_id;
 		this->points.deleteNode(pt);
 	}
 	else {
-		#ifdef _WIN32
-			system("cls");
-		#else
-			system("clear");
-		#endif
+#ifdef _WIN32
+		system("cls");
+#else
+		system("clear");
+#endif
 		std::cout << "\tCourse does not have this student!\n";
 		std::cout << "\nPress enter to continue...";
 		std::cin.ignore();

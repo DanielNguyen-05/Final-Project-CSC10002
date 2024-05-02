@@ -21,4 +21,4 @@ bool createGeneralClass(std::string curYear, std::string curClass);
 bool studentExistedInGeneralClass(std::string curYear, std::string curClass, std::string Student_id);
 bool addOneStudentToClass(std::string curYear, std::string curClass);
 bool importStudent(std::string curYear, std::string curClass);
-void viewScoreboard(std::string curYear, std::string curClass);
+void viewScoreboard(std::string classYear, std::string curClass);
