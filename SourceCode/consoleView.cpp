@@ -273,7 +273,7 @@ void studentView() {
         
         << "1. View your scoreboard\n"
         << "2. View list of your courses\n"
-        << "3. Back to main menu\n"
+        << "3. Back to Main Menu\n"
         << "0. Log out\n\n"
 
         << "- Your choice: ";
