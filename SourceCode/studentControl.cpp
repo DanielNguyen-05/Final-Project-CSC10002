@@ -12,7 +12,7 @@ double StudentControl::calcGPA() {
     double total_credit = 0;
     while(cur != nullptr) {
         if (cur->data.overall != "?") {
-            GPA_f += atof((cur->data).overall.c_str());
+            GPA_f += atof((cur->data).overall.c_str()) * (cur->data).num_of_credit;
             total_credit += (cur->data).num_of_credit;
             }
             cur = cur->pNext;
