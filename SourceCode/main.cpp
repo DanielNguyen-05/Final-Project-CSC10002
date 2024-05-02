@@ -770,6 +770,26 @@ MODIFYCOURSE:
 		#endif
 		goto MODIFYCOURSE;
 	case 3:
+	#ifdef _WIN32
+			system("cls");
+	#else
+			system("clear");
+	#endif
+		std::cout << "- Enter the path of your output file: ";
+		std::cin.ignore();
+		std::getline(std::cin, path);
+		curCourse.outputCSV(path);
+
+		std::cout << "\nPress enter to continue...";
+		std::cin.ignore();
+		std::cin.get();
+		#ifdef _WIN32
+				system("cls");
+		#else
+				system("clear");
+		#endif
+		goto MODIFYCOURSE;
+	case 4:
 		curCourse.deleteStudent();
         std::cout << "\nPress enter to continue...";
         std::cin.ignore();
@@ -779,20 +799,15 @@ MODIFYCOURSE:
         #else
             system("clear");
         #endif
-		#ifdef _WIN32
-			system("cls");
-		#else
-			system("clear");
-		#endif
 		goto MODIFYCOURSE;
-	case 4:
+	case 5:
 		#ifdef _WIN32
 			system("cls");
 		#else
 			system("clear");
 		#endif
 		goto COURSEPOINT;
-	case 5:
+	case 6:
 		curSemester.deleteCourse(curYear, curCourse.ID);
         std::cout << "\nPress enter to continue...";
         std::cin.ignore();
@@ -803,7 +818,7 @@ MODIFYCOURSE:
             system("clear");
         #endif
 		goto EDITSEMESTER;
-	case 6:
+	case 7:
 		curSemester.updateCourse();
 		#ifdef _WIN32
 			system("cls");
@@ -811,7 +826,7 @@ MODIFYCOURSE:
 			system("clear");
 		#endif
 		goto MODIFYCOURSE;
-	case 7:
+	case 8:
 		#ifdef _WIN32
 			system("cls");
 		#else
@@ -821,7 +836,7 @@ MODIFYCOURSE:
 		curCourse.students.deallocate();
 		curCourse.points.deallocate();
 		goto EDITSEMESTER;
-	case 8:
+	case 9:
 		#ifdef _WIN32
 				system("cls");
 		#else

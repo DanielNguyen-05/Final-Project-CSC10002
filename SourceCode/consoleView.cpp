@@ -212,12 +212,13 @@ void modifyCourseMenu() {
             
             << "1. View all students in this course\n"
             << "2. Import students into this course\n"
-            << "3. Delete a student\n"
-            << "4. Manage points of course\n"
-            << "5. Delete this course\n"
-            << "6. Update information for this course\n"
-            << "7. Go back to the previous page\n"
-            << "8. Go back to MAIN MENU\n"
+            << "3. Export list of students in class\n"
+            << "4. Delete a student\n"
+            << "5. Manage points of course\n"
+            << "6. Delete this course\n"
+            << "7. Update information for this course\n"
+            << "8. Go back to the previous page\n"
+            << "9. Go back to MAIN MENU\n"
             << "0. Log out\n\n"
 
             << "- Your choice: ";
