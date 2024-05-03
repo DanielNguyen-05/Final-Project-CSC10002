@@ -2,7 +2,53 @@
 #include "user.hpp"
 #include <iostream>
 #include <string>
+#include <iomanip>
+#define ANSI_COLOR_RED     "\x1b[31m"
+#define ANSI_COLOR_GREEN   "\x1b[32m"
+#define ANSI_COLOR_YELLOW  "\x1b[33m"
+#define ANSI_COLOR_BLUE    "\x1b[34m"
+#define ANSI_COLOR_MAGENTA "\x1b[35m"
+#define ANSI_COLOR_CYAN    "\x1b[36m"
+#define ANSI_COLOR_RESET   "\x1b[0m"
 
+void homePage()
+{
+      // Set text color to green
+    std::cout << ANSI_COLOR_GREEN;
+
+    // Calculate the length of the strings
+    std::string course_management = "COURSE MANAGEMENT";
+    std::string system_str = "SYSTEM";
+    int total_width = 69; // Total width of the decorative line
+
+    // Output the header with decorative lines
+    for(int i = 0; i < total_width + 2; i++) std::cout << "*"; 
+    std::cout << "\n";
+    // Print "COURSE MANAGEMENT" centered within the decorative lines
+    std::cout << "*";
+    std::cout << std::setw((total_width - course_management.length()) / 2) << "" << ANSI_COLOR_RESET << ANSI_COLOR_BLUE << course_management;
+    std::cout << std::setw((total_width - course_management.length()) / 2 + (total_width - course_management.length()) % 2) <<""<< ANSI_COLOR_RESET << ANSI_COLOR_GREEN << "*" << std::endl;
+    // Print "SYSTEM" centered within the decorative lines
+    std::cout << "*";
+    std::cout << std::setw((total_width - system_str.length()) / 2) << "" << ANSI_COLOR_RESET << ANSI_COLOR_MAGENTA << system_str;
+    std::cout << std::setw((total_width - system_str.length()) / 2 + (total_width - system_str.length()) % 2) << "" << ANSI_COLOR_RESET << ANSI_COLOR_GREEN << "*" << std::endl;
+    for(int i = 0; i < total_width + 2; i++) std::cout << "*"; 
+    std::cout << "\n\n\n\n";
+
+    // Reset text color
+    std::cout << ANSI_COLOR_RESET;
+
+    std::cout << "                      "<< ANSI_COLOR_RESET << ANSI_COLOR_BLUE << "/^--^\\"<< ANSI_COLOR_RESET << ANSI_COLOR_YELLOW<<"     /^--^\\" <<ANSI_COLOR_RESET << ANSI_COLOR_MAGENTA <<"     /^--^\\ \n";
+    std::cout << "                      "<< ANSI_COLOR_RESET << ANSI_COLOR_BLUE << "\\____/"<< ANSI_COLOR_RESET << ANSI_COLOR_YELLOW<<"     \\____/" <<ANSI_COLOR_RESET << ANSI_COLOR_MAGENTA <<"     \\____/   \n";
+    std::cout << "                     "<< ANSI_COLOR_RESET << ANSI_COLOR_BLUE << "/      \\"<< ANSI_COLOR_RESET << ANSI_COLOR_YELLOW<<"   /      \\" <<ANSI_COLOR_RESET << ANSI_COLOR_MAGENTA <<"   /      \\  \n";
+    std::cout << "                    "<< ANSI_COLOR_RESET << ANSI_COLOR_BLUE << "|        |"<< ANSI_COLOR_RESET << ANSI_COLOR_YELLOW<<" |        |" <<ANSI_COLOR_RESET << ANSI_COLOR_MAGENTA <<" |        |  \n";
+    std::cout << "                     "<< ANSI_COLOR_RESET << ANSI_COLOR_BLUE << "\\__  __/"<< ANSI_COLOR_RESET << ANSI_COLOR_YELLOW<<"   \\__  __/" <<ANSI_COLOR_RESET << ANSI_COLOR_MAGENTA <<"   \\__  __/   \n"<<ANSI_COLOR_RESET;
+    std::cout << "|^|^|^|^|^|^|^|^|^|^|^|^"<< ANSI_COLOR_RESET << ANSI_COLOR_BLUE << "\\ \\"<< ANSI_COLOR_RESET<<"^|^|^|^"<<ANSI_COLOR_YELLOW<<"/ /"<<ANSI_COLOR_RESET<< "^|^|^|^|^"<<ANSI_COLOR_MAGENTA<<"\\ \\"<<ANSI_COLOR_RESET<<"^|^|^|^|^|^|^|^|^|^|^|\n";
+    std::cout << "| | | | | | | | | | | | |"<< ANSI_COLOR_RESET << ANSI_COLOR_BLUE << "\\ \\"<< ANSI_COLOR_RESET<<"| | |"<<ANSI_COLOR_YELLOW<<"/ /"<<ANSI_COLOR_RESET<< "| | | | | |"<<ANSI_COLOR_MAGENTA<<"\\ \\"<<ANSI_COLOR_RESET<<"| | | | | | | | | | |\n";
+    std::cout << "#########################"<< ANSI_COLOR_RESET << ANSI_COLOR_BLUE << "/ /"<< ANSI_COLOR_RESET<<"#####"<<ANSI_COLOR_YELLOW<<"\\ \\"<<ANSI_COLOR_RESET<< "###########"<<ANSI_COLOR_MAGENTA<<"/ /"<<ANSI_COLOR_RESET<<"#####################\n";
+    std::cout << "| | | | | | | | | | | | |"<< ANSI_COLOR_RESET << ANSI_COLOR_BLUE << "\\/"<< ANSI_COLOR_RESET<<"| | | |"<<ANSI_COLOR_YELLOW<<"\\/"<<ANSI_COLOR_RESET<< "| | | | | |"<<ANSI_COLOR_MAGENTA<<"\\/"<<ANSI_COLOR_RESET<<" | | | | | | | | | | |\n";
+    std::cout << "|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|\n";
+}
 void programInterface() {
 	std::cout   << "\tWhat would you like to do?\n"
                 << "1. Log in\n"
