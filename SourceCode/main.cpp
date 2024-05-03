@@ -116,20 +116,22 @@ STAFFMENU:
 					system("clear");
 				#endif
 				inputSchoolYearFail();
-				if (choice == 0)
-					#ifdef _WIN32
-						system("cls");
-					#else
-						system("clear");
-					#endif
+				if (choice == 0) {
+				#ifdef _WIN32
+					system("cls");
+				#else
+					system("clear");
+				#endif
 					goto STAFFMENU;
-				if (choice == 1)
-					#ifdef _WIN32
-						system("cls");
-					#else
-						system("clear");
-					#endif
+				}
+				if (choice == 1) {
+				#ifdef _WIN32
+					system("cls");
+				#else
+					system("clear");
+				#endif
 					goto CREATEYEAR;
+				}
 			}
 		}
 		createSchoolYear(curYear);
