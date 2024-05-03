@@ -18,6 +18,10 @@ int main() {
 	Student curStudent;
 	StudentControl curStudentControl;
 	createBasicData();
+	homePage();
+	std::cout << "\nPress enter to continue...";
+        std::cin.ignore();
+        std::cin.get();
 
 START:
 	#ifdef _WIN32

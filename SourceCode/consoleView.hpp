@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 
+void homePage();
 void programInterface();
 void loginFail();
 void staffMainMenu(std::string username);
