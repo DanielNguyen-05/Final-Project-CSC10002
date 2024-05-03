@@ -201,7 +201,8 @@ bool addOneStudentToClass(std::string curYear, std::string curClass) {
     while (cur) {
         fout << no << ',' << cur->data.stu_id << "," << cur->data.first_name << "," << cur->data.last_name << ",";
         fout << cur->data.gender << "," << cur->data.date_of_birth << "," << cur->data.soci_id;
-        fout << std::endl;
+        if(cur->pNext != nullptr)
+            fout << std::endl;
         cur = cur->pNext;
         no++;
     }
@@ -211,6 +212,7 @@ bool addOneStudentToClass(std::string curYear, std::string curClass) {
     std::cout << "\nPress enter to continue...";
     std::cin.ignore();
     std::cin.get();
+    createClassAccountFromfile(curClass);
     #ifdef _WIN32
         system("cls");
     #else
@@ -293,6 +295,7 @@ bool importStudent(std::string curYear, std::string curClass) {
     std::cout << "\nPress enter to continue...";
     std::cin.ignore();
     std::cin.get();
+    createClassAccountFromfile(curClass);
     #ifdef _WIN32
         system("cls");
     #else
@@ -307,7 +310,7 @@ START:
     system("cls");
 #else
     system("clear");
-#endif
+#endif;
 
     std::string curYear;
     Semester curSemester;
