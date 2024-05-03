@@ -9,6 +9,7 @@
 #include "consoleView.hpp"
 #include "schoolyear.hpp"
 #include "studentControl.hpp"
+#include "createAccount.hpp"
 #ifdef _WIN32
 #include <direct.h>
 #else
