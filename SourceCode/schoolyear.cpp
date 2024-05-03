@@ -4,13 +4,7 @@ bool yearExisted(std::string year) {
     std::ifstream fin;
     fin.open("Data/SchoolYear.txt");
     if (!fin.is_open()) {
-        #ifdef _WIN32
-            system("cls");
-        #else
-            system("clear");
-        #endif
-        welcomePage();
-        std::cerr << "School year is not existed !!!";
+        std::cout << "Can't open file SchoolYear.txt !!!";
         return false;
     }
     std::string temp;
@@ -38,7 +32,6 @@ bool yearValid(std::string curyear)
 
 bool createSchoolYear(std::string curYear) {
     if (!yearValid(curYear)) {
-        welcomePage();
         std::cout << "\tInvalid year!!!\n";
         std::cout << "\nPress enter to continue...";
         std::cin.ignore();
@@ -54,8 +47,7 @@ bool createSchoolYear(std::string curYear) {
     std::ifstream fin;
     fin.open("Data/SchoolYear.txt");
     if (!fin.is_open()) {
-        welcomePage();
-        std::cerr << "School year is not existed !!!";
+        std::cout << "Can't open file SchoolYear.txt";
         return 0;
     }
     std::string year;
@@ -68,8 +60,7 @@ bool createSchoolYear(std::string curYear) {
     std::ofstream fout;
     fout.open("Data/SchoolYear.txt");
     if (!fout.is_open()) {
-        welcomePage();
-        std::cerr << "School year is not existed !!!";
+        std::cout << "Can't open file SchoolYear.txt";
         return 0;
     }
     std::string path = "Data/" + curYear;
@@ -83,11 +74,7 @@ bool createSchoolYear(std::string curYear) {
         semester.close();
     }
     else
-    {
-        welcomePage();
         std::cerr << "Failed to create file!\n";
-    }
-        
     Node<std::string>* cur = yearList.pHead;
     while (cur) {
         fout << cur->data;
@@ -97,7 +84,6 @@ bool createSchoolYear(std::string curYear) {
     }
     yearList.deallocate();
     fout.close();
-    welcomePage();
     std::cout << "\tThis school year is created successfully!\n";
     std::cout << "\nPress enter to continue...";
     std::cin.ignore();

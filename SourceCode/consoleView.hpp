@@ -1,8 +1,6 @@
 #pragma once
 #include <string>
-#include "color.hpp"
 
-void welcomePage();
 void programInterface();
 void loginFail();
 void staffMainMenu(std::string username);

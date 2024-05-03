@@ -27,7 +27,6 @@ void listOfStudent(std::string curYear, std::string curClass) {
 	#else
 		system("clear");
 	#endif
-    welcomePage();
     std::cout << "+----+-------------+--------------+-------------+--------+----------------+-----------------+\n";
     std::cout << "| No | Student ID  |  First name  |  Last name  | Gender | Date of birth  |    Social ID    |\n";
     std::cout << "+----+-------------+--------------+-------------+--------+----------------+-----------------+\n";
@@ -98,7 +97,6 @@ bool createGeneralClass(std::string curYear, std::string curClass) {
     }
     else
         fin.close();
-    welcomePage();
     std::cout << "\tThis class is created successfully!\n";
     std::cout << "\nPress enter to continue...";
     std::cin.ignore();
@@ -136,7 +134,6 @@ bool studentExistedInGeneralClass(std::string curYear, std::string curClass, std
 
 bool addOneStudentToClass(std::string curYear, std::string curClass) {
     Student students;
-    welcomePage();
     do {
         std::cout << "- Enter Student ID: ";
         std::cin >> students.stu_id;
@@ -157,7 +154,6 @@ bool addOneStudentToClass(std::string curYear, std::string curClass) {
 			#endif
         }
     } while (studentExistedInGeneralClass(curYear, curClass, students.stu_id));
-    welcomePage();
     std::cout << "- Enter First name: ";
     std::cin  >> students.first_name;
     std::cout << "- Enter Last name: ";
@@ -210,12 +206,6 @@ bool addOneStudentToClass(std::string curYear, std::string curClass) {
     }
     Studentlist.deallocate();
     fout.close();
-    #ifdef _WIN32
-        system("cls");
-    #else
-        system("clear");
-    #endif
-    welcomePage();
     std::cout << "\tThis student is added successfully!\n";
     std::cout << "\nPress enter to continue...";
     std::cin.ignore();
@@ -315,7 +305,7 @@ START:
     system("cls");
 #else
     system("clear");
-#endif
+#endif;
 
     std::string curYear;
     Semester curSemester;
@@ -326,7 +316,6 @@ GENERALYEAR:
 #else
     system("clear");
 #endif
-    welcomePage();
     std::cout << "Enter school year you want to check:" << std::endl;
     listSchoolYear();
     std::cout << "\n- Your choice (Ex: 2023-2024): ";
@@ -356,7 +345,6 @@ GENERALYEAR:
 #else
     system("clear");
 #endif
-    welcomePage();
     std::cout << "- Enter your semester you want to check (Ex: 2): ";
 GENERALSEMESTER:
 #ifdef _WIN32
@@ -364,7 +352,6 @@ GENERALSEMESTER:
 #else
     system("clear");
 #endif
-    welcomePage();
     std::cout << "What semester do you want to check: ";
     cin >> curSemester.semester_num;
 #ifdef _WIN32
@@ -397,7 +384,6 @@ GENERALSEMESTER:
     double GPA;
     std::string no;
     getline(fin, ignore);
-    welcomePage();
     cout << "+----+----------+-----------+-----------+-------+" << endl;
     cout << "| No | Stu ID   | First Name| Last Name | GPA   |" << endl;
     cout << "+----+----------+-----------+-----------+-------+" << endl;

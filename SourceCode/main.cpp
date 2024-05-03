@@ -8,7 +8,6 @@
 #include <stdlib.h>
 #include "student.hpp"
 #include "createAccount.hpp"
-#include "color.hpp"
 
 int main() {
 	Semester curSemester;
@@ -20,21 +19,6 @@ int main() {
 	StudentControl curStudentControl;
 	createBasicData();
 
-	#ifdef _WIN32
-		system("cls");
-	#else
-		system("clear");
-	#endif
-	welcomePage();
-	cout << "\nPress enter to move to the main part!\n";
-	std::cin.ignore();
-	std::cin.get();
-	#ifdef _WIN32
-		system("cls");
-	#else
-		system("clear");
-	#endif
-	
 START:
 	#ifdef _WIN32
    		system("cls");
@@ -61,16 +45,7 @@ LOGIN:
 		#else
 			system("clear");
 		#endif
-		welcomePage();
 		std::cerr << "Wrong password or username!" << std::endl;
-		std::cout << "\nPress enter to continue...";
-        std::cin.ignore();
-        std::cin.get();
-        #ifdef _WIN32
-            system("cls");
-        #else
-            system("clear");
-        #endif
 	LOGINFAIL:
 		loginFail();
 		std::cin >> choice;

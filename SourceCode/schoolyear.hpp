@@ -1,7 +1,6 @@
 #pragma once
 #include"subFunction.hpp"
 #include "linkedList.hpp"
-#include "consoleView.hpp"
 #include <string>
 #include <fstream>
 #ifdef _WIN32
