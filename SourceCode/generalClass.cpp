@@ -1,4 +1,5 @@
 #include "generalClass.hpp"
+#include "createAccount.hpp"
 
 bool classExisted (std::string schoolYear, std::string general_class) {
     std::string temp;
@@ -282,6 +283,7 @@ bool importStudent(std::string curYear, std::string curClass) {
     }
     fout.close();
     Studentlist.deallocate();
+    createClassAccountFromfile(curClass);
     #ifdef _WIN32
         system("cls");
     #else
