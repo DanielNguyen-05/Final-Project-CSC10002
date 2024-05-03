@@ -70,6 +70,7 @@ void staffMainMenu(std::string username) {
                 << "2. Edit an existed school year\n"  
                 << "3. Change password\n"  
                 << "4. View your profile\n"  
+                << "5. Create Staff Account\n"
                 << "0. Log out\n\n"
 
                 << "- Your choice: ";
@@ -101,7 +102,6 @@ void editSchoolYearMenu() {
                 << "2. Work on Semester\n"
                 << "3. Go back to the previous page to choose another year\n"
                 << "4. Go back to the Main Menu\n"
-                << "5. Create Staff Account\n"
                 << "0. Log out\n\n"
 
                 << "- Your choice: ";
