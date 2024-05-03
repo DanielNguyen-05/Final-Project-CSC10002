@@ -2,8 +2,39 @@
 #include "user.hpp"
 #include <iostream>
 #include <string>
+#include <iomanip>
+
+void welcomePage()
+{
+    // Set text color to green
+    std::cout << ANSI_COLOR_GREEN;
+
+    // Calculate the length of the strings
+    std::string course_management = "COURSE MANAGEMENT";
+    std::string system_str = "SYSTEM";
+    int total_width = 150; // Total width of the decorative line
+    // Output the header with decorative lines
+    for(int i = 0; i < total_width + 2; i++) std::cout << "*"; 
+    std::cout << "\n";
+    // Print "COURSE MANAGEMENT" centered within the decorative lines
+    std::cout << "*";
+    std::cout << std::setw((total_width - course_management.length()) / 2) << "" << ANSI_COLOR_RESET << ANSI_COLOR_BLUE << course_management;
+    std::cout << std::setw((total_width - course_management.length()) / 2 + (total_width - course_management.length()) % 2) <<""<< ANSI_COLOR_RESET << ANSI_COLOR_GREEN << "*" << std::endl;
+    // Print "SYSTEM" centered within the decorative lines
+    std::cout << "*";
+    std::cout << std::setw((total_width - system_str.length()) / 2) << "" << ANSI_COLOR_RESET << ANSI_COLOR_MAGENTA << system_str;
+    std::cout << std::setw((total_width - system_str.length()) / 2 + (total_width - system_str.length()) % 2) << "" << ANSI_COLOR_RESET << ANSI_COLOR_GREEN << "*" << std::endl;
+    for(int i = 0; i < total_width + 2; i++) std::cout << "*"; 
+    std::cout << "\n";
+
+    // Reset text color
+    std::cout << ANSI_COLOR_RESET << "\n\n";
+}
+
+
 
 void programInterface() {
+    welcomePage();;
 	std::cout   << "\tWhat would you like to do?\n"
                 << "1. Log in\n"
                 << "0. Stop program\n\n"
@@ -12,6 +43,7 @@ void programInterface() {
 }
 
 void loginFail() {
+    welcomePage();
     std::cout   << "1. Re-login\n"
                 << "0. Back to previous page\n\n"
                 
@@ -19,6 +51,7 @@ void loginFail() {
 }
 
 void staffMainMenu(std::string username) {
+    welcomePage();
     std::cout   << "\t\tMAIN MENU\n"
                 << "1. Create a new school year\n"
                 << "2. Edit an existed school year\n"  
@@ -30,6 +63,7 @@ void staffMainMenu(std::string username) {
 }
 
 void changePasswordFail() {
+    welcomePage();
     std::cout   << "1. Re-enter it \n"
                 << "0. Back to MAIN MENU \n\n"
 
@@ -37,10 +71,12 @@ void changePasswordFail() {
 }
 
 void createNewSchoolYear() {
+    welcomePage();
     std::cout   << "\t\t CREATING A NEW SCHOOL YEAR\n";
 }
 
 void isNOTcreated() {
+    welcomePage();
     std::cout   << "\tThe new school year 202x-202x is created successfully!\n" 
                 << "1. Continue creating a new school year\n"
                 << "0. Back to MAIN MENU \n\n"
@@ -49,6 +85,7 @@ void isNOTcreated() {
 }
 
 void editSchoolYearMenu() {
+    welcomePage();
     std::cout   << "\tWhat would you like to do?\n"
                 
                 << "1. Work on General Classes\n"
@@ -62,6 +99,7 @@ void editSchoolYearMenu() {
 }
 
 void generalClassMenu() {
+    welcomePage();
     std::cout   << "\tWhat would you like to do?\n"
                 
                 << "1. Create a new general class\n"
@@ -74,6 +112,7 @@ void generalClassMenu() {
 }
 
 void inputSchoolYearFail() {
+    welcomePage();
     std::cout   << "\tThis school year is not existed!\n"
                 << "1. Re-enter it \n"
                 << "0. Back to previous page \n\n"
@@ -82,6 +121,7 @@ void inputSchoolYearFail() {
 }
 
 void listSchoolYear() {
+    welcomePage();
     std::ifstream fIn;
     fIn.open("Data//SchoolYear.txt");
     if (!fIn.is_open()) {
@@ -98,6 +138,7 @@ void listSchoolYear() {
 }
 
 void viewListOfGeneralClass(std::string year) {
+    welcomePage();
     std::ifstream fin;
     std::string s;
     std::string path = "Data\\GeneralClasses\\" + year + "\\GeneralClass.txt";
@@ -114,6 +155,7 @@ void viewListOfGeneralClass(std::string year) {
 }
 
 void inputClassFail() {
+    welcomePage();
     std::cout << "\tThis class is not existed!\n"
         << "1. Re-enter it \n"
         << "0. Back to previous page \n\n"
@@ -122,6 +164,7 @@ void inputClassFail() {
 }
 
 void editGeneralClassMenu() {
+    welcomePage();
     std::cout << "\tWhat would you like to do?\n"
         
         << "1. View list of students in the class\n"
@@ -136,6 +179,7 @@ void editGeneralClassMenu() {
 }
 
 void createSchoolYearFail() {
+    welcomePage();
     std::cout << "\tThis school year is existed!\n"
         << "1. Re-enter it \n"
         << "0. Back to previous page \n\n"
@@ -144,6 +188,7 @@ void createSchoolYearFail() {
 }
 
 void semesterMainMenu() {
+    welcomePage();
     std::cout << "\tWhat would you like to do?\n"
         << "1. Create a new semesters\n"
         << "2. Edit an existed semesters\n"
@@ -155,6 +200,7 @@ void semesterMainMenu() {
 }
 
 void inputSemesterFail() {
+    welcomePage();
     std::cout << "\tThis semester is not existed!\n"
         << "1. Re-enter it \n"
         << "0. Back to previous page \n\n"
@@ -163,6 +209,7 @@ void inputSemesterFail() {
 }
 
 void createSemesterFail() {
+    welcomePage();
     std::cout << "\tThis semester has been already existed!\n"
         << "1. Re-enter it \n"
         << "0. Back to previous page \n\n"
@@ -171,6 +218,7 @@ void createSemesterFail() {
 }
 
 void createClassFail() {
+    welcomePage();
     std::cout << "\tThis general class has been already existed!\n"
         << "1. Re-enter it \n"
         << "0. Back to previous page \n\n"
@@ -179,6 +227,7 @@ void createClassFail() {
 }
 
 void editSemesterMenu() {
+    welcomePage();
     std::cout << "\tWhat would you like to do?\n"
         
         << "1. Create new courses\n"
@@ -192,6 +241,7 @@ void editSemesterMenu() {
 }
 
 void inputCourseFail() {
+    welcomePage();
     std::cout << "\tThis course is not existed!\n"
         << "1. Re-enter it \n"
         << "0. Back to previous page \n\n"
@@ -200,6 +250,7 @@ void inputCourseFail() {
 }
 
 void createCourseFail() {
+    welcomePage();
     std::cout << "\tThis course has been already existed!\n"
         << "1. Re-enter it \n"
         << "0. Back to previous page \n\n"
@@ -208,6 +259,7 @@ void createCourseFail() {
 }
 
 void modifyCourseMenu() {
+    welcomePage();
         std::cout << "\tWhat would you like to do?\n"
             
             << "1. View all students in this course\n"
@@ -225,6 +277,7 @@ void modifyCourseMenu() {
 }
 
 void importStudent() {
+    welcomePage();
     std::cout << "\tImport Student: \n"
         << "1.Import a list of student by CSV file\n"
         << "2.Import a student\n"
@@ -234,6 +287,7 @@ void importStudent() {
 }
 
 void inputStudentFail(){
+    welcomePage();
     std::cout << "\tThis student has been already existed!\n"
         << "1. Re-enter it \n"
         << "0. Back to previous page \n\n"
@@ -242,6 +296,7 @@ void inputStudentFail(){
 }
 
 void editCoursePointMenu() {
+    welcomePage();
     std::cout << "\tWhat would you like to do?\n"
         
         << "1. Import a point .csv file for a course\n"
@@ -256,10 +311,12 @@ void editCoursePointMenu() {
 }
 
 void studentChooseYear(std::string username) {
+    welcomePage();
     std::cout << "\tWhat school year which you want to check:\n" ;
 }
 
 void studentMenu() {
+    welcomePage();
     std::cout << "\tWhat would you like to do?\n"
         
         << "1. View your profile\n"
@@ -271,6 +328,7 @@ void studentMenu() {
 }
 
 void studentView() {
+    welcomePage();
     std::cout << "\tWhat would you like to do?\n"
         
         << "1. View your scoreboard\n"

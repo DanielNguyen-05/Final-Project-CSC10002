@@ -1,6 +1,7 @@
 #include "user.hpp"
 #include <sstream>
 
+
 bool Users::isStudent(std::string username, std::string password) {
     std::string account_file = "Data/Account/Student/" + username + ".txt";
     std::string account_pass;
@@ -80,6 +81,7 @@ bool Users::isAcademicStaff(std::string username, std::string password) {
 }
 
 bool Users::login() {
+    welcomePage();
     std::string username;
     std::string password;
     std::cout << "- Please input username: ";
@@ -94,6 +96,7 @@ bool Users::login() {
             #else
                 system("clear");
             #endif
+            welcomePage();
             std::cout << "\tLog in successfully! Welcome, student " << Username << "!\n";
             std::cout << "\nPress enter to continue...";
             std::cin.ignore();
@@ -112,6 +115,7 @@ bool Users::login() {
             #else
                 system("clear");
             #endif
+            welcomePage();
             std::cout << "\tLog in successfully! Welcome, staff " << Username << "!\n";
             std::cout << "\nPress enter to continue...";
             std::cin.ignore();
@@ -129,11 +133,13 @@ bool Users::login() {
 	#else
 		system("clear");
 	#endif
+    welcomePage();
     std::cout << "\t\tWrong password or username!\n";
     return false;
 }
 
 void Users::viewProfileInfo() {
+    welcomePage();
     std::cout   << "\t\tUSER PROFILE INFORMATION:\n"
                 << "- User ID: " << user_id << "\n"
                 << "- Full name: " << last_name +" "+ first_name << "\n"
@@ -149,12 +155,13 @@ bool Users::changePassword() {
         #else
             system("clear");
         #endif
+        welcomePage();
         std::cout << "\tThe user's data is not existed! Please try again!\n";
         return false;
     }
 
     std::string password , new_password , re_new_password;
-
+    welcomePage();
     std::cout << "- Current password: ";
     std::cin  >> password;
 
@@ -170,7 +177,15 @@ bool Users::changePassword() {
         #else
             system("clear");
         #endif
+        welcomePage();
         std::cerr << "\tYour old password is wrong. Please try again!\n"; 
+        std::cin.ignore();
+        std::cin.get();
+        #ifdef _WIN32
+            system("cls");
+        #else
+            system("clear");
+        #endif
         return false;
     } 
 
@@ -180,7 +195,15 @@ bool Users::changePassword() {
         #else
             system("clear");
         #endif
+        welcomePage();
         std::cerr   << "\tError: Password must be longer than 8 characters. Please try again!\n";
+        std::cin.ignore();
+        std::cin.get();
+        #ifdef _WIN32
+            system("cls");
+        #else
+            system("clear");
+        #endif
         return false;
     }
     
@@ -190,7 +213,15 @@ bool Users::changePassword() {
         #else
             system("clear");
         #endif
+        welcomePage();
         std::cerr   << "\tNew password must be different from current password!\n";
+        std::cin.ignore();
+        std::cin.get();
+        #ifdef _WIN32
+            system("cls");
+        #else
+            system("clear");
+        #endif
         return false;
     }
 
@@ -200,7 +231,15 @@ bool Users::changePassword() {
         #else
             system("clear");
         #endif
+        welcomePage();
         std::cerr   << "\tError: Password do not match. Please try again!\n";
+        std::cin.ignore();
+        std::cin.get();
+        #ifdef _WIN32
+            system("cls");
+        #else
+            system("clear");
+        #endif
         return false;
     }
 
@@ -210,6 +249,7 @@ bool Users::changePassword() {
     #else
         system("clear");
     #endif
+    welcomePage();
     std::cout << "\tChange password successfully!\n";
     saveData();
     return true;
@@ -218,7 +258,7 @@ bool Users::changePassword() {
 void Users::logout() {
     Username = "";
     Password = "";
-
+    welcomePage();
     std::cout << "\tLog out successfully!";
 }
 
@@ -229,9 +269,11 @@ void Users::saveData()
     else fout.open("Data/Account/Student/" + Username + ".txt");
     
     if(!fout.is_open()) {
+        welcomePage();
         std::cerr << "The user's data is not existed!";
         return;
     }
+    welcomePage();
     fout << Password << "," << user_id << "," << first_name << "," << last_name << "," << gender << "," << date_of_birth << "," << soci_id;
     fout.close();
 }

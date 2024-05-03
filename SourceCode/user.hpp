@@ -4,6 +4,7 @@
 #include <fstream>
 #include <cstring>
 #include <stdlib.h>
+#include "consoleView.hpp"
 #ifdef _WIN32
 #include <direct.h>
 #else
