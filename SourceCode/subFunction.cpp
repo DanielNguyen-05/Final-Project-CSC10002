@@ -27,7 +27,7 @@ void createBasicData() {
 	fIn.open("Data/Account/AcademicStaff/TaiKhoanHeThong.txt");
 	if (!fIn.is_open()) {
 		std::ofstream fOut("Data/Account/AcademicStaff/TaiKhoanHeThong.txt");
-		fOut << "Day la tai khoan cua he thong\n";
+		fOut << "Daylataikhoancuahethong\n";
 		fOut.close();
 	}
 	else
